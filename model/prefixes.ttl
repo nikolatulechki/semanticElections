@@ -1,0 +1,32 @@
+# TRR prefixes
+@base             <https://github.com/nikolatulechki/semanticElections/resource> .
+
+@prefix sel: <https://github.com/nikolatulechki/semanticElections/resource> .
+
+# Other KG prefixes
+@prefix bd:       <http://www.bigdata.com/rdf#>.
+@prefix p:        <http://www.wikidata.org/prop/>.
+@prefix pq:       <http://www.wikidata.org/prop/qualifier/>.
+@prefix ps:       <http://www.wikidata.org/prop/statement/>.
+@prefix wd:       <http://www.wikidata.org/entity/>.
+@prefix wds:      <http://www.wikidata.org/entity/statement/>.
+@prefix wdt:      <http://www.wikidata.org/prop/direct/>.
+@prefix wikibase: <http://wikiba.se/ontology#>.
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#>.
+@prefix wdwl: <https://www.wikidata.org/wiki/>.
+
+
+# Other prefixes
+@prefix apf:      <http://jena.apache.org/ARQ/property#>. # apf:strSplit
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix puml:     <http://plantuml.com/ontology#>.
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#>.
+@prefix schema:   <http://schema.org/>.
+
+@prefix lucene: <http://www.ontotext.com/connectors/lucene#>.
+@prefix onto: <http://www.ontotext.com/>.
+
+
+# rdfpuml should render this (external) URL inline
