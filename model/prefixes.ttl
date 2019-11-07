@@ -2,31 +2,40 @@
 @base             <https://github.com/nikolatulechki/semanticElections/resource> .
 
 @prefix sel: <https://github.com/nikolatulechki/semanticElections/resource> .
-
-# Other KG prefixes
-@prefix bd:       <http://www.bigdata.com/rdf#>.
-@prefix p:        <http://www.wikidata.org/prop/>.
-@prefix pq:       <http://www.wikidata.org/prop/qualifier/>.
-@prefix ps:       <http://www.wikidata.org/prop/statement/>.
-@prefix wd:       <http://www.wikidata.org/entity/>.
-@prefix wds:      <http://www.wikidata.org/entity/statement/>.
-@prefix wdt:      <http://www.wikidata.org/prop/direct/>.
-@prefix wikibase: <http://wikiba.se/ontology#>.
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#>.
-@prefix wdwl: <https://www.wikidata.org/wiki/>.
-
-
-# Other prefixes
-@prefix apf:      <http://jena.apache.org/ARQ/property#>. # apf:strSplit
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix puml:     <http://plantuml.com/ontology#>.
-@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#>.
-@prefix schema:   <http://schema.org/>.
 
-@prefix lucene: <http://www.ontotext.com/connectors/lucene#>.
-@prefix onto: <http://www.ontotext.com/>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix wikibase: <http://wikiba.se/ontology#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix v: <http://www.wikidata.org/value/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix data: <https://www.wikidata.org/wiki/Special:EntityData/> .
+@prefix s: <http://www.wikidata.org/entity/statement/> .
+@prefix ref: <http://www.wikidata.org/reference/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wdtn: <http://www.wikidata.org/prop/direct-normalized/> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix ps: <http://www.wikidata.org/prop/statement/> .
+@prefix psv: <http://www.wikidata.org/prop/statement/value/> .
+@prefix psn: <http://www.wikidata.org/prop/statement/value-normalized/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix pqv: <http://www.wikidata.org/prop/qualifier/value/> .
+@prefix pqn: <http://www.wikidata.org/prop/qualifier/value-normalized/> .
+@prefix pr: <http://www.wikidata.org/prop/reference/> .
+@prefix prv: <http://www.wikidata.org/prop/reference/value/> .
+@prefix prn: <http://www.wikidata.org/prop/reference/value-normalized/> .
+@prefix wdno: <http://www.wikidata.org/prop/novalue/> .
+
 
 
 # rdfpuml should render this (external) URL inline

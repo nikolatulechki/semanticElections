@@ -1,1 +1,67 @@
-sel:X a sel:Election .
+wd:Q64017516 a wikibase:Item ;
+	rdfs:label "eleccions municipals de Girona de 2015"@ca ;
+	wdt:P361 wd:Q17510819 ; #part of
+	puml:up wd:Q17510819 ;
+	wdt:P1001_applies_to_jurisdiction wd:Q7038 ;
+	wdt:P585 "2015-05-24T00:00:00Z"^^xsd:dateTime ;
+	wdt:P541_office_contested wd:Q33133468 ;
+	wdt:P726_candidate wd:Q150398 ;
+	puml:down wd:Q150398 ;
+	wdt:P991_successful_candidate wd:Q150398;
+.
+
+wd:Q64017516 p:P991_successful_candidate s:Q64017516-6bef6951-4865-33d5-75c9-abeadfd27ae2 .
+
+s:Q64017516-6bef6951-4865-33d5-75c9-abeadfd27ae2 a wikibase:Statement;
+	ps:P991_successful_candidate wd:Q150398 ;
+	pq:P1114_quantity "+10"^^xsd:decimal ;
+.
+
+wd:Q64017516 p:P541 s:Q64017516-4251ca8f-4846-0a9d-38f0-90fda899f955 ;
+             puml:left s:Q64017516-4251ca8f-4846-0a9d-38f0-90fda899f955 ;
+.
+
+s:Q64017516-4251ca8f-4846-0a9d-38f0-90fda899f955 a wikibase:Statement ;
+	ps:P541_office_contested wd:Q33133468 ;
+	pq:P1114_quantity "+25"^^xsd:decimal ;
+.
+
+wd:Q64017516 p:P726_candidate s:Q64017516-99a46b80-4b33-242c-0199-00f940a2a111 .
+
+s:Q64017516-99a46b80-4b33-242c-0199-00f940a2a111 a wikibase:Statement ;
+	ps:P726_candidate wd:Q150398 ;
+	pq:P1111_votes_received "+11833"^^xsd:decimal ;
+.
+
+wd:Q7038 rdfs:label "Girona"@ca ;
+	schema:description "city in Catalonia, Spain"@en ;
+.
+
+wd:Q150398 rdfs:label "Convergence and Union"@en ;
+.
+
+wd:Q17510819 rdfs:label
+    "2015 Spanish local elections"@en ;
+    wdt:P527 wd:Q64017516 ;
+.
+
+wd:Q33133468 rdfs:label "city councillor of Girona"@en ;
+	wdt:P1001_applies_to_jurisdiction wd:Q7038 ;
+.
+
+
+wd:Q64018521 a wikibase:Item ;
+	rdfs:label "Gloria Plana Yanes"@en ;
+	wdt:P3602_candidacy_in_election wd:Q64017516 ;
+.
+
+wd:Q64018521 p:P3602 s:Q64018521-ce947c88-46f7-c591-a7b1-7ec8453387af .
+
+s:Q64018521-ce947c88-46f7-c591-a7b1-7ec8453387af a wikibase:Statement ;
+	ps:P3602 wd:Q64017516 ;
+	puml:left wd:Q64017516 ;
+	pq:P1268_represents wd:Q150398 ;
+	pq:P4243_candidate_number "6" ;
+.
+
+
