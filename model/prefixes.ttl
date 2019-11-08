@@ -1,7 +1,14 @@
 # TRR prefixes
-@base             <https://github.com/nikolatulechki/semanticElections/resource> .
+#@base             <https://github.com/nikolatulechki/semanticElections/resource> .
 
-@prefix sel: <https://github.com/nikolatulechki/semanticElections/resource> .
+@prefix my: <https://github.com/nikolatulechki/semanticElections/resource/entity/> .
+
+@prefix myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/> .
+@prefix myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/> .
+@prefix myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement> .
+@prefix mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/> .
+@prefix mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/> .
+
 @prefix puml:     <http://plantuml.com/ontology#>.
 
 
@@ -35,7 +42,5 @@
 @prefix prv: <http://www.wikidata.org/prop/reference/value/> .
 @prefix prn: <http://www.wikidata.org/prop/reference/value-normalized/> .
 @prefix wdno: <http://www.wikidata.org/prop/novalue/> .
-
-
 
 # rdfpuml should render this (external) URL inline

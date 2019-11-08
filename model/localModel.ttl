@@ -19,6 +19,10 @@
     rdfs:label "Гласуване на Местни Избори 2019 за кмет на община СОФИЯ, 1ви тур в секция 224607026"@bg ;
     myd:section <section/mi2019/224607026> ;
     myd:partOf <election/mi2019/ko/2246/tur1> ;
+    myd:protocol <protocol/mi2019/ko/2246/tur1/224607026> ;
+.
+
+<protocol/mi2019/ko/2246/tur1/224607026> a my:Protocol ;
 .
 
 ## Voting Sections and Places
@@ -52,9 +56,14 @@
 .
 
 
-<party/2246/70> a my:LocalParty ;
+<party/2246/70> a my:Party ;
     rdfs:label "независим Борис Бориславов Бонев";
     my:type    "independant" ;
+.
+
+<party/66> a my:Party ;
+    rdfs:label "„ДЕМОКРАТИЧНА БЪЛГАРИЯ – ОБЕДИНЕНИЕ“ (ДА България, ДСБ, Зелено движение)";
+    my:type "main";
 .
 
 #Voting process

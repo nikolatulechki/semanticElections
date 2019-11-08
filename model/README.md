@@ -56,6 +56,16 @@ People Voluyak voted on 4 separate elections
 
 see election.ttl
 
+Elections where "convergence and Union" participated 
+```sparql
+select ?election ?electionLabel {
+  ?election wdt:P726 wd:Q150398 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+```
+
+
+
 ### Voting process
 
 Q189760 voting is a good type 

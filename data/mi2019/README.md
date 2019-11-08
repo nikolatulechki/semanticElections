@@ -1,0 +1,1 @@
+Data download from: https://results.cik.bg/mi2019/csv.zip
