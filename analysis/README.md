@@ -80,3 +80,6 @@ Ready sheets:
 
 `=query({IMPORTHTML(CONCATENATE("https://results.cik.bg/mi2019/tur1/protokoli/2/2246/224611",B1,".html"),"table",5)},"select Col2",1)`
 
+# CIK open data
+
+## Местни Коалиции 
