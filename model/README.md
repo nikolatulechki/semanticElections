@@ -45,15 +45,26 @@ People Voluyak voted on 4 separate elections
 * Municipal Council elections - Voting for council of Sofia Capital Municipality [Q4442915](http://www.wikidata.org/entity/Q4442915) 
 * Municipal Mayor elections -  
 
-## Local vs Naitonal enitites
+### Local vs Naitonal enitites
 
 * National enities are accesisble at the CIK portal. They are identifieble by the same number 
 * Loacal entites are available at OIK sub portals as shitty doc files. Probably it will be eaiser to extract them directly from the protocols
 * Lists of candidates...
     *Result tables for councellors https://results.cik.bg/mi2019/tur1/hnm/0101.html
-    
+
 ### Girona 2015 municipal election model 
 
+see election.ttl
+
+### Voting process
+
+Q189760 voting is a good type 
+
+TODO Still looking how represent sections
+
+[Individual Constituency Budapest No. 15](https://www.wikidata.org/wiki/Q15728580) example of constituency.. but this corresponds more to a МИР
+
+[Wiki](https://bg.wikipedia.org/wiki/Избирателни_райони_в_България#Избирателни_комисии) about voting comissions in BG
 
 
 
