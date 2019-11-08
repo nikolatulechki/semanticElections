@@ -23,6 +23,7 @@ wd:Q64017516 p:P541 s:Q64017516-4251ca8f-4846-0a9d-38f0-90fda899f955 ;
 
 s:Q64017516-4251ca8f-4846-0a9d-38f0-90fda899f955 a wikibase:Statement ;
 	ps:P541_office_contested wd:Q33133468 ;
+	puml:down wd:Q33133468 ;
 	pq:P1114_quantity "+25"^^xsd:decimal ;
 .
 
@@ -47,6 +48,7 @@ wd:Q17510819 rdfs:label
 
 wd:Q33133468 rdfs:label "city councillor of Girona"@en ;
 	wdt:P1001_applies_to_jurisdiction wd:Q7038 ;
+	puml:down wd:Q7038 ;
 .
 
 

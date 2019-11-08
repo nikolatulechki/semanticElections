@@ -43,11 +43,18 @@ People Voluyak voted on 4 separate elections
 
 * Local Mayor Elections  - voting for mayor of Voluyak itself 
 * Municipal Council elections - Voting for council of Sofia Capital Municipality [Q4442915](http://www.wikidata.org/entity/Q4442915) 
-* Municipal Mayor elections - 
-* District Mayor elections - voting for Mayor of Връбница
-district [Q7553685](http://www.wikidata.org/entity/Q7553685)
+* Municipal Mayor elections -  
 
+## Local vs Naitonal enitites
+
+* National enities are accesisble at the CIK portal. They are identifieble by the same number 
+* Loacal entites are available at OIK sub portals as shitty doc files. Probably it will be eaiser to extract them directly from the protocols
+* Lists of candidates...
+    *Result tables for councellors https://results.cik.bg/mi2019/tur1/hnm/0101.html
+    
 ### Girona 2015 municipal election model 
+
+
 
 
 
