@@ -90,6 +90,8 @@ Remove unbalanced quotes
 `sed -i "s/[\"\„\“]//g" ../tur1/ko/local_candidates_27.10.2019.txt` 
 `sed -i "s/[\"\„\“]//g" ../tur2/ko/local_candidates_03.11.2019.txt` 
 `sed -i "s/[\"\„\“]//g" ../tur1/os/local_candidates_27.10.2019.txt`
+`sed -i "s/[\"\„\“]//g" ../tur1/ko/local_parties_27.10.2019.txt`
+
 
 ```
 sed -i "s/Местна коалиция Движение ЗАЕДНО за промяна (Коалиция Движение ЗАЕДНО за промяна; ПП ЕДИННА НАРОДНА ПАРТИЯ; ПП ДВИЖЕНИЕ ГЕРГЬОВДЕН; ПП СЪЮЗ НА СВОБОДНИТЕ ДЕМОКРАТИ; ПП ДВИЖЕНИЕ БЪЛГАРИЯ НА ГРАЖДАНИТЕ; ПП БЪЛГАРСКИ ЗЕМЕДЕЛСКИ НАРОДЕН СЪЮЗ; ПП СЪЮЗ НА ДЕМОКРАТИЧНИТЕ СИЛИ)/Местна коалиция Движение ЗАЕДНО за промяна (Коалиция Движение ЗАЕДНО за промяна, ПП ЕДИННА НАРОДНА ПАРТИЯ, ПП ДВИЖЕНИЕ ГЕРГЬОВДЕН, ПП СЪЮЗ НА СВОБОДНИТЕ ДЕМОКРАТИ, ПП ДВИЖЕНИЕ БЪЛГАРИЯ НА ГРАЖДАНИТЕ, ПП БЪЛГАРСКИ ЗЕМЕДЕЛСКИ НАРОДЕН СЪЮЗ, ПП СЪЮЗ НА ДЕМОКРАТИЧНИТЕ СИЛИ)/g" ../tur1/os/local_candidates_27.10.2019.txt
@@ -98,11 +100,14 @@ sed -i "s/Местна коалиция Движение ЗАЕДНО за пр�
 Query to clean-up broken labels 
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete 
-{?s rdfs:label ?label}
+delete {?s rdfs:label ?label}
+#select *
 where { 
     ?s rdfs:label ?label .
-    filter(contains(?label,"��")) 
+    filter(contains(?label,"��"))
+    {select ?s (count(*) as ?c) where {
+        ?s rdfs:label ?label . 
+        } group by ?s having(?c>1) }
 } 
 ```
 
@@ -142,3 +147,39 @@ where {
 ```
 
 ## Местни Коалиции 
+
+fix double party types 
+```
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+delete {
+    ?party myd:type "independant" } 
+where { 
+    ?party a my:Party ; myd:type "local_coalition" .
+}
+```
+
+Gen Coalitions (temp)
+
+```sparql
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+select 
+
+?party ?municipality ?name (group_concat(distinct ?el_notation;separator=";") as ?elections) 
+where { 
+    ?party a my:Party ; 
+        myd:type "independant" ; 
+        rdfs:label ?name ;
+        ^mypq:represents/myps:candidacy ?cand ;
+    .
+    ?cand myd:municipality/rdfs:label ?municipality ; myd:partOf ?election .
+    bind(strafter(str(?election),concat(str(my:),"election/mi2019/")) as ?el_notation) 
+    
+} 
+group by ?party ?municipality ?name 
+```

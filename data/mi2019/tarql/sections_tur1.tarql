@@ -23,6 +23,7 @@ construct {
 	?KOEL_URI a my:Election ;
 		rdfs:label ?KOEL_LABEL;
 		myd:partOf <election/mi2019/ko> ;
+		myd:municipality ?MUN_URI ;
 	.
 	?OSVOTE_URI a my:Voting ;
 		rdfs:label ?OSVOTE_LABEL ;
@@ -32,6 +33,11 @@ construct {
 	?OSEL_URI a my:Election ;
 		rdfs:label ?OSEL_LABEL ;
 		myd:partOf <election/mi2019/os> ;
+		myd:municipality ?MUN_URI ;
+	.
+	?MUN_URI a my:Municipality ;
+		rdfs:label ?c ;
+		myd:code ?OB_CODE ;
 	.		
 
 } where {
@@ -54,4 +60,6 @@ construct {
 
 	bind(uri(concat("election/mi2019/os/",?OB_CODE)) as ?OSEL_URI)
 	bind(concat("Местни Избори 2019 за общински съвет на община ",?c,""@bg) as ?OSEL_LABEL)
+
+	bind(uri(concat("municipality/",?OB_CODE)) as ?MUN_URI)
 }

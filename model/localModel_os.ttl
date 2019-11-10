@@ -8,6 +8,12 @@
 
 <election/mi2019/os/2246> a my:Election ; rdfs:label "Местни Избори 2019 за общински съвет на община 2246. Столична"@bg ;
     myd:partOf <election/mi2019/os>  ;
+    myd:municipality <municipality/2246> ;
+.
+
+<municipality/2246> a my:Municipality ;
+    rdfs:label "Столична" ;
+    myd:code "2246" ;
 .
 
 <election/mi2019/os/2246/224607026> a my:Voting ;

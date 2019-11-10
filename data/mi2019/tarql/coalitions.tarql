@@ -8,25 +8,15 @@ prefix mys: <https://github.com/nikolatulechki/semanticElections/resource/entity
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-
 construct {
-	?CAND_URI a my:Candidate ;
-		rdfs:label ?f ;
-		myp:candidacy ?S_CDCY_URI ;
-		myd:candidacy ?ROUND_URI ; 
-	.
-
-	?S_CDCY_URI a my:Statement ;
-		mypq:candidate_number ?CAND_NUM ;
-		mypq:represents ?PARTY_URI ;
-		myps:candidacy ?ROUND_URI ;
-	.
-
-	} where {
-		bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
-		bind(uri(concat("candidate/ko/",?OB_CODE,"/",?c)) as ?CAND_URI)
-		bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
-		bind(uri(concat("party/",if(?CAND_NUM < 67,?c,concat(?OB_CODE,"/",?c)))) as ?PARTY_URI) 	
-		bind(uri(concat("statement/candidacy/candidate/ko/",?OB_CODE,"/",?c)) as ?S_CDCY_URI)
-		bind(uri(concat("election/mi2019/ko/",?OB_CODE,"/tur1")) as ?ROUND_URI)
-	}
+	?CO_URI 
+		myd:hasPart ?P_URI;	
+	.	
+}
+where {
+	bind(1+"" as ?UNDEF)
+	filter(BOUND(?members))
+	bind(uri(?party) as ?CO_URI)
+	?mem apf:strSplit (?members ";")
+	bind(uri(concat("party/",?mem)) as ?P_URI)
+}

@@ -22,10 +22,6 @@ construct {
 		mypq:series_ordinal ?CAND_ORD ;
 		myps:candidacy ?ROUND_URI ;
 	.
-	?PARTY_URI a my:Party ;
-		rdfs:label ?d ;
-		myd:type ?PARTY_TYPE ;
-	.
 
 	} where {
 		bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
@@ -34,7 +30,6 @@ construct {
 		bind(STRDT(?e, xsd:integer) as ?CAND_NUM)
 		bind(?CAND_NUM-100 as ?CAND_ORD)
 		bind(uri(concat("party/",if(?PARTY_NUM < 67,?c,concat(?OB_CODE,"/",?c)))) as ?PARTY_URI)
-		bind(if(STRDT(?c, xsd:integer) < 67,"main_party",if(contains(lcase(?d),"коалиция"),"local_coalition","independant")) as ?PARTY_TYPE)  	
 		bind(uri(concat("statement/candidacy/candidate/os/",?OB_CODE,"/",?c,"/",?e)) as ?S_CDCY_URI)
 		bind(uri(concat("election/mi2019/os/",?OB_CODE)) as ?ROUND_URI)
 	}
