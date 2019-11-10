@@ -1,0 +1,37 @@
+base    <https://github.com/nikolatulechki/semanticElections/resource/entity/> 
+prefix my: <https://github.com/nikolatulechki/semanticElections/resource/entity/> 
+prefix myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/> 
+prefix myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+prefix myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/> 
+prefix mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/> 
+prefix mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/> 
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+construct {
+	?CAND_URI a my:Candidate ;
+		rdfs:label ?f ;
+		myp:candidacy ?S_CDCY_URI ;
+		myd:candidacy ?ROUND_URI ; 
+	.
+
+	?S_CDCY_URI a my:Statement ;
+		mypq:candidate_number ?CAND_NUM ;
+		mypq:represents ?PARTY_URI ;
+		myps:candidacy ?ROUND_URI ;
+	.
+	?PARTY_URI a my:Party ;
+		rdfs:label ?d ;
+		myd:type ?PARTY_TYPE ;
+	.
+
+	} where {
+		bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
+		bind(uri(concat("candidate/ko/",?OB_CODE,"/",?c)) as ?CAND_URI)
+		bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
+		bind(uri(concat("party/",if(?CAND_NUM < 67,?c,concat(?OB_CODE,"/",?c)))) as ?PARTY_URI)
+		bind(if(STRDT(?c, xsd:integer) < 67,"main_party",if(contains(lcase(?d),"коалиция"),"local_coalition","independant")) as ?PARTY_TYPE)  	
+		bind(uri(concat("statement/candidacy/candidate/ko/",?OB_CODE,"/",?c)) as ?S_CDCY_URI)
+		bind(uri(concat("election/mi2019/ko/",?OB_CODE,"/tur1")) as ?ROUND_URI)
+	}

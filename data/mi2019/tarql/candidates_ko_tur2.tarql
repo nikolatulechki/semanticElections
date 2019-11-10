@@ -1,0 +1,27 @@
+base    <https://github.com/nikolatulechki/semanticElections/resource/entity/> 
+prefix my: <https://github.com/nikolatulechki/semanticElections/resource/entity/> 
+prefix myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/> 
+prefix myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/> 
+prefix myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/> 
+prefix mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/> 
+prefix mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/> 
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+construct {
+	?CAND_URI 
+		myd:candidacy ?ROUND_URI ; 
+		myp:candidacy ?S_CDCY_URI ;
+	.
+
+	?S_CDCY_URI 
+		myps:candidacy ?ROUND_URI ;
+	.
+
+	} where {
+		bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
+		bind(uri(concat("candidate/ko/",?OB_CODE,"/",?c)) as ?CAND_URI)
+		bind(uri(concat("statement/candidacy/candidate/ko/",?OB_CODE,"/",?c)) as ?S_CDCY_URI)
+		bind(uri(concat("election/mi2019/ko/",?OB_CODE,"/tur2")) as ?ROUND_URI)
+	}

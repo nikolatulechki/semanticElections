@@ -1,0 +1,32 @@
+base    <https://github.com/nikolatulechki/semanticElections/resource/entity/> 
+prefix my: <https://github.com/nikolatulechki/semanticElections/resource/entity/> 
+prefix myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/> 
+prefix myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+prefix myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/> 
+prefix mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/> 
+prefix mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/> 
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+construct {
+	?EL_URI_OK
+		myd:vote ?CAND_URI ;
+		myp:vote ?S_VOTE_URI ;
+	.
+	?S_VOTE_URI_OK
+		myps:vote ?CAND_URI ;
+		mypq:valid_votes_recieved ?VV ;
+	.	
+}
+where {
+	bind(0+"" as ?UNDEF)
+	bind(substr(?a,1,4) as ?OB_CODE)
+	bind(uri(concat("election/mi2019/os/",?OB_CODE,"/",?a)) as ?EL_URI)
+	bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
+	bind(concat("candidate/os/",?OB_CODE,"/",?b,"/",?c) as ?CAND_STR)
+	bind(uri(?CAND_STR) as ?CAND_URI)
+	bind(uri(concat("statement/vote/mi2019/os/",?OB_CODE,"/",?a,"/",?CAND_STR)) as ?S_VOTE_URI)
+	bind(STRDT(?d, xsd:integer) as ?VV)
+	bind(if(?CAND_NUM != 0,?EL_URI,?UNDEF) as ?EL_URI_OK)
+	bind(if(?CAND_NUM != 0,?S_VOTE_URI,?UNDEF) as ?S_VOTE_URI_OK)
+}

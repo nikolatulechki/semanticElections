@@ -79,7 +79,19 @@ TODO Still looking how represent sections
 
 
 
+## Queries 
 
+```sparql 
+BASE <https://github.com/nikolatulechki/semanticElections/resource/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+select ?name ?elLabel {
+    ?cand a my:Candidate ; myd:candidacy ?election ; rdfs:label ?name ; myp:candidacy/mypq:represents <party/43> .
+    ?election myd:round 2 ; rdfs:label ?elLabel .
+```
 
 
 
