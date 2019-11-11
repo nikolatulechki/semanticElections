@@ -1,53 +1,6 @@
-Query to clean-up broken labels 
-```sparql
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete {?s rdfs:label ?label}
-#select *
-where { 
-    ?s rdfs:label ?label .
-    filter(contains(?label,"��"))
-    {select ?s (count(*) as ?c) where {
-        ?s rdfs:label ?label . 
-        } group by ?s having(?c>1) }
-} 
-```
+# Example SPARQL queries
 
-fix double party types +
 
-```sparql
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete {
-    ?party myd:type "independant" } 
-where { 
-    ?party a my:Party ; myd:type "local_coalition" .
-}
-```
-
-Gen Coalitions (temp)
-
-```sparql
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-select 
-
-?party ?municipality ?name (group_concat(distinct ?el_notation;separator=";") as ?elections) 
-where { 
-    ?party a my:Party ; 
-        myd:type "independant" ; 
-        rdfs:label ?name ;
-        ^mypq:represents/myps:candidacy ?cand ;
-    .
-    ?cand myd:municipality/rdfs:label ?municipality ; myd:partOf ?election .
-    bind(strafter(str(?election),concat(str(my:),"election/mi2019/")) as ?el_notation) 
-    
-} 
-group by ?party ?municipality ?name 
-```
 Всички кандидати на ДАБГ
 ```
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -85,7 +38,7 @@ where {
 
 ## Buisness Questions
 
-150-те секции с над 80% избирателна активност.
+### Секции с над 80% избирателна активност.
 
 ```sparql
 PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -110,6 +63,8 @@ select * where {
 order by desc(?invalid_ratio) 
 limit 1000
 ```
+
+### Обърнато Гласуване
 
 - 150-те секции, в които има "обърнато" гласуване между 1 и 2 тур за кмет.
 - какво значи по-точно?
@@ -174,3 +129,55 @@ select distinct ?election_label ?section_label ?cand1_name ?cand2_name ?cand1_la
 }
 ```
 
+## Postprocessing queries 
+
+Query to clean-up broken labels 
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+delete {?s rdfs:label ?label}
+#select *
+where { 
+    ?s rdfs:label ?label .
+    filter(contains(?label,"��"))
+    {select ?s (count(*) as ?c) where {
+        ?s rdfs:label ?label . 
+        } group by ?s having(?c>1) }
+} 
+```
+
+fix double party types +
+
+```sparql
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+delete {
+    ?party myd:type "independant" } 
+where { 
+    ?party a my:Party ; myd:type "local_coalition" .
+}
+```
+
+Gen Coalitions (temp)
+
+```sparql
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+select 
+
+?party ?municipality ?name (group_concat(distinct ?el_notation;separator=";") as ?elections) 
+where { 
+    ?party a my:Party ; 
+        myd:type "independant" ; 
+        rdfs:label ?name ;
+        ^mypq:represents/myps:candidacy ?cand ;
+    .
+    ?cand myd:municipality/rdfs:label ?municipality ; myd:partOf ?election .
+    bind(strafter(str(?election),concat(str(my:),"election/mi2019/")) as ?el_notation) 
+    
+} 
+group by ?party ?municipality ?name 
+```
