@@ -1,8 +1,9 @@
 # Example SPARQL queries
 
 
-Всички кандидати на ДАБГ
-```
+### Всички кандидати на дадена партия
+
+```sparql
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
 PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
 PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
@@ -16,7 +17,7 @@ select ?cand ?election ?name ?elLabel ?round {
 }
 ```
 
-Candidates on tur 1 with aggregated votes
+### Candidates on tur 1 with aggregated votes on municipality level 
 
 ```sparql
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
