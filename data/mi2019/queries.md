@@ -1,0 +1,176 @@
+Query to clean-up broken labels 
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+delete {?s rdfs:label ?label}
+#select *
+where { 
+    ?s rdfs:label ?label .
+    filter(contains(?label,"��"))
+    {select ?s (count(*) as ?c) where {
+        ?s rdfs:label ?label . 
+        } group by ?s having(?c>1) }
+} 
+```
+
+fix double party types +
+
+```sparql
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+delete {
+    ?party myd:type "independant" } 
+where { 
+    ?party a my:Party ; myd:type "local_coalition" .
+}
+```
+
+Gen Coalitions (temp)
+
+```sparql
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+select 
+
+?party ?municipality ?name (group_concat(distinct ?el_notation;separator=";") as ?elections) 
+where { 
+    ?party a my:Party ; 
+        myd:type "independant" ; 
+        rdfs:label ?name ;
+        ^mypq:represents/myps:candidacy ?cand ;
+    .
+    ?cand myd:municipality/rdfs:label ?municipality ; myd:partOf ?election .
+    bind(strafter(str(?election),concat(str(my:),"election/mi2019/")) as ?el_notation) 
+    
+} 
+group by ?party ?municipality ?name 
+```
+Всички кандидати на ДАБГ
+```
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+select ?cand ?election ?name ?elLabel ?round {
+    ?cand a my:Candidate ; myd:candidacy ?election ; rdfs:label ?name ; myp:candidacy/mypq:represents <party/66> .
+    ?election rdfs:label ?elLabel .
+    optional {?election myd:round ?round .}
+}
+```
+
+Candidates on tur 1 with aggregated votes
+
+```sparql
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+select ?election ?party ?cand ?name (sum(?votes) as ?sum_votes)
+where { 
+#bind(<https://github.com/nikolatulechki/semanticElections/resource/entity/election/mi2019/ko/0101/tur1> as ?election)
+?cand a my:Candidate ; myd:candidacy ?election ; rdfs:label ?name ; myp:candidacy/mypq:represents ?party .
+?election myd:round 1 .
+?voting myd:partOf ?election . 
+?s ^myp:vote ?voting ; myps:vote ?party ; mypq:valid_votes_recieved ?votes .     
+} group by ?election ?party ?cand ?name order by desc(?sum_votes)
+```
+
+## Buisness Questions
+
+150-те секции с над 80% избирателна активност.
+
+```sparql
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select * where { 
+    ?vot a my:Voting ; 
+         myd:voters_count ?voters_reg ;
+         myd:voters_additional_count ?voters_add ;
+         myd:votes_valid_count ?valid_votes ; 
+         myd:votes_invalid_count ?invalid_votes ;
+         myd:linkProtocol ?prot ;
+         myd:linkScanned ?pdf ;
+         myd:section/rdfs:label ?section_label ;
+    	 rdfs:label ?vote_label ;
+    	
+	. 
+    bind(?voters_reg+?voters_add as ?voters_tot)
+    bind(?valid_votes/?voters_tot as ?voting_activity)
+    bind(?invalid_votes/?voters_tot as ?invalid_ratio)
+}  
+order by desc(?invalid_ratio) 
+limit 1000
+```
+
+- 150-те секции, в които има "обърнато" гласуване между 1 и 2 тур за кмет.
+- какво значи по-точно?
+- примерно - на първи тур е бил Х с повече гласове, но на втори Y събира повече от него
+
+```sparql
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+select distinct ?election_label ?section_label ?cand1_name ?cand2_name ?cand1_label ?cand2_label ?votes_tur1_c1 ?votes_tur1_c2 ?votes_tur2_c1 ?votes_tur2_c2 ?winner ?t1_ratio ?t2_ratio {
+    ?voting2 a my:Voting ;
+             myd:round 2 ;
+             myd:section ?section ;
+             myd:partOf/myd:partOf ?election ;
+                       myd:vote ?cand1, ?cand2 .
+    filter(str(?cand1)>str(?cand2))
+    
+    ?election rdfs:label ?election_label .
+    ?section rdfs:label ?section_label .
+    ?voting2 myp:vote ?v2c1 , ?v2c2 .
+    ?v2c1 mypq:valid_votes_recieved ?votes_tur2_c1 ;
+          myps:vote ?cand1 .
+    ?v2c2 mypq:valid_votes_recieved ?votes_tur2_c2 ;
+          myps:vote ?cand2 .
+    
+    ?voting1 a my:Voting ;
+             myd:round 1 ;
+             myd:section ?section ;
+             myd:partOf/myd:partOf  ?election ;
+                       myd:vote ?cand1, ?cand2 ;
+    .
+    ?voting1 myp:vote ?v1c1 , ?v1c2 .
+    ?v1c1 mypq:valid_votes_recieved ?votes_tur1_c1 ;
+          myps:vote ?cand1 ;
+    .
+    ?v1c2 mypq:valid_votes_recieved ?votes_tur1_c2 ;
+          myps:vote ?cand2 ;
+     .
+    ## candidate party labels 
+    ?cand1 rdfs:label ?cand1_label .
+    ?cand2 rdfs:label ?cand2_label .
+    
+    ## candidate name 
+    
+    
+    
+    bind(if(?votes_tur2_c1>?votes_tur2_c2,?cand1_name,?cand2_name) as ?winner)
+    
+    bind(?votes_tur1_c1/?votes_tur1_c2 as ?t1_ratio)
+    bind(?votes_tur2_c1/?votes_tur2_c2 as ?t2_ratio)
+    filter ((?t1_ratio < 1 && ?t2_ratio > 1) || (?t1_ratio > 1 && ?t2_ratio < 1) )
+    
+    ?cand1 ^mypq:represents ?csy1 .
+    ?csy1 myps:candidacy/myd:partOf ?election ; ^myp:candidacy/rdfs:label ?cand1_name .      
+    
+    ?cand2 ^mypq:represents ?csy2 .
+    ?csy2 myps:candidacy/myd:partOf ?election ; ^myp:candidacy/rdfs:label ?cand2_name .       
+    
+}
+```
+

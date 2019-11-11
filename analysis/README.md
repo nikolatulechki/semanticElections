@@ -97,89 +97,40 @@ Remove unbalanced quotes
 sed -i "s/Местна коалиция Движение ЗАЕДНО за промяна (Коалиция Движение ЗАЕДНО за промяна; ПП ЕДИННА НАРОДНА ПАРТИЯ; ПП ДВИЖЕНИЕ ГЕРГЬОВДЕН; ПП СЪЮЗ НА СВОБОДНИТЕ ДЕМОКРАТИ; ПП ДВИЖЕНИЕ БЪЛГАРИЯ НА ГРАЖДАНИТЕ; ПП БЪЛГАРСКИ ЗЕМЕДЕЛСКИ НАРОДЕН СЪЮЗ; ПП СЪЮЗ НА ДЕМОКРАТИЧНИТЕ СИЛИ)/Местна коалиция Движение ЗАЕДНО за промяна (Коалиция Движение ЗАЕДНО за промяна, ПП ЕДИННА НАРОДНА ПАРТИЯ, ПП ДВИЖЕНИЕ ГЕРГЬОВДЕН, ПП СЪЮЗ НА СВОБОДНИТЕ ДЕМОКРАТИ, ПП ДВИЖЕНИЕ БЪЛГАРИЯ НА ГРАЖДАНИТЕ, ПП БЪЛГАРСКИ ЗЕМЕДЕЛСКИ НАРОДЕН СЪЮЗ, ПП СЪЮЗ НА ДЕМОКРАТИЧНИТЕ СИЛИ)/g" ../tur1/os/local_candidates_27.10.2019.txt
 ```
 
-Query to clean-up broken labels 
-```sparql
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete {?s rdfs:label ?label}
-#select *
-where { 
-    ?s rdfs:label ?label .
-    filter(contains(?label,"��"))
-    {select ?s (count(*) as ?c) where {
-        ?s rdfs:label ?label . 
-        } group by ?s having(?c>1) }
-} 
-```
-
-Всички кандидати на ДАБГ
-```
-BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-select ?cand ?election ?name ?elLabel ?round {
-    ?cand a my:Candidate ; myd:candidacy ?election ; rdfs:label ?name ; myp:candidacy/mypq:represents <party/66> .
-    ?election rdfs:label ?elLabel .
-    optional {?election myd:round ?round .}
-}
-```
-
-Candidates on tur 1 with aggregated votes
-
-```sparql
-BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-select ?election ?party ?cand ?name (sum(?votes) as ?sum_votes)
-where { 
-#bind(<https://github.com/nikolatulechki/semanticElections/resource/entity/election/mi2019/ko/0101/tur1> as ?election)
-?cand a my:Candidate ; myd:candidacy ?election ; rdfs:label ?name ; myp:candidacy/mypq:represents ?party .
-?election myd:round 1 .
-?voting myd:partOf ?election . 
-?s ^myp:vote ?voting ; myps:vote ?party ; mypq:valid_votes_recieved ?votes .     
-} group by ?election ?party ?cand ?name order by desc(?sum_votes)
-```
 
 ## Местни Коалиции 
 
-fix double party types 
-```
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete {
-    ?party myd:type "independant" } 
-where { 
-    ?party a my:Party ; myd:type "local_coalition" .
-}
-```
 
-Gen Coalitions (temp)
 
-```sparql
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-select 
+## Protocols
 
-?party ?municipality ?name (group_concat(distinct ?el_notation;separator=";") as ?elections) 
-where { 
-    ?party a my:Party ; 
-        myd:type "independant" ; 
-        rdfs:label ?name ;
-        ^mypq:represents/myps:candidacy ?cand ;
-    .
-    ?cand myd:municipality/rdfs:label ?municipality ; myd:partOf ?election .
-    bind(strafter(str(?election),concat(str(my:),"election/mi2019/")) as ?el_notation) 
-    
-} 
-group by ?party ?municipality ?name 
-```
+.
+####
+?b ?SEC_ID  Пълен код на секция
+
+?e myd:recieved_ballots  5) A.   Брой на бюлетините, получени по реда на чл. 215, ал. 1 ИК, вписани в 
+?f myd:voters_count  6) 1.   Брой на избирателите според избирателния списък при предаването му на  СИК (сумата от числата по букви „а“ и „б“ от тази точка)
+  7) 1.а) Избирателен списък – част І
+  8) 1.б) Избирателен списък – част ІІ
+?i myd:voters_additional_count  9) 2.   Брой на избирателите, вписани в допълнителната страница (под чертата)  на избирателния списък в изборния ден
+?j myd:voters_voted_count 10) 3.   Брой на гласувалите избиратели според положените подписи в избирателния
+ 11) 4.а) брой на неизползваните бюлетини
+ 12) 4.б) брой на унищожените от СИК бюлетини по други поводи (за създаване на образци за таблата пред изборното помещение и увредени механично при           откъсване от кочана)
+ 13) 4.в) брой на недействителните бюлетини по чл. 427, ал. 6 ИК (когато номерът
+          на бюлетината не съответства на номер в кочана)
+ 14) 4.г) брой на недействителните бюлетини по чл. 227 ИК
+          (при които е използвана възпроизвеждаща техника)
+ 15) 4.д) брой на недействителните бюлетини по чл. 228 ИК
+          (показан публично вот след гласуване)
+ 16) 4.е) брой на сгрешените бюлетини по чл. 267, ал. 2 ИК
+ 17) 5.   Брой на намерените в избирателната кутия бюлетини
+?r myd:votes_invalid_count 
+18) 6.   Брой намерени в избирателната кутия недействителни гласове (бюлетини)
+ 19) 7.   Общ брой на намерените в избирателната кутия действителни гласове
+          (бюлетини) (сумата от числата по т. 7.1 и т. 7.2)
+?t myd:votes_valid_count 20) 7.1. Брой на действителните гласове, подадени за кандидатските листи на партии, коалиции и инициативни комитети
+?u myd:votes_blanc_count 21) 7.2. Брой на действителните гласове с отбелязан вот в квадратчето
+          „Не подкрепям никого“
+?v myd:ballots_empty 22) 9.   Празни бюлетини или бюлетини, в които е гласувано за повече от
+          една листа, както и бюлетини, в които не може да се установи
+          еднозначно вотът на избирателя

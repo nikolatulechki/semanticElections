@@ -7,6 +7,8 @@ prefix mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/
 prefix mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/> 
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
+
 
 construct {
 	?CO_URI 

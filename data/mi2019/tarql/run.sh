@@ -24,3 +24,9 @@ python flatten.py ../tur1/os/votes_27.10.2019.txt | tarql --stdin -d ";" -H  vot
 
 curl "https://docs.google.com/spreadsheets/d/1tPGAecSA5P7Hv5ayYO6IYYkgqTW8gfkWTVn48t15Zj4/gviz/tq?tqx=out:csv&sheet=COALITIONS"  | tarql --stdin coalitions.tarql > ../rdf/coalitions.ttl
 curl "https://docs.google.com/spreadsheets/d/1tPGAecSA5P7Hv5ayYO6IYYkgqTW8gfkWTVn48t15Zj4/gviz/tq?tqx=out:csv&sheet=INDEPENDANT" | tarql --stdin independant.tarql > ../rdf/independant.ttl
+
+tarql -d ";" -H  protocols_ko_tur1.tarql  ../tur1/ko/protocols_27.10.2019.txt > ../rdf/protocols_ko_tur1.ttl
+
+tarql -d ";" -H  protocols_os.tarql  ../tur1/os/protocols_27.10.2019.txt > ../rdf/protocols_os.ttl
+
+tarql -d ";" -H  protocols_ko_tur2.tarql  ../tur2/ko/protocols_03.11.2019.txt > ../rdf/protocols_ko_tur2.ttl
