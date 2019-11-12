@@ -130,6 +130,36 @@ select distinct ?election_label ?section_label ?cand1_name ?cand2_name ?cand1_la
 }
 ```
 
+### Top 1000K votes for a given party
+
+```sparql
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>        
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+select ?section_label ?voting_label ?vote_party ?vote_total ?vote_ratio ?protocol
+where { 
+    bind(<party/56> as ?party)
+    ?v a my:Voting ; 
+        rdfs:label ?voting_label ;
+        myd:votes_valid_count ?vote_total ;
+        myp:vote ?vote ;
+        myd:section/rdfs:label ?section_label ;
+        myd:linkProtocol ?protocol ;         
+    .
+    ?vote mypq:valid_votes_recieved ?vote_party ; 
+          myps:vote/myd:hasPart? ?party ;
+          myps:vote/rdfs:label ?party_label ;                       
+    .
+    bind(?vote_party/?vote_total as ?vote_ratio)
+} order by desc(?vote_ratio) limit 1000
+```
+
 ## Postprocessing queries 
 
 Query to clean-up broken labels 
@@ -181,4 +211,43 @@ where {
     
 } 
 group by ?party ?municipality ?name 
+```
+
+Matching query 
+
+```
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+insert {
+    graph my:cand-match {
+        ?c1 owl:sameAs ?c2 .
+    }
+}
+where { 
+    ?c1 a my:Candidate ; rdfs:label ?l1 .
+    ?c2 a my:Candidate ; rdfs:label ?l1 .
+    filter(!sameterm(?c1,?c2))
+    ?c1 myp:candidacy ?cy1 .
+    ?c2 myp:candidacy ?cy2 .
+    ?cy1 myps:candidacy/myd:partOf?/myd:municipality/^myd:municipality/^myd:partOf?/^myps:candidacy ?cy2 .
+    ?cy1 mypq:represents/^mypq:represents ?cy2 .
+} 
+```
+
+Names not following the main pattern 
+```
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>        
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select * 
+where { 
+    ?c1 a my:Candidate ; rdfs:label ?l1 .
+    filter(!regex(?l1, "^[^ ]+ [^ ]+ [^ ]+$","i"))
+} 
 ```

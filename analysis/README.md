@@ -1,136 +1,125 @@
-# semanticElections
-RDF-ization of Bulgarian election results
+# Model
 
-# Data Anаlysis 
+## Relevant WD types and props 
 
-## Section sheet
-
-get section [sheet](https://docs.google.com/spreadsheets/d/1ntQtECbUTI_LlEQMTvNuXSKj_wiSWCv0QPBTGAUGgnM/) 
-
-```bash
-curl "https://docs.google.com/spreadsheets/d/1ntQtECbUTI_LlEQMTvNuXSKj_wiSWCv0QPBTGAUGgnM/gviz/tq?tqx=out:csv" -o Sekcii.csv
-```
-
-header: 
-1. SECID
-1. Област код (OBL)
-1. Област текст 
-1. Община код (OBS)
-1. Община
-1. Район код (REG)
-1. Район
-1. Секция (SEC)
-1. Населено място код
-1. Населено място
-1. Адрес
+* Candidate (Q5)
+* Political Party 
+** Political party in Bulgaria Q43791339
+** Political party (Q7278)
+* Election (Q40231) 
+* Polling place [Q335778](http://www.wikidata.org/entity/Q335778)
+* Facility (school, community center, see restraints on polling place)
+* electoral list 
+    * candidacy within an electoral list see [here](https://www.wikidata.org/wiki/Q64018521#Q64018521$ce947c88-46f7-c591-a7b1-7ec8453387af)
+    * election employing electoral lists: [Q64017516](https://www.wikidata.org/wiki/Q64017516) 
+* Office Contested P541, [query](https://w.wiki/BWr) for instances of Offices
+    * Mayor Of Kmetstvo
+    * Mayor Of Municipality
+    * Councillor at council of Municipality
+    * Mayor of District
 
 
-```
- % csvcut -c 9,10  Sekcii.csv | sort -u | wc -l
-7555
-```
-7555 unique locations to run through google api 
+## Election Entities 
 
-## List of parties 
+People Voluyak voted on 4 separate elections 
 
-<https://www.cik.bg/bg/mi2019/registers/parties>
+* Local Mayor Elections  - voting for mayor of Voluyak itself 
+* Municipal Council elections - Voting for council of Sofia Capital Municipality [Q4442915](http://www.wikidata.org/entity/Q4442915) 
+* Municipal Mayor elections -  
 
-## CIK protocols access
+### Local vs Naitonal enitites
 
-section ID is formed from concatenating OBL,OBS,REG,SEC of the sections sheet
+* National enities are accesisble at the CIK portal. They are identifieble by the same number 
+* Loacal entites are available at OIK sub portals as shitty doc files. Probably it will be eaiser to extract them directly from the protocols
+* Lists of candidates...
+    *Result tables for councellors https://results.cik.bg/mi2019/tur1/hnm/0101.html
 
-CIK publishes at most 4 protocols in 2 formats each:
-example:
-<https://results.cik.bg/mi2019/tur1/protokoli/2/2246/224621001.html>
-structure
+### Girona 2015 municipal election model 
 
-* prefix: `https://results.cik.bg/mi2019/`
-* elections: `mi2019/`
-* round: `tur1/`
-* format
-    * `protokoli/` - digital 
-    * `pdf/ - scanned 
-* type of protocol
-    * Кмет на община `2/`
-    * Общински съвет `1/`
-    * Кмет на кметство `4/`
-    * Кмет на район  `8/`
-* bucket `OBL+OBS/`
-* section ID 
-* extension 
-    * `.html` - machine readable
-    * `.pdf` - scanned version 
-hh
+see election.ttl
 
-example:                                                             
-<https://results.cik.bg/mi2019/tur1/protokoli/2/2246/224621001.html> 
-<https://results.cik.bg/mi2019/tur1/pdf/2/2246/224621001.pdf> 
-
-Протокол за избор на кмет на община в Доброславци, софииско
-
-# Google sheet parsing 
-
-Ready sheets:
-
-[Slatina](https://docs.google.com/spreadsheets/d/1CLUconDxMbylYj6ngwKQDy-sN7z_XFyUDdopSma-vdk)
-[Krasna Polqna](https://docs.google.com/spreadsheets/d/1zGE-mPMEfhSrFz3SxdM7w2vynHiKfNuHTB1qm4FmL2g) 
-[Sliven](https://docs.google.com/spreadsheets/d/10WHjtcKxTXaomKDmDdwKrhxwVQLRKY8uGw4cu8551w0)
-
-## Import function in GS
-
-`=query({IMPORTHTML(CONCATENATE("https://results.cik.bg/mi2019/tur1/protokoli/2/2246/224611",B1,".html"),"table",5)},"select Col2",1)`
-
-# CIK open data
-
-No new sections created at second round 
-`diff ../tur2/ko/sections_03.11.2019.txt ../tur1/ko/sections_27.10.2019.txt | grep "<"`
-
-Remove unbalanced quotes
-
-`sed -i "s/[\"\„\“]//g" ../tur1/ko/local_candidates_27.10.2019.txt` 
-`sed -i "s/[\"\„\“]//g" ../tur2/ko/local_candidates_03.11.2019.txt` 
-`sed -i "s/[\"\„\“]//g" ../tur1/os/local_candidates_27.10.2019.txt`
-`sed -i "s/[\"\„\“]//g" ../tur1/ko/local_parties_27.10.2019.txt`
-
-
-```
-sed -i "s/Местна коалиция Движение ЗАЕДНО за промяна (Коалиция Движение ЗАЕДНО за промяна; ПП ЕДИННА НАРОДНА ПАРТИЯ; ПП ДВИЖЕНИЕ ГЕРГЬОВДЕН; ПП СЪЮЗ НА СВОБОДНИТЕ ДЕМОКРАТИ; ПП ДВИЖЕНИЕ БЪЛГАРИЯ НА ГРАЖДАНИТЕ; ПП БЪЛГАРСКИ ЗЕМЕДЕЛСКИ НАРОДЕН СЪЮЗ; ПП СЪЮЗ НА ДЕМОКРАТИЧНИТЕ СИЛИ)/Местна коалиция Движение ЗАЕДНО за промяна (Коалиция Движение ЗАЕДНО за промяна, ПП ЕДИННА НАРОДНА ПАРТИЯ, ПП ДВИЖЕНИЕ ГЕРГЬОВДЕН, ПП СЪЮЗ НА СВОБОДНИТЕ ДЕМОКРАТИ, ПП ДВИЖЕНИЕ БЪЛГАРИЯ НА ГРАЖДАНИТЕ, ПП БЪЛГАРСКИ ЗЕМЕДЕЛСКИ НАРОДЕН СЪЮЗ, ПП СЪЮЗ НА ДЕМОКРАТИЧНИТЕ СИЛИ)/g" ../tur1/os/local_candidates_27.10.2019.txt
+Elections where "convergence and Union" participated 
+```sparql
+select ?election ?electionLabel {
+  ?election wdt:P726 wd:Q150398 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
 ```
 
 
-## Местни Коалиции 
+
+### Voting process
+
+Q189760 voting is a good type 
+
+TODO Still looking how represent sections
+
+[Individual Constituency Budapest No. 15](https://www.wikidata.org/wiki/Q15728580) example of constituency.. but this corresponds more to a МИР
+
+[Wiki](https://bg.wikipedia.org/wiki/Избирателни_райони_в_България#Избирателни_комисии) about voting comissions in BG
 
 
 
-## Protocols
 
-.
-####
-?b ?SEC_ID  Пълен код на секция
+## Queries 
 
-?e myd:recieved_ballots  5) A.   Брой на бюлетините, получени по реда на чл. 215, ал. 1 ИК, вписани в 
-?f myd:voters_count  6) 1.   Брой на избирателите според избирателния списък при предаването му на  СИК (сумата от числата по букви „а“ и „б“ от тази точка)
-  7) 1.а) Избирателен списък – част І
-  8) 1.б) Избирателен списък – част ІІ
-?i myd:voters_additional_count  9) 2.   Брой на избирателите, вписани в допълнителната страница (под чертата)  на избирателния списък в изборния ден
-?j myd:voters_voted_count 10) 3.   Брой на гласувалите избиратели според положените подписи в избирателния
- 11) 4.а) брой на неизползваните бюлетини
- 12) 4.б) брой на унищожените от СИК бюлетини по други поводи (за създаване на образци за таблата пред изборното помещение и увредени механично при           откъсване от кочана)
- 13) 4.в) брой на недействителните бюлетини по чл. 427, ал. 6 ИК (когато номерът
-          на бюлетината не съответства на номер в кочана)
- 14) 4.г) брой на недействителните бюлетини по чл. 227 ИК
-          (при които е използвана възпроизвеждаща техника)
- 15) 4.д) брой на недействителните бюлетини по чл. 228 ИК
-          (показан публично вот след гласуване)
- 16) 4.е) брой на сгрешените бюлетини по чл. 267, ал. 2 ИК
- 17) 5.   Брой на намерените в избирателната кутия бюлетини
-?r myd:votes_invalid_count 
-18) 6.   Брой намерени в избирателната кутия недействителни гласове (бюлетини)
- 19) 7.   Общ брой на намерените в избирателната кутия действителни гласове
-          (бюлетини) (сумата от числата по т. 7.1 и т. 7.2)
-?t myd:votes_valid_count 20) 7.1. Брой на действителните гласове, подадени за кандидатските листи на партии, коалиции и инициативни комитети
-?u myd:votes_blanc_count 21) 7.2. Брой на действителните гласове с отбелязан вот в квадратчето
-          „Не подкрепям никого“
-?v myd:ballots_empty 22) 9.   Празни бюлетини или бюлетини, в които е гласувано за повече от
-          една листа, както и бюлетини, в които не може да се установи
-          еднозначно вотът на избирателя
+```sparql 
+BASE <https://github.com/nikolatulechki/semanticElections/resource/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/anentity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+select ?name ?elLabel {
+    ?cand a my:Candidate ; myd:candidacy ?election ; rdfs:label ?name ; myp:candidacy/mypq:represents <party/43> .
+    ?election myd:round 2 ; rdfs:label ?elLabel .
+```
+
+
+## Bulgarian entities on Wikidata
+
+### Geography 
+
+Working on elections at Волуяк 
+
+EKATTE : 12084 - (wdt:P3990) 
+WD concept <http://www.wikidata.org/entity/Q2455639>
+Voluyak is a kmetstvo (Q4224624)
+
+Query for BG territorial entities:
+
+They voted in 3 separate polling places [Q335778](http://www.wikidata.org/entity/Q335778)
+
+* 224620049
+* 224620050
+* 224620051
+
+All use the same facility (School) - "146 ОУ "Патриарх Евтимий", ул. Зорница № 63" С.ВОЛУЯК"    
+
+```sparql
+select ?s ?sLabel ?ekatte {
+  ?s wdt:P3990  ?ekatte .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en,bg". }
+}
+```
+[query](https://w.wiki/BuT)
+
+### People 
+
+11833 Bulgarians on wikidata 
+
+```sparql
+select ?s ?sLabel  {
+  ?s wdt:P31 wd:Q5 ; wdt:P27 wd:Q219  .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en,bg". }
+}
+```
+[query](https://w.wiki/BuV)
+
+### Political Parties
+
+Relevant type [Q43791339](http://www.wikidata.org/entity/Q43791339) : political party in Bulgaria
+
+61 parites in BG: [query](https://w.wiki/BuY)
+
+
