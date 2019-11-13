@@ -1,0 +1,1002 @@
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/20> myd:wdMatch
+    wd:Q74877800 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/43> myd:wdMatch
+    wd:Q133968 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/51> myd:wdMatch
+    wd:Q25485773 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/56> myd:wdMatch
+    wd:Q752259 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/57> myd:wdMatch
+    wd:Q928435 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/58> myd:wdMatch
+    wd:Q74877804 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/39> myd:wdMatch
+    wd:Q12287728 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/55> myd:wdMatch
+    wd:Q164242 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/59> myd:wdMatch
+    wd:Q1048010 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/1> myd:wdMatch
+    wd:Q834016 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/4> myd:wdMatch
+    wd:Q178049 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/6> myd:wdMatch
+    wd:Q20497195 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/7> myd:wdMatch
+    wd:Q3326759 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/8> myd:wdMatch
+    wd:Q1968054 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/10> myd:wdMatch
+    wd:Q74877806 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/14> myd:wdMatch
+    wd:Q17173534 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/15> myd:wdMatch
+    wd:Q4314927 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/21> myd:wdMatch
+    wd:Q897740 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/22> myd:wdMatch
+    wd:Q74877810 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/27> myd:wdMatch
+    wd:Q74877815 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/29> myd:wdMatch
+    wd:Q2906775 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/31> myd:wdMatch
+    wd:Q74877818 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/34> myd:wdMatch
+    wd:Q792527 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/35> myd:wdMatch
+    wd:Q12274242 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/48> myd:wdMatch
+    wd:Q28943121 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/49> myd:wdMatch
+    wd:Q764717 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/50> myd:wdMatch
+    wd:Q61140937 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/66> myd:wdMatch
+    wd:Q62808154 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/5> myd:wdMatch
+    wd:Q23044310 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/26> myd:wdMatch
+    wd:Q74877823 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/42> myd:wdMatch
+    wd:Q12290026 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/64> myd:wdMatch
+    wd:Q841253 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/2> myd:wdMatch
+    wd:Q1003898 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/46> myd:wdMatch
+    wd:Q7887330 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/36> myd:wdMatch
+    wd:Q2996483 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/23> myd:wdMatch
+    wd:Q10785508 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/65> myd:wdMatch
+    wd:Q74877827 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/28> myd:wdMatch
+    wd:Q74877829 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/32> myd:wdMatch
+    wd:Q74877833 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/61> myd:wdMatch
+    wd:Q127790 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/18> myd:wdMatch
+    wd:Q74877838 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/9> myd:wdMatch
+    wd:Q3657993 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/12> myd:wdMatch
+    wd:Q74877840 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/17> myd:wdMatch
+    wd:Q74877843 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/24> myd:wdMatch
+    wd:Q4325952 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/3> myd:wdMatch
+    wd:Q74879027 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/44> myd:wdMatch
+    wd:Q74877851 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/47> myd:wdMatch
+    wd:Q74877855 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/63> myd:wdMatch
+    wd:Q1133279 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/52> myd:wdMatch
+    wd:Q26206042 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/53> myd:wdMatch
+    wd:Q74877857 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/33> myd:wdMatch
+    wd:Q834016 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/60> myd:wdMatch
+    wd:Q74877862 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/62> myd:wdMatch
+    wd:Q74877866 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/37> myd:wdMatch
+    wd:Q74877869 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/30> myd:wdMatch
+    wd:Q25477668 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/11> myd:wdMatch
+    wd:Q74877874 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/41> myd:wdMatch
+    wd:Q74877877 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/45> myd:wdMatch
+    wd:Q74877880 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/13> myd:wdMatch
+    wd:Q74877884 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/19> myd:wdMatch
+    wd:Q12295876 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/25> myd:wdMatch
+    wd:Q74877889 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/40> myd:wdMatch
+    wd:Q74877890 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/54> myd:wdMatch
+    wd:Q74877894 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0101>
+  myd:wdMatch wd:Q2085163 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0102>
+  myd:wdMatch wd:Q2281436 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0103>
+  myd:wdMatch wd:Q628050 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0111>
+  myd:wdMatch wd:Q2557228 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0113>
+  myd:wdMatch wd:Q2452337 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0128>
+  myd:wdMatch wd:Q2662531 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0133>
+  myd:wdMatch wd:Q2653369 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0137>
+  myd:wdMatch wd:Q1570650 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0140>
+  myd:wdMatch wd:Q2653376 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0142>
+  myd:wdMatch wd:Q2997839 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0144>
+  myd:wdMatch wd:Q2722835 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0149>
+  myd:wdMatch wd:Q2722846 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0152>
+  myd:wdMatch wd:Q2722827 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0153>
+  myd:wdMatch wd:Q775710 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0201>
+  myd:wdMatch wd:Q2001782 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0204>
+  myd:wdMatch wd:Q167807 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0206>
+  myd:wdMatch wd:Q1500384 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0208>
+  myd:wdMatch wd:Q2476879 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0209>
+  myd:wdMatch wd:Q2476853 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0212>
+  myd:wdMatch wd:Q2606955 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0213>
+  myd:wdMatch wd:Q2721122 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0215>
+  myd:wdMatch wd:Q177345 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0217>
+  myd:wdMatch wd:Q2447996 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0218>
+  myd:wdMatch wd:Q2610872 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0221>
+  myd:wdMatch wd:Q2039413 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0223>
+  myd:wdMatch wd:Q2398979 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0227>
+  myd:wdMatch wd:Q2607288 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0301>
+  myd:wdMatch wd:Q2715453 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0302>
+  myd:wdMatch wd:Q2715403 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0304>
+  myd:wdMatch wd:Q2653042 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0305>
+  myd:wdMatch wd:Q2609691 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0306>
+  myd:wdMatch wd:Q748965 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0308>
+  myd:wdMatch wd:Q2609648 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0309>
+  myd:wdMatch wd:Q596101 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0313>
+  myd:wdMatch wd:Q2715362 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0314>
+  myd:wdMatch wd:Q2715422 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0316>
+  myd:wdMatch wd:Q2609410 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0324>
+  myd:wdMatch wd:Q2407014 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0326>
+  myd:wdMatch wd:Q2609434 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0404>
+  myd:wdMatch wd:Q2991314 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0406>
+  myd:wdMatch wd:Q2603553 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0413>
+  myd:wdMatch wd:Q2653757 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0414>
+  myd:wdMatch wd:Q2609640 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0420>
+  myd:wdMatch wd:Q2609666 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0422>
+  myd:wdMatch wd:Q2715489 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0426>
+  myd:wdMatch wd:Q2609698 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0428>
+  myd:wdMatch wd:Q600639 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0431>
+  myd:wdMatch wd:Q959929 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0432>
+  myd:wdMatch wd:Q2609717 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0501>
+  myd:wdMatch wd:Q2254259 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0503>
+  myd:wdMatch wd:Q2542152 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0506>
+  myd:wdMatch wd:Q2542167 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0509>
+  myd:wdMatch wd:Q263709 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0515>
+  myd:wdMatch wd:Q2615666 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0516>
+  myd:wdMatch wd:Q2715394 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0522>
+  myd:wdMatch wd:Q2715384 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0525>
+  myd:wdMatch wd:Q2715413 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0530>
+  myd:wdMatch wd:Q576734 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0533>
+  myd:wdMatch wd:Q2715178 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0537>
+  myd:wdMatch wd:Q2715502 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0605>
+  myd:wdMatch wd:Q2015266 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0608>
+  myd:wdMatch wd:Q2015255 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0610>
+  myd:wdMatch wd:Q2015244 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0620>
+  myd:wdMatch wd:Q1032807 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0621>
+  myd:wdMatch wd:Q948145 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0627>
+  myd:wdMatch wd:Q2426251 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0628>
+  myd:wdMatch wd:Q1032677 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0631>
+  myd:wdMatch wd:Q2628864 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0632>
+  myd:wdMatch wd:Q2723443 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0635>
+  myd:wdMatch wd:Q2426275 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0705>
+  myd:wdMatch wd:Q2652942 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0712>
+  myd:wdMatch wd:Q2549061 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0729>
+  myd:wdMatch wd:Q2719895 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0735>
+  myd:wdMatch wd:Q568005 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0803>
+  myd:wdMatch wd:Q2663152 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0812>
+  myd:wdMatch wd:Q614612 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0815>
+  myd:wdMatch wd:Q2561279 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0817>
+  myd:wdMatch wd:Q965588 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0820>
+  myd:wdMatch wd:Q2561255 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0827>
+  myd:wdMatch wd:Q680608 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0828>
+  myd:wdMatch wd:Q2220850 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0829>
+  myd:wdMatch wd:Q2548849 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0902>
+  myd:wdMatch wd:Q3621889 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0908>
+  myd:wdMatch wd:Q1748256 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0914>
+  myd:wdMatch wd:Q2619800 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0915>
+  myd:wdMatch wd:Q545555 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0916>
+  myd:wdMatch wd:Q2452987 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0921>
+  myd:wdMatch wd:Q2401727 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/0935>
+  myd:wdMatch wd:Q929927 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1004>
+  myd:wdMatch wd:Q2401761 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1005>
+  myd:wdMatch wd:Q2401745 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1027>
+  myd:wdMatch wd:Q944028 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1029>
+  myd:wdMatch wd:Q1003231 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1031>
+  myd:wdMatch wd:Q2401796 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1038>
+  myd:wdMatch wd:Q2403120 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1041>
+  myd:wdMatch wd:Q543012 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1048>
+  myd:wdMatch wd:Q2401780 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1050>
+  myd:wdMatch wd:Q2609076 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1102>
+  myd:wdMatch wd:Q2719406 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1117>
+  myd:wdMatch wd:Q2719387 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1118>
+  myd:wdMatch wd:Q2596788 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1119>
+  myd:wdMatch wd:Q2719438 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1133>
+  myd:wdMatch wd:Q2652918 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1134>
+  myd:wdMatch wd:Q2652936 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1136>
+  myd:wdMatch wd:Q2561155 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1138>
+  myd:wdMatch wd:Q2719419 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1202>
+  myd:wdMatch wd:Q2609066 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1204>
+  myd:wdMatch wd:Q2719430 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1207>
+  myd:wdMatch wd:Q2719590 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1211>
+  myd:wdMatch wd:Q1032683 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1212>
+  myd:wdMatch wd:Q2608803 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1214>
+  myd:wdMatch wd:Q2548560 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1224>
+  myd:wdMatch wd:Q288100 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1226>
+  myd:wdMatch wd:Q2609050 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1229>
+  myd:wdMatch wd:Q2016122 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1236>
+  myd:wdMatch wd:Q2545392 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1238>
+  myd:wdMatch wd:Q2609055 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1303>
+  myd:wdMatch wd:Q8019066 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1304>
+  myd:wdMatch wd:Q2404510 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1306>
+  myd:wdMatch wd:Q2403879 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1308>
+  myd:wdMatch wd:Q655383 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1314>
+  myd:wdMatch wd:Q1749195 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1319>
+  myd:wdMatch wd:Q764056 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1320>
+  myd:wdMatch wd:Q2444212 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1321>
+  myd:wdMatch wd:Q1749334 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1324>
+  myd:wdMatch wd:Q1749198 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1329>
+  myd:wdMatch wd:Q1749330 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1332>
+  myd:wdMatch wd:Q1749338 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1339>
+  myd:wdMatch wd:Q19706485 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1408>
+  myd:wdMatch wd:Q2405103 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1419>
+  myd:wdMatch wd:Q4191007 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1422>
+  myd:wdMatch wd:Q2405644 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1432>
+  myd:wdMatch wd:Q4351615 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1436>
+  myd:wdMatch wd:Q1749664 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1451>
+  myd:wdMatch wd:Q2404637 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1503>
+  myd:wdMatch wd:Q2657351 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1508>
+  myd:wdMatch wd:Q2721295 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1510>
+  myd:wdMatch wd:Q2721258 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1511>
+  myd:wdMatch wd:Q2561191 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1516>
+  myd:wdMatch wd:Q2561243 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1521>
+  myd:wdMatch wd:Q596766 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1523>
+  myd:wdMatch wd:Q2721004 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1524>
+  myd:wdMatch wd:Q2657334 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1527>
+  myd:wdMatch wd:Q2721267 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1537>
+  myd:wdMatch wd:Q2560800 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1539>
+  myd:wdMatch wd:Q2721276 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1601>
+  myd:wdMatch wd:Q4071224 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1607>
+  myd:wdMatch wd:Q585848 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1612>
+  myd:wdMatch wd:Q2561213 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1613>
+  myd:wdMatch wd:Q2015223 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1615>
+  myd:wdMatch wd:Q2408601 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1617>
+  myd:wdMatch wd:Q162565 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1622>
+  myd:wdMatch wd:Q4365146 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1623>
+  myd:wdMatch wd:Q2721288 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1625>
+  myd:wdMatch wd:Q1750681 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1626>
+  myd:wdMatch wd:Q1500386 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1628>
+  myd:wdMatch wd:Q2408574 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1633>
+  myd:wdMatch wd:Q523537 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1637>
+  myd:wdMatch wd:Q1750679 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1639>
+  myd:wdMatch wd:Q10632743 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1640>
+  myd:wdMatch wd:Q15101506 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1641>
+  myd:wdMatch wd:Q1750926 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1642>
+  myd:wdMatch wd:Q1750685 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1643>
+  myd:wdMatch wd:Q2219349 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1711>
+  myd:wdMatch wd:Q2716740 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1714>
+  myd:wdMatch wd:Q2220241 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1716>
+  myd:wdMatch wd:Q2716750 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1717>
+  myd:wdMatch wd:Q2717061 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1726>
+  myd:wdMatch wd:Q2609683 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1729>
+  myd:wdMatch wd:Q2609633 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1736>
+  myd:wdMatch wd:Q2609383 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1803>
+  myd:wdMatch wd:Q2652921 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1804>
+  myd:wdMatch wd:Q2609654 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1805>
+  myd:wdMatch wd:Q2716767 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1808>
+  myd:wdMatch wd:Q2721034 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1813>
+  myd:wdMatch wd:Q2721303 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1827>
+  myd:wdMatch wd:Q2652929 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1833>
+  myd:wdMatch wd:Q2609442 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1837>
+  myd:wdMatch wd:Q2609662 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1901>
+  myd:wdMatch wd:Q587507 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1907>
+  myd:wdMatch wd:Q303082 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1910>
+  myd:wdMatch wd:Q2387177 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1915>
+  myd:wdMatch wd:Q921737 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1931>
+  myd:wdMatch wd:Q2219334 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1932>
+  myd:wdMatch wd:Q2609678 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/1934>
+  myd:wdMatch wd:Q2609628 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2011>
+  myd:wdMatch wd:Q2609479 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2016>
+  myd:wdMatch wd:Q1749545 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2020>
+  myd:wdMatch wd:Q4423406 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2024>
+  myd:wdMatch wd:Q1749531 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2102>
+  myd:wdMatch wd:Q1890848 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2105>
+  myd:wdMatch wd:Q1749527 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2109>
+  myd:wdMatch wd:Q2011314 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2110>
+  myd:wdMatch wd:Q2715784 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2111>
+  myd:wdMatch wd:Q7497979 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2116>
+  myd:wdMatch wd:Q1749535 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2118>
+  myd:wdMatch wd:Q1749550 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2127>
+  myd:wdMatch wd:Q2405118 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2131>
+  myd:wdMatch wd:Q1749684 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2138>
+  myd:wdMatch wd:Q1749522 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2246>
+  myd:wdMatch wd:Q4442915 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2306>
+  myd:wdMatch wd:Q2011235 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2307>
+  myd:wdMatch wd:Q1750337 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2309>
+  myd:wdMatch wd:Q2615978 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2310>
+  myd:wdMatch wd:Q1750531 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2316>
+  myd:wdMatch wd:Q2476900 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2317>
+  myd:wdMatch wd:Q1750672 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2318>
+  myd:wdMatch wd:Q771640 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2320>
+  myd:wdMatch wd:Q1750675 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2324>
+  myd:wdMatch wd:Q4232394 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2325>
+  myd:wdMatch wd:Q2560787 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2326>
+  myd:wdMatch wd:Q13554376 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2334>
+  myd:wdMatch wd:Q2012325 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2339>
+  myd:wdMatch wd:Q2011302 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2343>
+  myd:wdMatch wd:Q2715418 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2345>
+  myd:wdMatch wd:Q2408489 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2347>
+  myd:wdMatch wd:Q2407916 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2354>
+  myd:wdMatch wd:Q29479007 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2355>
+  myd:wdMatch wd:Q2407089 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2356>
+  myd:wdMatch wd:Q1750534 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2357>
+  myd:wdMatch wd:Q1750661 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2358>
+  myd:wdMatch wd:Q3627159 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2359>
+  myd:wdMatch wd:Q4165080 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2404>
+  myd:wdMatch wd:Q1749540 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2407>
+  myd:wdMatch wd:Q953742 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2412>
+  myd:wdMatch wd:Q1750050 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2422>
+  myd:wdMatch wd:Q2405076 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2423>
+  myd:wdMatch wd:Q2609370 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2424>
+  myd:wdMatch wd:Q2405088 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2427>
+  myd:wdMatch wd:Q1750036 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2431>
+  myd:wdMatch wd:Q534046 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2436>
+  myd:wdMatch wd:Q1749678 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2437>
+  myd:wdMatch wd:Q1749681 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2438>
+  myd:wdMatch wd:Q535085 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2502>
+  myd:wdMatch wd:Q2633034 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2522>
+  myd:wdMatch wd:Q3882332 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2523>
+  myd:wdMatch wd:Q3882809 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2524>
+  myd:wdMatch wd:Q3908413 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2535>
+  myd:wdMatch wd:Q3515689 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2609>
+  myd:wdMatch wd:Q2606948 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2611>
+  myd:wdMatch wd:Q2608264 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2617>
+  myd:wdMatch wd:Q768987 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2618>
+  myd:wdMatch wd:Q2399931 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2619>
+  myd:wdMatch wd:Q2400676 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2628>
+  myd:wdMatch wd:Q2657322 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2629>
+  myd:wdMatch wd:Q2399949 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2630>
+  myd:wdMatch wd:Q2400143 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2632>
+  myd:wdMatch wd:Q2444114 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2633>
+  myd:wdMatch wd:Q2400127 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2634>
+  myd:wdMatch wd:Q2454587 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2707>
+  myd:wdMatch wd:Q2609405 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2710>
+  myd:wdMatch wd:Q2609417 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2711>
+  myd:wdMatch wd:Q2220759 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2718>
+  myd:wdMatch wd:Q407827 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2719>
+  myd:wdMatch wd:Q2609637 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2721>
+  myd:wdMatch wd:Q15101410 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2722>
+  myd:wdMatch wd:Q2609377 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2723>
+  myd:wdMatch wd:Q2219326 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2725>
+  myd:wdMatch wd:Q2609389 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2730>
+  myd:wdMatch wd:Q2219814 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2803>
+  myd:wdMatch wd:Q2653282 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2807>
+  myd:wdMatch wd:Q2653243 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2822>
+  myd:wdMatch wd:Q2454975 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2825>
+  myd:wdMatch wd:Q20432553 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/municipality/2826>
+  myd:wdMatch wd:Q4537624 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/16> myd:wdMatch
+    wd:Q74877898 .
+
+<https://github.com/nikolatulechki/semanticElections/resource/entity/party/38> myd:wdMatch
+    wd:Q74877900 .
