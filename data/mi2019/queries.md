@@ -213,7 +213,9 @@ where {
 group by ?party ?municipality ?name 
 ```
 
-Matching query 
+### Candidate Matching query 
+
+Insert does not wqork with gdb 9. Bets result is with constrct and then imprting th .ttl file. 
 
 ```
 PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -224,10 +226,8 @@ PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/d
 PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
 PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-insert {
-    graph my:cand-match {
-        ?c1 owl:sameAs ?c2 .
-    }
+construct {
+    ?c1 owl:sameAs ?c2 .
 }
 where { 
     ?c1 a my:Candidate ; rdfs:label ?l1 .
@@ -250,4 +250,50 @@ where {
     ?c1 a my:Candidate ; rdfs:label ?l1 .
     filter(!regex(?l1, "^[^ ]+ [^ ]+ [^ ]+$","i"))
 } 
+```
+
+Election retromatching
+```
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+insert {
+    ?e myd:wdMatch ?wd .
+}
+where { 
+    ?e a my:Election ; myd:partOf <election/mi2019/ko> ; myd:municipality/myd:wdMatch ?mun .
+    service <https://query.wikidata.org/sparql> {
+        ?wd wdt:P31 wd:Q69463245 ; wdt:P1001 ?mun .
+    }                  
+} 
+```
+
+```spaqrl
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+select * where { 
+    ?e a my:Election ; myd:partOf <election/mi2019/ko> ; myd:wdMatch ?wd .
+    ?vr myd:partOf ?e ; rdfs:label ?vlabel ; myd:round 1 .
+    service <https://query.wikidata.org/sparql> {
+          SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "bg" .
+            ?wd rdfs:label ?bgLabel .
+          }
+          SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+            ?wd rdfs:label ?enLabel .
+          }
+    }
+    bind(concat(?bgLabel," - Първи тур") as ?roundLabelBg)
+    bind(concat("First round of ",?enLabel) as ?roundLabelEn)
+    
+}  
 ```

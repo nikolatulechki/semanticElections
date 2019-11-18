@@ -34,6 +34,10 @@ People Voluyak voted on 4 separate elections
 * Lists of candidates...
     *Result tables for councellors https://results.cik.bg/mi2019/tur1/hnm/0101.html
 
+### Wiki Project Elections
+
+<https://www.wikidata.org/wiki/Wikidata:WikiProject_elections> 
+
 ### Girona 2015 municipal election model 
 
 see election.ttl
@@ -123,3 +127,65 @@ Relevant type [Q43791339](http://www.wikidata.org/entity/Q43791339) : political 
 61 parites in BG: [query](https://w.wiki/BuY)
 
 
+## Person matching 
+he same municipality and the same party 
+After obvious matching of homoyms and dedupliction within the context of the the same party and the same municipality we still have 400 clusters of homonyms...
+
+Decision is to import them as is. 
+
+```
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX onto: <http://www.ontotext.com/>
+select
+?l (count(*) as ?c)  
+from onto:disable-sameAs
+where { 
+    ?c1 a my:Candidate ; rdfs:label ?l .
+    ?c2 a my:Candidate ; rdfs:label ?l .
+    
+    filter(str(?c1)>str(?c2))
+    
+}
+group by ?l order by desc(?c)
+``` 
+
+
+## Craeting Wikidata entities
+
+Query to make Position instances
+```sparql
+select ?PosBgLabel ?PosEnLabel ?q {
+  ?m wdt:P31 wd:Q1906268
+  SERVICE wikibase:label { 
+    bd:serviceParam wikibase:language "bg". 
+    ?m rdfs:label ?mBgLabel
+  }
+  SERVICE wikibase:label { 
+    bd:serviceParam wikibase:language "en". 
+    ?m rdfs:label ?mEnLabel
+  }
+  bind(strafter(str(?m),str(wd:)) as ?q)
+  bind(concat("Mayor of ",?mEnLabel) as ?PosEnLabel)
+  bind(concat("Кмет на ",?mBgLabel) as ?PosBgLabel) 
+}
+```
+
+
+generating labels fr coalitions 
+
+```
+select ?Q ?Dbg ?cdescription  {
+  ?s wdt:P31 wd:Q388602 ; wdt:P2541 ?mun .
+  ?mun wdt:P31 wd:Q1906268 ; 
+  SERVICE wikibase:label { 
+    bd:serviceParam wikibase:language "bg". 
+    ?s rdfs:label ?sLabel .
+    ?mun rdfs:label ?munLabel .
+  }
+  bind(strafter(str(?s),str(wd:)) as ?Q)
+  bind(concat(?sLabel, " - Местни Избори 2019 - ",?munLabel) as ?cdescription)
+  bind("Dbg" as ?Dbg)
+  
+}
+``` 
