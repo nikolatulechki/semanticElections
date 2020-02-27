@@ -297,3 +297,120 @@ select * where {
     
 }  
 ```
+
+## Geography 
+
+nearby voting places
+
+```sparql
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX omgeo: <http://www.ontotext.com/owlim/geo#>
+select * where { 
+    bind(<votingPlace/e4a01f0684b5a1bfbf45a2ae5b846ece5bf9e5f7> as ?p1)
+#	?p1 a my:Place .
+    ?p2 a my:VotingPlace .  
+    ?p1 geo:location/geo:lat ?lat1 ; geo:location/geo:long ?long1 .
+    ?p2 geo:location ?geo2 .
+    ?geo2 omgeo:nearby(?lat1 ?long1 "10km")
+} limit 100 
+```
+
+federation for wikidata places and their GEO
+
+```sparql
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX omgeo: <http://www.ontotext.com/owlim/geo#>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+prefix wdt: <http://www.wikidata.org/prop/direct/> 
+
+insert {
+    graph my:wg-geo-graph {
+   	 	?p myd:wdMatch ?q ; geo:location ?POINT .
+    	?POINT a geo:Point ; geo:asWKT ?geo .
+    }
+}
+where { 
+ 	?p a my:Place ; myd:ekatte ?ekatte .
+    service <https://query.wikidata.org/sparql> {
+        ?q wdt:P3990 ?ekatte ; wdt:P625 ?geo 
+    }
+    bind(uri(concat(str(?p),"/geo")) as ?POINT)
+}
+```
+
+Comparing distance of voting places with center pof place in order to repair google geomatching
+
+```sparql
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX omgeo: <http://www.ontotext.com/owlim/geo#>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select * where { 
+#    bind(<place/02676> as ?p1)
+    {
+        select ?p1 {
+            ?vp a my:VotingPlace ; myd:place ?p1. 
+        } group by ?p1 having (count(?vp) = 0)
+    }
+    ?p1 a my:Place ; rdfs:label ?placeLabel .
+    ?vp a my:VotingPlace ; myd:place ?p1 ; rdfs:label ?vpLabel .
+    ?vp geo:hasGeometry/geo:asWKT ?vpgeo .
+    ?p1 geo:hasGeometry/geo:asWKT ?pgeo .
+    bind(strdt(str(?vpgeo),<http://www.opengis.net/ont/geosparql#wktLiteral>) as ?newgeo)
+    bind(geof:distance(?pgeo, ?newgeo, uom:metre) as ?dist)
+    filter(?dist > 15000)
+} #limit 100 
+```
+
+Postprocessing Q to fix voting places positioned far from their parent places. Fallback solution is to place them at the same location as their parent place. Will add a flag so that eventually we can look and fix them directly in Wikidata.
+
+## Aggregation Queries
+
+Local elections - aggregation on candidates
+
+!!! Fucked up - One candidacy for both rounds - need separate ones :( fix this 
+
+```sparql
+BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
+PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
+PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
+PREFIX onto: <http://www.ontotext.com/>
+construct {
+#    graph my:graph-ko-aggregate-results { 
+    ?csy mypq:valid_votes_recieved ?sum_valid_votes ;
+         mypq:invalid_votes_recieved ?sum_invalid_votes ;
+     .
+#    }
+}
+#from onto:disable-sameAs
+where
+{
+    select ?election ?csy (sum(?valid_votes) as ?sum_valid_votes) (sum(?invalid_votes) as ?sum_invalid_votes) 
+    where {
+        ?cand a my:Candidate ;
+              myd:candidacy ?election ;
+              rdfs:label ?name ;
+              myp:candidacy ?csy .
+        ?csy  mypq:represents ?party .
+        ?voting myd:partOf ?election .
+        ?s ^myp:vote ?voting ;
+            myps:vote ?party ;
+            mypq:valid_votes_recieved ?valid_votes ;
+            mypq:invalid_votes_recieved ?invalid_votes .
+        ?election myd:round [] .		       
+    } 
+    group by ?election ?csy 
+}
+```
