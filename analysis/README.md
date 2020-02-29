@@ -172,7 +172,7 @@ select ?PosBgLabel ?PosEnLabel ?q {
 ```
 
 
-generating labels fr coalitions 
+## Generating labels for coalitions 
 
 ```
 select ?Q ?Dbg ?cdescription  {
@@ -189,3 +189,17 @@ select ?Q ?Dbg ?cdescription  {
   
 }
 ``` 
+
+## Relevant WD items for voting places: 
+
+* wd:Q41176 building
+* wd:Q13226383 facility 
+
+* wd:Q1244442 school building
+* wd:Q1076486 sports venue 
+* wd:Q16831714 government building
+* wd:Q655686  commercial building
+* wd:Q77115   community center 
+* wd:Q494829  bus station 
+* wd:Q4260475 medical facility 
+* wd:Q847950 dormitory
