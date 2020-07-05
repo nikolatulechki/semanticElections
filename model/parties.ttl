@@ -1,0 +1,57 @@
+# MI2019
+
+<election/mi2019/os/0101> a my:Election ; rdfs:label "Местни Избори 2019 за общински съвет на община  0101 Банско"@bg ;
+    myd:partOf <election/mi2019/os>  ;
+    myd:municipality <municipality/0101> ;
+.
+
+<election/mi2019/os/0103> a my:Election ; rdfs:label "Местни Избори 2019 за общински съвет на община  0103 Благоевград"@bg ;
+    myd:partOf <election/mi2019/os>  ;
+    myd:municipality <municipality/0103> ;
+.
+
+<party/mi2019/51> a my:Party ;
+    rdfs:label "Воля"@bg ;
+    myd:wdid <http://www.wikidata.org/entity/Q25485773> ;
+.
+
+<party/mi2019/43> a my:Party ;
+    rdfs:label "ПП ГЕРБ"@bg ;
+    myd:wdid <http://www.wikidata.org/entity/Q133968>
+.
+
+<party/mi2019/0101/43> a my:LocalParty ;
+    rdfs:label "ПП ГЕРБ"@bg ;
+    myd:party <party/mi2019/43> ;
+    myd:election <election/mi2019/os/0101>
+.
+
+<party/mi2019/0101/51> a my:LocalParty ;
+    rdfs:label "Воля"@bg ;
+    myd:party <party/mi2019/51> ;
+    myd:election <election/mi2019/os/0101>
+.
+
+<party/mi2019/42> a my:Party ;
+    rdfs:label "Партия на Зелените"@bg ;
+.
+
+<party/mi2019/0103/67> a my:LocalCoalition ;
+    rdfs:label "Местна коалиция партия на ЗЕЛЕНИТЕ (ВОЛЯ)" ;
+    myd:hasPart <party/mi2019/42>, <party/mi2019/51> ;
+    myd:election <election/mi2019/os/0103>
+.
+
+<party/mi2019/0103/74> a my:CitizensCommettee ;
+    rdfs:label "Венцислав Богданов Сотиров-Венцислав Богданов Сотиров";
+    myd:election <election/mi2019/os/0103> ;
+.
+
+### PUML
+
+<party/mi2019/0101/51>  puml:up <party/mi2019/51> .
+<party/mi2019/0101/43>  puml:up <party/mi2019/43> .
+<party/mi2019/0103/67>  puml:up <party/mi2019/42>, <party/mi2019/51>  .
+<party/mi2019/51> puml:up <http://www.wikidata.org/entity/Q25485773> .
+<party/mi2019/43> puml:up <http://www.wikidata.org/entity/Q133968> .
+

@@ -1,0 +1,147 @@
+#### LOCAL 2019
+
+<election/mi2019> a my:Election ; rdfs:label "Местни Избори 2019"@bg .
+
+<election/mi2019/os/0306> a my:Election ;
+    rdfs:label "Местни Избори 2019 за общински съвет на община Варна"@bg ;
+    myd:partOf <election/mi2019/os>  ;
+.
+
+<election/mi2019/os> rdfs:label "Местни Избори 2019 за общински съвет"@bg ; myd:partOf <election/mi2019> .
+
+<candidate/mi2019/os/0306/51/101> a my:Candidate ;
+    rdfs:label "Веселин Найденов Марешки" ;
+    myd:candidacy <election/mi2019/os/0306> ;
+    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+    myd:represents <party/mi2019/0306/51> ;
+    myd:candidate_number 101 ;
+    myd:series_ordinal 1 ;
+.
+
+<party/mi2019/0306/51> a my:LocalParty ;
+    rdfs:label "Воля"@bg ;
+    myd:party <party/mi2019/51> ;
+.
+
+<party/mi2019/51> a my:Party ;
+    rdfs:label "Воля"@bg ;
+    myd:wdid <http://www.wikidata.org/entity/Q25485773> ;
+.
+
+
+#### European 2019
+
+<election/ep2019> a my:Election ; rdfs:label "Европейски избори 2019"@bg .
+
+<candidate/ep2019/23/1> a my:Candidate ;
+   rdfs:label "Веселин Найденов Марешки" ;
+   myd:candidacy <election/ep2019>  ;
+   myd:represents <party/ep2019/23> ;
+   myd:candidate_number 1 ;
+   myd:series_ordinal 1 ;
+   myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+.
+
+<party/ep2019/23> a my:Party ;
+    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+.
+
+# Parliamentary 2017
+# local_candidates_26.03.2017.txt:3;03. ВАРНА;6;ВОЛЯ;1;Веселин Найденов Марешки;
+# local_candidates_26.03.2017.txt:25;25. СОФИЯ 25 МИР;6;ВОЛЯ;1;Веселин Найденов Марешки;
+
+<election/pi2017> a my:Election ; rdfs:label "ПАРЛАМЕНТАРНИ ИЗБОРИ 26 МАРТ 2017"@bg .
+
+<election/pi2017/3> a my:Election ;
+    rdfs:label "ПАРЛАМЕНТАРНИ ИЗБОРИ 26 МАРТ 2017 - 03. ВАРНА@ "@bg ;
+    myd:partOf <election/pi2017> ;
+.
+
+<election/pi2017/25> a my:Election ;
+    rdfs:label "ПАРЛАМЕНТАРНИ ИЗБОРИ 26 МАРТ 2017 - 25. СОФИЯ 25 МИР"@bg ;
+    myd:partOf <election/pi2017> ;
+.
+
+<candidate/pi2017/3/6/1> a my:Candidate ;
+    rdfs:label "Веселин Найденов Марешки" ;
+    myd:candidacy <election/pi2017/3>  ;
+    myd:represents <party/pi2017/3/6> ;
+    myd:candidate_number 1 ;
+    myd:series_ordinal 1 ;
+    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+.
+
+<candidate/pi2017/25/6/1> a my:Candidate ;
+    rdfs:label "Веселин Найденов Марешки" ;
+    myd:candidacy <election/pi2017/25>  ;
+    myd:represents <party/pi2017/25/6> ;
+    myd:candidate_number 1 ;
+    myd:series_ordinal 1 ;
+    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+.
+
+<party/pi2017/25/6> a my:LocalParty ;
+     rdfs:label "Воля"@bg ;
+     myd:party <party/pi2017/6> ;
+.
+
+<party/pi2017/3/6> a my:LocalParty ;
+     rdfs:label "Воля"@bg ;
+     myd:party <party/pi2017/6> ;
+.
+
+<party/pi2017/6> a my:Party ;
+    rdfs:label "Воля"@bg ;
+    myd:wdid <http://www.wikidata.org/entity/Q25485773> ;
+.
+
+########
+
+<election/pvrnr2016> a my:Election ; rdfs:label "Президент и вицепрезидент на републиката"@bg .
+
+<candidate/pvrnr2016/2/pr> a my:Candidate ;
+    rdfs:label "Веселин Найденов Марешки"@bg ;
+    myd:candidacy <election/pvrnr2016> ;
+
+    myd:represents <party/pvrnr2016/2> ;
+    myd:role "President" ;
+    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+.
+
+<candidate/pvrnr2016/2/vp> a my:Candidate ;
+    rdfs:label "Петър Живков Петров"@bg ;
+    myd:role "VP" ;
+    myd:candidacy <election/pvrnr2016> ;
+    myd:represents <party/pvrnr2016/2> ;
+.
+
+<party/pvrnr2016/2> a my:CitizensCommittee ;
+    rdfs:label "Инициативен комитет представляван от Пламен Трифонов Христов"@bg ;
+.
+
+### WD
+
+<http://www.wikidata.org/entity/Q26899272> a in:Person ;
+    rdfs:label "Веселин Найденов Марешки"@bg  ;
+    myd:webLink <https://www.wikidata.org/wiki/Q26899272> ;
+.
+
+<http://www.wikidata.org/entity/Q25485773> a in:Party ;
+    rdfs:label "ВОЛЯ"@bg  ;
+    myd:webLink <https://www.wikidata.org/wiki/Q25485773> ;
+.
+
+## PUML
+
+<candidate/pvrnr2016/2/vp> puml:up <party/pvrnr2016/2> .
+<candidate/pvrnr2016/2/pr> puml:up <party/pvrnr2016/2> .
+<party/mi2019/0306/51> puml:up <party/mi2019/51> .
+<candidate/mi2019/os/0306/51/101> puml:up <party/mi2019/0306/51> .
+<candidate/ep2019/23/1> puml:up <party/ep2019/23> .
+<party/ep2019/23> puml:up <http://www.wikidata.org/entity/Q25485773> .
+<party/mi2019/51> puml:up <http://www.wikidata.org/entity/Q25485773> .
+<party/pi2017/6>  puml:up <http://www.wikidata.org/entity/Q25485773> .
+<candidate/pi2017/25/6/1> puml:up <party/pi2017/25/6> .
+<candidate/pi2017/3/6/1> puml:up  <party/pi2017/3/6> .
+<party/pi2017/25/6> puml:up <party/pi2017/6> .
+<party/pi2017/3/6> puml:up <party/pi2017/6> .

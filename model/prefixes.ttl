@@ -1,6 +1,8 @@
 # TRR prefixes
 @base   <https://github.com/nikolatulechki/semanticElections/> .
 
+@prefix in: <https://github.com/nikolatulechki/semanticElections/resource/integratedEntity/> .
+
 @prefix my: <https://github.com/nikolatulechki/semanticElections/resource/entity/> .
 
 @prefix myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/> .
@@ -44,3 +46,5 @@
 @prefix wdno: <http://www.wikidata.org/prop/novalue/> .
 
 # rdfpuml should render this (external) URL inline
+
+myd:webLink a puml:InlineProperty .
