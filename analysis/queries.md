@@ -374,43 +374,41 @@ Postprocessing Q to fix voting places positioned far from their parent places. F
 
 ## Aggregation Queries
 
-Local elections - aggregation on candidates
-
-!!! Fucked up - One candidacy for both rounds - need separate ones :( fix this 
+Local elections - aggregation on parties
 
 ```sparql
-BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-PREFIX onto: <http://www.ontotext.com/>
-construct {
-#    graph my:graph-ko-aggregate-results { 
-    ?csy mypq:valid_votes_recieved ?sum_valid_votes ;
-         mypq:invalid_votes_recieved ?sum_invalid_votes ;
-     .
-#    }
-}
-#from onto:disable-sameAs
-where
-{
-    select ?election ?csy (sum(?valid_votes) as ?sum_valid_votes) (sum(?invalid_votes) as ?sum_invalid_votes) 
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX party: <https://elections.ontotext.com/resource/party/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+insert {
+    graph <graph/aggregated-results> {
+    ?election myd:vote ?party ; myp:vote ?VOTE_URI .
+    ?VOTE_URI a my:ElectionVote ;
+        myps:vote ?party ;
+    	mypq:valid_votes_recieved ?sum_valid_votes ;
+        mypq:invalid_votes_recieved ?sum_invalid_votes ;
+    .
+    }
+} 
+where {
+{select ?election ?party (sum(?valid_votes) as ?sum_valid_votes) (sum(?invalid_votes) as ?sum_invalid_votes) 
     where {
-        ?cand a my:Candidate ;
-              myd:candidacy ?election ;
-              rdfs:label ?name ;
-              myp:candidacy ?csy .
-        ?csy  mypq:represents ?party .
-        ?voting myd:partOf ?election .
-        ?s ^myp:vote ?voting ;
-            myps:vote ?party ;
+        ?party a my:LocalParty ;
+              #myd:candidacy ?election ;
+              rdfs:label ?name .
+        ?voting myp:vote ?vote  ;
+                myd:election ?election .
+        ?vote myps:vote ?party;
             mypq:valid_votes_recieved ?valid_votes ;
             mypq:invalid_votes_recieved ?invalid_votes .
-        ?election myd:round [] .		       
-    } 
-    group by ?election ?csy 
+     } 
+group by ?election ?party }
+	bind(uri(concat("vote/",strafter(str(?election),str(election:)),"/",strafter(str(?party),str(party:)))) as ?VOTE_URI)        
 }
 ```
