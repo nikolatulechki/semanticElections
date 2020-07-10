@@ -36,6 +36,12 @@
     myd:place <place/68134> ;
 .
 
+<votingPlace/(UUID)/geo> a geo:Point ;
+    geo:lat 42.6784358 ;
+    geo:lng 23.3586574 ;
+.
+
+
 <place/68134> a my:Place ;
     rdfs:label "ГР.СОФИЯ" ;
     myd:ekatte 68134 ;

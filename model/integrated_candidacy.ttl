@@ -21,6 +21,7 @@
 <party/mi2019/0306/51> a my:LocalParty ;
     rdfs:label "Воля"@bg ;
     myd:party <party/mi2019/51> ;
+    myd:candidacy <election/mi2019/os/0306> ;
 .
 
 <party/mi2019/51> a my:Party ;
@@ -83,11 +84,13 @@
 <party/pi2017/25/6> a my:LocalParty ;
      rdfs:label "Воля"@bg ;
      myd:party <party/pi2017/6> ;
+     myd:candidacy <election/pi2017/25>  ;
 .
 
 <party/pi2017/3/6> a my:LocalParty ;
      rdfs:label "Воля"@bg ;
      myd:party <party/pi2017/6> ;
+     myd:candidacy <election/pi2017/6>  ;
 .
 
 <party/pi2017/6> a my:Party ;

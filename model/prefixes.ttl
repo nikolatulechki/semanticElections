@@ -1,15 +1,26 @@
 # TRR prefixes
-@base   <https://github.com/nikolatulechki/semanticElections/> .
+@base   <https://elections.ontotext.com/resource/> .
 
-@prefix in: <https://github.com/nikolatulechki/semanticElections/resource/integratedEntity/> .
+@prefix my: <https://elections.ontotext.com/resource/entity/> .
 
-@prefix my: <https://github.com/nikolatulechki/semanticElections/resource/entity/> .
+@prefix in: <https://elections.ontotext.com/resource/integratedEntity/> .
 
-@prefix myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/> .
-@prefix myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/> .
-@prefix myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/> .
-@prefix mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/> .
-@prefix mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/> .
+
+@prefix myd: <https://elections.ontotext.com/resource/prop/direct/> .
+@prefix myp: <https://elections.ontotext.com/resource/prop/indirect/> .
+@prefix myps: <https://elections.ontotext.com/resource/prop/statement/> .
+@prefix mypq: <https://elections.ontotext.com/resource/prop/qualifier/> .
+@prefix mys: <https://elections.ontotext.com/resource/entity/statement/> .
+
+# entity prefixes
+
+@prefix candidate: <https://elections.ontotext.com/resource/candidate/> .
+@prefix election: <https://elections.ontotext.com/resource/election/> .
+@prefix vote: <https://elections.ontotext.com/resource/vote/> .
+@prefix voting: <https://elections.ontotext.com/resource/voting/> .
+@prefix party: <https://elections.ontotext.com/resource/party/> .
+@prefix section: <https://elections.ontotext.com/resource/section/> .
+
 
 @prefix puml:     <http://plantuml.com/ontology#>.
 
@@ -44,6 +55,13 @@
 @prefix prv: <http://www.wikidata.org/prop/reference/value/> .
 @prefix prn: <http://www.wikidata.org/prop/reference/value-normalized/> .
 @prefix wdno: <http://www.wikidata.org/prop/novalue/> .
+
+#gdb geo shit
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX omgeo: <http://www.ontotext.com/owlim/geo#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
 
 # rdfpuml should render this (external) URL inline
 

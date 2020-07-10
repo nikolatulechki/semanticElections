@@ -27,31 +27,31 @@
 
 <candidate/os/2246/66/108> a my:Candidate ;
     rdfs:label "Тома Георгиев Белев" ;
+    myd:represents <party/2246/66> ;
+    myd:candidate_number 108 ;
+    myd:series_ordinal 8 ;
     myd:candidacy <election/mi2019/os/2246> ;
-    myp:candidacy <statement/candidacy/candidate/ko/2246/66/108> ;
 .
 
-<statement/candidacy/candidate/ko/2246/66/108> a my:Statement ;
-    myps:candidacy <election/mi2019/os/2246> ;
-    mypq:represents <party/66> ;
-    mypq:candidate_number 108 ;
-    mypq:series_ordinal 8 ;
-.
 
+<party/2246/66> a my:LocalParty ;
+    rdfs:label "ДЕМОКРАТИЧНА БЪЛГАРИЯ – ОБЕДИНЕНИЕ (ДА България, ДСБ, Зелено движение)";
+    myd:candidacy <election/mi2019/os/2246> ;
+    myd:party <party/66> ;
+.
 
 <party/66> a my:Party ;
     rdfs:label "ДЕМОКРАТИЧНА БЪЛГАРИЯ – ОБЕДИНЕНИЕ (ДА България, ДСБ, Зелено движение)";
-    my:type    "main_party" ;
 .
 
 
 #Voting for party 
 
-<election/mi2019/os/2246/224607026> myd:vote <party/66> ;
+<election/mi2019/os/2246/224607026> myd:vote <party/2246/66> ;
     myp:vote <statement/vote/mi2019/os/2246/224607026/party/66> .
 
 <statement/vote/mi2019/os/2246/224607026/party/66> a my:Statement ;
-    myps:vote <party/66> ;
+    myps:vote <party/2246/66> ;
     mypq:valid_votes_received 78 ;
     mypq:invalid_votes_received 0 ;
 .
