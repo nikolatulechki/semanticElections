@@ -1,0 +1,147 @@
+@prefix doib: <https://github.com/sandrolabruzzo/doiBoost/ontology/> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix org: <http://trr.ontotext.com/resource/organization/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://trr.ontotext.com/resource/person/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix source: <http://trr.ontotext.com/resource/source/> .
+@prefix trr: <http://trr.ontotext.com/resource/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.5590.9> a trr:Identifier;
+  trr:id "grid.5590.9";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.5590.9> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.449738.5> a trr:Identifier;
+  trr:id "grid.449738.5";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.449738.5> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.12380.38> a trr:Identifier;
+  trr:id "grid.12380.38";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.12380.38> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.4494.d> a trr:Identifier;
+  trr:id "grid.4494.d";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.4494.d> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.5012.6> a trr:Identifier;
+  trr:id "grid.5012.6";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.5012.6> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.6292.f> a trr:Identifier;
+  trr:id "grid.6292.f";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.6292.f> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.5607.4> a trr:Identifier;
+  trr:id "grid.5607.4";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.5607.4> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.6401.3> a trr:Identifier;
+  trr:id "grid.6401.3";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.6401.3> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.4825.b> a trr:Identifier;
+  trr:id "grid.4825.b";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.4825.b> .
+
+<http://trr.ontotext.com/resource/identifier/GRID/grid.252427.4> a trr:Identifier;
+  trr:id "grid.252427.4";
+  trr:source source:DOIboost;
+  trr:type "GRID";
+  trr:webLink <https://www.grid.ac/institutes/grid.252427.4> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Radboud_University_Nijmegen>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/Radboud_University_Nijmegen";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/Radboud_University_Nijmegen> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_Medical_Center_(Lubbock,_Texas)>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/University_Medical_Center_(Lubbock,_Texas)";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <https://en.wikipedia.org/wiki/University_Medical_Center_(Lubbock,_Texas)> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/VU_University_Amsterdam>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/VU_University_Amsterdam";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/VU_University_Amsterdam> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_Medical_Center_Groningen>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/University_Medical_Center_Groningen";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/University_Medical_Center_Groningen> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Maastricht_University>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/Maastricht_University";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/Maastricht_University> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_of_Bologna>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/University_of_Bologna";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/University_of_Bologna> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/École_Normale_Supérieure>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/École_Normale_Supérieure";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/École_Normale_Supérieure> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_of_Paris>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/University_of_Paris";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/University_of_Paris> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Stazione_Zoologica>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/Stazione_Zoologica";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <https://en.wikipedia.org/wiki/Stazione_Zoologica> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/IFREMER> a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/IFREMER";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/IFREMER> .
+
+<http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Asahikawa_Medical_University>
+  a trr:Identifier;
+  trr:id "en.wikipedia.org/wiki/Asahikawa_Medical_University";
+  trr:source source:DOIboost;
+  trr:type "Wikipedia";
+  trr:webLink <http://en.wikipedia.org/wiki/Asahikawa_Medical_University> .

@@ -1,0 +1,13 @@
+construct {
+  ?URL a trr:Program;
+    trr:id ?Code;
+    trr:name ?NAME;
+    trr:nameLong ?NAME_LONG;
+    trr:partOf ?Parent_URL
+} where {
+  bind(1+"" as ?UNDEF)
+  bind(if(bound(?ShortTitle),?ShortTitle,?Title) as ?NAME)
+  bind(if(bound(?ShortTitle),?Title,?UNDEF) as ?NAME_LONG)
+  bind(uri(concat("program/",?Url)) as ?URL)
+  bind(uri(concat("program/",?Parent)) as ?Parent_URL)
+}

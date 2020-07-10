@@ -1,0 +1,7 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix trr: <http://trr.ontotext.com/resource/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://trr.ontotext.com/resource/organization/999990849> a trr:Organization;
+  trr:altName "ACADEMISCH ZIEKENHUIS LEIDEN", "ACADEMISCH ZIEKENHUIS LEIDEN - LEIDS UNIVERSITAIR CENTRUM",
+    "ACADEMISCH ZIEKENHUIS LEIDEN - LEIDS UNIVERSITAIR MEDISCH CENTRUM", "AKADEMISCH ZIEKENHUIS LEIDEN - LEIDEN UNIVERSITAIR MEDISCH CENTRUM" .

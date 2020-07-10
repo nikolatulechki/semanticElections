@@ -1,0 +1,653 @@
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-403FFD302180A2EC0D54996E5D9AFE29 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-403FFD302180A2EC0D54996E5D9AFE29 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-3093F80BBB58D0A9CC41AC9A1CF4D068 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-3093F80BBB58D0A9CC41AC9A1CF4D068 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E4A61ACC4D61EB322E4402EFA03B1AD7, _:genid-bf454c96c3b444fe88713dcb28675998-FAC84DCCC43953AAB43502788D28074E,
+    _:node604067;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University Medical Center" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-403FFD302180A2EC0D54996E5D9AFE29 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-9EAC5D8B9C36185AF83575C655AF6A55 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-9EAC5D8B9C36185AF83575C655AF6A55 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; University Medical Center Utrecht; Utrecht The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-403FFD302180A2EC0D54996E5D9AFE29 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-31C18C4F03F38492223A7B5EDFC2BF21 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-31C18C4F03F38492223A7B5EDFC2BF21 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2307999101" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-594268F89D41B802E40D78F6B82157FE .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-594268F89D41B802E40D78F6B82157FE <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-437EB6C89527922D968E4D38E6D222B1 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-437EB6C89527922D968E4D38E6D222B1 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; Radboud University Nijmegen Medical Centre; Nijmegen The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-594268F89D41B802E40D78F6B82157FE <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-A996376266F19B0B357302FE77AE11FD .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-A996376266F19B0B357302FE77AE11FD <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-8ABAAA2B8A20DAC85F834356CFB4C0AC, _:genid-bf454c96c3b444fe88713dcb28675998-E727C8B558755778B22A673312658AD3,
+    _:node1037914;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.ru.nl/english";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Radboud University Nijmegen" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-594268F89D41B802E40D78F6B82157FE <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-29383583621C6EBF69741DB0EAA624B7 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-29383583621C6EBF69741DB0EAA624B7 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/175008147" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-5B57FB24966AC331F6F9FBCACFFE179D .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-5B57FB24966AC331F6F9FBCACFFE179D <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-852DBB7AE3159615247CE5B6F4334FF5 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-852DBB7AE3159615247CE5B6F4334FF5 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; VU University Medical Center; Amsterdam The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-5B57FB24966AC331F6F9FBCACFFE179D <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-A48E1D823F3849D04B006300EEB0C44F .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-A48E1D823F3849D04B006300EEB0C44F <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-1295BF56DC55F6FB2AED4582C3EAA013, _:genid-bf454c96c3b444fe88713dcb28675998-9DA5376E53140F33701359D2D1B0E3D9,
+    _:node3679294;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.vu.nl/en/index.asp";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "VU University Amsterdam" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-5B57FB24966AC331F6F9FBCACFFE179D <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-A1BC8ECD46DE4AAA92D38E2F2206B328 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-A1BC8ECD46DE4AAA92D38E2F2206B328 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/1901267574" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-6315D23CF6A9CE231738EF30FCBAA81A .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-6315D23CF6A9CE231738EF30FCBAA81A <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-3D7C91B4D90DF960A5F598CFB0E0D9CB .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-3D7C91B4D90DF960A5F598CFB0E0D9CB <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; Radboud University Nijmegen Medical Centre; Nijmegen The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-6315D23CF6A9CE231738EF30FCBAA81A <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B6293868D8538491725DDC8931708EDA .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B6293868D8538491725DDC8931708EDA <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B6A77F1C84430489CB6FAF79A748C9B7, _:genid-bf454c96c3b444fe88713dcb28675998-CC409BDDF92E33D1D2A54C46BDBC875A,
+    _:node1037915;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.ru.nl/english";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Radboud University Nijmegen" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-6315D23CF6A9CE231738EF30FCBAA81A <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-191F6AD6D76A215ECB55C5D177296A76 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-191F6AD6D76A215ECB55C5D177296A76 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2462419581" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-AD59E055F1F5C1B2DA75E90ABDBD3865 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-AD59E055F1F5C1B2DA75E90ABDBD3865 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-2D12D13EF10A991664515EC241B6078D .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-2D12D13EF10A991664515EC241B6078D <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; Radboud University Nijmegen Medical Centre; Nijmegen The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-AD59E055F1F5C1B2DA75E90ABDBD3865 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-A33F63A7D10E42CBF2B8499DEE0616B8 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-A33F63A7D10E42CBF2B8499DEE0616B8 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-2129D0A32CEC08B4BBB45B372D7C1576, _:genid-bf454c96c3b444fe88713dcb28675998-6B92D8107891E6977CEC464F86B3C90F,
+    _:node1037917;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.ru.nl/english";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Radboud University Nijmegen" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-AD59E055F1F5C1B2DA75E90ABDBD3865 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-0425BF1534C571FC64EDB4DB7D77F3BF .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-0425BF1534C571FC64EDB4DB7D77F3BF <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2581303236" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B41064FE15FEE5A072D0AF74DD97B1F0 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B41064FE15FEE5A072D0AF74DD97B1F0 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B32AF5D1E9C25296E4B7B6B32AB77225 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B32AF5D1E9C25296E4B7B6B32AB77225 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-7214D77E7F9B3BE9B75F5A4E11F9C57E, _:genid-bf454c96c3b444fe88713dcb28675998-B83AAB3EB5379379D5FDF2E82AD70C19,
+    _:node741437;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.maastrichtuniversity.nl/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Maastricht University" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B41064FE15FEE5A072D0AF74DD97B1F0 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E322D48D306A50CEA51F81B241173DA8 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E322D48D306A50CEA51F81B241173DA8 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; Maastricht University Medical Center; Maastricht The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B41064FE15FEE5A072D0AF74DD97B1F0 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-0CE33E1B8C0F5919AC280420FC6A3AD4 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-0CE33E1B8C0F5919AC280420FC6A3AD4 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2252030904" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-BEBC25E8056E0D008358D00EFB4D1B85 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-BEBC25E8056E0D008358D00EFB4D1B85 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-74B2D9FA12B6B53A107D78095FF0C6DD .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-74B2D9FA12B6B53A107D78095FF0C6DD <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-2C3349C37D9DA747CBE4696558018637, _:genid-bf454c96c3b444fe88713dcb28675998-FB90F814EB977214483F0601F6737AF6,
+    _:node1030876;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://umcg.nl/azg/nl/english/azg/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University Medical Center Groningen" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-BEBC25E8056E0D008358D00EFB4D1B85 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B4A41A16363175034105E742427DFCD3 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B4A41A16363175034105E742427DFCD3 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; University Medical Center Groningen; Groningen The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-BEBC25E8056E0D008358D00EFB4D1B85 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B5D3914CBF859EBC0752C6D3A32D7BB2 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B5D3914CBF859EBC0752C6D3A32D7BB2 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/839554223" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-D03EC90E75D575EE1CE645C69E9FCF70 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D03EC90E75D575EE1CE645C69E9FCF70 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-BBC2F97D99176EE34CAFF8CC11586460 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-BBC2F97D99176EE34CAFF8CC11586460 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; Radboud University Nijmegen Medical Centre; Nijmegen The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D03EC90E75D575EE1CE645C69E9FCF70 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-D795C76262EA1F54F1EE19A8B6A01F46 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D795C76262EA1F54F1EE19A8B6A01F46 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-4D39D0694803CD904BC9175FE6BB30DF, _:genid-bf454c96c3b444fe88713dcb28675998-6A92F6DCCBE945FF40E2C124EFD5BFC7,
+    _:node1037913;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.ru.nl/english";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Radboud University Nijmegen" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D03EC90E75D575EE1CE645C69E9FCF70 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-FEF99A920EC837466765FB59500CB3AA .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-FEF99A920EC837466765FB59500CB3AA <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/1413657507" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E611BE9301A39A07651A3BAA29224181 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E611BE9301A39A07651A3BAA29224181 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-8409A300A1420815CEA601ED7B36E22D .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-8409A300A1420815CEA601ED7B36E22D <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; Radboud University Nijmegen Medical Centre; Nijmegen The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E611BE9301A39A07651A3BAA29224181 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-F599C81A74D6EA8E6DD1298559D4EFED .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-F599C81A74D6EA8E6DD1298559D4EFED <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E3FB12B428C892379BAD92D43C705D51, _:genid-bf454c96c3b444fe88713dcb28675998-FCD7041E9659BEB4753060A2552C43CF,
+    _:node1037918;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.ru.nl/english";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Radboud University Nijmegen" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E611BE9301A39A07651A3BAA29224181 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-D83F7FD06317CD007AEB94B61D6F6951 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D83F7FD06317CD007AEB94B61D6F6951 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/173013705" .
+
+<http://dx.doi.org/10.1002/hed.23569> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-F87AE519D4685D2902814A171647ABCA .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-F87AE519D4685D2902814A171647ABCA <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-04B1C3C71B68BEE064BE91268F532906 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-04B1C3C71B68BEE064BE91268F532906 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Radiation Oncology; Radboud University Nijmegen Medical Centre; Nijmegen The Netherlands" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-F87AE519D4685D2902814A171647ABCA <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-FF7F7E62DC46C16754E7413857274F41 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-FF7F7E62DC46C16754E7413857274F41 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-2FBC3DA048155326008A24B891A65231, _:genid-bf454c96c3b444fe88713dcb28675998-AA850F561D265006890A5014C458A577,
+    _:node1037916;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.ru.nl/english";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Radboud University Nijmegen" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-F87AE519D4685D2902814A171647ABCA <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-7B6FD25DE263CC739FACD51A11969A3D .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-7B6FD25DE263CC739FACD51A11969A3D <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/192239201" .
+
+<http://dx.doi.org/10.1002/chem.201300959> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-07642D5938C904E4DC97E2955557703F .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-07642D5938C904E4DC97E2955557703F <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E5AA43529CB538C192D087DC1B1D8A3E .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E5AA43529CB538C192D087DC1B1D8A3E <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-5AB27D460158765E3B15A81C6EDC5C4D, _:genid-bf454c96c3b444fe88713dcb28675998-D003DD0FAC89AAE02079EFDEE6F57B12,
+    _:node466392;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.unibo.it/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Bologna" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-07642D5938C904E4DC97E2955557703F <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-0C2DEA559A4744EF8F434A14073C3BB2 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-0C2DEA559A4744EF8F434A14073C3BB2 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "ORCID";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://orcid.org/0000-0003-1819-8863" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-07642D5938C904E4DC97E2955557703F <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B264382C6E5B4900FC99C7CAF142A24A .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B264382C6E5B4900FC99C7CAF142A24A <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/1918807899" .
+
+<http://dx.doi.org/10.1002/chem.201300959> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-488BDF0284F5019C83EF76C2E10A885E .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-488BDF0284F5019C83EF76C2E10A885E <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-0C00B6C849C2BAAAED8D3B254ACB77AD .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-0C00B6C849C2BAAAED8D3B254ACB77AD <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-219A8A57016A89432A767B454760BA06, _:genid-bf454c96c3b444fe88713dcb28675998-8B7D4082F2012B7E24BBA1945B3C4F45,
+    _:node466393;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.unibo.it/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Bologna" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-488BDF0284F5019C83EF76C2E10A885E <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-20BF009685EA19141EF02509E0E929D0 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-20BF009685EA19141EF02509E0E929D0 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/1989414869" .
+
+<http://dx.doi.org/10.1002/chem.201300959> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-55EA001870BA87482320E52368715BEC .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-55EA001870BA87482320E52368715BEC <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-4EBD6BF5E4FC4346A815F18ACF220F42 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-4EBD6BF5E4FC4346A815F18ACF220F42 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-2AD201EFDEA96F3552B82F4870399C8D, _:genid-bf454c96c3b444fe88713dcb28675998-FD227A37BCD3E4A87EFA7F6F8FBD907C,
+    _:node466391;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.unibo.it/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Bologna" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-55EA001870BA87482320E52368715BEC <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-5D6D1408829B019ED3D2FB08CDF6CAB7 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-5D6D1408829B019ED3D2FB08CDF6CAB7 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/45366833" .
+
+<http://dx.doi.org/10.1002/chem.201300959> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-EAF0B7783DEC2A3B663A69E935332005 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-EAF0B7783DEC2A3B663A69E935332005 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-B7FB3BD1FEFAE68578D3A5AC3F30E0AF .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-B7FB3BD1FEFAE68578D3A5AC3F30E0AF <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-190A27E005FB9A5ACBCD41E0CBB409D1, _:genid-bf454c96c3b444fe88713dcb28675998-CCC0525E740385A0653A3E367D97FBC5,
+    _:node3692697;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.ens.fr/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "École Normale Supérieure" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-EAF0B7783DEC2A3B663A69E935332005 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-762AD2FC85CF91CDFE8A6F18AEAA12C3 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-762AD2FC85CF91CDFE8A6F18AEAA12C3 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2229560525" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-1EEECC8C0F1E7C871D56A86C7882E41A .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-1EEECC8C0F1E7C871D56A86C7882E41A <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-D3FE7615090B18AF83C75BDFFD035AAC .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D3FE7615090B18AF83C75BDFFD035AAC <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "CNRS; UMR7144; Station Biologique De Roscoff; Sorbonne Universités, UPMC Univ Paris 06; 29680 Roscoff France" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-1EEECC8C0F1E7C871D56A86C7882E41A <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-DE169717E91ACFD70076683317DA92E0 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-DE169717E91ACFD70076683317DA92E0 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-712B44F6F3B12BD553F7F15E60E57223, _:node770892;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "https://www.aup.edu/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Paris" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-1EEECC8C0F1E7C871D56A86C7882E41A <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-3C3DC7B8C82CCF3BAD16FBCC4AC924E2 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-3C3DC7B8C82CCF3BAD16FBCC4AC924E2 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2439907069" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-226BCEA7320872CA291D7C494E2685FD .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-226BCEA7320872CA291D7C494E2685FD <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-979CB9BDBF5C46D4B5242CC8CCD2DAC6 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-979CB9BDBF5C46D4B5242CC8CCD2DAC6 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-8A561D9A6887483FCE7B1101B206EE68, _:genid-bf454c96c3b444fe88713dcb28675998-B859DE10CBAAAA335B64AB656EAE510C,
+    _:node1051437;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Stazione Zoologica Anton Dohrn" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-226BCEA7320872CA291D7C494E2685FD <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E61C49D9C77E670A17B9B55512E168C5 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E61C49D9C77E670A17B9B55512E168C5 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Integrative Marine Ecology Department; Stazione Zoologica Anton Dohrn; Villa Comunale 80121 Naples Italy" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-226BCEA7320872CA291D7C494E2685FD <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-DDC987D8000307A4FDF12534ABACE8A1 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-DDC987D8000307A4FDF12534ABACE8A1 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/111499331" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-3E182F6A2DFA074BB5211E0B5AE1AA35 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-3E182F6A2DFA074BB5211E0B5AE1AA35 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-BA177CF0280B80BF0AE59B8E21F81E56 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-BA177CF0280B80BF0AE59B8E21F81E56 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-9E700A23D7098A916329E9B88808043F, _:node770895;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "https://www.aup.edu/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Paris" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-3E182F6A2DFA074BB5211E0B5AE1AA35 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-C39BDE1B09F45E798A2AA75BA3054EA9 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-C39BDE1B09F45E798A2AA75BA3054EA9 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "CNRS; UMR7144; Station Biologique De Roscoff; Sorbonne Universités, UPMC Univ Paris 06; 29680 Roscoff France" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-3E182F6A2DFA074BB5211E0B5AE1AA35 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-105F3EB57DF343884138708E86F71716 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-105F3EB57DF343884138708E86F71716 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2139225599" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-47E5DDAEB72B9BA3C2EFF82CF0CB8F1C .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-47E5DDAEB72B9BA3C2EFF82CF0CB8F1C <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-1D5BFAEFF278B1ABABEA5A809F6EB3BF .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-1D5BFAEFF278B1ABABEA5A809F6EB3BF <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Integrative Marine Ecology Department; Stazione Zoologica Anton Dohrn; Villa Comunale 80121 Naples Italy" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-47E5DDAEB72B9BA3C2EFF82CF0CB8F1C <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-2E2C7594D7A4AFFA06EF051759AE2082 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-2E2C7594D7A4AFFA06EF051759AE2082 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-9781622D4FE03B587D72767E280C3D4D, _:genid-bf454c96c3b444fe88713dcb28675998-F21B7EACB347E3F78FB21CDE3A18DBB1,
+    _:node1051438;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Stazione Zoologica Anton Dohrn" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-47E5DDAEB72B9BA3C2EFF82CF0CB8F1C <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E83EB759B91029DD29444A3039C39C81 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E83EB759B91029DD29444A3039C39C81 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2108489372" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-73245E2E34C07D9149B7B6994EAF96D7 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-73245E2E34C07D9149B7B6994EAF96D7 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-8C6404B8249561483F958D0CC04967B2 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-8C6404B8249561483F958D0CC04967B2 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Dyneco Pelagos; IFREMER; BP 70 29280 Plouzane France" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-73245E2E34C07D9149B7B6994EAF96D7 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-D54E57C4186836E868082EA6A4541DCD .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D54E57C4186836E868082EA6A4541DCD <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-10F9D59FCBE71E8EBFEDFF33F6B6F0B6, _:genid-bf454c96c3b444fe88713dcb28675998-A5C88E478CF5C5CE49834F6B537B4179,
+    _:node823824;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://wwz.ifremer.fr/institut_eng";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "IFREMER" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-73245E2E34C07D9149B7B6994EAF96D7 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-F7CC65BE8FAF9C64B5AF04262C8CB232 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-F7CC65BE8FAF9C64B5AF04262C8CB232 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2099696980" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-8044ADBBDD10F2A804D45C1D4A171D11 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-8044ADBBDD10F2A804D45C1D4A171D11 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-BF5390C5AF9A6E66C20BD1004BF98C9E .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-BF5390C5AF9A6E66C20BD1004BF98C9E <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "CNRS; UMR7144; Station Biologique De Roscoff; Sorbonne Universités, UPMC Univ Paris 06; 29680 Roscoff France" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-8044ADBBDD10F2A804D45C1D4A171D11 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-CC41B26BC9F9F5F7C5C2084BB781CCD0 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-CC41B26BC9F9F5F7C5C2084BB781CCD0 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-234B5DC774262601AA46FEF146CA0B2A, _:node770896;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "https://www.aup.edu/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Paris" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-8044ADBBDD10F2A804D45C1D4A171D11 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-0386B7047FC0DA2B3DEC4D5BBFDACD47 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-0386B7047FC0DA2B3DEC4D5BBFDACD47 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/1795676162" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-8044ADBBDD10F2A804D45C1D4A171D11 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:node3739387 .
+
+_:node3739387 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "DOIboost-propagate-ORCID",
+    "ORCID";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://orcid.org/0000-0002-0717-5685" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-95AB3F22CEA64C519566717FBD8D96A9 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-95AB3F22CEA64C519566717FBD8D96A9 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-40460321695E012C48A9B7706885B0E0 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-40460321695E012C48A9B7706885B0E0 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-80B0FF7F8F46FD1FA5E1C31AD435EDA6, _:node770893;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "https://www.aup.edu/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Paris" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-95AB3F22CEA64C519566717FBD8D96A9 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-4E0801BC2BA62F8911B92971443F994D .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-4E0801BC2BA62F8911B92971443F994D <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "CNRS; UMR7144; Station Biologique De Roscoff; Sorbonne Universités, UPMC Univ Paris 06; 29680 Roscoff France" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-95AB3F22CEA64C519566717FBD8D96A9 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-E84D767A4C9008FBEF35AE3865F6AB55 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-E84D767A4C9008FBEF35AE3865F6AB55 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2441576389" .
+
+<http://dx.doi.org/10.1111/jpy.12489> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-CC63841C5F8535CA783CC46C105E55AA .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-CC63841C5F8535CA783CC46C105E55AA <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-0574BE4EA7A4A4298B8A155527925AB6 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-0574BE4EA7A4A4298B8A155527925AB6 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "CNRS; UMR7144; Station Biologique De Roscoff; Sorbonne Universités, UPMC Univ Paris 06; 29680 Roscoff France" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-CC63841C5F8535CA783CC46C105E55AA <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-1738AB7C9DFA4F770F151A982DB07A66 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-1738AB7C9DFA4F770F151A982DB07A66 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-9C619A46BE8DFEE4CBEC8315E9883CF0, _:node770894;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "https://www.aup.edu/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "University of Paris" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-CC63841C5F8535CA783CC46C105E55AA <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-BEE315297B89B4B40E41DC811536F09F .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-BEE315297B89B4B40E41DC811536F09F <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2547062429" .
+
+<http://dx.doi.org/10.1540/jsmr.52.45> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-D0339ABF1F5CF79290BB71D6C1E0FBB0 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D0339ABF1F5CF79290BB71D6C1E0FBB0 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-18AA814668EB3253BCD66844E47BA242 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-18AA814668EB3253BCD66844E47BA242 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "CrossRef";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Department of Physiology, Asahikawa Medical University, Hokkaido, Japan" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D0339ABF1F5CF79290BB71D6C1E0FBB0 <https://github.com/sandrolabruzzo/doiBoost/ontology/affiliations>
+    _:genid-bf454c96c3b444fe88713dcb28675998-D7361DAFDEF8A918D5010893CA4C918F .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D7361DAFDEF8A918D5010893CA4C918F <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-4B24D52AA44A9D3F5F0A2F97D631F8E1, _:genid-bf454c96c3b444fe88713dcb28675998-DD0C3A6478030C07CC428D255226E50A,
+    _:node935102;
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/official-page> "http://www.asahikawa-med.ac.jp/";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance> "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "Asahikawa Medical University" .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-D0339ABF1F5CF79290BB71D6C1E0FBB0 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-817CA1CDBA4FA48E5BA7AD510D99BDC8 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-817CA1CDBA4FA48E5BA7AD510D99BDC8 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2165963200" .
+
+<http://dx.doi.org/10.3832/ifor0607-009> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-6D2E83251D9DB17CEF460F36B76D6A04 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-6D2E83251D9DB17CEF460F36B76D6A04 <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-2297A3930892973C6E23CE49CC0528AA .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-2297A3930892973C6E23CE49CC0528AA <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2687364169" .
+
+<http://dx.doi.org/10.3832/ifor0607-009> <https://github.com/sandrolabruzzo/doiBoost/ontology/author>
+    _:genid-bf454c96c3b444fe88713dcb28675998-967A9DA11D84E02455806ED265D29E7F .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-967A9DA11D84E02455806ED265D29E7F <https://github.com/sandrolabruzzo/doiBoost/ontology/identifiers>
+    _:genid-bf454c96c3b444fe88713dcb28675998-13AC93CFC6A09A008AF5CBDDCF5C7DB5 .
+
+_:genid-bf454c96c3b444fe88713dcb28675998-13AC93CFC6A09A008AF5CBDDCF5C7DB5 <https://github.com/sandrolabruzzo/doiBoost/ontology/provenance>
+    "MAG";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/schema> "URL";
+  <https://github.com/sandrolabruzzo/doiBoost/ontology/value> "https://academic.microsoft.com/#/detail/2681026548" .

@@ -1,0 +1,8 @@
+insert { graph <{{graph}}> { ?x oav:cleanDOI ?doi}}
+where {
+  ?x a oav:ResultEntity
+  filter exists {?x oav:resLinksToProject/oav:fundingLevel1 "SP1-Cooperation"}
+  ?x oav:resPersistentID ?persistId.
+  bind(lcase(replace(?persistId, "(/?e?pdf|full|abstract|summary).*$|page[/-]1|jsessionid=[^ ]*|[\\[ ]?doi[]:]|https?://(dx.)?(doi.org|doi.pangaea.de)/|\\?.*$|\\]$","","i")) as ?doi)
+  filter(regex(?doi,"^10\\.[0-9]{4,9}\\/","i"))
+}

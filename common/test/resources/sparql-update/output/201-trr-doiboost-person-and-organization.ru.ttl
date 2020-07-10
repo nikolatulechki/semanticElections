@@ -1,0 +1,449 @@
+@prefix doib: <https://github.com/sandrolabruzzo/doiBoost/ontology/> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix org: <http://trr.ontotext.com/resource/organization/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://trr.ontotext.com/resource/person/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix source: <http://trr.ontotext.com/resource/source/> .
+@prefix trr: <http://trr.ontotext.com/resource/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dx.doi.org/10.1002/chem.201300959/person/ORCID/0000-0003-1819-8863> a trr:ResultContribution;
+  trr:organization <http://trr.ontotext.com/resource/wikidata/Q131262>;
+  trr:person <http://trr.ontotext.com/resource/person/ORCID/0000-0003-1819-8863>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/ORCID/0000-0003-1819-8863> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/1918807899>, <http://trr.ontotext.com/resource/identifier/ORCID/0000-0003-1819-8863>;
+  trr:name "Andrea Mazzanti";
+  trr:nameFirst "Andrea";
+  trr:nameLast "Mazzanti";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/ORCID/0000-0002-0717-5685> a trr:ResultContribution;
+  trr:organization <http://trr.ontotext.com/resource/wikidata/Q209842>;
+  trr:person <http://trr.ontotext.com/resource/person/ORCID/0000-0002-0717-5685>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/ORCID/0000-0002-0717-5685> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/DOIboost-propagate-ORCID/0000-0002-0717-5685>,
+    <http://trr.ontotext.com/resource/identifier/MAG/1795676162>, <http://trr.ontotext.com/resource/identifier/ORCID/0000-0002-0717-5685>;
+  trr:name "Daniel Vaulot";
+  trr:nameFirst "Daniel";
+  trr:nameLast "Vaulot";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://trr.ontotext.com/resource/wikidata/Q131262> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.6292.f>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_of_Bologna>;
+  trr:name "University of Bologna";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://www.unibo.it/" .
+
+<http://trr.ontotext.com/resource/wikidata/Q209842> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_of_Paris>;
+  trr:name "University of Paris";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "https://www.aup.edu/" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/1413657507> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/1413657507>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/1413657507> a trr:Person;
+  trr:nameLast "Rademakers";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/175008147> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/175008147>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/175008147> a trr:Person;
+  trr:nameLast "Hoogsteen";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2462419581> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2462419581>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2462419581> a trr:Person;
+  trr:nameLast "Rijken";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2307999101> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2307999101>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2307999101> a trr:Person;
+  trr:nameLast "Terhaard";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/1901267574> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/1901267574>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/1901267574> a trr:Person;
+  trr:nameLast "Doornaert";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/839554223> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/839554223>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/839554223> a trr:Person;
+  trr:nameLast "Langendijk";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2252030904> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2252030904>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2252030904> a trr:Person;
+  trr:nameLast "van den Ende";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/192239201> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/192239201>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/192239201> a trr:Person;
+  trr:nameLast "van der Kogel";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2581303236> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2581303236>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2581303236> a trr:Person;
+  trr:nameLast "Bussink";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/173013705> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/173013705>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/173013705> a trr:Person;
+  trr:nameLast "Kaanders";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:name "Johannes H. Kaanders" .
+
+<http://dx.doi.org/10.1002/chem.201300959/person/MAG/45366833> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/45366833>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/45366833> a trr:Person;
+  trr:name "Diego Petruzziello";
+  trr:nameLast "Petruzziello";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/chem.201300959/person/MAG/2229560525> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2229560525>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2229560525> a trr:Person;
+  trr:name "Marco Stenta";
+  trr:nameLast "Stenta";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1002/chem.201300959/person/MAG/1989414869> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/1989414869>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/1989414869> a trr:Person;
+  trr:name "Pier Giorgio Cozzi";
+  trr:nameLast "Cozzi";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2439907069> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2439907069>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2439907069> a trr:Person;
+  trr:name "Sergio Balzano";
+  trr:nameFirst "Sergio";
+  trr:nameLast "Balzano";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/111499331> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/111499331>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/111499331> a trr:Person;
+  trr:name "Isabella Percopo";
+  trr:nameFirst "Isabella";
+  trr:nameLast "Percopo";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2099696980> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2099696980>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2099696980> a trr:Person;
+  trr:name "Raffaele Siano";
+  trr:nameFirst "Raffaele";
+  trr:nameLast "Siano";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2099696980> .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2441576389> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2441576389>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2441576389> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2441576389>;
+  trr:name "Priscillia Gourvil";
+  trr:nameFirst "Priscillia";
+  trr:nameLast "Gourvil";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2547062429> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2547062429>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2547062429> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2547062429>;
+  trr:name "Mélanie Chanoine";
+  trr:nameFirst "Mélanie";
+  trr:nameLast "Chanoine";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2139225599> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2139225599>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2139225599> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2139225599>;
+  trr:name "Dominique Marie";
+  trr:nameFirst "Dominique";
+  trr:nameLast "Marie";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2108489372> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2108489372>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2108489372> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2108489372>;
+  trr:name "Diana Sarno";
+  trr:nameFirst "Diana";
+  trr:nameLast "Sarno";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.3832/ifor0607-009/person/MAG/2687364169> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2687364169>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2687364169> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2687364169>;
+  trr:name "S Fineschi";
+  trr:nameFirst "S";
+  trr:nameLast "Fineschi";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.3832/ifor0607-009/person/MAG/2681026548> a trr:ResultContribution;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2681026548>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2681026548> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2681026548>;
+  trr:name "F Loreto";
+  trr:nameFirst "F";
+  trr:nameLast "Loreto";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://dx.doi.org/10.1540/jsmr.52.45/person/MAG/2165963200> a trr:ResultContribution;
+  trr:organization <http://trr.ontotext.com/resource/wikidata/Q835972>;
+  trr:person <http://trr.ontotext.com/resource/person/MAG/2165963200>;
+  trr:source source:DOIboost .
+
+<http://trr.ontotext.com/resource/person/MAG/2165963200> a trr:Person;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2165963200>;
+  trr:name "Kosuke Takeya";
+  trr:nameFirst "Kosuke";
+  trr:nameLast "Takeya";
+  trr:source source:DOIboost;
+  trr:status "raw" .
+
+<http://trr.ontotext.com/resource/person/MAG/1413657507> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/1413657507>;
+  trr:name "Saskia E. Rademakers";
+  trr:nameFirst "Saskia E." .
+
+<http://trr.ontotext.com/resource/person/MAG/175008147> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/175008147>;
+  trr:name "Ilse J. Hoogsteen";
+  trr:nameFirst "Ilse J." .
+
+<http://trr.ontotext.com/resource/person/MAG/2462419581> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2462419581>;
+  trr:name "Paul F. Rijken";
+  trr:nameFirst "Paul F." .
+
+<http://trr.ontotext.com/resource/person/MAG/2307999101> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2307999101>;
+  trr:name "Chris H. Terhaard";
+  trr:nameFirst "Chris H." .
+
+<http://trr.ontotext.com/resource/person/MAG/1901267574> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/1901267574>;
+  trr:name "Patricia A. Doornaert";
+  trr:nameFirst "Patricia A." .
+
+<http://trr.ontotext.com/resource/person/MAG/839554223> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/839554223>;
+  trr:name "Johannes A. Langendijk";
+  trr:nameFirst "Johannes A." .
+
+<http://trr.ontotext.com/resource/person/MAG/2252030904> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2252030904>;
+  trr:name "Piet van den Ende";
+  trr:nameFirst "Piet" .
+
+<http://trr.ontotext.com/resource/person/MAG/192239201> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/192239201>;
+  trr:name "Albert J. van der Kogel";
+  trr:nameFirst "Albert J." .
+
+<http://trr.ontotext.com/resource/person/MAG/2581303236> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2581303236>;
+  trr:name "Johan Bussink";
+  trr:nameFirst "Johan" .
+
+<http://trr.ontotext.com/resource/person/MAG/173013705> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/173013705>;
+  trr:nameFirst "Johannes H." .
+
+<http://trr.ontotext.com/resource/person/MAG/45366833> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/45366833>;
+  trr:nameFirst "Diego" .
+
+<http://trr.ontotext.com/resource/person/MAG/2229560525> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2229560525>;
+  trr:nameFirst "Marco" .
+
+<http://trr.ontotext.com/resource/person/MAG/1989414869> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/1989414869>;
+  trr:nameFirst "Pier Giorgio" .
+
+<http://trr.ontotext.com/resource/person/MAG/2439907069> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/2439907069> .
+
+<http://trr.ontotext.com/resource/person/MAG/111499331> trr:identifier <http://trr.ontotext.com/resource/identifier/MAG/111499331> .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/1413657507> trr:organization <http://trr.ontotext.com/resource/wikidata/Q632004> .
+
+<http://trr.ontotext.com/resource/wikidata/Q632004> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.5590.9>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Radboud_University_Nijmegen>;
+  trr:name "Radboud University Nijmegen";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://www.ru.nl/english" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/175008147> trr:organization <http://trr.ontotext.com/resource/wikidata/Q632004> .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2462419581> trr:organization <http://trr.ontotext.com/resource/wikidata/Q632004> .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2307999101> trr:organization <http://trr.ontotext.com/resource/wikidata/Q7894822> .
+
+<http://trr.ontotext.com/resource/wikidata/Q7894822> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.449738.5>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_Medical_Center_(Lubbock,_Texas)>;
+  trr:name "University Medical Center";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/1901267574> trr:organization <http://trr.ontotext.com/resource/wikidata/Q1065414> .
+
+<http://trr.ontotext.com/resource/wikidata/Q1065414> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.12380.38>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/VU_University_Amsterdam>;
+  trr:name "VU University Amsterdam";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://www.vu.nl/en/index.asp" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/839554223> trr:organization <http://trr.ontotext.com/resource/wikidata/Q2057113> .
+
+<http://trr.ontotext.com/resource/wikidata/Q2057113> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.4494.d>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/University_Medical_Center_Groningen>;
+  trr:name "University Medical Center Groningen";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://umcg.nl/azg/nl/english/azg/" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2252030904> trr:organization <http://trr.ontotext.com/resource/wikidata/Q1137652> .
+
+<http://trr.ontotext.com/resource/wikidata/Q1137652> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.5012.6>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Maastricht_University>;
+  trr:name "Maastricht University";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://www.maastrichtuniversity.nl/" .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/192239201> trr:organization <http://trr.ontotext.com/resource/wikidata/Q632004> .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/2581303236> trr:organization <http://trr.ontotext.com/resource/wikidata/Q632004> .
+
+<http://dx.doi.org/10.1002/hed.23569/person/MAG/173013705> trr:organization <http://trr.ontotext.com/resource/wikidata/Q632004> .
+
+<http://dx.doi.org/10.1002/chem.201300959/person/MAG/45366833> trr:organization <http://trr.ontotext.com/resource/wikidata/Q131262> .
+
+<http://dx.doi.org/10.1002/chem.201300959/person/MAG/2229560525> trr:organization
+    <http://trr.ontotext.com/resource/wikidata/Q83259> .
+
+<http://trr.ontotext.com/resource/wikidata/Q83259> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.5607.4>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/École_Normale_Supérieure>;
+  trr:name "École Normale Supérieure";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://www.ens.fr/" .
+
+<http://dx.doi.org/10.1002/chem.201300959/person/MAG/1989414869> trr:organization
+    <http://trr.ontotext.com/resource/wikidata/Q131262> .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2439907069> trr:organization <http://trr.ontotext.com/resource/wikidata/Q209842> .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/111499331> trr:organization <http://trr.ontotext.com/resource/wikidata/Q220221> .
+
+<http://trr.ontotext.com/resource/wikidata/Q220221> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.6401.3>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Stazione_Zoologica>;
+  trr:name "Stazione Zoologica Anton Dohrn";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2099696980> trr:organization <http://trr.ontotext.com/resource/wikidata/Q1657069> .
+
+<http://trr.ontotext.com/resource/wikidata/Q1657069> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.4825.b>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/IFREMER>;
+  trr:name "IFREMER";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://wwz.ifremer.fr/institut_eng" .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2441576389> trr:organization <http://trr.ontotext.com/resource/wikidata/Q209842> .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2547062429> trr:organization <http://trr.ontotext.com/resource/wikidata/Q209842> .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2139225599> trr:organization <http://trr.ontotext.com/resource/wikidata/Q209842> .
+
+<http://dx.doi.org/10.1111/jpy.12489/person/MAG/2108489372> trr:organization <http://trr.ontotext.com/resource/wikidata/Q220221> .
+
+<http://trr.ontotext.com/resource/wikidata/Q835972> a trr:Organization;
+  trr:identifier <http://trr.ontotext.com/resource/identifier/GRID/grid.252427.4>, <http://trr.ontotext.com/resource/identifier/en.wikipedia.org/wiki/Asahikawa_Medical_University>;
+  trr:name "Asahikawa Medical University";
+  trr:source source:DOIboost;
+  trr:status "raw";
+  trr:webLink "http://www.asahikawa-med.ac.jp/" .

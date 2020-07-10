@@ -1,0 +1,18 @@
+base             <http://trr.ontotext.com/resource/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX program: <http://trr.ontotext.com/resource/program/>
+PREFIX funding: <http://trr.ontotext.com/resource/funding/>
+PREFIX person: <http://trr.ontotext.com/resource/person/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX agency: <http://trr.ontotext.com/resource/agency/>
+PREFIX award: <http://trr.ontotext.com/resource/award/>
+PREFIX rel: <http://trr.ontotext.com/resource/relation/>
+PREFIX source: <http://trr.ontotext.com/resource/source/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX call: <http://trr.ontotext.com/resource/call/>
+PREFIX puml: <http://plantuml.com/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX org: <http://trr.ontotext.com/resource/organization/>
+PREFIX trr: <http://trr.ontotext.com/resource/ontology/>
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
+PREFIX proj: <http://trr.ontotext.com/resource/project/>

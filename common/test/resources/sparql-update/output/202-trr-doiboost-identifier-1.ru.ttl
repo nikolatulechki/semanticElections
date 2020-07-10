@@ -1,0 +1,180 @@
+@prefix doib: <https://github.com/sandrolabruzzo/doiBoost/ontology/> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix org: <http://trr.ontotext.com/resource/organization/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://trr.ontotext.com/resource/person/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix source: <http://trr.ontotext.com/resource/source/> .
+@prefix trr: <http://trr.ontotext.com/resource/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://trr.ontotext.com/resource/identifier/MAG/1413657507> a trr:Identifier;
+  trr:id "1413657507";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/1413657507" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/175008147> a trr:Identifier;
+  trr:id "175008147";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/175008147" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2462419581> a trr:Identifier;
+  trr:id "2462419581";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2462419581" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2307999101> a trr:Identifier;
+  trr:id "2307999101";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2307999101" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/1901267574> a trr:Identifier;
+  trr:id "1901267574";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/1901267574" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/839554223> a trr:Identifier;
+  trr:id "839554223";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/839554223" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2252030904> a trr:Identifier;
+  trr:id "2252030904";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2252030904" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/192239201> a trr:Identifier;
+  trr:id "192239201";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/192239201" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2581303236> a trr:Identifier;
+  trr:id "2581303236";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2581303236" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/173013705> a trr:Identifier;
+  trr:id "173013705";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/173013705" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/45366833> a trr:Identifier;
+  trr:id "45366833";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/45366833" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2229560525> a trr:Identifier;
+  trr:id "2229560525";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2229560525" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/1918807899> a trr:Identifier;
+  trr:id "1918807899";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/1918807899" .
+
+<http://trr.ontotext.com/resource/identifier/ORCID/0000-0003-1819-8863> a trr:Identifier;
+  trr:id "0000-0003-1819-8863";
+  trr:source source:DOIboost;
+  trr:type "ORCID";
+  trr:webLink "https://orcid.org/0000-0003-1819-8863" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/1989414869> a trr:Identifier;
+  trr:id "1989414869";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/1989414869" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2439907069> a trr:Identifier;
+  trr:id "2439907069";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2439907069" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/111499331> a trr:Identifier;
+  trr:id "111499331";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/111499331" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2099696980> a trr:Identifier;
+  trr:id "2099696980";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2099696980" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2441576389> a trr:Identifier;
+  trr:id "2441576389";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2441576389" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2547062429> a trr:Identifier;
+  trr:id "2547062429";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2547062429" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2139225599> a trr:Identifier;
+  trr:id "2139225599";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2139225599" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/1795676162> a trr:Identifier;
+  trr:id "1795676162";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/1795676162" .
+
+<http://trr.ontotext.com/resource/identifier/ORCID/0000-0002-0717-5685> a trr:Identifier;
+  trr:id "0000-0002-0717-5685";
+  trr:source source:DOIboost;
+  trr:type "ORCID";
+  trr:webLink "https://orcid.org/0000-0002-0717-5685" .
+
+<http://trr.ontotext.com/resource/identifier/DOIboost-propagate-ORCID/0000-0002-0717-5685>
+  a trr:Identifier;
+  trr:id "0000-0002-0717-5685";
+  trr:source source:DOIboost;
+  trr:type "DOIboost-propagate-ORCID";
+  trr:webLink "https://orcid.org/0000-0002-0717-5685" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2108489372> a trr:Identifier;
+  trr:id "2108489372";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2108489372" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2165963200> a trr:Identifier;
+  trr:id "2165963200";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2165963200" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2687364169> a trr:Identifier;
+  trr:id "2687364169";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2687364169" .
+
+<http://trr.ontotext.com/resource/identifier/MAG/2681026548> a trr:Identifier;
+  trr:id "2681026548";
+  trr:source source:DOIboost;
+  trr:type "MAG";
+  trr:webLink "https://academic.microsoft.com/#/detail/2681026548" .

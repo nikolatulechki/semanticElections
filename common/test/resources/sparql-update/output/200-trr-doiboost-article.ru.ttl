@@ -1,0 +1,66 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix source: <http://trr.ontotext.com/resource/source/> .
+@prefix trr: <http://trr.ontotext.com/resource/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dx.doi.org/10.1002/hed.23569> a trr:Result;
+  trr:abstract "BackgroundThe prognostic and predictive value of the proliferation marker Ki-67 was investigated in a randomized trial comparing accelerated radiotherapy with carbogen breathing and nicotinamide (ARCON) to accelerated radiotherapy in laryngeal carcinoma. MethodsLabeling index of Ki-67 (Li Ki-67) in immunohistochemically stained biopsies and the colocalization with carbonic anhydrase IX (CAIX) were related to tumor control and patient survival. ResultsOn average, node-positive patients had a higher Li Ki-67 (median 14% vs 8%; p <.01). In patients with a high Li Ki-67, the 5-year regional control and metastases-free survival were 79% versus 96% (p <.01) and 71% versus 88% (p = .05) for accelerated radiotherapy and ARCON, respectively. The 5-year local control and disease-specific survival were not significantly different. Patients with low Ki-67 expression had an excellent outcome with accelerated radiotherapy alone. ConclusionPatients with laryngeal carcinomas with high proliferative activity are at increased risk of regional and distant metastases formation. This risk can be reduced by treatment with ARCON. (c) 2014 Wiley Periodicals, Inc. Head Neck37: 171-176, 2015";
+  trr:date "2014-02-12"^^xsd:date;
+  trr:datePublishedOnline "2014-02-12"^^xsd:date;
+  trr:datePublishedPrint "2015-02-01"^^xsd:date;
+  trr:doi "10.1002/hed.23569";
+  trr:issnPrint "1043-3074";
+  trr:source source:DOIboost;
+  trr:subject "Otorhinolaryngology";
+  trr:title "Prognostic value of the proliferation marker Ki-67 in laryngeal carcinoma: Results of the Accelerated Radiotherapy with Carbogen Breathing and Nicotinamide phase III randomized trial";
+  trr:type "journal-article";
+  trr:webLink <https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2Fhed.23569> .
+
+<http://dx.doi.org/10.1002/chem.201300959> a trr:Result;
+  trr:abstract "Keywords: enamines ; ferrocene ; nitro-Michael reaction ; organocatalysis ; pyrrolidine Reference EPFL-ARTICLE-189020doi:10.1002/chem.201300959View record in Web of Science Record created on 2013-10-01, modified on 2017-05-12";
+  trr:date "2013-05-06"^^xsd:date;
+  trr:datePublishedOnline "2013-05-06"^^xsd:date;
+  trr:datePublishedPrint "2013-06-10"^^xsd:date;
+  trr:doi "10.1002/chem.201300959";
+  trr:issnPrint "0947-6539";
+  trr:source source:DOIboost;
+  trr:subject "General Chemistry";
+  trr:title "A Rational Approach Towards a New Ferrocenyl Pyrrolidine for Stereoselective Enamine Catalysis";
+  trr:type "journal-article";
+  trr:webLink <https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2Fchem.201300959> .
+
+<http://dx.doi.org/10.1111/jpy.12489> a trr:Result;
+  trr:abstract "Seventy-five diatoms strains isolated from the Beaufort Sea (Canadian Arctic) in the summer of 2009 were characterized by light and electron microscopy (SEM and TEM) as well as 18S and 28S rRNA gene sequencing. These strains group into 20 genotypes and 17 morphotypes and are affiliated with the genera Arcocellulus, Attheya, Chaetoceros, Cylindrotheca, Eucampia, Nitzschia, Porosira, Pseudo-nitzschia, Shionodiscus, Thalassiosira, Synedropsis. Most of the species have a distribution confined to the northern/polar area. Chaetoceros neogracilis and Chaetoceros gelidus were the most represented taxa. Strains of C. neogracilis were morphologically similar and shared identical 18S rRNA gene sequences, but belonged to four distinct genetic clades based on 28S rRNA, ITS-1 and ITS-2 phylogenies. Secondary structure prediction revealed that these four clades differ in hemi-compensatory base changes (HCBCs) in paired positions of the ITS-2, suggesting their inability to interbreed. Reproductively isolated C. neogracilis genotypes can thus co-occur in summer phytoplankton communities in the Beaufort Sea. Chaetoceros neogracilis generally occurred as single cells but can also form short colonies. It is phylogenetically distinct from an Antarctic species, erroneously identified in some previous studies as C. neogracilis but named here as Chaetoceros sp. This work provides taxonomically validated sequences for 20 Arctic diatom taxa, which will facilitate future metabarcoding studies on phytoplankton in this region.";
+  trr:date "2016-12-05"^^xsd:date;
+  trr:datePublishedOnline "2016-12-05"^^xsd:date;
+  trr:datePublishedPrint "2017-02-01"^^xsd:date;
+  trr:doi "10.1111/jpy.12489";
+  trr:issnPrint "0022-3646";
+  trr:source source:DOIboost;
+  trr:subject "Aquatic Science", "Plant Science";
+  trr:title "Morphological and genetic diversity of Beaufort Sea diatoms with high contributions from theChaetoceros neogracilisspecies complex";
+  trr:type "journal-article";
+  trr:webLink <http://onlinelibrary.wiley.com/wol1/doi/10.1111/jpy.12489/fullpdf>, <https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fjpy.12489> .
+
+<http://dx.doi.org/10.3832/ifor0607-009> a trr:Result;
+  trr:abstract "Abstract: Current knowledge on the ecological impact of the emission of volatile isoprenoids by plants is reviewed. This trait is common to many terrestrial species but is scattered across different taxonomic groups; it appears to be related to other ecological traits rather than to phylogenetic relationships. Plants invest high resources to produce volatile isoprenoids, which are likely to play multiple roles in the defence against biotic and abiotic stressors. We describe how constitutive and induced volatile isoprenoids may directly or indirectly defend plants, and briefly address how indirect defence may involve communication with other trophic levels beyond the simple plant-herbivory interaction. It is discussed that, as metabolically costly defensive mechanisms are only activated after attacks, induced volatile isoprenoids may also prime other biochemical pathways that are involved in stress resistance responses. It is also surmised that attacked plants may also use volatiles as an airborne communication to signal the attack to other leaves or other plant organs, or even other plants, eliciting defence responses.";
+  trr:date "2012-02-14"^^xsd:date;
+  trr:datePublishedOnline "2012-02-14"^^xsd:date;
+  trr:doi "10.3832/ifor0607-009";
+  trr:issnElectronic "1971-7458";
+  trr:source source:DOIboost;
+  trr:subject "Ecology", "Forestry", "Nature and Landscape Conservation";
+  trr:title "Leaf volatile isoprenoids: an important defensive armament in forest tree species";
+  trr:type "journal-article" .
+
+<http://dx.doi.org/10.1540/jsmr.52.45> a trr:Result;
+  trr:date "2016-01-01"^^xsd:date;
+  trr:datePublishedPrint "2016-01-01"^^xsd:date;
+  trr:doi "10.1540/jsmr.52.45";
+  trr:issnElectronic "1884-8796";
+  trr:issnPrint "0916-8737";
+  trr:source source:DOIboost;
+  trr:subject "General Medicine", "Physiology";
+  trr:title "Highly sensitive myosin phosphorylation analysis in the renal afferent arteriole";
+  trr:type "journal-article";
+  trr:webLink <http://doi.org/10.1540/jsmr.52.45>, <https://www.jstage.jst.go.jp/article/jsmr/52/0/52_45/_pdf> .

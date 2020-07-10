@@ -1,0 +1,71 @@
+@prefix funding:  <http://trr.ontotext.com/resource/funding/> .
+@prefix agency:  <http://trr.ontotext.com/resource/agency/> .
+@prefix org:  <http://trr.ontotext.com/resource/organization/> .
+@prefix oav:  <http://lod.openaire.eu/vocab/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix proj:  <http://trr.ontotext.com/resource/project/> .
+@prefix source:  <http://trr.ontotext.com/resource/source/> .
+@prefix program:  <http://trr.ontotext.com/resource/program/> .
+@prefix call:  <http://trr.ontotext.com/resource/call/> .
+@prefix puml:  <http://plantuml.com/ontology#> .
+@prefix award:  <http://trr.ontotext.com/resource/award/> .
+@prefix trr:  <http://trr.ontotext.com/resource/ontology/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix person:  <http://trr.ontotext.com/resource/person/> .
+@prefix apf:  <http://jena.apache.org/ARQ/property#> .
+@prefix rel:  <http://trr.ontotext.com/resource/relation/> .
+@prefix doi:  <http://dx.doi.org/> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT>
+        rdf:type    trr:Program ;
+        trr:id      "AAT" ;
+        trr:name    "Aeronautics and air transport" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-2/AAT.2.2>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2.2" ;
+        trr:name    "Time Efficient Air Transport Operations" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-2> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-2/AAT.2.3>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2.3" ;
+        trr:name    "LEVEL 2" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-2> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT.2007.1.4>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2007.1.4" ;
+        trr:name    "LEVEL 2" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1/AAT.2008.1.1.1.>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2008.1.1.1." ;
+        trr:name    "Flight Physics" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1/AAT.2008.1.1.2.>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2008.1.1.2." ;
+        trr:name    "Aerostructures" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1/AAT.2008.1.1.3.>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2008.1.1.3." ;
+        trr:name    "Propulsion" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1/AAT.2008.1.1.4.>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2008.1.1.4." ;
+        trr:name    "Systems and Equipment" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1> .
+
+<http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1/AAT.2008.1.1.5.>
+        rdf:type    trr:Program ;
+        trr:id      "AAT.2008.1.1.5." ;
+        trr:name    "Avionics" ;
+        trr:partOf  <http://trr.ontotext.com/resource/program/FP7/EC/FP7-COOPERATION/FP7-TRANSPORT/TPT/AAT/AAT-1/AAT-1.1> .
