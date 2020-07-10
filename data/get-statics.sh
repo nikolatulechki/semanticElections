@@ -1,0 +1,1 @@
+curl "https://docs.google.com/spreadsheets/d/1tPGAecSA5P7Hv5ayYO6IYYkgqTW8gfkWTVn48t15Zj4/gviz/tq?tqx=out:csv&sheet=COALITIONS" -o "static/sheets/coalitions.csv"

@@ -1,0 +1,42 @@
+construct {
+	?SEC_URI a my:Section ;
+		rdfs:label ?SEC_LABEL ;
+		myd:election ?EL_URI ;
+		myd:isMobile ?IS_MOBILE;
+	.
+	?VOTE_URI a my:Voting ;
+		rdfs:label ?VOTE_LABEL ;
+		myd:election ?EL_URI ;
+		myd:section ?SEC_URI ;
+	.
+	?EL_URI a my:Election ;
+	    rdfs:label ?EL_LABEL ;
+	    myd:partOf ?EL_TYP_URI ;
+	    myd:jurisdiction ?JUR_URI ;
+	.
+
+    ?EL_TYP_URI a my:Election ;
+        rdfs:label ?EL_TYP_LABEL ;
+        myd:partOf ?MAIN_EL_URI ;
+    .
+
+
+} where {
+	bind(uri(concat("section/{EL}/",?a)) as ?SEC_URI)
+	bind(concat("Секция ",str(?a)," в ",?e,""@bg) as ?SEC_LABEL)
+
+	bind(if(strlen(?b)=3 || strlen(?a)=1,concat("0",?b),?b) as ?OB_CODE) # leading zero
+	bind(if(?f=0,TRUE,FALSE) as ?IS_MOBILE)
+	bind(uri(concat("voting/{EL}/{TYP}/",?OB_CODE,"/",?a)) as ?VOTE_URI)
+	bind(concat("Гласуване в секция ",str(?a)," на {EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?VOTE_LABEL)
+
+	bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE)) as ?EL_URI)
+	bind(concat("{EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?EL_LABEL)
+
+    bind(<election/{EL}/{TYP}> as ?EL_TYP_URI)
+    bind(concat("{EL_LABEL} за {TYP_LABEL}"@bg) as ?EL_TYP_LABEL)
+
+    bind(<election/{EL}> as ?MAIN_EL_URI)
+
+	bind(uri(concat("jurisdiction/",?OB_CODE)) as ?JUR_URI)
+}

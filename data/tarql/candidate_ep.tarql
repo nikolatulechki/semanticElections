@@ -1,0 +1,25 @@
+construct {
+	?CAND_URI a my:Candidate ;
+		rdfs:label ?d ;
+		myd:candidacy ?ROUND_URI ;
+		myd:party_number ?PARTY_NUM ;
+		myd:number ?CAND_NUM ;
+		myd:represents ?PARTY_URI ;
+		myd:series_ordinal ?CAND_NUM ;
+	.
+	?PARTY_URI myd:candidacy ?ROUND_URI .
+}
+where {
+		bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
+		bind(uri(concat("candidate/{EL}/",?a,"/",?c)) as ?CAND_URI)
+		bind(<election/{EL}/{TYP}> as ?ROUND_URI)
+		bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
+		bind(STRDT(?a, xsd:integer) as ?PARTY_NUM)
+		bind(uri(concat("party/{EL}/",?a)) as ?PARTY_URI)
+}
+
+
+#1;
+#ПАТРИОТИ ЗА ВАЛЕРИ СИМЕОНОВ (НФСБ И СРЕДНА ЕВРОПЕЙСКА КЛАСА);
+#11;
+#Йордан Апостолов Апостолов
