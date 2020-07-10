@@ -1,0 +1,18 @@
+construct {
+	?PARTY_URI a my:LocalParty ;
+		rdfs:label ?d ;
+		myd:party ?CIK_PARTY_URI_OK ;
+	.
+	?PARTY_URI_OK myd:type ?PARTY_TYPE ;
+
+}
+where {
+	bind(0+"" as ?UNDEF)
+	bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
+	bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
+	bind(uri(concat("party/{EL}/",?OB_CODE,"/",?c)) as ?PARTY_URI)
+	bind(uri(concat("party/{EL}/",?c)) as ?CIK_PARTY_URI)
+	bind(if(contains(lcase(?d),"коалиция"),"local_coalition","independant") as ?PARTY_TYPE)
+	bind(if(?CAND_NUM <= {CIK_THR},?CIK_PARTY_URI,?UNDEF) as ?CIK_PARTY_URI_OK)
+	bind(if(?CAND_NUM > {CIK_THR},?PARTY_URI,?UNDEF) as ?PARTY_URI_OK)
+}

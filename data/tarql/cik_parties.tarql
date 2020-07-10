@@ -1,0 +1,9 @@
+construct {
+	?PARTY_URI a my:Party ;
+		rdfs:label ?b ;
+		myd:type "main_party" ;
+	.
+}
+where {
+	bind(uri(concat("party/{EL}/",?a)) as ?PARTY_URI)
+}

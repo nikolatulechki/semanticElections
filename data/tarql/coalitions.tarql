@@ -1,0 +1,12 @@
+construct {
+	?CO_URI 
+		myd:hasPart ?P_URI;	
+	.	
+}
+where {
+	bind(1+"" as ?UNDEF)
+	filter(BOUND(?members))
+	bind(uri(?party) as ?CO_URI)
+	?mem apf:strSplit (?members ";")
+	bind(uri(concat("party/{EL}/",?mem)) as ?P_URI)
+}

@@ -1,0 +1,29 @@
+construct {
+
+?PLACE_URI a my:Place ;
+    myd:ekatte ?ekatte ;
+    rdfs:label ?place ;
+.
+?VPLACE_URI a my:VotingPlace ;
+    rdfs:label ?address ;
+    myd:place ?PLACE_URI ;
+    myd:wdType ?WD_TYPE ;
+    myd:type ?building_type ;
+    geo:hasGeometry ?GEO_URI ;
+.
+?GEO_URI a geo:Geometry ;
+    geo:asWKT ?WKT ;
+.
+
+?SEC_URI myd:votingPlace ?VPLACE_URI .
+
+} where {
+    bind(uri(concat("place/",?ekatte)) as ?PLACE_URI)
+    bind(uri(concat("votingPlace/",?sha)) as ?VPLACE_URI)
+    bind(uri(concat("votingPlace/",?sha,"/geo")) as ?GEO_URI)
+	bind(uri(concat("section/{EL}/",?SECID)) as ?SEC_URI)
+	bind(uri(concat("http://www.wikidata.org/entity/",?building_type_WD)) as ?WD_TYPE)
+	bind(strdt(?Lat,xsd:double) as ?LAT)
+	bind(strdt(?Lng,xsd:double) as ?LONG)
+	bind(strdt(concat("Point(",?Lng," ",?Lat,")"),<http://www.opengis.net/ont/geosparql#wktLiteral>) as ?WKT)
+}

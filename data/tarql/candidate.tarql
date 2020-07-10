@@ -1,0 +1,21 @@
+construct {
+	?CAND_URI a my:Candidate ;
+		rdfs:label ?f ;
+		myd:candidacy ?ROUND_URI ;
+		myd:number ?CAND_NUM ;
+		myd:represents ?PARTY_URI ;
+	.
+	?PARTY_URI myd:candidacy ?ROUND_URI .
+}
+where {
+		bind(if(strlen(?a)=3 || strlen(?a)=1,concat("0",?a),?a) as ?OB_CODE) # leading zero
+		bind(uri(concat("candidate/{EL}/{TYP}/",?OB_CODE,"/",?c)) as ?CAND_URI)
+		bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
+		bind(uri(concat("party/{EL}/",?OB_CODE,"/",?c)) as ?PARTY_URI)
+		bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE,"/{RND}")) as ?ROUND_URI)
+}
+
+# VARS CHEATSHEET
+# EL : election e.g 'mi2019'
+# RND : round e.g 'tur2/' !!!! trailing slash included
+# TYP : election type e.g. 'ko'
