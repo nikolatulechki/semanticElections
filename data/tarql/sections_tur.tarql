@@ -37,10 +37,10 @@ construct {
 	bind(uri(concat("voting/{EL}/{TYP}/",?OB_CODE,"/{RND}/",?a)) as ?VOTE_URI)
 	bind(concat("Гласуване в секция ",str(?a)," на {EL_LABEL} за {TYP_LABEL} ",?c," - {RND_LABEL}"@bg) as ?VOTE_LABEL)
 
-	bind(uri(concat("election/mi2019/{TYP}/",?OB_CODE,"/{RND}")) as ?ROUND_URI)
+	bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE,"/{RND}")) as ?ROUND_URI)
 	bind(concat("{EL_LABEL} за {TYP_LABEL} ",?c," - {RND_LABEL}"@bg) as ?ROUND_LABEL)
 
-	bind(uri(concat("election/mi2019/{TYP}/",?OB_CODE)) as ?EL_URI)
+	bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE)) as ?EL_URI)
 	bind(concat("{EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?EL_LABEL)
 
     bind(<election/{EL}/{TYP}> as ?EL_TYP_URI)

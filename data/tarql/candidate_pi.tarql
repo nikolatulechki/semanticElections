@@ -1,0 +1,19 @@
+construct {
+	?CAND_URI a my:Candidate ;
+		rdfs:label ?f ;
+		myd:candidacy ?EL_URI ;
+		myd:party_number ?PARTY_NUM ;
+		myd:number ?CAND_NUM ;
+		myd:represents ?PARTY_URI ;
+	.
+	?PARTY_URI myd:candidacy ?EL_URI .
+}
+where {
+		bind(uri(concat("candidate/{EL}/",?a,"/",?c,"/",?e)) as ?CAND_URI)
+		bind(STRDT(?e, xsd:integer) as ?CAND_NUM)
+		bind(STRDT(?c, xsd:integer) as ?PARTY_NUM)
+		bind(uri(concat("party/{EL}/",?OB_CODE,"/",?c)) as ?PARTY_URI)
+		bind(uri(concat("election/{EL}/",str(?a))) as ?EL_URI)
+}
+
+#1;01. БЛАГОЕВГРАД;1;ПП ДРОМ;4;Андрей Маринов Славов;

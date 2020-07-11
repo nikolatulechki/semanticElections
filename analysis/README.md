@@ -203,3 +203,48 @@ select ?Q ?Dbg ?cdescription  {
 * wd:Q494829  bus station 
 * wd:Q4260475 medical facility 
 * wd:Q847950 dormitory
+```
+
+##Section stability
+
+Sections seem stable over time
+
+```
+nikola@nikola-x1:~/project/semanticElections/gdrive/data/cikOpenData$ grep -R 131900170 .* | grep section
+./mipvr2011/tur2/pr/el2011_president_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+./mipvr2011/tur2/kk/el2011_mayor_mrlty_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010;Ивайло;32010
+./mipvr2011/tur1/ko/el2011_mayor_munic_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+./mipvr2011/tur1/pr/el2011_president_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+./mipvr2011/tur1/kk/el2011_mayor_mrlty_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010;Ивайло;32010
+./mipvr2011/tur1/os/el2011_council_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+./pi2017/sections_26.03.2017.txt:131900170;13;13. ПАЗАРДЖИК;32010;с.Ивайло;0;0
+./pi2013/pe2013_pe_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+./pvnr2016/tur2/sections_13.11.2016.txt:131900170;13;13. ПАЗАРДЖИК;32010;с.Ивайло;0;0;0
+./pvnr2016/tur1/sections_06.11.2016.txt:131900170;13;13. ПАЗАРДЖИК;32010;с.Ивайло;0;0;0
+./ep2014/sections_eu2014.txt:131900170;с.Ивайло;32010;0;0;0
+./ep2019/sections.txt:131900170;13;13. ПАЗАРДЖИК;32010;с. Ивайло;0;0;1
+./mi2019/tur2/ko/sections_03.11.2019.txt:131900170;1319;1319. Пазарджик;32010;с.Ивайло;0
+./mi2019/tur2/kk/sections_03.11.2019.txt:131900170;32010;Ивайло;32010;с.Ивайло;0
+./mi2019/tur1/ko/sections_27.10.2019.txt:131900170;1319;1319. Пазарджик;32010;с.Ивайло;0
+./mi2019/tur1/kk/sections_27.10.2019.txt:131900170;32010;Ивайло;32010;с.Ивайло;0
+./mi2019/tur1/os/sections_27.10.2019.txt:131900170;1319;1319. Пазарджик;32010;с.Ивайло;0
+./pi2014/sections_pe2014.txt:131900170;с.Ивайло;32010;0;0;0
+../cikOpenData/mipvr2011/tur2/pr/el2011_president_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+../cikOpenData/mipvr2011/tur2/kk/el2011_mayor_mrlty_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010;Ивайло;32010
+../cikOpenData/mipvr2011/tur1/ko/el2011_mayor_munic_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+../cikOpenData/mipvr2011/tur1/pr/el2011_president_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+../cikOpenData/mipvr2011/tur1/kk/el2011_mayor_mrlty_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010;Ивайло;32010
+../cikOpenData/mipvr2011/tur1/os/el2011_council_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+../cikOpenData/pi2017/sections_26.03.2017.txt:131900170;13;13. ПАЗАРДЖИК;32010;с.Ивайло;0;0
+../cikOpenData/pi2013/pe2013_pe_sections.txt:;131900170;ПАЗАРДЖИК;Пазарджик;с.Ивайло;32010
+../cikOpenData/pvnr2016/tur2/sections_13.11.2016.txt:131900170;13;13. ПАЗАРДЖИК;32010;с.Ивайло;0;0;0
+../cikOpenData/pvnr2016/tur1/sections_06.11.2016.txt:131900170;13;13. ПАЗАРДЖИК;32010;с.Ивайло;0;0;0
+../cikOpenData/ep2014/sections_eu2014.txt:131900170;с.Ивайло;32010;0;0;0
+../cikOpenData/ep2019/sections.txt:131900170;13;13. ПАЗАРДЖИК;32010;с. Ивайло;0;0;1
+../cikOpenData/mi2019/tur2/ko/sections_03.11.2019.txt:131900170;1319;1319. Пазарджик;32010;с.Ивайло;0
+../cikOpenData/mi2019/tur2/kk/sections_03.11.2019.txt:131900170;32010;Ивайло;32010;с.Ивайло;0
+../cikOpenData/mi2019/tur1/ko/sections_27.10.2019.txt:131900170;1319;1319. Пазарджик;32010;с.Ивайло;0
+../cikOpenData/mi2019/tur1/kk/sections_27.10.2019.txt:131900170;32010;Ивайло;32010;с.Ивайло;0
+../cikOpenData/mi2019/tur1/os/sections_27.10.2019.txt:131900170;1319;1319. Пазарджик;32010;с.Ивайло;0
+../cikOpenData/pi2014/sections_pe2014.txt:131900170;с.Ивайло;32010;0;0;0
+```
