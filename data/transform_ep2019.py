@@ -8,7 +8,7 @@ tarql = Tarql(QueryUtils())
 
 basePath = "/home/nikola/projects/semanticElections/data/"
 
-## SECTIONS KO TUR1
+## SECTIONS
 
 queryArgs = {
     "EL": "ep2019" ,
@@ -19,7 +19,7 @@ queryArgs = {
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/sections.txt'
 tarql.execute_query(basePath+"tarql/sections.tarql",
                     infile,
-                    basePath+"/rdf/ep2019/sections.ttl",
+                    basePath+"rdf/ep2019/sections.ttl",
                     '-d ; -H',
                     queryArgs)
 
@@ -33,7 +33,7 @@ queryArgs = {
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/votes.flat.txt'
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
-                    basePath+"/rdf/ep2019/votes.ttl",
+                    basePath+"rdf/ep2019/votes.ttl",
                     '-d ; -H',
                     queryArgs)
 
@@ -47,7 +47,7 @@ queryArgs = {
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/votes_mv.flat.txt'
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
-                    basePath+"/rdf/ep2019/votes_mv.ttl",
+                    basePath+"rdf/ep2019/votes_mv.ttl",
                     '-d ; -H',
                     queryArgs)
 

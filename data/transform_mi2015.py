@@ -37,7 +37,6 @@ queryArgs = {
     "RND" : "tur2" ,
     "RND_LABEL" : "Тур 2" ,
     "RND_INT" : "2"
-
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur2/ko/sections_01.11.2015.txt'
 outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
