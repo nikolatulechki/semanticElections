@@ -20,5 +20,5 @@ python ../common/flatten.py /home/nikola/projects/semanticElections/gdrive/data/
 
 #PI2017
 
-python ../common/flatten.py python /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/votes_26.03.2017.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/votes_26.03.2017.flat.txt
+python ../common/flatten.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/votes_26.03.2017.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/votes_26.03.2017.flat.txt
 
