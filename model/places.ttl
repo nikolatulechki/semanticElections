@@ -1,0 +1,26 @@
+<jurisdiction/2246> a my:Municipality ;
+    rdfs:label "Столична Община" ;
+    myd:code "2246" ;
+    myd:wdid wd:Q4442915 ;
+    myd:mir <jurisdiction/24> ;
+    myd:province wd:Q1585725 ;
+.
+
+
+
+<jurisdiction/24> a my:MIR ;
+    rdfs:label "София 24 (МИР)" ;
+    myd:code "24" ;
+    myd:wdid wd:Q4631990 ;
+.
+
+wd:Q1585725 a my:Province ;
+.
+
+
+<place/68134> a my:Place ;
+        myd:ekatte  "68134" ;
+        myd:wdid    wd:Q472 ;
+        myd:municipality  <jurisdiction/2246>  ;
+        rdfs:label  "ГР.СОФИЯ" ;
+.

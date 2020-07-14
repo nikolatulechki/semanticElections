@@ -1,0 +1,15 @@
+<section/mi2019/224607026> a my:Section ;
+    wdt:P31 wd:Q335778 ;#polling place
+    wdt:P2283_uses  <votingPlace/(UUID)> ;
+    myd:votingPlace <votingPlace/(UUID)> ;
+.
+
+<votingPlace/(UUID)> a my:VotingPlace ; #NEW
+    rdfs:label "138 СОУ, ул. \"Алфред Нобел\" № 3" ;
+    wdt:P31 wd:Q13226383 ;
+    wdt:P31 wd:Q1244442 ; #school building
+    wdt:P131_located_in_the_administrative_territorial_entity wd:Q472; # Sofia (as per WD guidellines, only lowest entity)
+    wdt:P625_coordinate_location <votingPlace/(UUID)/geo> ;
+    myd:place <place/68134> ;
+.
+
