@@ -25,7 +25,7 @@ tarql.execute_query(basePath+"tarql/sections.tarql",
 ## VOTE
 queryArgs = {
     "EL": "pi2017" ,
-    "TYP" : "pi" ,
+    "TYP" : "" ,
     "RND" : "" ,
     "MV" : "",
 }

@@ -12,14 +12,14 @@ construct {
 }
 where {
 	bind(if(strlen(?b)=3 || strlen(?a)=1,concat("0",?b),?b) as ?OB_CODE) # leading zero
-	bind(uri(concat("voting/{EL}/{TYP}/",?OB_CODE,"/{RND}",?a)) as ?EL_URI)
 
-	bind(if(!contains("{EL}","ep"),concat(?OB_CODE,"/"),"") as ?OBINFIX) # hack !!!
+	bind(if(contains("{EL}","ep") || contains("{EL}","pvnr"),"",concat(?OB_CODE,"/")) as ?OBINFIX) # hack !!!
 
+	bind(uri(concat("voting/{EL}/{TYP}{RND}",?OBINFIX,?a)) as ?EL_URI)
 	bind(concat("party/{EL}/",?OBINFIX,?c) as ?PARTY_STR)
 
 	bind(uri(?PARTY_STR) as ?PARTY_URI)
-	bind(uri(concat("vote/{EL}/{TYP}/",?OB_CODE,"/{RND}",?a,"/",?PARTY_STR,"{MV}")) as ?S_VOTE_URI)
+	bind(uri(concat("vote/{EL}/{TYP}{RND}",?a,"/",?OBINFIX,?c,"{MV}")) as ?S_VOTE_URI)
 	bind(STRDT(?d, xsd:integer) as ?VV)
 	bind(STRDT(?e, xsd:integer) as ?IV)
 	bind(STRDT(?c, xsd:integer) as ?CAND_NUM)

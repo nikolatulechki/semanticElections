@@ -26,7 +26,7 @@ tarql.execute_query(basePath+"tarql/sections.tarql",
 ## VOTE
 queryArgs = {
     "EL": "ep2019" ,
-    "TYP" : "ep" ,
+    "TYP" : "" ,
     "RND" : "" ,
     "MV" : "",
 }
@@ -40,7 +40,7 @@ tarql.execute_query(basePath+"tarql/votes.tarql",
 ## VOTE_MV
 queryArgs = {
     "EL": "ep2019" ,
-    "TYP" : "ep" ,
+    "TYP" : "" ,
     "RND" : "" ,
     "MV" : "/mv",
 }

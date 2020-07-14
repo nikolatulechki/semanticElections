@@ -79,7 +79,7 @@ tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
 ## VOTE tur 1
 queryArgs = {
     "EL": "mi2019" ,
-    "TYP" : "ko" ,
+    "TYP" : "ko/" ,
     "RND" : "tur1/" ,
     "MV" : "" ,
 }
@@ -94,7 +94,7 @@ tarql.execute_query(basePath+"tarql/votes.tarql",
 ## VOTE tur 2
 queryArgs = {
     "EL": "mi2019" ,
-    "TYP" : "ko" ,
+    "TYP" : "ko/" ,
     "RND" : "tur2/" ,
     "MV" : "" ,
 }
@@ -109,7 +109,7 @@ tarql.execute_query(basePath+"tarql/votes.tarql",
 ## VOTE os
 queryArgs = {
     "EL": "mi2019" ,
-    "TYP" : "os" ,
+    "TYP" : "os/" ,
     "RND" : "" ,
     "MV" : "" ,
 }
