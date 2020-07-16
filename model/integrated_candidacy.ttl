@@ -12,7 +12,7 @@
 <candidate/mi2019/os/0306/51/101> a my:Candidate ;
     rdfs:label "Веселин Найденов Марешки" ;
     myd:candidacy <election/mi2019/os/0306> ;
-    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+    myd:person <person/pvrnr2016/2/pr> ;
     myd:represents <party/mi2019/0306/51> ;
     myd:candidate_number 101 ;
     myd:series_ordinal 1 ;
@@ -24,7 +24,7 @@
     myd:candidacy <election/mi2019/os/0306> ;
 .
 
-<party/mi2019/51> a my:Party ;
+<party/mi2019/51> a my:ElectionParty ;
     rdfs:label "Воля"@bg ;
     myd:wdid <http://www.wikidata.org/entity/Q25485773> ;
 .
@@ -40,11 +40,11 @@
    myd:represents <party/ep2019/23> ;
    myd:candidate_number 1 ;
    myd:series_ordinal 1 ;
-   myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+   myd:person <person/pvrnr2016/2/pr> ;
 .
 
 <party/ep2019/23> a my:Party ;
-    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+    myd:person <person/pvrnr2016/2/pr> ;
 .
 
 # Parliamentary 2017
@@ -69,7 +69,7 @@
     myd:represents <party/pi2017/3/6> ;
     myd:candidate_number 1 ;
     myd:series_ordinal 1 ;
-    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+    myd:person <person/pvrnr2016/2/pr> ;
 .
 
 <candidate/pi2017/25/6/1> a my:Candidate ;
@@ -78,7 +78,7 @@
     myd:represents <party/pi2017/25/6> ;
     myd:candidate_number 1 ;
     myd:series_ordinal 1 ;
-    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+    myd:person <person/pvrnr2016/2/pr> ;
 .
 
 <party/pi2017/25/6> a my:LocalParty ;
@@ -108,7 +108,7 @@
 
     myd:represents <party/pvrnr2016/2> ;
     myd:role "President" ;
-    myd:wdid <http://www.wikidata.org/entity/Q26899272> ;
+    myd:person <person/pvrnr2016/2/pr> ;
 .
 
 <candidate/pvrnr2016/2/vp> a my:Candidate ;
@@ -124,12 +124,12 @@
 
 ### WD
 
-<http://www.wikidata.org/entity/Q26899272> a in:Person ;
+<person/pvrnr2016/2/pr> a my:Person ;
     rdfs:label "Веселин Найденов Марешки"@bg  ;
-    myd:webLink <https://www.wikidata.org/wiki/Q26899272> ;
+    myd:idwd <https://www.wikidata.org/wiki/Q26899272> ;
 .
 
-<http://www.wikidata.org/entity/Q25485773> a in:Party ;
+<http://www.wikidata.org/entity/Q25485773> a my:Party ;
     rdfs:label "ВОЛЯ"@bg  ;
     myd:webLink <https://www.wikidata.org/wiki/Q25485773> ;
 .

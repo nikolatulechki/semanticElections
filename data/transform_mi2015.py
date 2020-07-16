@@ -84,7 +84,7 @@ queryArgs = {
     "MV" : "" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur1/ko/votes_25.10.2015.flat.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
                     outfilePath+"_votes.ttl",
@@ -99,7 +99,7 @@ queryArgs = {
     "MV" : "" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur2/ko/votes_01.11.2015.flat.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
                     outfilePath+"_votes.ttl",
@@ -114,7 +114,7 @@ queryArgs = {
     "MV" : "" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur1/os/votes_25.10.2015.flat.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
                     outfilePath+"_votes.ttl",
@@ -243,7 +243,7 @@ tarql.execute_query(basePath+"tarql/local_parties.tarql",
 queryArgs = {
     "EL": "mi2015" ,
     "TYP" : "ko" ,
-    "RND" : "tur1" ,
+    "RND" : "tur1/" ,
 }
 
 
@@ -258,7 +258,7 @@ tarql.execute_query(basePath+"tarql/candidate.tarql",
 queryArgs = {
     "EL": "mi2015" ,
     "TYP" : "ko" ,
-    "RND" : "tur2" ,
+    "RND" : "tur2/" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur2/ko/local_candidates_01.11.2015.txt'
 outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")

@@ -12,7 +12,7 @@ where {
 		bind(uri(concat("candidate/{EL}/{TYP}/",?OB_CODE,"/",?c)) as ?CAND_URI)
 		bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
 		bind(uri(concat("party/{EL}/",?OB_CODE,"/",?c)) as ?PARTY_URI)
-		bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE,"/{RND}")) as ?ROUND_URI)
+		bind(uri(concat("election/{EL}/{TYP}/{RND}",?OB_CODE)) as ?ROUND_URI)
 }
 
 # VARS CHEATSHEET

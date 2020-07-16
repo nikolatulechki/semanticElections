@@ -2,7 +2,6 @@ construct {
 	?CAND_URI_PR a my:Candidate ;
 		rdfs:label ?d ;
 		myd:candidacy ?ROUND_URI ;
-		myd:party_number ?PARTY_NUM ;
 		myd:represents ?PARTY_URI ;
 	.
     ?CAND_URI_VP a my:Candidate ;
@@ -15,8 +14,8 @@ construct {
 	?PARTY_URI myd:candidacy ?ROUND_URI .
 }
 where {
-		bind(uri(concat("candidate/{EL}/",?c,"/pr")) as ?CAND_URI_PR)
-		bind(uri(concat("candidate/{EL}/",?c,"/vp")) as ?CAND_URI_VP)
+		bind(uri(concat("candidate/{EL}/",?a,"/pr")) as ?CAND_URI_PR)
+		bind(uri(concat("candidate/{EL}/",?a,"/vp")) as ?CAND_URI_VP)
 		bind(<election/{EL}/{RND}> as ?ROUND_URI)
 		bind(uri(concat("party/{EL}/",?a)) as ?PARTY_URI)
 }

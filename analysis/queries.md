@@ -1,5 +1,17 @@
 # Example SPARQL queries
 
+### Търся Кандидат 
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+select * where { 
+	?s a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
+    optional{?el rdfs:label ?elLabel }
+    filter(contains(lcase(?lab),"марешк"))
+} limit 100 
+```
 
 ### Всички кандидати на дадена партия
 
@@ -372,7 +384,7 @@ select * where {
 
 Postprocessing Q to fix voting places positioned far from their parent places. Fallback solution is to place them at the same location as their parent place. Will add a flag so that eventually we can look and fix them directly in Wikidata.
 
-## Aggregation Queries
+# Aggregation Queries
 
 Local elections - aggregation on parties
 
@@ -410,5 +422,85 @@ where {
      } 
 group by ?election ?party }
 	bind(uri(concat("vote/",strafter(str(?election),str(election:)),"/",strafter(str(?party),str(party:)))) as ?VOTE_URI)        
+}
+```
+
+# Integration Queries 
+
+Wikidata Municipalities and Oblast queries.
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+construct {
+	?s a my:Municipality ; myd:mir ?MIRURI ; myd:province ?obl ; rdfs:label ?munLabel ; geo:hasGeometry ?MUN_GEO ; myd:wdid ?mun .
+    ?MIRURI a my:MIR ; rdfs:label ?mirLabel ; geo:hasGeometry ?MIR_GEO ; myd:wdid ?mir .
+    ?obl a my:Province ; rdfs:label ?oblLabel .
+    ?MIR_GEO a geo:Geometry ; geo:asWKT ?mirCoord .
+    ?MUN_GEO a geo:Geometry ; geo:asWKT ?munCoord .        
+}
+where { 
+	?s myd:wdid ?mun
+    service <https://query.wikidata.org/sparql> {
+        ?mun wdt:P625 ?munCoord .
+        ?mun wdt:P131?/wdt:P7938 ?mir ; wdt:P131 ?obl .
+        ?mir p:P31/pq:P1545 ?mirnum ; wdt:P625 ?mirCoord .
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "bg,en". 
+            ?mun rdfs:label ?munLabel .
+            ?mir rdfs:label ?mirLabel .
+            ?obl rdfs:label ?oblLabel .
+        }     
+    }
+    bind(uri(concat(str(jurisdiction:),?mirnum)) as ?MIRURI)
+    bind(uri(concat(str(?s),"/geo")) as ?MUN_GEO)
+    bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)
+} 
+```
+
+Places from Wikdata
+
+```sparql 
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX place: <https://elections.ontotext.com/resource/place/> 
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+construct {
+    ?PLACE_URI a my:Place ;
+               rdfs:label ?placeLabel ;
+               myd:municipality ?s ;
+               geo:hasGeometry ?PLACE_GEO_URI ;
+               myd:idwd ?place ;
+    .
+    ?PLACE_GEO_URI a geo:Geometry ; geo:asWKT ?placeCoord . 
+} where { 
+	?s myd:wdid ?mun
+    service <https://query.wikidata.org/sparql> {
+        ?place wdt:P131 ?mun ; p:P3990 ?ekst ; wdt:P625 ?placeCoord .
+        ?ekst ps:P3990 ?ekatte .
+        filter not exists {?ekst pq:P518 [] }
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "bg". 
+            ?place rdfs:label ?placeLabel .
+        }
+    bind(uri(concat(str(place:),?ekatte)) as ?PLACE_URI)
+    bind(uri(concat(str(place:),?ekatte,"/geo")) as ?PLACE_GEO_URI)   
+    }
 }
 ```

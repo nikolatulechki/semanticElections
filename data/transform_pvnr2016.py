@@ -13,7 +13,7 @@ basePath = "/home/nikola/projects/semanticElections/data/"
 queryArgs = {
     "EL": "pvnr2016" ,
     "TYP" : "pvnr",
-    "EL_LABEL" : "Избори за Президент и Вицепрезидент",
+    "EL_LABEL" : "Избори за Президент и Вицепрезидент 2016",
     "RND": "tur1/",
     "RND_LABEL": "Тур 1",
     "RND_INT": "1"
@@ -30,8 +30,8 @@ tarql.execute_query(basePath+"tarql/sections_pvnr.tarql",
 queryArgs = {
     "EL": "pvnr2016" ,
     "TYP" : "pvnr",
-    "EL_LABEL" : "Избори за Президент и Вицепрезидент",
-    "RND": "tur1/",
+    "EL_LABEL" : "Избори за Президент и Вицепрезидент 2016",
+    "RND": "tur2/",
     "RND_LABEL": "Тур 2",
     "RND_INT": "2"
 }
@@ -63,7 +63,7 @@ tarql.execute_query(basePath+"tarql/cik_parties.tarql",
 queryArgs = {
     "EL": "pvnr2016" ,
     "TYP" : "pvnr" ,
-    "RND" : "tur1"
+    "RND" : "tur1/"
 }
 
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/cik_candidates_06.11.2016.txt'
@@ -77,7 +77,7 @@ tarql.execute_query(basePath+"tarql/candidate_pvnr.tarql",
 queryArgs = {
     "EL": "pvnr2016" ,
     "TYP" : "pvnr" ,
-    "RND" : "tur1/"
+    "RND" : "tur2/"
 }
 
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur2/cik_candidates_13.11.2016.txt'

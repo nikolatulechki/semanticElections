@@ -1,7 +1,6 @@
 construct {
-	?PARTY_URI a my:Party ;
+	?PARTY_URI a my:ElectionParty ;
 		rdfs:label ?b ;
-		myd:type "main_party" ;
 	.
 }
 where {

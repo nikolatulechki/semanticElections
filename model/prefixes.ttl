@@ -20,6 +20,9 @@
 @prefix voting: <https://elections.ontotext.com/resource/voting/> .
 @prefix party: <https://elections.ontotext.com/resource/party/> .
 @prefix section: <https://elections.ontotext.com/resource/section/> .
+@prefix jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/> .
+@prefix place: <https://elections.ontotext.com/resource/place/> .
+@prefix person: <https://elections.ontotext.com/resource/person/> .
 
 
 @prefix puml:     <http://plantuml.com/ontology#>.

@@ -84,7 +84,7 @@ queryArgs = {
     "MV" : "" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/ko/votes_27.10.2019.flat.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
                     outfilePath+"_votes.ttl",
@@ -99,7 +99,7 @@ queryArgs = {
     "MV" : "" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur2/ko/votes_03.11.2019.flat.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
                     outfilePath+"_votes.ttl",
@@ -114,7 +114,7 @@ queryArgs = {
     "MV" : "" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/os/votes_27.10.2019.flat.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
                     outfilePath+"_votes.ttl",
@@ -217,11 +217,12 @@ tarql.execute_query(basePath+"tarql/local_parties.tarql",
                     basePath+"rdf/mi2019/local_parties.ttl",
                     '-H -d ;',
                     queryArgs)
+##CANDIDATES
 
 queryArgs = {
     "EL": "mi2019" ,
     "TYP" : "ko" ,
-    "RND" : "tur1" ,
+    "RND" : "tur1/" ,
 }
 
 
@@ -232,11 +233,12 @@ tarql.execute_query(basePath+"tarql/candidate.tarql",
                     outfilePath+"_candidates.ttl",
                     '-H -d ;',
                     queryArgs)
+##CANDIDATES
 
 queryArgs = {
     "EL": "mi2019" ,
     "TYP" : "ko" ,
-    "RND" : "tur2" ,
+    "RND" : "tur2/" ,
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur2/ko/local_candidates_03.11.2019.txt'
 outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
@@ -253,7 +255,7 @@ queryArgs = {
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/os/local_candidates_27.10.2019.txt'
 outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
-tarql.execute_query(basePath+"tarql/candidate_ep.tarql",
+tarql.execute_query(basePath+"tarql/candidate_os.tarql",
                     infile,
                     outfilePath+"_candidates.ttl",
                     '-H -d ;',

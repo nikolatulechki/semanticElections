@@ -6,8 +6,6 @@
     myd:province wd:Q1585725 ;
 .
 
-
-
 <jurisdiction/24> a my:MIR ;
     rdfs:label "София 24 (МИР)" ;
     myd:code "24" ;
@@ -15,8 +13,8 @@
 .
 
 wd:Q1585725 a my:Province ;
+    rdfs:label "Област София Град" ;
 .
-
 
 <place/68134> a my:Place ;
         myd:ekatte  "68134" ;

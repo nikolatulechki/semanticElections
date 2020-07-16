@@ -8,12 +8,12 @@ tarql = Tarql(QueryUtils())
 
 basePath = "/home/nikola/projects/semanticElections/data/"
 
-## SECTIONS KO TUR1
+## SECTIONS
 
 queryArgs = {
     "EL": "pi2017" ,
     "TYP" : "pi",
-    "TYP_LABEL": "Парламент на РБ",
+    "TYP_LABEL": "Парламент на РБ МИР ",
     "EL_LABEL" : "Избори",
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/sections_26.03.2017.txt'
@@ -72,7 +72,7 @@ tarql.execute_query(basePath+"tarql/local_parties.tarql",
 ## Candidates
 queryArgs = {
     "EL": "pi2017" ,
-    "TYP" : "" ,
+    "TYP" : "pi" ,
     "RND" : "" ,
 }
 
