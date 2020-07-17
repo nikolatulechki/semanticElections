@@ -1,0 +1,12 @@
+construct {
+	?LOC_URI
+		myd:party ?P_URI;
+	.	
+}
+where {
+	bind(1+"" as ?UNDEF)
+	filter(BOUND(?main_parties))
+	bind(uri(?party_uri) as ?LOC_URI)
+	?mem apf:strSplit (?main_parties ";")
+	bind(uri(concat("party/mi2015/",?mem)) as ?P_URI)
+}
