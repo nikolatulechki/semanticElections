@@ -1,6 +1,6 @@
 construct {
 	?CO_URI 
-		myd:hasPart ?P_URI;	
+		myd:hasPart ?P_URI;
 	.	
 }
 where {

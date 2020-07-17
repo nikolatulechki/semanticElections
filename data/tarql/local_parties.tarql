@@ -2,6 +2,7 @@ construct {
 	?PARTY_URI a my:LocalParty ;
 		rdfs:label ?d ;
 		myd:party ?CIK_PARTY_URI_OK ;
+		myd:number ?CAND_NUM ;
 	.
 	?PARTY_URI_OK myd:type ?PARTY_TYPE ;
 

@@ -1,8 +1,12 @@
 construct {
 	?PARTY_URI a my:ElectionParty ;
 		rdfs:label ?b ;
+		myd:candidacy ?ELURI ;
+		myd:number ?NUM ;
 	.
 }
 where {
 	bind(uri(concat("party/{EL}/",?a)) as ?PARTY_URI)
+	bind(uri("election/{EL}") as ?ELURI)
+    bind(STRDT(?a, xsd:integer) as ?NUM)
 }

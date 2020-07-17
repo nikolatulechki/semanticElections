@@ -3,6 +3,7 @@ construct {
 		rdfs:label ?SEC_LABEL ;
 		myd:election ?EL_URI ;
 		myd:isMobile ?IS_MOBILE;
+		myd:place ?PLACE_URI;
 	.
 	?VOTE_URI a my:Voting ;
 		rdfs:label ?VOTE_LABEL ;
@@ -24,6 +25,7 @@ construct {
 
 
 } where {
+	bind(1+"" as ?UNDEF)
 	bind(uri(concat("section/{EL}/",?a)) as ?SEC_URI)
 	bind(concat("Секция ",str(?a)," в ",?e,""@bg) as ?SEC_LABEL)
 
@@ -36,4 +38,8 @@ construct {
 
 	bind(uri("election/{EL}") as ?EL_URI)
 	bind("{EL_LABEL}"@bg as ?EL_LABEL)
+
+	bind(if(strlen(?d)=4,concat("0",?d),?d) as ?ekatte)
+	bind(if(strlen(?ekatte)=5,uri(concat(str(place:),?ekatte)),?UNDEF) as ?PLACE_URI)
+
 }

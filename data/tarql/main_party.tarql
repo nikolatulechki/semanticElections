@@ -1,0 +1,12 @@
+construct {
+	?URI a my:Party  ;
+		myd:idwd ?WD ;
+		rdfs:label ?label ;
+    .
+    ?ELPARTY myd:party ?URI
+}
+where {
+	filter(BOUND(?wikidata))
+	bind(uri(concat(str(wd:),?wikidata)) as ?URI)
+	bind(uri(concat("party/",?election,"/",?number)) as ?ELPARTY)
+}

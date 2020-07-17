@@ -10,7 +10,7 @@ select * where {
 	?s a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
     optional{?el rdfs:label ?elLabel }
     filter(contains(lcase(?lab),"марешк"))
-} limit 100 
+} limit 100 3
 ```
 
 ### Всички кандидати на дадена партия
@@ -172,9 +172,9 @@ where {
 } order by desc(?vote_ratio) limit 1000
 ```
 
-## Postprocessing queries 
+# Postprocessing queries 
 
-Query to clean-up broken labels 
+## Query to clean-up broken labels 
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 delete {?s rdfs:label ?label}
@@ -188,7 +188,7 @@ where {
 } 
 ```
 
-fix double party types +
+## fix double party types +
 
 ```sparql
 PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -201,7 +201,7 @@ where {
 }
 ```
 
-Gen Coalitions (temp)
+## Gen Coalitions (temp)
 
 ```sparql
 PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -225,7 +225,25 @@ where {
 group by ?party ?municipality ?name 
 ```
 
-### Candidate Matching query 
+## GEN MI2015 localparty mappings
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select ?loc (group_concat(distinct ?num;separator=";") as ?nums) where { 
+	?loc a my:LocalParty ; rdfs:label ?locLabel  ; myd:candidacy/myd:partOf+ election:mi2015 .
+    ?main a my:ElectionParty ; rdfs:label ?mainLabel ; myd:candidacy election:mi2015 ; myd:number ?num .
+    filter(contains(lcase(?locLabel),lcase(?mainLabel)))
+    filter(!sameterm(?main,<party/mi2015/75>)) #шибаните зелени
+} group by ?loc
+
+```
+
+## Candidate Matching query 
 
 Insert does not wqork with gdb 9. Bets result is with constrct and then imprting th .ttl file. 
 
