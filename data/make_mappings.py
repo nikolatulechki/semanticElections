@@ -17,17 +17,17 @@ infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions_
 
 tarql.execute_query(basePath+"tarql/coalitions_mi2015.tarql",
                     infile,
-                    basePath+"/rdf/mi2015/coalitions_mapping.ttl",
+                    basePath+"rdf/mi2015/coalitions_mapping.ttl",
                     '-d ,',
                     queryArgs)
 
 
 ## Coalitions Mapping 2019
-infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions.csv"
+infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions_mi2019.csv"
 
 tarql.execute_query(basePath+"tarql/coalitions.tarql",
                     infile,
-                    basePath+"/rdf/mi2019/coalitions_mapping.ttl",
+                    basePath+"rdf/mi2019/coalitions_mapping.ttl",
                     '-d ,',
                     queryArgs)
 
@@ -37,7 +37,16 @@ infile = "/home/nikola/projects/semanticElections/data/static/sheets/main_partie
 
 tarql.execute_query(basePath+"tarql/main_party.tarql",
                     infile,
-                    basePath+"/rdf/mappings/main_party_mapping.ttl",
+                    basePath+"rdf/mappings/main_party_mapping.ttl",
                     '-d ,',
                     queryArgs)
 
+## MUNICIPALITIES
+basePath = "/home/nikola/projects/semanticElections/data/"
+infile = "/home/nikola/projects/semanticElections/data/static/sheets/mun_wd_mapping.csv"
+
+tarql.execute_query(basePath+"tarql/mun_wd_mapping.tarql",
+                    infile,
+                    basePath+"rdf/mappings/mun_wd_mapping.ttl",
+                    '-d ,',
+                    queryArgs)

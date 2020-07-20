@@ -1,0 +1,33 @@
+construct {
+	?SEC_URI a my:Section ;
+		rdfs:label ?SEC_LABEL ;
+		myd:election ?EL_URI ;
+		myd:isMobile ?IS_MOBILE;
+		myd:place ?PLACE_URI;
+	.
+	?VOTE_URI a my:Voting ;
+		rdfs:label ?VOTE_LABEL ;
+		myd:election ?EL_URI ;
+		myd:section ?SEC_URI ;
+	.
+	?EL_URI a my:Election ;
+	    rdfs:label ?EL_LABEL ;
+	.
+
+} where {
+	bind(1+"" as ?UNDEF)
+
+	bind(uri(concat("section/{EL}/",?a)) as ?SEC_URI)
+	bind(concat("Секция ",str(?a)," в ",?e,""@bg) as ?SEC_LABEL)
+
+	bind(if(strlen(?b)=3 || strlen(?a)=1,concat("0",?b),?b) as ?OB_CODE) # leading zero
+	bind(if(?f=0,TRUE,FALSE) as ?IS_MOBILE)
+	bind(uri(concat("voting/{EL}/",?a)) as ?VOTE_URI)
+	bind(concat("Гласуване в секция ",str(?a)," на {EL_LABEL}"@bg) as ?VOTE_LABEL)
+
+	bind(uri("election/{EL}") as ?EL_URI)
+	bind("{EL_LABEL}"@bg as ?EL_LABEL)
+
+	bind(if(strlen(?d)=4,concat("0",?d),?d) as ?ekatte)
+	bind(if(strlen(?ekatte)=5,uri(concat(str(place:),?ekatte)),?UNDEF) as ?PLACE_URI)
+}

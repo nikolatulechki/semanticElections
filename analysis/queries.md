@@ -10,7 +10,7 @@ select * where {
 	?s a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
     optional{?el rdfs:label ?elLabel }
     filter(contains(lcase(?lab),"марешк"))
-} limit 100 3
+} 
 ```
 
 ### Всички кандидати на дадена партия
@@ -47,6 +47,64 @@ where {
 ?voting myd:partOf ?election . 
 ?s ^myp:vote ?voting ; myps:vote ?party ; mypq:valid_votes_recieved ?votes .     
 } group by ?election ?party ?cand ?name order by desc(?sum_votes)
+```
+
+## Place level aggregations for 2 parties 
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+
+# wd:Q133968 GERB
+# wd:Q164242 DPS
+
+
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select * {
+    
+bind((?GERB19/?ALLVOTE19 - ?GERB15/?ALLVOTE15) as ?GRTHGERB19)
+bind((?DPS19/?ALLVOTE19 - ?DPS15/?ALLVOTE15) as ?GRTHDPS19)
+    
+{select ?place ?label (sum(?anyvote15) as ?ALLVOTE15) (sum(?gerbvotes15) as ?GERB15) (sum(?dpsvotes15) as ?DPS15) (sum(?anyvote19) as ?ALLVOTE19) (sum(?gerbvotes19) as ?GERB19) (sum(?dpsvotes19) as ?DPS19) 
+
+where { 
+    {
+        select ?place {
+            ?place a my:Place ;
+        } limit 100
+    } 
+    ?place a my:Place ; rdfs:label ?label .
+    {
+    ?sec15 a my:Section ; myd:place ?place .
+ 
+    ?voting15 myd:section ?sec15 ; myd:election/myd:partOf <election/mi2015/os> .
+    ?voting15 myp:vote ?vote15 .
+    ?vote15 mypq:valid_votes_recieved ?anyvote15 ; myps:vote ?party15 .
+
+    bind(if(exists{?party15 myd:party+ wd:Q133968},?anyvote15,0) as  ?gerbvotes15)
+    bind(if(exists{?party15 myd:party+ wd:Q164242},?anyvote15,0) as  ?dpsvotes15)
+    }
+    UNION
+    {
+    ?sec19 a my:Section ; myd:place ?place .
+    ?voting19 myd:section ?sec19 ; myd:election/myd:partOf <election/mi2019/os> .
+    ?voting19 myp:vote ?vote19 .
+    ?vote19 mypq:valid_votes_recieved ?anyvote19 ; myps:vote ?party19 .
+
+    bind(if(exists{?party19 myd:hasPart?/myd:party+ wd:Q133968},?anyvote19,0) as  ?gerbvotes19)
+    bind(if(exists{?party19 myd:hasPart?/myd:party+ wd:Q164242},?anyvote19,0) as  ?dpsvotes19)
+    }
+}
+group by ?place ?label}
+}
+
 ```
 
 ## Buisness Questions
@@ -201,31 +259,7 @@ where {
 }
 ```
 
-## Gen Coalitions (temp)
-
-```sparql
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-select 
-
-?party ?municipality ?name (group_concat(distinct ?el_notation;separator=";") as ?elections) 
-where { 
-    ?party a my:Party ; 
-        myd:type "independant" ; 
-        rdfs:label ?name ;
-        ^mypq:represents/myps:candidacy ?cand ;
-    .
-    ?cand myd:municipality/rdfs:label ?municipality ; myd:partOf ?election .
-    bind(strafter(str(?election),concat(str(my:),"election/mi2019/")) as ?el_notation) 
-    
-} 
-group by ?party ?municipality ?name 
-```
-
-## GEN MI2015 localparty mappings
+### GEN MI2015 localparty mappings
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
@@ -240,37 +274,11 @@ select ?loc (group_concat(distinct ?num;separator=";") as ?nums) where {
     filter(contains(lcase(?locLabel),lcase(?mainLabel)))
     filter(!sameterm(?main,<party/mi2015/75>)) #шибаните зелени
 } group by ?loc
-
 ```
 
-## Candidate Matching query 
+### Candidate Matching query 
 
-Insert does not wqork with gdb 9. Bets result is with constrct and then imprting th .ttl file. 
-
-```
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
-PREFIX mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-construct {
-    ?c1 owl:sameAs ?c2 .
-}
-where { 
-    ?c1 a my:Candidate ; rdfs:label ?l1 .
-    ?c2 a my:Candidate ; rdfs:label ?l1 .
-    filter(!sameterm(?c1,?c2))
-    ?c1 myp:candidacy ?cy1 .
-    ?c2 myp:candidacy ?cy2 .
-    ?cy1 myps:candidacy/myd:partOf?/myd:municipality/^myd:municipality/^myd:partOf?/^myps:candidacy ?cy2 .
-    ?cy1 mypq:represents/^mypq:represents ?cy2 .
-} 
-```
-
-Names not following the main pattern 
+### Names not following the main pattern 
 ```
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>        
 PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -282,7 +290,7 @@ where {
 } 
 ```
 
-Election retromatching
+### Election retromatching
 ```
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -447,6 +455,7 @@ group by ?election ?party }
 
 Wikidata Municipalities and Oblast queries.
 
+
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -460,14 +469,12 @@ PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 construct {
-	?s a my:Municipality ; myd:mir ?MIRURI ; myd:province ?obl ; rdfs:label ?munLabel ; geo:hasGeometry ?MUN_GEO ; myd:wdid ?mun .
-    ?MIRURI a my:MIR ; rdfs:label ?mirLabel ; geo:hasGeometry ?MIR_GEO ; myd:wdid ?mir .
+	?s myd:mir ?MIRURI ; myd:province ?obl ; rdfs:label ?munLabel ; geo:hasGeometry ?MUN_GEO ; myd:wdid ?mun .
     ?obl a my:Province ; rdfs:label ?oblLabel .
-    ?MIR_GEO a geo:Geometry ; geo:asWKT ?mirCoord .
     ?MUN_GEO a geo:Geometry ; geo:asWKT ?munCoord .        
 }
 where { 
-	?s myd:wdid ?mun
+	?s a my:Municipality ; myd:wdid ?mun .
     service <https://query.wikidata.org/sparql> {
         ?mun wdt:P625 ?munCoord .
         ?mun wdt:P131?/wdt:P7938 ?mir ; wdt:P131 ?obl .
@@ -482,6 +489,35 @@ where {
     bind(uri(concat(str(?s),"/geo")) as ?MUN_GEO)
     bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)
 } 
+```
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+construct {
+	?MIRURI a my:MIR ; rdfs:label ?mirLabel ; geo:hasGeometry ?MIR_GEO ; myd:wdid ?mir ; myd:number ?mirnum .
+    ?MIR_GEO a geo:Geometry ; geo:asWKT ?mirCoord .  
+}
+where { 
+    service <https://query.wikidata.org/sparql> {
+        ?mir wdt:P31 wd:Q43791141 ; p:P31/pq:P1545 ?mirnum ; wdt:P625 ?mirCoord .
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "bg,en". 
+            ?mir rdfs:label ?mirLabel .
+        }     
+    }
+    bind(uri(concat(str(jurisdiction:),?mirnum)) as ?MIRURI)
+    bind(uri(concat(str(?s),"/geo")) as ?MUN_GEO)
+    bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)
+}
 ```
 
 Places from Wikdata

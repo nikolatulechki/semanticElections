@@ -50,7 +50,7 @@ tarql.execute_query(basePath+"tarql/sections_tur.tarql",
 
 queryArgs = {
     "EL": "mi2015" ,
-    "EL_LABEL" : "Местни Избори 2019",
+    "EL_LABEL" : "Местни Избори 2015",
     "TYP" : "os" ,
     "TYP_LABEL" : "общински съвет",
 }
@@ -121,6 +121,18 @@ tarql.execute_query(basePath+"tarql/votes.tarql",
                     '-d ; -H',
                     queryArgs)
 
+## PREFERENCE OS
+queryArgs = {
+    "EL": "mi2015" ,
+    "TYP" : "os" ,
+    "RND" : "" ,
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur1/os/preferences_25.10.2015.txt'
+tarql.execute_query(basePath+"tarql/preference_os.tarql",
+                    infile,
+                    basePath+"rdf/mi2015/os_preferences.ttl",
+                    '-d ; -H',
+                    queryArgs)
 
 #TODO
 # ## PROTOCOLS KO TUR1

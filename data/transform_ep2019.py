@@ -14,10 +14,10 @@ queryArgs = {
     "EL": "ep2019" ,
     "TYP" : "ep",
     "TYP_LABEL": "Европейски Парламент 2019",
-    "EL_LABEL" : "Избори",
+    "EL_LABEL" : "Избори за Европейски Парламент 2019",
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/sections.txt'
-tarql.execute_query(basePath+"tarql/sections.tarql",
+tarql.execute_query(basePath+"tarql/sections_ep.tarql",
                     infile,
                     basePath+"rdf/ep2019/sections.ttl",
                     '-d ; -H',

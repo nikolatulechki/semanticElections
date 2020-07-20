@@ -1,0 +1,10 @@
+construct {
+	?URI a my:Municipality  ;
+		myd:wdid ?WD ;
+    .
+}
+where {
+	filter(BOUND(?wd))
+	bind(uri(concat(str(wd:),?wd)) as ?WD)
+	bind(uri(?mun) as ?URI)
+}

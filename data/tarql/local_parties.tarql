@@ -15,5 +15,5 @@ where {
 	bind(uri(concat("party/{EL}/",?c)) as ?CIK_PARTY_URI)
 	bind(if(contains(lcase(?d),"коалиция"),"local_coalition","independant") as ?PARTY_TYPE)
 	bind(if(?CAND_NUM <= {CIK_THR},?CIK_PARTY_URI,?UNDEF) as ?CIK_PARTY_URI_OK)
-	bind(if(?CAND_NUM > {CIK_THR},?PARTY_URI,?UNDEF) as ?PARTY_URI_OK)
+	bind(if(?CAND_NUM > {CIK_THR},?PARTY_URI,?UNDEF)      as ?PARTY_URI_OK)
 }

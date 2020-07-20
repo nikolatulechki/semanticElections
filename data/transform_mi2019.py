@@ -63,18 +63,18 @@ tarql.execute_query(basePath+"tarql/sections.tarql",
                     '-d ; -H',
                     queryArgs)
 
-## SECTIONS GEOGRAPHY
-
-queryArgs = {
-    "EL": "mi2019"
-}
-
-infile = '/home/nikola/projects/semanticElections/data/static/sections/mi2019_sections_geography.csv'
-tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
-                    infile,
-                    basePath+"rdf/mi2019/sections_geography.ttl",
-                    '-d ,',
-                    queryArgs)
+# ## SECTIONS GEOGRAPHY
+#
+# queryArgs = {
+#     "EL": "mi2019"
+# }
+#
+# infile = '/home/nikola/projects/semanticElections/data/static/sections/mi2019_sections_geography.csv'
+# tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
+#                     infile,
+#                     basePath+"rdf/mi2019/sections_geography.ttl",
+#                     '-d ,',
+#                     queryArgs)
 
 ## VOTE tur 1
 queryArgs = {
@@ -170,18 +170,18 @@ tarql.execute_query(basePath+"tarql/protocols.tarql",
                     queryArgs)
 
 
-# ## PREFERENCE OS
-# queryArgs = {
-#     "EL": "mi2019" ,
-#     "TYP" : "os" ,
-#     "RND" : "" ,
-# }
-# infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/os/preferences_27.10.2019.txt'
-# tarql.execute_query(basePath+"tarql/preference_os.tarql",
-#                     infile,
-#                     basePath+"rdf/mi2019/os_preferences.ttl",
-#                     '-d ; -H',
-#                     queryArgs)
+ ## PREFERENCE OS
+queryArgs = {
+    "EL": "mi2019" ,
+    "TYP" : "os" ,
+    "RND" : "" ,
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/os/preferences_27.10.2019.txt'
+tarql.execute_query(basePath+"tarql/preference_os.tarql",
+                    infile,
+                    basePath+"rdf/mi2019/os_preferences.ttl",
+                    '-d ; -H',
+                    queryArgs)
 
 
 
@@ -215,6 +215,23 @@ outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_"
 tarql.execute_query(basePath+"tarql/local_parties.tarql",
                     infile,
                     basePath+"rdf/mi2019/local_parties.ttl",
+                    '-H -d ;',
+                    queryArgs)
+
+## Local Parties
+
+queryArgs = {
+    "EL": "mi2019" ,
+    "TYP" : "os" ,
+    "RND" : "tur1",
+    "CIK_THR": "66"
+}
+
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/os/local_parties_27.10.2019.txt'
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
+tarql.execute_query(basePath+"tarql/local_parties.tarql",
+                    infile,
+                    basePath+"rdf/mi2019/local_parties_os.ttl",
                     '-H -d ;',
                     queryArgs)
 ##CANDIDATES

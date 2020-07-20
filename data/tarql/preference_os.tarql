@@ -4,6 +4,7 @@ construct {
 		myp:vote ?S_VOTE_URI ;
 	.
 	?S_VOTE_URI_OK
+	    a my:PreferenceVote ;
 		myps:vote ?CAND_URI ;
 		mypq:valid_votes_recieved ?VV ;
 	.	
@@ -15,8 +16,9 @@ where {
 	bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
 	bind(concat("candidate/{EL}/os/",?OB_CODE,"/",?b,"/",?c) as ?CAND_STR)
 	bind(uri(?CAND_STR) as ?CAND_URI)
-	bind(uri(concat("statement/vote/{EL}/os/",?OB_CODE,"/",?a,"/",?CAND_STR)) as ?S_VOTE_URI)
+	bind(uri(concat("voting/{EL}/",?a,"/",?b,"/",?c)) as ?S_VOTE_URI)
 	bind(STRDT(?d, xsd:integer) as ?VV)
 	bind(if(?CAND_NUM != 0,?EL_URI,?UNDEF) as ?EL_URI_OK)
 	bind(if(?CAND_NUM != 0,?S_VOTE_URI,?UNDEF) as ?S_VOTE_URI_OK)
+	filter(?VV != 0)
 }
