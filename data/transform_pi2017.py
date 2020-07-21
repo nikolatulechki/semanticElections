@@ -11,13 +11,13 @@ basePath = "/home/nikola/projects/semanticElections/data/"
 ## SECTIONS
 
 queryArgs = {
+    "YEAR": "2017" ,
     "EL": "pi2017" ,
-    "TYP" : "pi",
     "TYP_LABEL": "Парламент на РБ МИР ",
     "EL_LABEL" : "Избори",
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/sections_26.03.2017.txt'
-tarql.execute_query(basePath+"tarql/sections.tarql",
+tarql.execute_query(basePath+"tarql/sections_pi.tarql",
                     infile,
                     basePath+"rdf/pi2017/sections.ttl",
                     '-d ; -H',
@@ -33,6 +33,20 @@ infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017
 tarql.execute_query(basePath+"tarql/votes.tarql",
                     infile,
                     basePath+"rdf/pi2017/votes.ttl",
+                    '-d ; -H',
+                    queryArgs)
+
+ ## PREFERENCE
+queryArgs = {
+    "EL": "pi2017" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "MV" : "",
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/preferences_26.03.2017.txt'
+tarql.execute_query(basePath+"tarql/preference.tarql",
+                    infile,
+                    basePath+"rdf/pi2017/preferences.ttl",
                     '-d ; -H',
                     queryArgs)
 

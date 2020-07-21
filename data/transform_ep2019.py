@@ -51,6 +51,34 @@ tarql.execute_query(basePath+"tarql/votes.tarql",
                     '-d ; -H',
                     queryArgs)
 
+ ## PREFERENCE
+queryArgs = {
+    "EL": "ep2019" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "MV" : "",
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/preferences.txt'
+tarql.execute_query(basePath+"tarql/preference_ep.tarql",
+                    infile,
+                    basePath+"rdf/ep2019/preferences.ttl",
+                    '-d ; -H',
+                    queryArgs)
+
+ ## PREFERENCE MV
+queryArgs = {
+    "EL": "ep2019" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "MV" : "/mv",
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/preferences_mv.txt'
+tarql.execute_query(basePath+"tarql/preference_ep.tarql",
+                    infile,
+                    basePath+"rdf/ep2019/preferences_mv.ttl",
+                    '-d ; -H',
+                    queryArgs)
+
 # CIK Parties
 
 queryArgs = {

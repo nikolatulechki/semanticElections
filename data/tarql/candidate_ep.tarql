@@ -12,7 +12,7 @@ construct {
 where {
 		bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
 		bind(uri(concat("candidate/{EL}/",?a,"/",?c)) as ?CAND_URI)
-		bind(<election/{EL}/{TYP}> as ?ROUND_URI)
+		bind(<election/{EL}> as ?ROUND_URI)
 		bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
 		bind(STRDT(?a, xsd:integer) as ?PARTY_NUM)
 		bind(uri(concat("party/{EL}/",?a)) as ?PARTY_URI)

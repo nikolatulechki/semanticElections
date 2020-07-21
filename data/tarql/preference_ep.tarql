@@ -7,19 +7,20 @@ construct {
 	    a my:PreferenceVote ;
 		myps:preference_vote ?CAND_URI ;
 		mypq:valid_votes_recieved ?VV ;
-		mypq:type "paper" ;
+		mypq:type ?vote_type ;
 	.	
 }
 where {
 	bind(0+"" as ?UNDEF)
-	bind(substr(?a,1,4) as ?OB_CODE)
-	bind(uri(concat("voting/{EL}/os/",?OB_CODE,"/",?a)) as ?EL_URI)
+	bind(if(strstarts(?a,"0"),substr(?a,2,1),substr(?a,1,2)) as ?OB_CODE)
+	bind(uri(concat("voting/{EL}/",?a)) as ?EL_URI)
 	bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
-	bind(concat("candidate/{EL}/os/",?OB_CODE,"/",?b,"/",?c) as ?CAND_STR)
+	bind(concat("candidate/{EL}/{TYP}",?b,"/",?c) as ?CAND_STR)
 	bind(uri(?CAND_STR) as ?CAND_URI)
-	bind(uri(concat("vote/{EL}/",?a,"/",?b,"/",?c)) as ?S_VOTE_URI)
+	bind(uri(concat("vote/{EL}/",?a,"/",?b,"/",?c,"{MV}")) as ?S_VOTE_URI)
 	bind(STRDT(?d, xsd:integer) as ?VV)
 	bind(if(?CAND_NUM != 0,?EL_URI,?UNDEF) as ?EL_URI_OK)
 	bind(if(?CAND_NUM != 0,?S_VOTE_URI,?UNDEF) as ?S_VOTE_URI_OK)
+    bind(if("{MV}"="","paper","electronic") as ?vote_type)
 	filter(?VV != 0)
 }
