@@ -1,8 +1,9 @@
 # Semantic Elections
 
-This project's objective is to convert Bulgarian election results into RDF 
+This project's goal is to convert CIK open data about bulgarian elections to 5-star RDF 
 
 ## Endpoint
+
  The sparql endpont is situated at <https://elections.ontotext.com>
 
 ## Data Model
@@ -50,7 +51,7 @@ select * where {
 } limit 100 
 ```
 
-### Партии и коалиции на местно ниво отансящи се към дадена партия е участвала
+### Партии и коалиции на местно ниво отансящи се към дадена партия
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
