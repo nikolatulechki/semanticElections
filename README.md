@@ -38,7 +38,7 @@ select * where {
     optional{ ?election rdfs:label ?label .}
 }
 ```
-### Партии и коалиции на местно ниво отансящи се към дадена партия
+### Партии и коалиции на местно ниво отнасящи се към дадена партия 
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
