@@ -38,19 +38,6 @@ select * where {
     optional{ ?election rdfs:label ?label .}
 }
 ```
-### Изборните секции в Драгичево
-
-```sparql
-PREFIX my: <https://elections.ontotext.com/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX place: <https://elections.ontotext.com/resource/place/>
-select * where { 
-	?s a  my:Section ; myd:place place:23251 ; rdfs:label ?label ; myd:election ?el .
-    ?el rdfs:label ?elLabel .
-} limit 100 
-```
-
 ### Партии и коалиции на местно ниво отансящи се към дадена партия
 
 ```sparql
@@ -70,6 +57,7 @@ select ?localParty ?localPartyLabel ?localNum ?localEl ?localElLabel where {
     ?localEl rdfs:label ?localElLabel .
 }
 ```
+
 ### Листата на дадена партия за даден избор 
 
 ```sparql
@@ -147,5 +135,16 @@ select * {
     filter(?pref > 10)
 } 
 ```
+### Изборните секции в Драгичево
 
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+select * where { 
+	?s a  my:Section ; myd:place place:23251 ; rdfs:label ?label ; myd:election ?el .
+    ?el rdfs:label ?elLabel .
+} limit 100 
+```
 
