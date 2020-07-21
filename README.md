@@ -85,7 +85,7 @@ select ?candidate ?candNumber ?name ?localParty ?localPartyLabel ?localPartyNumb
     #bind(wd:Q792527 as ?party) #VMRO
     
 #    bind(<election/mi2015/os/1910> as ?localEl) #"Местни Избори 2015 за общински съвет 1910. Дулово"
-#    bind(<election/pi2017/24> as ?localEl) #"Избори за Парламент на РБ МИР  24. СОФИЯ 24 МИР"
+    bind(<election/pi2017/24> as ?localEl) #"Избори за Парламент на РБ МИР  24. СОФИЯ 24 МИР"
 #    bind(<election/ep2019> as ?localEl) #"Местни Избори 2015 за общински съвет 1910. Дулово"
     
     ?localParty  myd:party+ ?party ; rdfs:label ?localPartyLabel ; myd:number ?localPartyNumber ; myd:candidacy ?localEl .
