@@ -85,36 +85,14 @@ select ?candidate ?candNumber ?name ?localParty ?localPartyLabel ?localPartyNumb
     #bind(wd:Q792527 as ?party) #VMRO
     
 #    bind(<election/mi2015/os/1910> as ?localEl) #"Местни Избори 2015 за общински съвет 1910. Дулово"
-    bind(<election/pi2017/24> as ?localEl) #"Избори за Парламент на РБ МИР  24. СОФИЯ 24 МИР"
-#    bind(<election/ep2019> as ?localEl) #"Местни Избори 2015 за общински съвет 1910. Дулово"
+#    bind(<election/pi2017/24> as ?localEl) #"Избори за Парламент на РБ МИР  24. СОФИЯ 24 МИР"
+    bind(<election/ep2019> as ?localEl) #"Избори за Европейски Парламент 2019"
     
     ?localParty  myd:party+ ?party ; rdfs:label ?localPartyLabel ; myd:number ?localPartyNumber ; myd:candidacy ?localEl .
     ?candidate a my:Candidate ; myd:represents ?localParty  ; rdfs:label ?name ; myd:number ?candNumber .
     
     ?localEl rdfs:label ?localElLabel .
 } order by ?candNumber 
-```
-
-### Peevski's preferences
-
-```sparql
-PREFIX my: <https://elections.ontotext.com/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
-PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
-PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
-select * {
-	
-    {select * where { 
-            ?cand a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
-            optional{?el rdfs:label ?elLabel }
-            filter(contains(lcase(?lab),"делян славчев пеевски"))
-    }}
-    ?voting myp:preference_vote ?pv ; myd:election ?el.
-    ?pv myps:preference_vote ?cand ; mypq:valid_votes_recieved ?pref .
-    filter(?pref > 10)
-} 
 ```
 
 ### Aggregated results on municipality level (local election results)
@@ -147,3 +125,27 @@ select ?candidate ?name ?party ?partyName (sum(?valid_votes) as ?sum_valid_votes
      } 
 group by ?election ?party ?partyName ?candidate ?name order by desc(?sum_valid_votes)
 ```
+
+### Peevski's preferences
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select * {
+	
+    {select * where { 
+            ?cand a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
+            optional{?el rdfs:label ?elLabel }
+            filter(contains(lcase(?lab),"делян славчев пеевски"))
+    }}
+    ?voting myp:preference_vote ?pv ; myd:election ?el.
+    ?pv myps:preference_vote ?cand ; mypq:valid_votes_recieved ?pref .
+    filter(?pref > 10)
+} 
+```
+
+
