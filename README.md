@@ -26,7 +26,7 @@ select * where {
 ```
 ### Всички избори в които дадена партия е участвала
 
-```
+```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd: <http://www.wikidata.org/entity/>
