@@ -16,7 +16,7 @@
     myd:code "2246" ;
 .
 
-<election/mi2019/os/2246/224607026> a my:Voting ;
+<voting/mi2019/os/2246/224607026> a my:Voting ;
     rdfs:label "Гласуване на Местни Избори 2019 за кмет на бщински съвет на община 2246. Столична в секция 224607026"@bg ;
     myd:section <section/mi2019/224607026> ;
     myd:partOf <election/mi2019/os/2246> ;
@@ -25,33 +25,37 @@
 
 ## Candidate, party and coalition
 
-<candidate/os/2246/66/108> a my:Candidate ;
+<candidate/mi2019/os/2246/66/108> a my:Candidate ;
     rdfs:label "Тома Георгиев Белев" ;
-    myd:represents <party/2246/66> ;
-    myd:candidate_number 108 ;
+    myd:represents <party/mi2019/2246/66> ;
+    myd:number 8 ;
     myd:series_ordinal 8 ;
     myd:candidacy <election/mi2019/os/2246> ;
 .
 
 
-<party/2246/66> a my:LocalParty ;
+<party/mi2019/2246/66> a my:LocalParty ;
     rdfs:label "ДЕМОКРАТИЧНА БЪЛГАРИЯ – ОБЕДИНЕНИЕ (ДА България, ДСБ, Зелено движение)";
     myd:candidacy <election/mi2019/os/2246> ;
-    myd:party <party/66> ;
+    myd:party <party/mi2019/66> ;
 .
 
-<party/66> a my:Party ;
+<party/mi2019/66> a my:ElectionParty ;
     rdfs:label "ДЕМОКРАТИЧНА БЪЛГАРИЯ – ОБЕДИНЕНИЕ (ДА България, ДСБ, Зелено движение)";
+    myd:party wd:Q62808154 ;
 .
 
+wd:Q62808154 a my:Party ;
+    rdfs:label "Демократична България" ;
+.
 
 #Voting for party 
 
-<election/mi2019/os/2246/224607026> myd:vote <party/2246/66> ;
-    myp:vote <statement/vote/mi2019/os/2246/224607026/party/66> .
+<voting/mi2019/os/2246/224607026> myd:vote <party/mi2019/2246/66> ;
+    myp:vote <vote/mi2019/os/2246/224607026/party/66> .
 
-<statement/vote/mi2019/os/2246/224607026/party/66> a my:Statement ;
-    myps:vote <party/2246/66> ;
+<vote/mi2019/os/2246/224607026/party/66> a my:SectionVote ;
+    myps:vote <party/mi2019/2246/66> ;
     mypq:valid_votes_received 78 ;
     mypq:invalid_votes_received 0 ;
 .
@@ -59,13 +63,13 @@
 
 #Vote with preference
 
-<election/mi2019/os/2246/224607026> 
-    myd:vote <candidate/os/2246/66/108> ;
-    myp:vote <statement/vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> ;
+<voting/mi2019/os/2246/224607026>
+    myd:preference_vote <candidate/mi2019/os/2246/66/108> ;
+    myp:preference_vote <vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> ;
 .
 
-<statement/vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> a my:Statement ;
-    myps:vote <candidate/os/2246/66/108> ;
+<vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> a my:PreferenceVote ;
+    myps:vote <candidate/mi2019/os/2246/66/108> ;
     mypq:votes_received 5 ;
 .
 
