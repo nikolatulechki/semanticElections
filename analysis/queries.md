@@ -1,3 +1,21 @@
+# Preference votes
+
+## Sum pref of midlist candidates
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+select ?cand (sum(?votes) as ?votes_sum) where { 
+	?s a my:PreferenceVote ; mypq:valid_votes_recieved ?votes ; myps:preference_vote ?cand .
+    ?cand myd:number ?cand_num .
+    filter(?cand_num>10)
+#    filter(?votes>20)
+} group by ?cand order by desc(?votes_sum) 
+```
+
+
 
 ## Place level aggregations for 2 parties 
 
@@ -240,52 +258,6 @@ where {
 } 
 ```
 
-### Election retromatching
-```
-BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-insert {
-    ?e myd:wdMatch ?wd .
-}
-where { 
-    ?e a my:Election ; myd:partOf <election/mi2019/ko> ; myd:municipality/myd:wdMatch ?mun .
-    service <https://query.wikidata.org/sparql> {
-        ?wd wdt:P31 wd:Q69463245 ; wdt:P1001 ?mun .
-    }                  
-} 
-```
-
-```spaqrl
-BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wikibase: <http://wikiba.se/ontology#>
-PREFIX bd: <http://www.bigdata.com/rdf#>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-
-select * where { 
-    ?e a my:Election ; myd:partOf <election/mi2019/ko> ; myd:wdMatch ?wd .
-    ?vr myd:partOf ?e ; rdfs:label ?vlabel ; myd:round 1 .
-    service <https://query.wikidata.org/sparql> {
-          SERVICE wikibase:label {
-            bd:serviceParam wikibase:language "bg" .
-            ?wd rdfs:label ?bgLabel .
-          }
-          SERVICE wikibase:label {
-            bd:serviceParam wikibase:language "en" .
-            ?wd rdfs:label ?enLabel .
-          }
-    }
-    bind(concat(?bgLabel," - Първи тур") as ?roundLabelBg)
-    bind(concat("First round of ",?enLabel) as ?roundLabelEn)
-    
-}  
-```
-
 ## Geography 
 
 nearby voting places
@@ -512,5 +484,20 @@ construct {
     bind(uri(concat(str(place:),?ekatte)) as ?PLACE_URI)
     bind(uri(concat(str(place:),?ekatte,"/geo")) as ?PLACE_GEO_URI)   
     }
+}
+```
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+insert {
+graph <graph/metasections> {	
+	?metasec a my:MetaSection .
+    ?sec  myd:meta_section ?metasec .    
+}}
+where {
+    ?sec a my:Section ; myd:number ?num .
+    bind(uri(concat("metaSection/",?num)) as ?metasec)
 }
 ```

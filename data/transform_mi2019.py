@@ -63,18 +63,18 @@ tarql.execute_query(basePath+"tarql/sections.tarql",
                     '-d ; -H',
                     queryArgs)
 
-# ## SECTIONS GEOGRAPHY
-#
-# queryArgs = {
-#     "EL": "mi2019"
-# }
-#
-# infile = '/home/nikola/projects/semanticElections/data/static/sections/mi2019_sections_geography.csv'
-# tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
-#                     infile,
-#                     basePath+"rdf/mi2019/sections_geography.ttl",
-#                     '-d ,',
-#                     queryArgs)
+## SECTIONS GEOGRAPHY
+
+queryArgs = {
+    "EL": "mi2019"
+}
+
+infile = '/home/nikola/projects/semanticElections/data/static/sections/mi2019_sections_geography.csv'
+tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
+                    infile,
+                    basePath+"rdf/mi2019/sections_geography.ttl",
+                    '-d ,',
+                    queryArgs)
 
 ## VOTE tur 1
 queryArgs = {
@@ -124,14 +124,14 @@ tarql.execute_query(basePath+"tarql/votes.tarql",
 ## PROTOCOLS KO TUR1
 queryArgs = {
     "EL": "mi2019" ,
-    "TYP" : "ko" ,
-    "RND" : "tur1" ,
+    "TYP" : "ko/" ,
+    "RND" : "tur1/" ,
     "LINK_HTML" : "https://results.cik.bg/mi2019/tur1/protokoli/2/",
     "LINK_PDF" : "https://results.cik.bg/mi2019/tur1/pdf/2/"
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/ko/protocols_27.10.2019.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
-tarql.execute_query(basePath+"tarql/protocols.tarql",
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
+tarql.execute_query(basePath+"tarql/protocols_mi2019.tarql",
                     infile,
                     outfilePath+"_protocols.ttl",
                     '-d ; -H',
@@ -140,14 +140,14 @@ tarql.execute_query(basePath+"tarql/protocols.tarql",
 ## PROTOCOLS KO TUR2
 queryArgs = {
     "EL": "mi2019" ,
-    "TYP" : "ko" ,
-    "RND" : "tur2" ,
+    "TYP" : "ko/" ,
+    "RND" : "tur2/" ,
     "LINK_HTML" : "https://results.cik.bg/mi2019/tur2/protokoli/2/",
     "LINK_PDF" : "https://results.cik.bg/mi2019/tur2/pdf/2/"
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur2/ko/protocols_03.11.2019.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
-tarql.execute_query(basePath+"tarql/protocols.tarql",
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
+tarql.execute_query(basePath+"tarql/protocols_mi2019.tarql",
                     infile,
                     outfilePath+"_protocols.ttl",
                     '-d ; -H',
@@ -156,14 +156,14 @@ tarql.execute_query(basePath+"tarql/protocols.tarql",
 ## PROTOCOLS OS
 queryArgs = {
     "EL": "mi2019" ,
-    "TYP" : "os" ,
+    "TYP" : "os/" ,
     "RND" : "" ,
     "LINK_HTML" : "https://results.cik.bg/mi2019/tur1/protokoli/1/",
     "LINK_PDF" : "https://results.cik.bg/mi2019/tur1/pdf/1/"
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2019/tur1/os/protocols_27.10.2019.txt'
-outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"] + "_" + queryArgs["RND"].replace("/","")
-tarql.execute_query(basePath+"tarql/protocols.tarql",
+outfilePath = basePath + "rdf/" + queryArgs["EL"] + "/" + queryArgs["TYP"].replace("/","") + "_" + queryArgs["RND"].replace("/","")
+tarql.execute_query(basePath+"tarql/protocols_mi2019.tarql",
                     infile,
                     outfilePath+"_protocols.ttl",
                     '-d ; -H',
@@ -265,6 +265,8 @@ tarql.execute_query(basePath+"tarql/candidate.tarql",
                     '-H -d ;',
                     queryArgs)
 
+
+##CANDIDATES OS
 queryArgs = {
     "EL": "mi2019" ,
     "TYP" : "os" ,

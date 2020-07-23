@@ -50,6 +50,20 @@ tarql.execute_query(basePath+"tarql/preference.tarql",
                     '-d ; -H',
                     queryArgs)
 
+## PROTOCOLS
+queryArgs = {
+    "EL": "pi2017" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "LINK_HTML" : "https://results.cik.bg/pi2017/protokoli/",
+    "LINK_PDF" : "https://results.cik.bg/pi2017/pdf/"
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/protocols_26.03.2017.txt'
+tarql.execute_query(basePath+"tarql/protocols_pi2017.tarql",
+                    infile,
+                    basePath+"rdf/pi2017/protocols.ttl",
+                    '-d ; -H',
+                    queryArgs)
 
 # CIK Parties
 

@@ -120,6 +120,33 @@ tarql.execute_query(basePath+"tarql/votes.tarql",
                     '-d ; -H',
                     queryArgs)
 
-# TODO PROTOCOLS
+## PROTOCOLS TUR1
+queryArgs = {
+    "EL": "pvnr2016" ,
+    "TYP" : "" ,
+    "RND" : "tur1/" ,
+    "LINK_HTML" : "https://results.cik.bg/pvrnr2016/tur1/protokoli_pr/",
+    "LINK_PDF" : "https://results.cik.bg/pvrnr2016/tur1/pdf_pr/"
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/protocols_06.11.2016.txt'
+tarql.execute_query(basePath+"tarql/protocols_pvnr2016.tarql",
+                    infile,
+                    basePath+"rdf/pvnr2016/protocols_tur1.ttl",
+                    '-d ; -H',
+                    queryArgs)
 
+## PROTOCOLS TUR2
+queryArgs = {
+    "EL": "pvnr2016" ,
+    "TYP" : "" ,
+    "RND" : "tur2/" ,
+    "LINK_HTML" : "https://results.cik.bg/pvrnr2016/tur2/protokoli_pr/",
+    "LINK_PDF" : "https://results.cik.bg/pvrnr2016/tur2/pdf_pr/"
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur2/protocols_13.11.2016.txt'
+tarql.execute_query(basePath+"tarql/protocols_pvnr2016.tarql",
+                    infile,
+                    basePath+"rdf/pvnr2016/protocols_tur2.ttl",
+                    '-d ; -H',
+                    queryArgs)
 
