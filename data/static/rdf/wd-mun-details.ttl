@@ -19,7 +19,7 @@ jurisdiction:0101 rdfs:label "Община Банско"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0101/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2085163 .
+  myd:wikidata_entity wd:Q2085163 .
 
 wd:Q804311 a my:Province;
   rdfs:label "Област Благоевград"@bg .
@@ -31,7 +31,7 @@ jurisdiction:0102 rdfs:label "Община Белица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0102/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2281436 .
+  myd:wikidata_entity wd:Q2281436 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0102/geo> a geo:Geometry;
   geo:asWKT "Point(23.566666666 41.95)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -40,7 +40,7 @@ jurisdiction:0103 rdfs:label "Община Благоевград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0103/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q628050 .
+  myd:wikidata_entity wd:Q628050 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0103/geo> a geo:Geometry;
   geo:asWKT "Point(23.0975 42.0227)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -49,7 +49,7 @@ jurisdiction:0111 rdfs:label "Община Гоце Делчев"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0111/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2557228 .
+  myd:wikidata_entity wd:Q2557228 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0111/geo> a geo:Geometry;
   geo:asWKT "Point(23.7333 41.5667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -58,7 +58,7 @@ jurisdiction:0113 rdfs:label "Община Гърмен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0113/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2452337 .
+  myd:wikidata_entity wd:Q2452337 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0113/geo> a geo:Geometry;
   geo:asWKT "Point(23.81666667 41.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -67,7 +67,7 @@ jurisdiction:0128 rdfs:label "Община Кресна"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0128/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2662531 .
+  myd:wikidata_entity wd:Q2662531 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0128/geo> a geo:Geometry;
   geo:asWKT "Point(23.1757 41.7355)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -76,7 +76,7 @@ jurisdiction:0133 rdfs:label "Община Петрич"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0133/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2653369 .
+  myd:wikidata_entity wd:Q2653369 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0133/geo> a geo:Geometry;
   geo:asWKT "Point(23.2388 41.4149)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -85,7 +85,7 @@ jurisdiction:0137 rdfs:label "Община Разлог"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0137/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q1570650 .
+  myd:wikidata_entity wd:Q1570650 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0137/geo> a geo:Geometry;
   geo:asWKT "Point(23.46666667 41.88333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -94,7 +94,7 @@ jurisdiction:0140 rdfs:label "Община Сандански"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0140/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2653376 .
+  myd:wikidata_entity wd:Q2653376 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0140/geo> a geo:Geometry;
   geo:asWKT "Point(23.2773 41.5733)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -103,7 +103,7 @@ jurisdiction:0142 rdfs:label "Община Сатовча"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0142/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2997839 .
+  myd:wikidata_entity wd:Q2997839 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0142/geo> a geo:Geometry;
   geo:asWKT "Point(23.96666667 41.61666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -112,7 +112,7 @@ jurisdiction:0144 rdfs:label "Община Симитли"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0144/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2722835 .
+  myd:wikidata_entity wd:Q2722835 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0144/geo> a geo:Geometry;
   geo:asWKT "Point(23.1119 41.8931)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -121,7 +121,7 @@ jurisdiction:0149 rdfs:label "Община Струмяни"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0149/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2722846 .
+  myd:wikidata_entity wd:Q2722846 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0149/geo> a geo:Geometry;
   geo:asWKT "Point(23.2029 41.6389)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -130,7 +130,7 @@ jurisdiction:0152 rdfs:label "Община Хаджидимово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0152/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q2722827 .
+  myd:wikidata_entity wd:Q2722827 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0152/geo> a geo:Geometry;
   geo:asWKT "Point(23.853 41.5161)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -139,7 +139,7 @@ jurisdiction:0153 rdfs:label "Община Якоруда"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0153/geo>;
   myd:mir jurisdiction:1;
   myd:province wd:Q804311;
-  myd:wdid wd:Q775710 .
+  myd:wikidata_entity wd:Q775710 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0153/geo> a geo:Geometry;
   geo:asWKT "Point(23.6688 42.0177)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -148,7 +148,7 @@ jurisdiction:0201 rdfs:label "Община Айтос"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0201/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2001782 .
+  myd:wikidata_entity wd:Q2001782 .
 
 wd:Q369220 a my:Province;
   rdfs:label "Област Бургас"@bg .
@@ -160,7 +160,7 @@ jurisdiction:0204 rdfs:label "Община Бургас"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0204/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q167807 .
+  myd:wikidata_entity wd:Q167807 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0204/geo> a geo:Geometry;
   geo:asWKT "Point(27.472515 42.493428)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -169,7 +169,7 @@ jurisdiction:0206 rdfs:label "Община Средец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0206/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q1500384 .
+  myd:wikidata_entity wd:Q1500384 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0206/geo> a geo:Geometry;
   geo:asWKT "Point(27.1812 42.3452)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -178,7 +178,7 @@ jurisdiction:0208 rdfs:label "Община Камено"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0208/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2476879 .
+  myd:wikidata_entity wd:Q2476879 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0208/geo> a geo:Geometry;
   geo:asWKT "Point(27.3 42.567)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -187,7 +187,7 @@ jurisdiction:0209 rdfs:label "Община Карнобат"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0209/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2476853 .
+  myd:wikidata_entity wd:Q2476853 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0209/geo> a geo:Geometry;
   geo:asWKT "Point(26.983 42.65)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -196,7 +196,7 @@ jurisdiction:0212 rdfs:label "Община Малко Търново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0212/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2606955 .
+  myd:wikidata_entity wd:Q2606955 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0212/geo> a geo:Geometry;
   geo:asWKT "Point(27.5268 41.9794)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -205,7 +205,7 @@ jurisdiction:0213 rdfs:label "Община Царево"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0213/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2721122 .
+  myd:wikidata_entity wd:Q2721122 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0213/geo> a geo:Geometry;
   geo:asWKT "Point(27.85 42.166944444)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -214,7 +214,7 @@ jurisdiction:0215 rdfs:label "Община Несебър"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0215/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q177345 .
+  myd:wikidata_entity wd:Q177345 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0215/geo> a geo:Geometry;
   geo:asWKT "Point(27.718333333 42.661111111)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -223,7 +223,7 @@ jurisdiction:0217 rdfs:label "Община Поморие"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0217/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2447996 .
+  myd:wikidata_entity wd:Q2447996 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0217/geo> a geo:Geometry;
   geo:asWKT "Point(27.56666667 42.61666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -232,7 +232,7 @@ jurisdiction:0218 rdfs:label "Община Руен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0218/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2610872 .
+  myd:wikidata_entity wd:Q2610872 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0218/geo> a geo:Geometry;
   geo:asWKT "Point(27.283 42.8)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -241,7 +241,7 @@ jurisdiction:0221 rdfs:label "Община Созопол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0221/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2039413 .
+  myd:wikidata_entity wd:Q2039413 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0221/geo> a geo:Geometry;
   geo:asWKT "Point(27.43333333 42.28333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -250,7 +250,7 @@ jurisdiction:0223 rdfs:label "Община Сунгурларе"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0223/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2398979 .
+  myd:wikidata_entity wd:Q2398979 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0223/geo> a geo:Geometry;
   geo:asWKT "Point(26.783055555 42.766944444)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -259,7 +259,7 @@ jurisdiction:0227 rdfs:label "Община Приморско"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0227/geo>;
   myd:mir jurisdiction:2;
   myd:province wd:Q369220;
-  myd:wdid wd:Q2607288 .
+  myd:wikidata_entity wd:Q2607288 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0227/geo> a geo:Geometry;
   geo:asWKT "Point(27.7466 42.2699)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -268,7 +268,7 @@ jurisdiction:0301 rdfs:label "Община Аврен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0301/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2715453 .
+  myd:wikidata_entity wd:Q2715453 .
 
 wd:Q183487 a my:Province;
   rdfs:label "Област Варна"@bg .
@@ -280,7 +280,7 @@ jurisdiction:0302 rdfs:label "Община Аксаково"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0302/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2715403 .
+  myd:wikidata_entity wd:Q2715403 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0302/geo> a geo:Geometry;
   geo:asWKT "Point(27.827682 43.266706)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -289,7 +289,7 @@ jurisdiction:0304 rdfs:label "Община Белослав"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0304/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2653042 .
+  myd:wikidata_entity wd:Q2653042 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0304/geo> a geo:Geometry;
   geo:asWKT "Point(27.683333 43.166667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -298,7 +298,7 @@ jurisdiction:0305 rdfs:label "Община Бяла"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0305/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2609691 .
+  myd:wikidata_entity wd:Q2609691 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0305/geo> a geo:Geometry;
   geo:asWKT "Point(27.8 42.866667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -307,7 +307,7 @@ jurisdiction:0306 rdfs:label "Община Варна"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0306/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q748965 .
+  myd:wikidata_entity wd:Q748965 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0306/geo> a geo:Geometry;
   geo:asWKT "Point(27.918 43.2077)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -316,7 +316,7 @@ jurisdiction:0308 rdfs:label "Община Ветрино"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0308/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2609648 .
+  myd:wikidata_entity wd:Q2609648 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0308/geo> a geo:Geometry;
   geo:asWKT "Point(27.3833 43.3167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -325,7 +325,7 @@ jurisdiction:0309 rdfs:label "Община Вълчи дол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0309/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q596101 .
+  myd:wikidata_entity wd:Q596101 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0309/geo> a geo:Geometry;
   geo:asWKT "Point(27.55 43.4)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -334,7 +334,7 @@ jurisdiction:0313 rdfs:label "Община Долни чифлик"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0313/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2715362 .
+  myd:wikidata_entity wd:Q2715362 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0313/geo> a geo:Geometry;
   geo:asWKT "Point(27.68333333 42.96666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -343,7 +343,7 @@ jurisdiction:0314 rdfs:label "Община Девня"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0314/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2715422 .
+  myd:wikidata_entity wd:Q2715422 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0314/geo> a geo:Geometry;
   geo:asWKT "Point(27.58333333 43.21666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -352,7 +352,7 @@ jurisdiction:0316 rdfs:label "Община Дългопол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0316/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2609410 .
+  myd:wikidata_entity wd:Q2609410 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0316/geo> a geo:Geometry;
   geo:asWKT "Point(27.33333333 43.0)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -361,7 +361,7 @@ jurisdiction:0324 rdfs:label "Община Провадия"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0324/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2407014 .
+  myd:wikidata_entity wd:Q2407014 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0324/geo> a geo:Geometry;
   geo:asWKT "Point(27.4 43.166666666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -370,7 +370,7 @@ jurisdiction:0326 rdfs:label "Община Суворово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0326/geo>;
   myd:mir jurisdiction:3;
   myd:province wd:Q183487;
-  myd:wdid wd:Q2609434 .
+  myd:wikidata_entity wd:Q2609434 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0326/geo> a geo:Geometry;
   geo:asWKT "Point(27.616666666 43.316666666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -379,7 +379,7 @@ jurisdiction:0404 rdfs:label "Община Велико Търново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0404/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2991314 .
+  myd:wikidata_entity wd:Q2991314 .
 
 wd:Q2012621 a my:Province;
   rdfs:label "Област Велико Търново"@bg .
@@ -391,7 +391,7 @@ jurisdiction:0406 rdfs:label "Община Горна Оряховица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0406/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2603553 .
+  myd:wikidata_entity wd:Q2603553 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0406/geo> a geo:Geometry;
   geo:asWKT "Point(25.7 43.15)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -400,7 +400,7 @@ jurisdiction:0413 rdfs:label "Община Елена"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0413/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2653757 .
+  myd:wikidata_entity wd:Q2653757 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0413/geo> a geo:Geometry;
   geo:asWKT "Point(25.85 42.91666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -410,7 +410,7 @@ jurisdiction:0414 rdfs:label "Община Златарица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0414/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2609640 .
+  myd:wikidata_entity wd:Q2609640 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0414/geo> a geo:Geometry;
   geo:asWKT "Point(25.9 43.0333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -419,7 +419,7 @@ jurisdiction:0420 rdfs:label "Община Лясковец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0420/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2609666 .
+  myd:wikidata_entity wd:Q2609666 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0420/geo> a geo:Geometry;
   geo:asWKT "Point(25.75 43.1)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -428,7 +428,7 @@ jurisdiction:0422 rdfs:label "Община Павликени"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0422/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2715489 .
+  myd:wikidata_entity wd:Q2715489 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0422/geo> a geo:Geometry;
   geo:asWKT "Point(25.31666667 43.26666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -437,7 +437,7 @@ jurisdiction:0426 rdfs:label "Община Полски Тръмбеш"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0426/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2609698 .
+  myd:wikidata_entity wd:Q2609698 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0426/geo> a geo:Geometry;
   geo:asWKT "Point(25.6 43.33333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -446,7 +446,7 @@ jurisdiction:0428 rdfs:label "Община Свищов"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0428/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q600639 .
+  myd:wikidata_entity wd:Q600639 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0428/geo> a geo:Geometry;
   geo:asWKT "Point(25.35 43.5667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -455,7 +455,7 @@ jurisdiction:0431 rdfs:label "Община Стражица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0431/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q959929 .
+  myd:wikidata_entity wd:Q959929 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0431/geo> a geo:Geometry;
   geo:asWKT "Point(25.9667 43.25)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -464,7 +464,7 @@ jurisdiction:0432 rdfs:label "Община Сухиндол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0432/geo>;
   myd:mir jurisdiction:4;
   myd:province wd:Q2012621;
-  myd:wdid wd:Q2609717 .
+  myd:wikidata_entity wd:Q2609717 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0432/geo> a geo:Geometry;
   geo:asWKT "Point(25.1833 43.1667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -473,7 +473,7 @@ jurisdiction:0501 rdfs:label "Община Белоградчик"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0501/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2254259 .
+  myd:wikidata_entity wd:Q2254259 .
 
 wd:Q2012772 a my:Province;
   rdfs:label "Област Видин"@bg .
@@ -485,7 +485,7 @@ jurisdiction:0503 rdfs:label "Община Бойница"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0503/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2542152 .
+  myd:wikidata_entity wd:Q2542152 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0503/geo> a geo:Geometry;
   geo:asWKT "Point(22.5 43.96666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -494,7 +494,7 @@ jurisdiction:0506 rdfs:label "Община Брегово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0506/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2542167 .
+  myd:wikidata_entity wd:Q2542167 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0506/geo> a geo:Geometry;
   geo:asWKT "Point(22.65 44.13333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -503,7 +503,7 @@ jurisdiction:0509 rdfs:label "Община Видин"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0509/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q263709 .
+  myd:wikidata_entity wd:Q263709 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0509/geo> a geo:Geometry;
   geo:asWKT "Point(22.878 43.9861)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -512,7 +512,7 @@ jurisdiction:0515 rdfs:label "Община Грамада"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0515/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2615666 .
+  myd:wikidata_entity wd:Q2615666 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0515/geo> a geo:Geometry;
   geo:asWKT "Point(22.66666667 43.83333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -521,7 +521,7 @@ jurisdiction:0516 rdfs:label "Община Димово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0516/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2715394 .
+  myd:wikidata_entity wd:Q2715394 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0516/geo> a geo:Geometry;
   geo:asWKT "Point(22.76666667 43.71666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -530,7 +530,7 @@ jurisdiction:0522 rdfs:label "Община Кула"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0522/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2715384 .
+  myd:wikidata_entity wd:Q2715384 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0522/geo> a geo:Geometry;
   geo:asWKT "Point(22.53333333 43.88333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -539,7 +539,7 @@ jurisdiction:0525 rdfs:label "Община Макреш"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0525/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2715413 .
+  myd:wikidata_entity wd:Q2715413 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0525/geo> a geo:Geometry;
   geo:asWKT "Point(22.664166666 43.768055555)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -549,7 +549,7 @@ jurisdiction:0530 rdfs:label "Община Ново село"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0530/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q576734 .
+  myd:wikidata_entity wd:Q576734 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0530/geo> a geo:Geometry;
   geo:asWKT "Point(22.78333333 44.13333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -558,7 +558,7 @@ jurisdiction:0533 rdfs:label "Община Ружинци"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0533/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2715178 .
+  myd:wikidata_entity wd:Q2715178 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0533/geo> a geo:Geometry;
   geo:asWKT "Point(22.86666667 43.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -567,7 +567,7 @@ jurisdiction:0537 rdfs:label "Община Чупрене"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0537/geo>;
   myd:mir jurisdiction:5;
   myd:province wd:Q2012772;
-  myd:wdid wd:Q2715502 .
+  myd:wikidata_entity wd:Q2715502 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0537/geo> a geo:Geometry;
   geo:asWKT "Point(22.68333333 43.48333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -576,7 +576,7 @@ jurisdiction:0605 rdfs:label "Община Борован"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0605/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q2015266 .
+  myd:wikidata_entity wd:Q2015266 .
 
 wd:Q2012785 a my:Province;
   rdfs:label "Област Враца"@bg .
@@ -588,7 +588,7 @@ jurisdiction:0608 rdfs:label "Община Бяла Слатина"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0608/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q2015255 .
+  myd:wikidata_entity wd:Q2015255 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0608/geo> a geo:Geometry;
   geo:asWKT "Point(23.933 43.467)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -597,7 +597,7 @@ jurisdiction:0610 rdfs:label "Община Враца"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0610/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q2015244 .
+  myd:wikidata_entity wd:Q2015244 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0610/geo> a geo:Geometry;
   geo:asWKT "Point(23.55 43.2)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -607,7 +607,7 @@ jurisdiction:0620 rdfs:label "Община Козлодуй"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0620/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q1032807 .
+  myd:wikidata_entity wd:Q1032807 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0620/geo> a geo:Geometry;
   geo:asWKT "Point(23.7246 43.7756)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -616,7 +616,7 @@ jurisdiction:0621 rdfs:label "Община Криводол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0621/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q948145 .
+  myd:wikidata_entity wd:Q948145 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0621/geo> a geo:Geometry;
   geo:asWKT "Point(23.4833 43.3667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -625,7 +625,7 @@ jurisdiction:0627 rdfs:label "Община Мездра"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0627/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q2426251 .
+  myd:wikidata_entity wd:Q2426251 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0627/geo> a geo:Geometry;
   geo:asWKT "Point(23.7 43.15)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -634,7 +634,7 @@ jurisdiction:0628 rdfs:label "Община Мизия"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0628/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q1032677 .
+  myd:wikidata_entity wd:Q1032677 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0628/geo> a geo:Geometry;
   geo:asWKT "Point(23.8534 43.6912)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -643,7 +643,7 @@ jurisdiction:0631 rdfs:label "Община Оряхово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0631/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q2628864 .
+  myd:wikidata_entity wd:Q2628864 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0631/geo> a geo:Geometry;
   geo:asWKT "Point(23.9667 43.7333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -652,7 +652,7 @@ jurisdiction:0632 rdfs:label "Община Роман"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0632/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q2723443 .
+  myd:wikidata_entity wd:Q2723443 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0632/geo> a geo:Geometry;
   geo:asWKT "Point(23.9167 43.15)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -661,7 +661,7 @@ jurisdiction:0635 rdfs:label "Община Хайредин"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0635/geo>;
   myd:mir jurisdiction:6;
   myd:province wd:Q2012785;
-  myd:wdid wd:Q2426275 .
+  myd:wikidata_entity wd:Q2426275 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0635/geo> a geo:Geometry;
   geo:asWKT "Point(23.6667 43.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -670,7 +670,7 @@ jurisdiction:0705 rdfs:label "Община Габрово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0705/geo>;
   myd:mir jurisdiction:7;
   myd:province wd:Q1007272;
-  myd:wdid wd:Q2652942 .
+  myd:wikidata_entity wd:Q2652942 .
 
 wd:Q1007272 a my:Province;
   rdfs:label "Област Габрово"@bg .
@@ -682,7 +682,7 @@ jurisdiction:0712 rdfs:label "Община Дряново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0712/geo>;
   myd:mir jurisdiction:7;
   myd:province wd:Q1007272;
-  myd:wdid wd:Q2549061 .
+  myd:wikidata_entity wd:Q2549061 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0712/geo> a geo:Geometry;
   geo:asWKT "Point(25.45 42.98333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -691,7 +691,7 @@ jurisdiction:0729 rdfs:label "Община Севлиево"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0729/geo>;
   myd:mir jurisdiction:7;
   myd:province wd:Q1007272;
-  myd:wdid wd:Q2719895 .
+  myd:wikidata_entity wd:Q2719895 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0729/geo> a geo:Geometry;
   geo:asWKT "Point(25.0 42.98333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -700,7 +700,7 @@ jurisdiction:0735 rdfs:label "Община Трявна"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0735/geo>;
   myd:mir jurisdiction:7;
   myd:province wd:Q1007272;
-  myd:wdid wd:Q568005 .
+  myd:wikidata_entity wd:Q568005 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0735/geo> a geo:Geometry;
   geo:asWKT "Point(25.4667 42.8833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -709,7 +709,7 @@ jurisdiction:0803 rdfs:label "Община Балчик"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0803/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q2663152 .
+  myd:wikidata_entity wd:Q2663152 .
 
 wd:Q907395 a my:Province;
   rdfs:label "Област Добрич"@bg .
@@ -721,7 +721,7 @@ jurisdiction:0812 rdfs:label "Община Генерал Тошево"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0812/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q614612 .
+  myd:wikidata_entity wd:Q614612 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0812/geo> a geo:Geometry;
   geo:asWKT "Point(28.06666667 43.71666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -730,7 +730,7 @@ jurisdiction:0815 rdfs:label "Община Добричка"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0815/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q2561279 .
+  myd:wikidata_entity wd:Q2561279 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0815/geo> a geo:Geometry;
   geo:asWKT "Point(27.833333333 43.566666666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -739,7 +739,7 @@ jurisdiction:0817 rdfs:label "Община Каварна"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0817/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q965588 .
+  myd:wikidata_entity wd:Q965588 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0817/geo> a geo:Geometry;
   geo:asWKT "Point(28.36666667 43.46666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -748,7 +748,7 @@ jurisdiction:0820 rdfs:label "Община Крушари"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0820/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q2561255 .
+  myd:wikidata_entity wd:Q2561255 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0820/geo> a geo:Geometry;
   geo:asWKT "Point(27.75 43.85)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -757,7 +757,7 @@ jurisdiction:0827 rdfs:label "Община Тервел"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0827/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q680608 .
+  myd:wikidata_entity wd:Q680608 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0827/geo> a geo:Geometry;
   geo:asWKT "Point(27.35 43.733333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -766,7 +766,7 @@ jurisdiction:0828 rdfs:label "Община Добрич"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0828/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q2220850 .
+  myd:wikidata_entity wd:Q2220850 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0828/geo> a geo:Geometry;
   geo:asWKT "Point(27.833 43.567)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -775,7 +775,7 @@ jurisdiction:0829 rdfs:label "Община Шабла"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0829/geo>;
   myd:mir jurisdiction:8;
   myd:province wd:Q907395;
-  myd:wdid wd:Q2548849 .
+  myd:wikidata_entity wd:Q2548849 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0829/geo> a geo:Geometry;
   geo:asWKT "Point(28.51666667 43.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -784,7 +784,7 @@ jurisdiction:0902 rdfs:label "Община Ардино"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0902/geo>;
   myd:mir jurisdiction:9;
   myd:province wd:Q1104675;
-  myd:wdid wd:Q3621889 .
+  myd:wikidata_entity wd:Q3621889 .
 
 wd:Q1104675 a my:Province;
   rdfs:label "Област Кърджали"@bg .
@@ -796,7 +796,7 @@ jurisdiction:0908 rdfs:label "Община Джебел"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0908/geo>;
   myd:mir jurisdiction:9;
   myd:province wd:Q1104675;
-  myd:wdid wd:Q1748256 .
+  myd:wikidata_entity wd:Q1748256 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0908/geo> a geo:Geometry;
   geo:asWKT "Point(25.3 41.5)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -805,7 +805,7 @@ jurisdiction:0914 rdfs:label "Община Кирково"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0914/geo>;
   myd:mir jurisdiction:9;
   myd:province wd:Q1104675;
-  myd:wdid wd:Q2619800 .
+  myd:wikidata_entity wd:Q2619800 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0914/geo> a geo:Geometry;
   geo:asWKT "Point(25.35000001 41.31666668)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -814,7 +814,7 @@ jurisdiction:0915 rdfs:label "Община Крумовград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0915/geo>;
   myd:mir jurisdiction:9;
   myd:province wd:Q1104675;
-  myd:wdid wd:Q545555 .
+  myd:wikidata_entity wd:Q545555 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0915/geo> a geo:Geometry;
   geo:asWKT "Point(25.6543 41.4727)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -823,7 +823,7 @@ jurisdiction:0916 rdfs:label "Община Кърджали"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0916/geo>;
   myd:mir jurisdiction:9;
   myd:province wd:Q1104675;
-  myd:wdid wd:Q2452987 .
+  myd:wikidata_entity wd:Q2452987 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0916/geo> a geo:Geometry;
   geo:asWKT "Point(25.367 41.65)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -832,7 +832,7 @@ jurisdiction:0921 rdfs:label "Община Момчилград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0921/geo>;
   myd:mir jurisdiction:9;
   myd:province wd:Q1104675;
-  myd:wdid wd:Q2401727 .
+  myd:wikidata_entity wd:Q2401727 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0921/geo> a geo:Geometry;
   geo:asWKT "Point(25.417 41.533)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -841,7 +841,7 @@ jurisdiction:0935 rdfs:label "Община Черноочене"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/0935/geo>;
   myd:mir jurisdiction:9;
   myd:province wd:Q1104675;
-  myd:wdid wd:Q929927 .
+  myd:wikidata_entity wd:Q929927 .
 
 <https://elections.ontotext.com/resource/jurisdiction/0935/geo> a geo:Geometry;
   geo:asWKT "Point(25.35 41.767)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -850,7 +850,7 @@ jurisdiction:1004 rdfs:label "Община Бобов дол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1004/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q2401761 .
+  myd:wikidata_entity wd:Q2401761 .
 
 wd:Q1112985 a my:Province;
   rdfs:label "Област Кюстендил"@bg .
@@ -862,7 +862,7 @@ jurisdiction:1005 rdfs:label "Община Бобошево"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1005/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q2401745 .
+  myd:wikidata_entity wd:Q2401745 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1005/geo> a geo:Geometry;
   geo:asWKT "Point(23.017 42.15)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -871,7 +871,7 @@ jurisdiction:1027 rdfs:label "Община Кочериново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1027/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q944028 .
+  myd:wikidata_entity wd:Q944028 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1027/geo> a geo:Geometry;
   geo:asWKT "Point(23.067 42.083)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -880,7 +880,7 @@ jurisdiction:1029 rdfs:label "Община Кюстендил"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1029/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q1003231 .
+  myd:wikidata_entity wd:Q1003231 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1029/geo> a geo:Geometry;
   geo:asWKT "Point(22.683 42.283)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -889,7 +889,7 @@ jurisdiction:1031 rdfs:label "Община Невестино"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1031/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q2401796 .
+  myd:wikidata_entity wd:Q2401796 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1031/geo> a geo:Geometry;
   geo:asWKT "Point(22.85 42.25)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -898,7 +898,7 @@ jurisdiction:1038 rdfs:label "Община Рила"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1038/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q2403120 .
+  myd:wikidata_entity wd:Q2403120 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1038/geo> a geo:Geometry;
   geo:asWKT "Point(23.13333333 42.13333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -907,7 +907,7 @@ jurisdiction:1041 rdfs:label "Община Сапарева баня"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1041/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q543012 .
+  myd:wikidata_entity wd:Q543012 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1041/geo> a geo:Geometry;
   geo:asWKT "Point(23.26666667 42.28333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -916,7 +916,7 @@ jurisdiction:1048 rdfs:label "Община Дупница"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1048/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q2401780 .
+  myd:wikidata_entity wd:Q2401780 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1048/geo> a geo:Geometry;
   geo:asWKT "Point(23.071 42.155)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -925,7 +925,7 @@ jurisdiction:1050 rdfs:label "Община Трекляно"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1050/geo>;
   myd:mir jurisdiction:10;
   myd:province wd:Q1112985;
-  myd:wdid wd:Q2609076 .
+  myd:wikidata_entity wd:Q2609076 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1050/geo> a geo:Geometry;
   geo:asWKT "Point(22.583 42.55)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -934,7 +934,7 @@ jurisdiction:1102 rdfs:label "Община Априлци"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1102/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2719406 .
+  myd:wikidata_entity wd:Q2719406 .
 
 wd:Q6587068 a my:Province;
   rdfs:label "Област Ловеч"@bg .
@@ -946,7 +946,7 @@ jurisdiction:1117 rdfs:label "Община Летница"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1117/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2719387 .
+  myd:wikidata_entity wd:Q2719387 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1117/geo> a geo:Geometry;
   geo:asWKT "Point(25.05 43.26666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -955,7 +955,7 @@ jurisdiction:1118 rdfs:label "Община Ловеч"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1118/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2596788 .
+  myd:wikidata_entity wd:Q2596788 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1118/geo> a geo:Geometry;
   geo:asWKT "Point(24.73333333 43.13333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -964,7 +964,7 @@ jurisdiction:1119 rdfs:label "Община Луковит"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1119/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2719438 .
+  myd:wikidata_entity wd:Q2719438 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1119/geo> a geo:Geometry;
   geo:asWKT "Point(24.166666666 43.166666666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -973,7 +973,7 @@ jurisdiction:1133 rdfs:label "Община Тетевен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1133/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2652918 .
+  myd:wikidata_entity wd:Q2652918 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1133/geo> a geo:Geometry;
   geo:asWKT "Point(24.267 42.917)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -983,7 +983,7 @@ jurisdiction:1134 rdfs:label "Община Троян"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1134/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2652936 .
+  myd:wikidata_entity wd:Q2652936 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1134/geo> a geo:Geometry;
   geo:asWKT "Point(24.6667 42.8667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -992,7 +992,7 @@ jurisdiction:1136 rdfs:label "Община Угърчин"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1136/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2561155 .
+  myd:wikidata_entity wd:Q2561155 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1136/geo> a geo:Geometry;
   geo:asWKT "Point(24.416666666 43.1)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1001,7 +1001,7 @@ jurisdiction:1138 rdfs:label "Община Ябланица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1138/geo>;
   myd:mir jurisdiction:11;
   myd:province wd:Q6587068;
-  myd:wdid wd:Q2719419 .
+  myd:wikidata_entity wd:Q2719419 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1138/geo> a geo:Geometry;
   geo:asWKT "Point(24.0833 43.05)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1010,7 +1010,7 @@ jurisdiction:1202 rdfs:label "Община Берковица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1202/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2609066 .
+  myd:wikidata_entity wd:Q2609066 .
 
 wd:Q2012057 a my:Province;
   rdfs:label "Област Монтана"@bg .
@@ -1022,7 +1022,7 @@ jurisdiction:1204 rdfs:label "Община Бойчиновци"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1204/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2719430 .
+  myd:wikidata_entity wd:Q2719430 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1204/geo> a geo:Geometry;
   geo:asWKT "Point(23.38333333 43.51666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1031,7 +1031,7 @@ jurisdiction:1207 rdfs:label "Община Брусарци"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1207/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2719590 .
+  myd:wikidata_entity wd:Q2719590 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1207/geo> a geo:Geometry;
   geo:asWKT "Point(23.033333333 43.65)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1040,7 +1040,7 @@ jurisdiction:1211 rdfs:label "Община Вълчедръм"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1211/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q1032683 .
+  myd:wikidata_entity wd:Q1032683 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1211/geo> a geo:Geometry;
   geo:asWKT "Point(23.445 43.6956)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1049,7 +1049,7 @@ jurisdiction:1212 rdfs:label "Община Вършец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1212/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2608803 .
+  myd:wikidata_entity wd:Q2608803 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1212/geo> a geo:Geometry;
   geo:asWKT "Point(23.3 43.2)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1058,7 +1058,7 @@ jurisdiction:1214 rdfs:label "Община Георги Дамяново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1214/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2548560 .
+  myd:wikidata_entity wd:Q2548560 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1214/geo> a geo:Geometry;
   geo:asWKT "Point(23.0 43.31666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1067,7 +1067,7 @@ jurisdiction:1224 rdfs:label "Община Лом"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1224/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q288100 .
+  myd:wikidata_entity wd:Q288100 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1224/geo> a geo:Geometry;
   geo:asWKT "Point(23.266666666 43.8)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1076,7 +1076,7 @@ jurisdiction:1226 rdfs:label "Община Медковец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1226/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2609050 .
+  myd:wikidata_entity wd:Q2609050 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1226/geo> a geo:Geometry;
   geo:asWKT "Point(23.16666667 43.61666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -1086,7 +1086,7 @@ jurisdiction:1229 rdfs:label "Община Монтана"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1229/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2016122 .
+  myd:wikidata_entity wd:Q2016122 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1229/geo> a geo:Geometry;
   geo:asWKT "Point(23.225661 43.408622)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1095,7 +1095,7 @@ jurisdiction:1236 rdfs:label "Община Чипровци"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1236/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2545392 .
+  myd:wikidata_entity wd:Q2545392 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1236/geo> a geo:Geometry;
   geo:asWKT "Point(22.833333333 43.383333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1104,7 +1104,7 @@ jurisdiction:1238 rdfs:label "Община Якимово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1238/geo>;
   myd:mir jurisdiction:12;
   myd:province wd:Q2012057;
-  myd:wdid wd:Q2609055 .
+  myd:wikidata_entity wd:Q2609055 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1238/geo> a geo:Geometry;
   geo:asWKT "Point(23.3333 43.6333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1113,7 +1113,7 @@ jurisdiction:1303 rdfs:label "Община Батак"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1303/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q8019066 .
+  myd:wikidata_entity wd:Q8019066 .
 
 wd:Q2012227 a my:Province;
   rdfs:label "Област Пазарджик"@bg .
@@ -1125,7 +1125,7 @@ jurisdiction:1304 rdfs:label "Община Белово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1304/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q2404510 .
+  myd:wikidata_entity wd:Q2404510 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1304/geo> a geo:Geometry;
   geo:asWKT "Point(24.017 42.217)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1134,7 +1134,7 @@ jurisdiction:1306 rdfs:label "Община Брацигово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1306/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q2403879 .
+  myd:wikidata_entity wd:Q2403879 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1306/geo> a geo:Geometry;
   geo:asWKT "Point(24.367 42.017)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1143,7 +1143,7 @@ jurisdiction:1308 rdfs:label "Община Велинград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1308/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q655383 .
+  myd:wikidata_entity wd:Q655383 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1308/geo> a geo:Geometry;
   geo:asWKT "Point(24.0 42.0167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1152,7 +1152,7 @@ jurisdiction:1314 rdfs:label "Община Лесичово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1314/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q1749195 .
+  myd:wikidata_entity wd:Q1749195 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1314/geo> a geo:Geometry;
   geo:asWKT "Point(24.117 42.35)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1161,7 +1161,7 @@ jurisdiction:1319 rdfs:label "Община Пазарджик"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1319/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q764056 .
+  myd:wikidata_entity wd:Q764056 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1319/geo> a geo:Geometry;
   geo:asWKT "Point(24.3325 42.18916667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1170,7 +1170,7 @@ jurisdiction:1320 rdfs:label "Община Панагюрище"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1320/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q2444212 .
+  myd:wikidata_entity wd:Q2444212 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1320/geo> a geo:Geometry;
   geo:asWKT "Point(24.18388889 42.50305556)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -1180,7 +1180,7 @@ jurisdiction:1321 rdfs:label "Община Пещера"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1321/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q1749334 .
+  myd:wikidata_entity wd:Q1749334 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1321/geo> a geo:Geometry;
   geo:asWKT "Point(24.3 42.033)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1189,7 +1189,7 @@ jurisdiction:1324 rdfs:label "Община Ракитово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1324/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q1749198 .
+  myd:wikidata_entity wd:Q1749198 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1324/geo> a geo:Geometry;
   geo:asWKT "Point(24.086647 41.9898)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1198,7 +1198,7 @@ jurisdiction:1329 rdfs:label "Община Септември"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1329/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q1749330 .
+  myd:wikidata_entity wd:Q1749330 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1329/geo> a geo:Geometry;
   geo:asWKT "Point(24.1 42.217)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1207,7 +1207,7 @@ jurisdiction:1332 rdfs:label "Община Стрелча"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1332/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q1749338 .
+  myd:wikidata_entity wd:Q1749338 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1332/geo> a geo:Geometry;
   geo:asWKT "Point(24.31666667 42.5)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1216,7 +1216,7 @@ jurisdiction:1339 rdfs:label "Община Сърница"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1339/geo>;
   myd:mir jurisdiction:13;
   myd:province wd:Q2012227;
-  myd:wdid wd:Q19706485 .
+  myd:wikidata_entity wd:Q19706485 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1339/geo> a geo:Geometry;
   geo:asWKT "Point(23.955484 41.778098)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1225,7 +1225,7 @@ jurisdiction:1408 rdfs:label "Община Брезник"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1408/geo>;
   myd:mir jurisdiction:14;
   myd:province wd:Q2012234;
-  myd:wdid wd:Q2405103 .
+  myd:wikidata_entity wd:Q2405103 .
 
 wd:Q2012234 a my:Province;
   rdfs:label "Област Перник"@bg .
@@ -1237,7 +1237,7 @@ jurisdiction:1419 rdfs:label "Община Земен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1419/geo>;
   myd:mir jurisdiction:14;
   myd:province wd:Q2012234;
-  myd:wdid wd:Q4191007 .
+  myd:wikidata_entity wd:Q4191007 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1419/geo> a geo:Geometry;
   geo:asWKT "Point(22.75 42.467)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1246,7 +1246,7 @@ jurisdiction:1422 rdfs:label "Община Ковачевци"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1422/geo>;
   myd:mir jurisdiction:14;
   myd:province wd:Q2012234;
-  myd:wdid wd:Q2405644 .
+  myd:wikidata_entity wd:Q2405644 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1422/geo> a geo:Geometry;
   geo:asWKT "Point(22.81666668 42.56666668)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1255,7 +1255,7 @@ jurisdiction:1432 rdfs:label "Община Перник"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1432/geo>;
   myd:mir jurisdiction:14;
   myd:province wd:Q2012234;
-  myd:wdid wd:Q4351615 .
+  myd:wikidata_entity wd:Q4351615 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1432/geo> a geo:Geometry;
   geo:asWKT "Point(23.033 42.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1264,7 +1264,7 @@ jurisdiction:1436 rdfs:label "Община Радомир"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1436/geo>;
   myd:mir jurisdiction:14;
   myd:province wd:Q2012234;
-  myd:wdid wd:Q1749664 .
+  myd:wikidata_entity wd:Q1749664 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1436/geo> a geo:Geometry;
   geo:asWKT "Point(22.95 42.55)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1273,7 +1273,7 @@ jurisdiction:1451 rdfs:label "Община Трън"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1451/geo>;
   myd:mir jurisdiction:14;
   myd:province wd:Q2012234;
-  myd:wdid wd:Q2404637 .
+  myd:wikidata_entity wd:Q2404637 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1451/geo> a geo:Geometry;
   geo:asWKT "Point(22.65 42.833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1282,7 +1282,7 @@ jurisdiction:1503 rdfs:label "Община Белене"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1503/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2657351 .
+  myd:wikidata_entity wd:Q2657351 .
 
 wd:Q2012242 a my:Province;
   rdfs:label "Област Плевен"@bg .
@@ -1294,7 +1294,7 @@ jurisdiction:1508 rdfs:label "Община Гулянци"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1508/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2721295 .
+  myd:wikidata_entity wd:Q2721295 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1508/geo> a geo:Geometry;
   geo:asWKT "Point(24.65 43.65)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1303,7 +1303,7 @@ jurisdiction:1510 rdfs:label "Община Долна Митрополия"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1510/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2721258 .
+  myd:wikidata_entity wd:Q2721258 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1510/geo> a geo:Geometry;
   geo:asWKT "Point(24.5 43.55)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1312,7 +1312,7 @@ jurisdiction:1511 rdfs:label "Община Долни Дъбник"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1511/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2561191 .
+  myd:wikidata_entity wd:Q2561191 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1511/geo> a geo:Geometry;
   geo:asWKT "Point(24.433333333 43.4)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1321,7 +1321,7 @@ jurisdiction:1516 rdfs:label "Община Левски"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1516/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2561243 .
+  myd:wikidata_entity wd:Q2561243 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1516/geo> a geo:Geometry;
   geo:asWKT "Point(25.15 43.383333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1330,7 +1330,7 @@ jurisdiction:1521 rdfs:label "Община Никопол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1521/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q596766 .
+  myd:wikidata_entity wd:Q596766 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1521/geo> a geo:Geometry;
   geo:asWKT "Point(24.883333333 43.7)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1339,7 +1339,7 @@ jurisdiction:1523 rdfs:label "Община Искър"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1523/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2721004 .
+  myd:wikidata_entity wd:Q2721004 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1523/geo> a geo:Geometry;
   geo:asWKT "Point(24.3 43.483333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1348,7 +1348,7 @@ jurisdiction:1524 rdfs:label "Община Плевен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1524/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2657334 .
+  myd:wikidata_entity wd:Q2657334 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1524/geo> a geo:Geometry;
   geo:asWKT "Point(24.616666666 43.416666666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1357,7 +1357,7 @@ jurisdiction:1527 rdfs:label "Община Пордим"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1527/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2721267 .
+  myd:wikidata_entity wd:Q2721267 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1527/geo> a geo:Geometry;
   geo:asWKT "Point(24.916666666 43.366666666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1366,7 +1366,7 @@ jurisdiction:1537 rdfs:label "Община Червен бряг"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1537/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2560800 .
+  myd:wikidata_entity wd:Q2560800 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1537/geo> a geo:Geometry;
   geo:asWKT "Point(24.15 43.283333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1375,7 +1375,7 @@ jurisdiction:1539 rdfs:label "Община Кнежа"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1539/geo>;
   myd:mir jurisdiction:15;
   myd:province wd:Q2012242;
-  myd:wdid wd:Q2721276 .
+  myd:wikidata_entity wd:Q2721276 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1539/geo> a geo:Geometry;
   geo:asWKT "Point(24.133333333 43.466666666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1384,7 +1384,7 @@ jurisdiction:1601 rdfs:label "Община Асеновград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1601/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q4071224 .
+  myd:wikidata_entity wd:Q4071224 .
 
 wd:Q187874 a my:Province;
   rdfs:label "Област Пловдив"@bg .
@@ -1396,7 +1396,7 @@ jurisdiction:1607 rdfs:label "Община Брезово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1607/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q585848 .
+  myd:wikidata_entity wd:Q585848 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1607/geo> a geo:Geometry;
   geo:asWKT "Point(25.083 42.35)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1405,7 +1405,7 @@ jurisdiction:1612 rdfs:label "Община Калояново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1612/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q2561213 .
+  myd:wikidata_entity wd:Q2561213 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1612/geo> a geo:Geometry;
   geo:asWKT "Point(24.73222222 42.35694444)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -1415,7 +1415,7 @@ jurisdiction:1613 rdfs:label "Община Карлово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1613/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q2015223 .
+  myd:wikidata_entity wd:Q2015223 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1613/geo> a geo:Geometry;
   geo:asWKT "Point(24.807153 42.643514)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1424,7 +1424,7 @@ jurisdiction:1615 rdfs:label "Община Лъки"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1615/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q2408601 .
+  myd:wikidata_entity wd:Q2408601 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1615/geo> a geo:Geometry;
   geo:asWKT "Point(24.83333333 41.83333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1433,7 +1433,7 @@ jurisdiction:1617 rdfs:label "Община Марица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1617/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q162565 .
+  myd:wikidata_entity wd:Q162565 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1617/geo> a geo:Geometry;
   geo:asWKT "Point(24.785527 42.217219)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1442,7 +1442,7 @@ jurisdiction:1622 rdfs:label "Община Пловдив"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1622/geo>;
   myd:mir jurisdiction:16;
   myd:province wd:Q187874;
-  myd:wdid wd:Q4365146 .
+  myd:wikidata_entity wd:Q4365146 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1622/geo> a geo:Geometry;
   geo:asWKT "Point(24.751032 42.143365)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1451,7 +1451,7 @@ jurisdiction:1623 rdfs:label "Община Първомай"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1623/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q2721288 .
+  myd:wikidata_entity wd:Q2721288 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1623/geo> a geo:Geometry;
   geo:asWKT "Point(25.21666667 42.1)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1460,7 +1460,7 @@ jurisdiction:1625 rdfs:label "Община Раковски"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1625/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q1750681 .
+  myd:wikidata_entity wd:Q1750681 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1625/geo> a geo:Geometry;
   geo:asWKT "Point(24.96666667 42.3)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1469,7 +1469,7 @@ jurisdiction:1626 rdfs:label "Община Родопи"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1626/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q1500386 .
+  myd:wikidata_entity wd:Q1500386 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1626/geo> a geo:Geometry;
   geo:asWKT "Point(24.572983 41.956937)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1478,7 +1478,7 @@ jurisdiction:1628 rdfs:label "Община Садово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1628/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q2408574 .
+  myd:wikidata_entity wd:Q2408574 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1628/geo> a geo:Geometry;
   geo:asWKT "Point(24.93333333 42.13333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1487,7 +1487,7 @@ jurisdiction:1633 rdfs:label "Община Съединение"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1633/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q523537 .
+  myd:wikidata_entity wd:Q523537 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1633/geo> a geo:Geometry;
   geo:asWKT "Point(24.55 42.26666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1496,7 +1496,7 @@ jurisdiction:1637 rdfs:label "Община Хисаря"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1637/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q1750679 .
+  myd:wikidata_entity wd:Q1750679 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1637/geo> a geo:Geometry;
   geo:asWKT "Point(24.7 42.5)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1505,7 +1505,7 @@ jurisdiction:1639 rdfs:label "Община Кричим"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1639/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q10632743 .
+  myd:wikidata_entity wd:Q10632743 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1639/geo> a geo:Geometry;
   geo:asWKT "Point(24.46666668 42.05000001)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1514,7 +1514,7 @@ jurisdiction:1640 rdfs:label "Община Перущица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1640/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q15101506 .
+  myd:wikidata_entity wd:Q15101506 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1640/geo> a geo:Geometry;
   geo:asWKT "Point(24.55000001 42.05000001)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1523,7 +1523,7 @@ jurisdiction:1641 rdfs:label "Община Стамболийски"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1641/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q1750926 .
+  myd:wikidata_entity wd:Q1750926 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1641/geo> a geo:Geometry;
   geo:asWKT "Point(24.533 42.133)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1532,7 +1532,7 @@ jurisdiction:1642 rdfs:label "Община Куклен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1642/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q1750685 .
+  myd:wikidata_entity wd:Q1750685 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1642/geo> a geo:Geometry;
   geo:asWKT "Point(24.783 42.033)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1541,7 +1541,7 @@ jurisdiction:1643 rdfs:label "Община Сопот"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1643/geo>;
   myd:mir jurisdiction:17;
   myd:province wd:Q187874;
-  myd:wdid wd:Q2219349 .
+  myd:wikidata_entity wd:Q2219349 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1643/geo> a geo:Geometry;
   geo:asWKT "Point(24.75 42.65)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1550,7 +1550,7 @@ jurisdiction:1711 rdfs:label "Община Завет"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1711/geo>;
   myd:mir jurisdiction:18;
   myd:province wd:Q2790675;
-  myd:wdid wd:Q2716740 .
+  myd:wikidata_entity wd:Q2716740 .
 
 wd:Q2790675 a my:Province;
   rdfs:label "Област Разград"@bg .
@@ -1562,7 +1562,7 @@ jurisdiction:1714 rdfs:label "Община Исперих"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1714/geo>;
   myd:mir jurisdiction:18;
   myd:province wd:Q2790675;
-  myd:wdid wd:Q2220241 .
+  myd:wikidata_entity wd:Q2220241 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1714/geo> a geo:Geometry;
   geo:asWKT "Point(26.81666667 43.7)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1571,7 +1571,7 @@ jurisdiction:1716 rdfs:label "Община Кубрат"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1716/geo>;
   myd:mir jurisdiction:18;
   myd:province wd:Q2790675;
-  myd:wdid wd:Q2716750 .
+  myd:wikidata_entity wd:Q2716750 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1716/geo> a geo:Geometry;
   geo:asWKT "Point(26.45 43.83333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1580,7 +1580,7 @@ jurisdiction:1717 rdfs:label "Община Лозница"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1717/geo>;
   myd:mir jurisdiction:18;
   myd:province wd:Q2790675;
-  myd:wdid wd:Q2717061 .
+  myd:wikidata_entity wd:Q2717061 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1717/geo> a geo:Geometry;
   geo:asWKT "Point(26.6 43.38333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1589,7 +1589,7 @@ jurisdiction:1726 rdfs:label "Община Разград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1726/geo>;
   myd:mir jurisdiction:18;
   myd:province wd:Q2790675;
-  myd:wdid wd:Q2609683 .
+  myd:wikidata_entity wd:Q2609683 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1726/geo> a geo:Geometry;
   geo:asWKT "Point(26.5 43.53333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1598,7 +1598,7 @@ jurisdiction:1729 rdfs:label "Община Самуил"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1729/geo>;
   myd:mir jurisdiction:18;
   myd:province wd:Q2790675;
-  myd:wdid wd:Q2609633 .
+  myd:wikidata_entity wd:Q2609633 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1729/geo> a geo:Geometry;
   geo:asWKT "Point(26.73333333 43.53333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1607,7 +1607,7 @@ jurisdiction:1736 rdfs:label "Община Цар Калоян"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1736/geo>;
   myd:mir jurisdiction:18;
   myd:province wd:Q2790675;
-  myd:wdid wd:Q2609383 .
+  myd:wikidata_entity wd:Q2609383 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1736/geo> a geo:Geometry;
   geo:asWKT "Point(26.2333 43.5833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1616,7 +1616,7 @@ jurisdiction:1803 rdfs:label "Община Борово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1803/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2652921 .
+  myd:wikidata_entity wd:Q2652921 .
 
 wd:Q1251933 a my:Province;
   rdfs:label "Област Русе"@bg .
@@ -1628,7 +1628,7 @@ jurisdiction:1804 rdfs:label "Община Бяла"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1804/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2609654 .
+  myd:wikidata_entity wd:Q2609654 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1804/geo> a geo:Geometry;
   geo:asWKT "Point(25.71666667 43.43333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1637,7 +1637,7 @@ jurisdiction:1805 rdfs:label "Община Ветово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1805/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2716767 .
+  myd:wikidata_entity wd:Q2716767 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1805/geo> a geo:Geometry;
   geo:asWKT "Point(26.3 43.7)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1646,7 +1646,7 @@ jurisdiction:1808 rdfs:label "Община Две могили"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1808/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2721034 .
+  myd:wikidata_entity wd:Q2721034 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1808/geo> a geo:Geometry;
   geo:asWKT "Point(25.91666667 43.55)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1655,7 +1655,7 @@ jurisdiction:1813 rdfs:label "Община Иваново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1813/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2721303 .
+  myd:wikidata_entity wd:Q2721303 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1813/geo> a geo:Geometry;
   geo:asWKT "Point(25.95 43.68333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1664,7 +1664,7 @@ jurisdiction:1827 rdfs:label "Община Русе"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1827/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2652929 .
+  myd:wikidata_entity wd:Q2652929 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1827/geo> a geo:Geometry;
   geo:asWKT "Point(26.01666667 43.81666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1673,7 +1673,7 @@ jurisdiction:1833 rdfs:label "Община Сливо поле"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1833/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2609442 .
+  myd:wikidata_entity wd:Q2609442 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1833/geo> a geo:Geometry;
   geo:asWKT "Point(26.25 43.93333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1682,7 +1682,7 @@ jurisdiction:1837 rdfs:label "Община Ценово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1837/geo>;
   myd:mir jurisdiction:19;
   myd:province wd:Q1251933;
-  myd:wdid wd:Q2609662 .
+  myd:wikidata_entity wd:Q2609662 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1837/geo> a geo:Geometry;
   geo:asWKT "Point(25.6 43.55)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1691,7 +1691,7 @@ jurisdiction:1901 rdfs:label "Община Алфатар"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1901/geo>;
   myd:mir jurisdiction:20;
   myd:province wd:Q2012423;
-  myd:wdid wd:Q587507 .
+  myd:wikidata_entity wd:Q587507 .
 
 wd:Q2012423 a my:Province;
   rdfs:label "Област Силистра"@bg .
@@ -1703,7 +1703,7 @@ jurisdiction:1907 rdfs:label "Община Главиница"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1907/geo>;
   myd:mir jurisdiction:20;
   myd:province wd:Q2012423;
-  myd:wdid wd:Q303082 .
+  myd:wikidata_entity wd:Q303082 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1907/geo> a geo:Geometry;
   geo:asWKT "Point(26.83333333 43.93333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1712,7 +1712,7 @@ jurisdiction:1910 rdfs:label "Община Дулово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1910/geo>;
   myd:mir jurisdiction:20;
   myd:province wd:Q2012423;
-  myd:wdid wd:Q2387177 .
+  myd:wikidata_entity wd:Q2387177 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1910/geo> a geo:Geometry;
   geo:asWKT "Point(27.1 43.8)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1721,7 +1721,7 @@ jurisdiction:1915 rdfs:label "Община Кайнарджа"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1915/geo>;
   myd:mir jurisdiction:20;
   myd:province wd:Q2012423;
-  myd:wdid wd:Q921737 .
+  myd:wikidata_entity wd:Q921737 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1915/geo> a geo:Geometry;
   geo:asWKT "Point(27.51666667 43.96666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1730,7 +1730,7 @@ jurisdiction:1931 rdfs:label "Община Силистра"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1931/geo>;
   myd:mir jurisdiction:20;
   myd:province wd:Q2012423;
-  myd:wdid wd:Q2219334 .
+  myd:wikidata_entity wd:Q2219334 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1931/geo> a geo:Geometry;
   geo:asWKT "Point(27.21666667 44.03333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1739,7 +1739,7 @@ jurisdiction:1932 rdfs:label "Община Ситово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1932/geo>;
   myd:mir jurisdiction:20;
   myd:province wd:Q2012423;
-  myd:wdid wd:Q2609678 .
+  myd:wikidata_entity wd:Q2609678 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1932/geo> a geo:Geometry;
   geo:asWKT "Point(26.98333333 44.01666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1748,7 +1748,7 @@ jurisdiction:1934 rdfs:label "Община Тутракан"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1934/geo>;
   myd:mir jurisdiction:20;
   myd:province wd:Q2012423;
-  myd:wdid wd:Q2609628 .
+  myd:wikidata_entity wd:Q2609628 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1934/geo> a geo:Geometry;
   geo:asWKT "Point(26.5667 43.9833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1757,7 +1757,7 @@ jurisdiction:2011 rdfs:label "Община Котел"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2011/geo>;
   myd:mir jurisdiction:21;
   myd:province wd:Q113120;
-  myd:wdid wd:Q2609479 .
+  myd:wikidata_entity wd:Q2609479 .
 
 wd:Q113120 a my:Province;
   rdfs:label "Област Сливен"@bg .
@@ -1769,7 +1769,7 @@ jurisdiction:2016 rdfs:label "Община Нова Загора"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2016/geo>;
   myd:mir jurisdiction:21;
   myd:province wd:Q113120;
-  myd:wdid wd:Q1749545 .
+  myd:wikidata_entity wd:Q1749545 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2016/geo> a geo:Geometry;
   geo:asWKT "Point(26.017 42.483)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1778,7 +1778,7 @@ jurisdiction:2020 rdfs:label "Община Сливен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2020/geo>;
   myd:mir jurisdiction:21;
   myd:province wd:Q113120;
-  myd:wdid wd:Q4423406 .
+  myd:wikidata_entity wd:Q4423406 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2020/geo> a geo:Geometry;
   geo:asWKT "Point(26.3333 42.6833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1787,7 +1787,7 @@ jurisdiction:2024 rdfs:label "Община Твърдица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2024/geo>;
   myd:mir jurisdiction:21;
   myd:province wd:Q113120;
-  myd:wdid wd:Q1749531 .
+  myd:wikidata_entity wd:Q1749531 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2024/geo> a geo:Geometry;
   geo:asWKT "Point(25.9 42.7)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1796,7 +1796,7 @@ jurisdiction:2102 rdfs:label "Община Баните"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2102/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q1890848 .
+  myd:wikidata_entity wd:Q1890848 .
 
 wd:Q2012430 a my:Province;
   rdfs:label "Област Смолян"@bg .
@@ -1808,7 +1808,7 @@ jurisdiction:2105 rdfs:label "Община Борино"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2105/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q1749527 .
+  myd:wikidata_entity wd:Q1749527 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2105/geo> a geo:Geometry;
   geo:asWKT "Point(24.2833 41.6833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1817,7 +1817,7 @@ jurisdiction:2109 rdfs:label "Община Девин"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2109/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q2011314 .
+  myd:wikidata_entity wd:Q2011314 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2109/geo> a geo:Geometry;
   geo:asWKT "Point(24.4 41.7333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1826,7 +1826,7 @@ jurisdiction:2110 rdfs:label "Община Доспат"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2110/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q2715784 .
+  myd:wikidata_entity wd:Q2715784 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2110/geo> a geo:Geometry;
   geo:asWKT "Point(24.15972222 41.64361111)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1835,7 +1835,7 @@ jurisdiction:2111 rdfs:label "Община Златоград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2111/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q7497979 .
+  myd:wikidata_entity wd:Q7497979 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2111/geo> a geo:Geometry;
   geo:asWKT "Point(25.1 41.3833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1844,7 +1844,7 @@ jurisdiction:2116 rdfs:label "Община Мадан"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2116/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q1749535 .
+  myd:wikidata_entity wd:Q1749535 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2116/geo> a geo:Geometry;
   geo:asWKT "Point(24.95 41.5)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1853,7 +1853,7 @@ jurisdiction:2118 rdfs:label "Община Неделино"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2118/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q1749550 .
+  myd:wikidata_entity wd:Q1749550 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2118/geo> a geo:Geometry;
   geo:asWKT "Point(25.083 41.45)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1862,7 +1862,7 @@ jurisdiction:2127 rdfs:label "Община Рудозем"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2127/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q2405118 .
+  myd:wikidata_entity wd:Q2405118 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2127/geo> a geo:Geometry;
   geo:asWKT "Point(24.8486 41.4875)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1871,7 +1871,7 @@ jurisdiction:2131 rdfs:label "Община Смолян"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2131/geo>;
   myd:mir jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q1749684 .
+  myd:wikidata_entity wd:Q1749684 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2131/geo> a geo:Geometry;
   geo:asWKT "Point(24.7 41.583)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1880,7 +1880,7 @@ jurisdiction:2138 rdfs:label "Община Чепеларе"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2138/geo>;
   myd:mir jurisdiction:17, jurisdiction:22;
   myd:province wd:Q2012430;
-  myd:wdid wd:Q1749522 .
+  myd:wikidata_entity wd:Q1749522 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2138/geo> a geo:Geometry;
   geo:asWKT "Point(24.683 41.733)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1888,7 +1888,7 @@ jurisdiction:2138 rdfs:label "Община Чепеларе"@bg;
 jurisdiction:2246 rdfs:label "Столична община"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2246/geo>;
   myd:province wd:Q1585725;
-  myd:wdid wd:Q4442915 .
+  myd:wikidata_entity wd:Q4442915 .
 
 wd:Q1585725 a my:Province;
   rdfs:label "Област София"@bg .
@@ -1900,7 +1900,7 @@ jurisdiction:2306 rdfs:label "Община Божурище"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2306/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2011235 .
+  myd:wikidata_entity wd:Q2011235 .
 
 wd:Q202904 a my:Province;
   rdfs:label "Софийска област"@bg .
@@ -1912,7 +1912,7 @@ jurisdiction:2307 rdfs:label "Община Ботевград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2307/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q1750337 .
+  myd:wikidata_entity wd:Q1750337 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2307/geo> a geo:Geometry;
   geo:asWKT "Point(23.78 42.9)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1921,7 +1921,7 @@ jurisdiction:2309 rdfs:label "Община Годеч"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2309/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2615978 .
+  myd:wikidata_entity wd:Q2615978 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2309/geo> a geo:Geometry;
   geo:asWKT "Point(23.0782 43.0257)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1930,7 +1930,7 @@ jurisdiction:2310 rdfs:label "Община Горна Малина"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2310/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q1750531 .
+  myd:wikidata_entity wd:Q1750531 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2310/geo> a geo:Geometry;
   geo:asWKT "Point(23.7 42.683)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1939,7 +1939,7 @@ jurisdiction:2316 rdfs:label "Община Драгоман"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2316/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2476900 .
+  myd:wikidata_entity wd:Q2476900 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2316/geo> a geo:Geometry;
   geo:asWKT "Point(22.9301 42.922)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1948,7 +1948,7 @@ jurisdiction:2317 rdfs:label "Община Елин Пелин"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2317/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q1750672 .
+  myd:wikidata_entity wd:Q1750672 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2317/geo> a geo:Geometry;
   geo:asWKT "Point(23.6 42.6667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1957,7 +1957,7 @@ jurisdiction:2318 rdfs:label "Община Етрополе"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2318/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q771640 .
+  myd:wikidata_entity wd:Q771640 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2318/geo> a geo:Geometry;
   geo:asWKT "Point(24.0 42.8333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1966,7 +1966,7 @@ jurisdiction:2320 rdfs:label "Община Ихтиман"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2320/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q1750675 .
+  myd:wikidata_entity wd:Q1750675 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2320/geo> a geo:Geometry;
   geo:asWKT "Point(23.817 42.433)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1975,7 +1975,7 @@ jurisdiction:2324 rdfs:label "Община Копривщица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2324/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q4232394 .
+  myd:wikidata_entity wd:Q4232394 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2324/geo> a geo:Geometry;
   geo:asWKT "Point(24.35 42.633)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1984,7 +1984,7 @@ jurisdiction:2325 rdfs:label "Община Костенец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2325/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2560787 .
+  myd:wikidata_entity wd:Q2560787 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2325/geo> a geo:Geometry;
   geo:asWKT "Point(23.83333333 42.31666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -1993,7 +1993,7 @@ jurisdiction:2326 rdfs:label "Община Костинброд"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2326/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q13554376 .
+  myd:wikidata_entity wd:Q13554376 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2326/geo> a geo:Geometry;
   geo:asWKT "Point(23.217 42.817)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2002,7 +2002,7 @@ jurisdiction:2334 rdfs:label "Община Правец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2334/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2012325 .
+  myd:wikidata_entity wd:Q2012325 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2334/geo> a geo:Geometry;
   geo:asWKT "Point(23.92 42.88)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2011,7 +2011,7 @@ jurisdiction:2339 rdfs:label "Община Самоков"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2339/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2011302 .
+  myd:wikidata_entity wd:Q2011302 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2339/geo> a geo:Geometry;
   geo:asWKT "Point(23.55 42.33)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2020,7 +2020,7 @@ jurisdiction:2343 rdfs:label "Община Своге"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2343/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2715418 .
+  myd:wikidata_entity wd:Q2715418 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2343/geo> a geo:Geometry;
   geo:asWKT "Point(23.35 42.96)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2029,7 +2029,7 @@ jurisdiction:2345 rdfs:label "Община Сливница"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2345/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2408489 .
+  myd:wikidata_entity wd:Q2408489 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2345/geo> a geo:Geometry;
   geo:asWKT "Point(23.03 42.85)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2038,7 +2038,7 @@ jurisdiction:2347 rdfs:label "Община Златица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2347/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2407916 .
+  myd:wikidata_entity wd:Q2407916 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2347/geo> a geo:Geometry;
   geo:asWKT "Point(24.133 42.717)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2047,7 +2047,7 @@ jurisdiction:2354 rdfs:label "Община Антон"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2354/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2012997 .
+  myd:wikidata_entity wd:Q2012997 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2354/geo> a geo:Geometry;
   geo:asWKT "Point(24.26 42.73527778)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>,
@@ -2057,7 +2057,7 @@ jurisdiction:2355 rdfs:label "Община Пирдоп"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2355/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q2407089 .
+  myd:wikidata_entity wd:Q2407089 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2355/geo> a geo:Geometry;
   geo:asWKT "Point(24.18 42.7001)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2066,7 +2066,7 @@ jurisdiction:2356 rdfs:label "Община Мирково"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2356/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q1750534 .
+  myd:wikidata_entity wd:Q1750534 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2356/geo> a geo:Geometry;
   geo:asWKT "Point(23.983 42.7)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2075,7 +2075,7 @@ jurisdiction:2357 rdfs:label "Чавдар"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2357/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q1750661 .
+  myd:wikidata_entity wd:Q1750661 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2357/geo> a geo:Geometry;
   geo:asWKT "Point(24.05 42.65)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2084,7 +2084,7 @@ jurisdiction:2358 rdfs:label "Община Челопеч"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2358/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q3627159 .
+  myd:wikidata_entity wd:Q3627159 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2358/geo> a geo:Geometry;
   geo:asWKT "Point(24.083 42.7)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2093,7 +2093,7 @@ jurisdiction:2359 rdfs:label "Община Долна баня"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2359/geo>;
   myd:mir jurisdiction:26;
   myd:province wd:Q202904;
-  myd:wdid wd:Q4165080 .
+  myd:wikidata_entity wd:Q4165080 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2359/geo> a geo:Geometry;
   geo:asWKT "Point(23.767 42.3)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2102,7 +2102,7 @@ jurisdiction:2404 rdfs:label "Община Братя Даскалови"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2404/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q1749540 .
+  myd:wikidata_entity wd:Q1749540 .
 
 wd:Q2012583 a my:Province;
   rdfs:label "Област Стара Загора"@bg .
@@ -2114,7 +2114,7 @@ jurisdiction:2407 rdfs:label "Община Гълъбово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2407/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q953742 .
+  myd:wikidata_entity wd:Q953742 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2407/geo> a geo:Geometry;
   geo:asWKT "Point(25.85 42.133)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2123,7 +2123,7 @@ jurisdiction:2412 rdfs:label "Община Казанлък"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2412/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q1750050 .
+  myd:wikidata_entity wd:Q1750050 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2412/geo> a geo:Geometry;
   geo:asWKT "Point(25.4 42.617)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2132,7 +2132,7 @@ jurisdiction:2422 rdfs:label "Община Мъглиж"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2422/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q2405076 .
+  myd:wikidata_entity wd:Q2405076 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2422/geo> a geo:Geometry;
   geo:asWKT "Point(25.55 42.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2141,7 +2141,7 @@ jurisdiction:2423 rdfs:label "Община Опан"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2423/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q2609370 .
+  myd:wikidata_entity wd:Q2609370 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2423/geo> a geo:Geometry;
   geo:asWKT "Point(25.7 42.21666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2150,7 +2150,7 @@ jurisdiction:2424 rdfs:label "Община Павел баня"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2424/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q2405088 .
+  myd:wikidata_entity wd:Q2405088 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2424/geo> a geo:Geometry;
   geo:asWKT "Point(25.2 42.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2159,7 +2159,7 @@ jurisdiction:2427 rdfs:label "Община Раднево"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2427/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q1750036 .
+  myd:wikidata_entity wd:Q1750036 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2427/geo> a geo:Geometry;
   geo:asWKT "Point(25.933 42.3)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2168,7 +2168,7 @@ jurisdiction:2431 rdfs:label "Община Стара Загора"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2431/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q534046 .
+  myd:wikidata_entity wd:Q534046 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2431/geo> a geo:Geometry;
   geo:asWKT "Point(25.65 42.4333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2177,7 +2177,7 @@ jurisdiction:2436 rdfs:label "Община Чирпан"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2436/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q1749678 .
+  myd:wikidata_entity wd:Q1749678 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2436/geo> a geo:Geometry;
   geo:asWKT "Point(25.3167 42.1833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2186,7 +2186,7 @@ jurisdiction:2437 rdfs:label "Община Гурково"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2437/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q1749681 .
+  myd:wikidata_entity wd:Q1749681 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2437/geo> a geo:Geometry;
   geo:asWKT "Point(25.733 42.667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2195,7 +2195,7 @@ jurisdiction:2438 rdfs:label "Община Николаево"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2438/geo>;
   myd:mir jurisdiction:27;
   myd:province wd:Q2012583;
-  myd:wdid wd:Q535085 .
+  myd:wikidata_entity wd:Q535085 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2438/geo> a geo:Geometry;
   geo:asWKT "Point(25.8 42.633)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2204,7 +2204,7 @@ jurisdiction:2502 rdfs:label "Община Антоново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2502/geo>;
   myd:mir jurisdiction:28;
   myd:province wd:Q2012589;
-  myd:wdid wd:Q2633034 .
+  myd:wikidata_entity wd:Q2633034 .
 
 wd:Q2012589 a my:Province;
   rdfs:label "Област Търговище"@bg .
@@ -2216,7 +2216,7 @@ jurisdiction:2522 rdfs:label "Община Омуртаг"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2522/geo>;
   myd:mir jurisdiction:28;
   myd:province wd:Q2012589;
-  myd:wdid wd:Q3882332 .
+  myd:wikidata_entity wd:Q3882332 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2522/geo> a geo:Geometry;
   geo:asWKT "Point(26.45 43.08333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2225,7 +2225,7 @@ jurisdiction:2523 rdfs:label "Община Опака"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2523/geo>;
   myd:mir jurisdiction:28;
   myd:province wd:Q2012589;
-  myd:wdid wd:Q3882809 .
+  myd:wikidata_entity wd:Q3882809 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2523/geo> a geo:Geometry;
   geo:asWKT "Point(26.1667 43.45)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2234,7 +2234,7 @@ jurisdiction:2524 rdfs:label "Община Попово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2524/geo>;
   myd:mir jurisdiction:28;
   myd:province wd:Q2012589;
-  myd:wdid wd:Q3908413 .
+  myd:wikidata_entity wd:Q3908413 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2524/geo> a geo:Geometry;
   geo:asWKT "Point(26.25 43.31666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2243,7 +2243,7 @@ jurisdiction:2535 rdfs:label "Община Търговище"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2535/geo>;
   myd:mir jurisdiction:28;
   myd:province wd:Q2012589;
-  myd:wdid wd:Q3515689 .
+  myd:wikidata_entity wd:Q3515689 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2535/geo> a geo:Geometry;
   geo:asWKT "Point(26.583 43.25)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2252,7 +2252,7 @@ jurisdiction:2609 rdfs:label "Община Димитровград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2609/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2606948 .
+  myd:wikidata_entity wd:Q2606948 .
 
 wd:Q182809 a my:Province;
   rdfs:label "Област Хасково"@bg .
@@ -2264,7 +2264,7 @@ jurisdiction:2611 rdfs:label "Община Ивайловград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2611/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2608264 .
+  myd:wikidata_entity wd:Q2608264 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2611/geo> a geo:Geometry;
   geo:asWKT "Point(26.1251 41.5276)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2273,7 +2273,7 @@ jurisdiction:2617 rdfs:label "Община Любимец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2617/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q768987 .
+  myd:wikidata_entity wd:Q768987 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2617/geo> a geo:Geometry;
   geo:asWKT "Point(26.0788 41.8442)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2282,7 +2282,7 @@ jurisdiction:2618 rdfs:label "Община Маджарово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2618/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2399931 .
+  myd:wikidata_entity wd:Q2399931 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2618/geo> a geo:Geometry;
   geo:asWKT "Point(25.867 41.633)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2291,7 +2291,7 @@ jurisdiction:2619 rdfs:label "Община Минерални бани"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2619/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2400676 .
+  myd:wikidata_entity wd:Q2400676 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2619/geo> a geo:Geometry;
   geo:asWKT "Point(25.35 41.933)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2300,7 +2300,7 @@ jurisdiction:2628 rdfs:label "Община Свиленград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2628/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2657322 .
+  myd:wikidata_entity wd:Q2657322 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2628/geo> a geo:Geometry;
   geo:asWKT "Point(26.2 41.767)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2309,7 +2309,7 @@ jurisdiction:2629 rdfs:label "Община Симеоновград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2629/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2399949 .
+  myd:wikidata_entity wd:Q2399949 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2629/geo> a geo:Geometry;
   geo:asWKT "Point(25.83333333 42.03333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2318,7 +2318,7 @@ jurisdiction:2630 rdfs:label "Община Стамболово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2630/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2400143 .
+  myd:wikidata_entity wd:Q2400143 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2630/geo> a geo:Geometry;
   geo:asWKT "Point(25.65 41.76666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2327,7 +2327,7 @@ jurisdiction:2632 rdfs:label "Община Тополовград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2632/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2444114 .
+  myd:wikidata_entity wd:Q2444114 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2632/geo> a geo:Geometry;
   geo:asWKT "Point(26.337 42.085)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2336,7 +2336,7 @@ jurisdiction:2633 rdfs:label "Община Харманли"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2633/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2400127 .
+  myd:wikidata_entity wd:Q2400127 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2633/geo> a geo:Geometry;
   geo:asWKT "Point(25.9 41.93333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2345,7 +2345,7 @@ jurisdiction:2634 rdfs:label "Община Хасково"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2634/geo>;
   myd:mir jurisdiction:29;
   myd:province wd:Q182809;
-  myd:wdid wd:Q2454587 .
+  myd:wikidata_entity wd:Q2454587 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2634/geo> a geo:Geometry;
   geo:asWKT "Point(25.567 41.933)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2354,7 +2354,7 @@ jurisdiction:2707 rdfs:label "Община Венец"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2707/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2609405 .
+  myd:wikidata_entity wd:Q2609405 .
 
 wd:Q184981 a my:Province;
   rdfs:label "Област Шумен"@bg .
@@ -2366,7 +2366,7 @@ jurisdiction:2710 rdfs:label "Община Върбица"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2710/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2609417 .
+  myd:wikidata_entity wd:Q2609417 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2710/geo> a geo:Geometry;
   geo:asWKT "Point(26.7167 43.0)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2375,7 +2375,7 @@ jurisdiction:2711 rdfs:label "Община Хитрино"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2711/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2220759 .
+  myd:wikidata_entity wd:Q2220759 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2711/geo> a geo:Geometry;
   geo:asWKT "Point(26.88333333 43.43333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2384,7 +2384,7 @@ jurisdiction:2718 rdfs:label "Община Каолиново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2718/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q407827 .
+  myd:wikidata_entity wd:Q407827 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2718/geo> a geo:Geometry;
   geo:asWKT "Point(27.08333333 43.58333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2393,7 +2393,7 @@ jurisdiction:2719 rdfs:label "Община Каспичан"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2719/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2609637 .
+  myd:wikidata_entity wd:Q2609637 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2719/geo> a geo:Geometry;
   geo:asWKT "Point(27.11666667 43.28333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2402,7 +2402,7 @@ jurisdiction:2721 rdfs:label "Община Никола Козлево"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2721/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q15101410 .
+  myd:wikidata_entity wd:Q15101410 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2721/geo> a geo:Geometry;
   geo:asWKT "Point(27.2 43.53333333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2411,7 +2411,7 @@ jurisdiction:2722 rdfs:label "Община Нови пазар"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2722/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2609377 .
+  myd:wikidata_entity wd:Q2609377 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2722/geo> a geo:Geometry;
   geo:asWKT "Point(27.2 43.35)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2420,7 +2420,7 @@ jurisdiction:2723 rdfs:label "Община Велики Преслав"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2723/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2219326 .
+  myd:wikidata_entity wd:Q2219326 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2723/geo> a geo:Geometry;
   geo:asWKT "Point(26.8167 43.1667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2429,7 +2429,7 @@ jurisdiction:2725 rdfs:label "Община Смядово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2725/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2609389 .
+  myd:wikidata_entity wd:Q2609389 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2725/geo> a geo:Geometry;
   geo:asWKT "Point(26.96666667 43.01666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2438,7 +2438,7 @@ jurisdiction:2730 rdfs:label "Община Шумен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2730/geo>;
   myd:mir jurisdiction:30;
   myd:province wd:Q184981;
-  myd:wdid wd:Q2219814 .
+  myd:wikidata_entity wd:Q2219814 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2730/geo> a geo:Geometry;
   geo:asWKT "Point(26.98333333 43.21666667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2447,7 +2447,7 @@ jurisdiction:2803 rdfs:label "Община Болярово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2803/geo>;
   myd:mir jurisdiction:31;
   myd:province wd:Q220736;
-  myd:wdid wd:Q2653282 .
+  myd:wikidata_entity wd:Q2653282 .
 
 wd:Q220736 a my:Province;
   rdfs:label "Област Ямбол"@bg .
@@ -2459,7 +2459,7 @@ jurisdiction:2807 rdfs:label "Община Елхово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2807/geo>;
   myd:mir jurisdiction:31;
   myd:province wd:Q220736;
-  myd:wdid wd:Q2653243 .
+  myd:wikidata_entity wd:Q2653243 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2807/geo> a geo:Geometry;
   geo:asWKT "Point(26.5735 42.175)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2468,7 +2468,7 @@ jurisdiction:2822 rdfs:label "Община Стралджа"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2822/geo>;
   myd:mir jurisdiction:31;
   myd:province wd:Q220736;
-  myd:wdid wd:Q2454975 .
+  myd:wikidata_entity wd:Q2454975 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2822/geo> a geo:Geometry;
   geo:asWKT "Point(26.683 42.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2477,7 +2477,7 @@ jurisdiction:2825 rdfs:label "Община Тунджа"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2825/geo>;
   myd:mir jurisdiction:31;
   myd:province wd:Q220736;
-  myd:wdid wd:Q20432553 .
+  myd:wikidata_entity wd:Q20432553 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2825/geo> a geo:Geometry;
   geo:asWKT "Point(26.5 42.4833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
@@ -2486,7 +2486,7 @@ jurisdiction:2826 rdfs:label "Община Ямбол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2826/geo>;
   myd:mir jurisdiction:31;
   myd:province wd:Q220736;
-  myd:wdid wd:Q4537624 .
+  myd:wikidata_entity wd:Q4537624 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2826/geo> a geo:Geometry;
   geo:asWKT "Point(26.5 42.4833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
