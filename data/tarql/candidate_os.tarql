@@ -3,7 +3,7 @@ construct {
 		rdfs:label ?f ;
 		myd:candidacy ?ROUND_URI ;
 		myd:party_number ?PARTY_NUM ;
-		myd:number ?CAND_NUM ;
+		myd:number ?CAND_NUM_OK ;
 		myd:represents ?PARTY_URI ;
 	.
 	?PARTY_URI myd:candidacy ?ROUND_URI .
@@ -12,6 +12,7 @@ where {
 		bind(if(strlen(?a)=3,concat("0",?a),?a) as ?OB_CODE) # leading zero
 		bind(uri(concat("candidate/{EL}/{TYP}/",?OB_CODE,"/",?c,"/",?e)) as ?CAND_URI)
 		bind(STRDT(?e, xsd:integer) as ?CAND_NUM)
+		bind(if(?CAND_NUM>100,?CAND_NUM-100,?CAND_NUM) as ?CAND_NUM_OK)
 		bind(STRDT(?c, xsd:integer) as ?PARTY_NUM)
 		bind(uri(concat("party/{EL}/",?OB_CODE,"/",?c)) as ?PARTY_URI)
 		bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE)) as ?ROUND_URI)

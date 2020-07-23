@@ -4,6 +4,7 @@ construct {
 		myd:election ?EL_URI ;
 		myd:isMobile ?IS_MOBILE;
 		myd:place ?PLACE_URI;
+		myd:number ?a ;
 	.
 	?VOTE_URI a my:Voting ;
 		rdfs:label ?VOTE_LABEL ;

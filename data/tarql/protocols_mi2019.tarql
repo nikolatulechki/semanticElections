@@ -8,12 +8,12 @@ construct {
         myd:votes_invalid_count ?R ;
         myd:votes_blanc_count ?U ;
         myd:ballots_empty ?V ;
-        myd:linkProtocol ?PROT_LINK ;
-        myd:linkScanned ?PDF_LINK ;
+        myd:link_html ?PROT_LINK ;
+        myd:link_pdf ?PDF_LINK ;
     .
 } where {
-    bind(if(strlen(?c)=3 || strlen(?a)=1,concat("0",?c),?c) as ?OB_CODE) # leading zero
-    bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE,"/{RND}",?b)) as ?VOTE_URI)
+    bind(if(strlen(?c)=3,concat("0",?c),?c) as ?OB_CODE) # leading zero
+    bind(uri(concat("voting/{EL}/{TYP}",?OB_CODE,"/{RND}",?b)) as ?VOTE_URI)
     bind(strdt(?e,xsd:integer) as ?E)
     bind(strdt(?f,xsd:integer) as ?F)
     bind(strdt(?i,xsd:integer) as ?I)

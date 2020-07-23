@@ -1,0 +1,28 @@
+construct {
+    ?VOTE_URI
+        myd:recieved_ballots ?E ;
+        myd:voters_count ?F ;
+        myd:voters_additional_count ?G ;
+        myd:voters_voted_count ?Q ;
+        myd:votes_valid_count ?W ;
+        myd:votes_invalid_count ?T ;
+        myd:votes_blanc_count ?AA ;
+        myd:ballots_empty ?AF ;
+        myd:link_html ?PROT_LINK ;
+        myd:link_pdf ?PDF_LINK ;
+    .
+} where {
+    bind(strdt(?c,xsd:integer) as ?C)
+    bind(if(?C<10,concat("0",?c),?c) as ?OB_CODE) # leading zero
+    bind(uri(concat("voting/{EL}/{RND}",?b)) as ?VOTE_URI)
+    bind(strdt(?e,xsd:integer) as ?E)
+    bind(strdt(?f,xsd:integer) as ?F)
+    bind(strdt(?g,xsd:integer) as ?G)
+    bind(strdt(?q,xsd:integer) as ?Q)
+    bind(strdt(?w,xsd:integer) as ?W)
+    bind(strdt(?t,xsd:integer) as ?T)
+    bind(strdt(?aa,xsd:integer) as ?AA)
+    bind(strdt(?af,xsd:integer) as ?AF)
+    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".html")) as ?PROT_LINK)
+    bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?b,".pdf")) as ?PDF_LINK)
+}
