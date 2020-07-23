@@ -46,7 +46,6 @@
 
 <party/ep2019/23> a my:ElectionParty ;
 	rdfs:label "ВОЛЯ – Българските Родолюбци" ;
-    myd:person <person/pvrnr2016/2/pr> ;
     myd:party <http://www.wikidata.org/entity/Q25485773> ;
 .
 
