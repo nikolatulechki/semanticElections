@@ -1,6 +1,6 @@
 construct {
 	?URI a my:Municipality  ;
-		myd:wdid ?WD ;
+		myd:wikidata_entity ?WD ;
     .
 }
 where {

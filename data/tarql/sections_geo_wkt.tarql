@@ -2,9 +2,10 @@ construct {
 
 ?VPLACE_URI a my:VotingPlace ;
     rdfs:label ?address ;
-    myd:wdType ?WD_TYPE ;
+    myd:wd_type ?WD_TYPE ;
     myd:type ?building_type ;
     geo:hasGeometry ?GEO_URI ;
+    myd:place ?PLACE_URI ;
 .
 ?GEO_URI a geo:Geometry ;
     geo:asWKT ?WKT ;
