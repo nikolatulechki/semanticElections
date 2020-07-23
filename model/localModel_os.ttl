@@ -1,26 +1,42 @@
 ## Election hierarchy
 
-<election/mi2019> a my:Election ; rdfs:label "Местни Избори 2019"@bg .
+<election/mi2019> a my:Election ;
+    rdfs:label "Местни Избори 2019"@bg .
 
-<election/mi2019/os> a my:Election ; rdfs:label "Местни Избори 2019 за общински съвети"@bg ;
+<election/mi2019/os> a my:Election ;
+    rdfs:label "Местни Избори 2019 за общински съвети"@bg ;
     myd:partOf <election/mi2019>  ;
 .
 
-<election/mi2019/os/2246> a my:Election ; rdfs:label "Местни Избори 2019 за общински съвет на община 2246. Столична"@bg ;
+<election/mi2019/os/2246> a my:Election ;
+    rdfs:label "Местни Избори 2019 за общински съвет на община 2246. Столична"@bg ;
     myd:partOf <election/mi2019/os>  ;
     myd:jurisdiction <jurisdiction/2246> ;
 .
 
 <jurisdiction/2246> a my:Municipality ;
     rdfs:label "Столична Община" ;
-    myd:code "2246" ;
+    myd:number "2246" ;
 .
 
 <voting/mi2019/os/2246/224607026> a my:Voting ;
-    rdfs:label "Гласуване на Местни Избори 2019 за кмет на бщински съвет на община 2246. Столична в секция 224607026"@bg ;
+    rdfs:label "Гласуване в секция 224607026 на Местни Избори 2019 за общински съвет 2246. Столична"@bg ;
     myd:section <section/mi2019/224607026> ;
-    myd:partOf <election/mi2019/os/2246> ;
-    myd:protocol <protocol/mi2019/os/2246/224607026> ;
+    myd:election <election/mi2019/os/2246> ;
+    myd:ballots_empty 6 ;
+    myd:recieved_ballots 400 ;
+    myd:voters_additional_count 4 ;
+    myd:voters_count  586 ;
+    myd:voters_voted_count 298 ;
+    myd:votes_blanc_count 7 ;
+    myd:votes_invalid_count 7 ;
+    myd:votes_valid_count 284 ;
+    myd:link_html <https://results.cik.bg/mi2019/tur1/protokoli/1/2246/224607026.html> ;
+    myd:link_pdf <https://results.cik.bg/mi2019/tur1/pdf/1/2246/224607026.pdf> ;
+.
+
+<section/mi2019/224607026> a my:Section ;
+    rdfs:label "Секция 224607026 в гр.София" ;
 .
 
 ## Candidate, party and coalition
@@ -73,9 +89,21 @@ wd:Q62808154 a my:Party ;
     mypq:votes_received 5 ;
 .
 
+## puml
 
+<voting/mi2019/os/2246/224607026> puml:up <section/mi2019/224607026> .
+<party/mi2019/2246/66> puml:down <party/mi2019/66> .
+<party/mi2019/66> puml:down wd:Q62808154 .
 
+<election/mi2019/os/2246> puml:down <election/mi2019/os> .
+<election/mi2019/os> puml:down <election/mi2019> .
 
+<candidate/mi2019/os/2246/66/108> puml:left <party/mi2019/2246/66> .
+
+<vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> puml:down <candidate/mi2019/os/2246/66/108> .
+
+myd:link_html a puml:InlineProperty .
+myd:link_pdf a puml:InlineProperty .
 
 
 
