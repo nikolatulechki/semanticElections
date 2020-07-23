@@ -22,3 +22,5 @@ wd:Q1585725 a my:Province ;
         myd:municipality  <jurisdiction/2246>  ;
         rdfs:label  "ГР.СОФИЯ" ;
 .
+
+myd:wdid a puml:InlineProperty .

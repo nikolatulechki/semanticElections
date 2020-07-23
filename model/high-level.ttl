@@ -1,0 +1,59 @@
+<Election>
+    myd:partOf <Election> ;
+    myd:jurisdiction <Municipality>, <MIR> ;
+.
+
+<Voting>
+    myd:section <Section> ;
+    myd:election <Election> , <VotingRound> ;
+    myd:vote <ElectionParty> , <LocalParty>  ;
+    myp:vote <Vote> ;
+    myd:preference_vote <Candidate> ;
+    myp:preference_vote <PreferenceVote> ;
+.
+
+<Vote>
+    myps:vote <LocalParty> , <ElectionParty> ;
+.
+
+<PreferenceVote>
+    myps:preference_vote <Candidate> ;
+.
+
+<VotingRound>
+    myd:partOf <Election> .
+
+<Candidate>
+    myd:candidacy <Election> , <VotingRound> ;
+    myd:represents <ElectionParty>, <Party> ;
+.
+
+<LocalParty>
+    myd:candidacy <Election>, <VotingRound> ;
+    myd:party <ElectionParty> ;
+.
+
+<ElectionParty>
+    myd:candidacy <Election>, <VotingRound> ;
+    myd:party <Party> ;
+.
+
+<Section>
+    myd:place <Place> ;
+    myd:voting_place <VotingPlace> ;
+.
+
+<VotingPlace> myd:place <Place> .
+<Place> myd:municipality <Municipality> .
+<Municipality>	myd:mir <MIR> ; myd:province <Province> .
+
+### PUML
+<Voting> puml:right <Section> .
+<Section> puml:down <VotingPlace> .
+<VotingPlace> puml:down <Place> .
+<Place>   puml:down <Municipality> .
+<Municipality> puml:down <MIR> ; puml:right <Province> .
+
+<LocalParty> puml:down <ElectionParty> .
+<ElectionParty> puml:down <Party> .
+

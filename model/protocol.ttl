@@ -1,6 +1,0 @@
-<election/mi2019/os/2246/224607026> a my:Voting ;
-    rdfs:label "Гласуване на Местни Избори 2019 за кмет на бщински съвет на община 2246. Столична в секция 224607026"@bg ;
-    myd:section <section/mi2019/224607026> ;
-    myd:partOf <election/mi2019/os/2246> ;
-    myd:protocol <protocol/mi2019/os/2246/224607026> ;
-
