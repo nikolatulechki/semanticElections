@@ -33,13 +33,13 @@ wd:Q133968 a my:Party ;
 <party/mi2019/0101/43> a my:LocalParty ;
     rdfs:label "ПП ГЕРБ"@bg ;
     myd:party <party/mi2019/43> ;
-    myd:election <election/mi2019/os/0101> ;
+    myd:candidacy <election/mi2019/os/0101> ;
 .
 
 <party/mi2019/0101/51> a my:LocalParty ;
     rdfs:label "Воля"@bg ;
     myd:party <party/mi2019/51> ;
-    myd:election <election/mi2019/os/0101> ;
+    myd:candidacy <election/mi2019/os/0101> ;
 .
 
 <party/mi2019/42> a my:ElectionParty ;
@@ -49,12 +49,12 @@ wd:Q133968 a my:Party ;
 <party/mi2019/0103/67> a my:LocalParty ;
     rdfs:label "Местна коалиция партия на ЗЕЛЕНИТЕ (ВОЛЯ)" ;
     myd:party <party/mi2019/42>, <party/mi2019/51> ;
-    myd:election <election/mi2019/os/0103> ;
+    myd:candidacy <election/mi2019/os/0103> ;
 .
 
 <party/mi2019/0103/74> a my:LocalParty ;
     rdfs:label "Венцислав Богданов Сотиров-Венцислав Богданов Сотиров";
-    myd:election <election/mi2019/os/0103> ;
+    myd:candidacy <election/mi2019/os/0103> ;
 .
 
 ### PUML
