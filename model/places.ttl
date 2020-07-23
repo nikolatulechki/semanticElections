@@ -18,7 +18,7 @@
 <jurisdiction/2246> a my:Municipality ;
     rdfs:label "Столична Община" ;
     myd:code "2246" ;
-    myd:wdid wd:Q4442915 ;
+    myd:wikidata_entity wd:Q4442915 ;
     myd:mir <jurisdiction/24> ;
     myd:province wd:Q1585725 ;
 .
@@ -26,7 +26,7 @@
 <jurisdiction/24> a my:MIR ;
     rdfs:label "София 24 (МИР)" ;
     myd:code "24" ;
-    myd:wdid wd:Q4631990 ;
+    myd:wikidata_entity wd:Q4631990 ;
 .
 
 wd:Q1585725 a my:Province ;
@@ -35,7 +35,7 @@ wd:Q1585725 a my:Province ;
 
 <place/68134> a my:Place ;
         myd:ekatte  "68134" ;
-        myd:wdid    wd:Q472 ;
+        myd:wikidata_entity    wd:Q472 ;
         myd:municipality  <jurisdiction/2246>  ;
         rdfs:label  "ГР.СОФИЯ" ;
         geo:hasGeometry	<place/68134/geo> ;
@@ -51,4 +51,4 @@ wd:Q1585725 a my:Province ;
                            .
 <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> puml:right <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> .
 <place/68134> puml:right <place/68134/geo> .
-myd:wdid a puml:InlineProperty .
+myd:wikidata_entity a puml:InlineProperty .
