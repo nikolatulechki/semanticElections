@@ -1,5 +1,6 @@
 #### LOCAL 2019
 
+###
 <election/mi2019> a my:Election ; rdfs:label "Местни Избори 2019"@bg .
 
 <election/mi2019/os/0306> a my:Election ;
@@ -26,7 +27,7 @@
 
 <party/mi2019/51> a my:ElectionParty ;
     rdfs:label "Воля"@bg ;
-    myd:wdid <http://www.wikidata.org/entity/Q25485773> ;
+    myd:party wd:Q25485773 ;
 .
 
 
@@ -43,8 +44,10 @@
    myd:person <person/pvrnr2016/2/pr> ;
 .
 
-<party/ep2019/23> a my:Party ;
+<party/ep2019/23> a my:ElectionParty ;
+	rdfs:label "ВОЛЯ – Българските Родолюбци" ;
     myd:person <person/pvrnr2016/2/pr> ;
+    myd:party <http://www.wikidata.org/entity/Q25485773> ;
 .
 
 # Parliamentary 2017
@@ -93,9 +96,9 @@
      myd:candidacy <election/pi2017/6>  ;
 .
 
-<party/pi2017/6> a my:Party ;
+<party/pi2017/6> a my:ElectionParty ;
     rdfs:label "Воля"@bg ;
-    myd:wdid <http://www.wikidata.org/entity/Q25485773> ;
+    myd:party <http://www.wikidata.org/entity/Q25485773> ;
 .
 
 ########
@@ -118,7 +121,7 @@
     myd:represents <party/pvrnr2016/2> ;
 .
 
-<party/pvrnr2016/2> a my:CitizensCommittee ;
+<party/pvrnr2016/2> a my:ElectionParty ;
     rdfs:label "Инициативен комитет представляван от Пламен Трифонов Христов"@bg ;
 .
 
