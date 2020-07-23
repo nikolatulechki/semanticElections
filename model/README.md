@@ -4,16 +4,16 @@ This folder contains the data model
 
 ## High-level Model
 
-![high-level.png]
+![high-level](high-level.png)
 
 ## Votes and Preference Votes
 
-![localModel_os.png]
+![localModel_os](localModel_os.png)
 
 ## Candidacy Across Elections
 
-![integrated_candidacy.png]
+![integrated_candidacy](integrated_candidacy.png)
 
 ## Places
 
-![places.png]
+![places](places.png)
