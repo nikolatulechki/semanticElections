@@ -7,12 +7,16 @@ PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
-select ?cand (sum(?votes) as ?votes_sum) where { 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?cand ?c_lab ?p_lab (sum(?votes) as ?votes_sum) where { 
 	?s a my:PreferenceVote ; mypq:valid_votes_recieved ?votes ; myps:preference_vote ?cand .
-    ?cand myd:number ?cand_num .
+    ?cand myd:number ?cand_num ; rdfs:label ?c_lab .
+    ?cand myd:represents ?party .
+    ?party myd:number ?party_num ; rdfs:label ?p_lab .
     filter(?cand_num>10)
-#    filter(?votes>20)
-} group by ?cand order by desc(?votes_sum) 
+    filter(?votes>10)
+    filter(?cand_num != ?party_num)
+} group by ?cand ?c_lab ?p_lab order by desc(?votes_sum) 
 ```
 
 
@@ -486,6 +490,7 @@ construct {
     }
 }
 ```
+### Create metasections based on sections with matching ID
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
