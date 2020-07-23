@@ -1,3 +1,20 @@
+<section/mi2019/224607026>  a my:Section ;
+   	rdfs:label	"Секция 224607026 в гр.София" ;
+   	myd:place	place:68134 ;
+   	myd:votingPlace <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> ;
+.
+
+<votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> a my:VotingPlace ;
+    myd:type "school" ;
+    rdfs:label "138 СОУ, ул. \"Алфред Нобел\" № 3" ;
+    myd:place <place/68134> ;
+    geo:hasGeometry <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> ;
+.
+<votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> a geo:Geometry ;
+    geo:asWKT "Point(23.3586574 42.6784358)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> ;
+.
+
+
 <jurisdiction/2246> a my:Municipality ;
     rdfs:label "Столична Община" ;
     myd:code "2246" ;
@@ -21,6 +38,17 @@ wd:Q1585725 a my:Province ;
         myd:wdid    wd:Q472 ;
         myd:municipality  <jurisdiction/2246>  ;
         rdfs:label  "ГР.СОФИЯ" ;
+        geo:hasGeometry	<place/68134/geo> ;
 .
 
+<place/68134/geo>  a	geo:Geometry ;
+    geo:asWKT "Point(23.32415 42.69751)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> ;
+.
+
+#puml
+<section/mi2019/224607026> puml:down <place/68134> ;
+                           puml:down <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> ;
+                           .
+<votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> puml:right <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> .
+<place/68134> puml:right <place/68134/geo> .
 myd:wdid a puml:InlineProperty .
