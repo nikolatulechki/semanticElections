@@ -23,6 +23,22 @@ tarql.execute_query(basePath+"tarql/sections_ep.tarql",
                     '-d ; -H',
                     queryArgs)
 
+## PROTOCOLS
+queryArgs = {
+    "EL": "ep2019" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "LINK_HTML" : "https://results.cik.bg/ep2019/protokoli/",
+    "LINK_PDF" : "https://results.cik.bg/ep2019/pdf/",
+    "LINK_MV" : "https://results.cik.bg/ep2019/machine/",
+}
+infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/protocols.txt'
+tarql.execute_query(basePath+"tarql/protocols_ep2019.tarql",
+                    infile,
+                    basePath+"rdf/ep2019/protocols.ttl",
+                    '-d ; -H',
+                    queryArgs)
+
 ## VOTE
 queryArgs = {
     "EL": "ep2019" ,
@@ -106,5 +122,5 @@ tarql.execute_query(basePath+"tarql/candidate_ep.tarql",
                     '-H -d ;',
                     queryArgs)
 
-# TODO PROTOCOLS
+
 

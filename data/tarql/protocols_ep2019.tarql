@@ -1,28 +1,33 @@
 construct {
     ?VOTE_URI
-        myd:recieved_ballots ?E ;
-        myd:voters_count ?F ;
-        myd:voters_additional_count ?G ;
-        myd:voters_voted_count ?Q ;
-        myd:votes_valid_count ?W ;
-        myd:votes_invalid_count ?T ;
-        myd:votes_blanc_count ?AA ;
-        myd:ballots_empty ?AF ;
-        myd:link_html ?PROT_LINK ;
+        myd:recieved_ballots ?recieved_ballots ;
+        myd:voters_count ?voters_count ;
+        myd:voters_additional_count ?voters_additional_count ;
+        myd:voters_voted_count ?voters_voted_count ;
+        myd:votes_valid_count ?votes_valid_count ;
+        myd:votes_valid_mv ?votes_valid_mv ;
+        myd:votes_invalid_count ?votes_invalid_count ;
+        myd:votes_blanc_count ?votes_blanc_count ;
+        myd:votes_blanc_mv ?votes_blanc_mv ;
+        myd:ballots_empty ?ballots_empty ;
+        myd:link_html ?HTML_LINK ;
         myd:link_pdf ?PDF_LINK ;
+        myd:link_mv ?MV_LINK ;
     .
 } where {
+    bind("a"-0 as ?UNDEF)
     bind(strdt(?c,xsd:integer) as ?C)
     bind(if(?C<10,concat("0",?c),?c) as ?OB_CODE) # leading zero
     bind(uri(concat("voting/{EL}/{RND}",?b)) as ?VOTE_URI)
-    bind(strdt(?e,xsd:integer) as ?E)
-    bind(strdt(?f,xsd:integer) as ?F)
-    bind(strdt(?g,xsd:integer) as ?G)
-    bind(strdt(?q,xsd:integer) as ?Q)
-    bind(strdt(?w,xsd:integer) as ?W)
-    bind(strdt(?t,xsd:integer) as ?T)
-    bind(strdt(?aa,xsd:integer) as ?AA)
-    bind(strdt(?af,xsd:integer) as ?AF)
-    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".html")) as ?PROT_LINK)
+    bind(strdt(?e,xsd:integer) as ?recieved_ballots)
+    bind(strdt(?f,xsd:integer) as ?voters_count)
+    bind(strdt(?g,xsd:integer) as ?voters_additional_count)
+    bind(strdt(?h,xsd:integer) as ?voters_voted_count)
+    bind(strdt(?i,xsd:integer) as ?votes_valid_count)
+    bind(strdt(?z,xsd:integer) as ?votes_blanc_count)
+    bind(strdt(?x,xsd:integer) as ?votes_valid_mv)
+    bind(strdt(?aa,xsd:integer) as ?votes_blanc_mv)
+    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".html")) as ?HTML_LINK)
     bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?b,".pdf")) as ?PDF_LINK)
+    bind(if(?a = "8",uri(concat("{LINK_MV}",?OB_CODE,"/",?b,".html")),?UNDEF) as ?MV_LINK)
 }
