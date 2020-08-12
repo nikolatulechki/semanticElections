@@ -24,6 +24,16 @@ select * where {
     filter(contains(lcase(?lab),"марешк"))
 } 
 ```
+
+### Всички известни партии 
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select * where { 
+	?s a my:Party ; rdfs:label ?label 
+} order by ?label
+```
+
 ### Всички избори в които дадена партия е участвала
 
 ```sparql

@@ -1,3 +1,38 @@
+# Postprocessing queries 
+
+## Query to clean-up broken labels 
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+delete {?s rdfs:label ?label}
+#select *
+where { 
+    ?s rdfs:label ?label .
+    filter(contains(?label,"��"))
+    {select ?s (count(*) as ?c) where {
+        ?s rdfs:label ?label . 
+        } group by ?s having(?c>1) }
+} 
+```
+## Party labels from wikidata 
+
+```sparql
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+insert {
+    ?wd rdfs:label ?wdLabel .
+} where { 
+	?wd a my:Party 
+    service <https://query.wikidata.org/sparql> {
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "bg,en". 
+            ?wd rdfs:label ?wdLabel .
+        }
+    }
+} 
+```
+
 # Preference votes
 
 ## Sum pref of midlist candidates
@@ -200,22 +235,6 @@ where {
     .
     bind(?vote_party/?vote_total as ?vote_ratio)
 } order by desc(?vote_ratio) limit 1000
-```
-
-# Postprocessing queries 
-
-## Query to clean-up broken labels 
-```sparql
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete {?s rdfs:label ?label}
-#select *
-where { 
-    ?s rdfs:label ?label .
-    filter(contains(?label,"��"))
-    {select ?s (count(*) as ?c) where {
-        ?s rdfs:label ?label . 
-        } group by ?s having(?c>1) }
-} 
 ```
 
 ## fix double party types +

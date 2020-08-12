@@ -1,7 +1,6 @@
 construct {
 	?URI a my:Party  ;
-		myd:idwd ?WD ;
-		rdfs:label ?label ;
+		myd:wikidata_entity ?WD ;
     .
     ?ELPARTY myd:party ?URI
 }
