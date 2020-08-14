@@ -125,7 +125,7 @@ group by ?election ?party ?partyName ?candidate ?name order by desc(?sum_valid_v
 ```
 ### Агрегирани резултати по населено място 
 
-```spaqrl
+```sparql
 # Агрегирани резултати по населено място 
 
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -154,7 +154,7 @@ select ?place_label ?el_label ?party_label (sum(?n_votes) as ?sum_votes) where {
 
 ### Вот по секции за даден набор партии в дадено населено място 
 
-```spaqrl
+```sparql
 # Вот по секции за даден набор партии в дадено населено място 
 
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
