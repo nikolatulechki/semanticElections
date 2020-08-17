@@ -24,6 +24,6 @@ python ../common/flatten.py /home/nikola/projects/semanticElections/gdrive/data/
 
 #PRNR2016
 
-python ../common/flatten.py  /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/votes_06.11.2016.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/votes_06.11.2016.flat.txt
+python ../common/flatten_mv.py  /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/votes_06.11.2016.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/votes_06.11.2016.flat.txt
 
-python ../common/flatten.py  /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur2/votes_13.11.2016.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur2/votes_13.11.2016.flat.txt
+python ../common/flatten_mv.py  /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur2/votes_13.11.2016.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur2/votes_13.11.2016.flat.txt

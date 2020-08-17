@@ -63,18 +63,6 @@ tarql.execute_query(basePath+"tarql/sections.tarql",
                     '-d ; -H',
                     queryArgs)
 
-## SECTIONS GEOGRAPHY
-
-queryArgs = {
-    "EL": "mi2019"
-}
-
-infile = '/home/nikola/projects/semanticElections/data/static/sections/mi2019_sections_geography.csv'
-tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
-                    infile,
-                    basePath+"rdf/mi2019/sections_geography.ttl",
-                    '-d ,',
-                    queryArgs)
 
 ## VOTE tur 1
 queryArgs = {
@@ -288,3 +276,33 @@ tarql.execute_query(basePath+"tarql/coalitions.tarql",
                     basePath+"/rdf/mi2019/coalitions_mapping.ttl",
                     '-d ,',
                     queryArgs)
+
+
+## SECTIONS GEOGRAPHY
+
+queryArgs = {
+    "EL": "mi2019"
+}
+
+infile = '/home/nikola/projects/semanticElections/data/static/sections/mi2019_sections_geography.csv'
+tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
+                    infile,
+                    basePath+"rdf/mi2019/sections_geography.ttl",
+                    '-d ,',
+                    queryArgs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

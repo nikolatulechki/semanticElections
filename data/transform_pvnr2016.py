@@ -97,7 +97,7 @@ queryArgs = {
     "MV" : ""
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/votes_06.11.2016.flat.txt'
-tarql.execute_query(basePath+"tarql/votes.tarql",
+tarql.execute_query(basePath+"tarql/votes_pvnr.tarql",
                     infile,
                     basePath+"rdf/pvnr2016/votes_tur1.ttl",
                     '-d ; -H',
@@ -114,7 +114,7 @@ queryArgs = {
     "MV" : ""
 }
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur2/votes_13.11.2016.flat.txt'
-tarql.execute_query(basePath+"tarql/votes.tarql",
+tarql.execute_query(basePath+"tarql/votes_pvnr.tarql",
                     infile,
                     basePath+"rdf/pvnr2016/votes_tur2.ttl",
                     '-d ; -H',

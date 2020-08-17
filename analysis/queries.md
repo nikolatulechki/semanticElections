@@ -33,7 +33,88 @@ insert {
 } 
 ```
 
-# Preference votes
+# Analysis queries
+
+## Intra-election comparison of results per section 
+
+Given a section query outputs the results fore winner of every election compared to mean of winner for all the sections in the location 
+
+```sparql
+## Intra-election comparison of results per single section 
+# Вот по секции за даден набор партии в дадено населено място 
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select ?sec ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_place)/sum(?total_votes_place))*10000)/100 as ?vote_ratio_place){
+    ?sec a  my:Section ;
+         myd:place ?place ;
+    .     
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_voted_count ?total_votes ;
+            myd:vote ?party ;
+    		myd:election ?el ;
+    .
+    ?vote_st myps:vote ?party ;
+             mypq:type ?vote_type ;
+             mypq:valid_votes_recieved ?votes_max ;
+    .
+    ?voting_place myd:section/myd:place ?place ;
+            myp:vote ?vote_place_st ;
+            myd:voters_voted_count ?total_votes_place ;
+            myd:vote ?party ;
+    .
+    ?vote_place_st myps:vote ?party ;
+            mypq:valid_votes_recieved ?n_votes_place.
+    
+    ?party rdfs:label ?party_label ;
+    optional{
+        ?party myd:party+ ?main_party .
+        ?main_party a my:Party ; rdfs:label ?main_label .
+    }
+    bind(floor((?votes_max/?total_votes)*10000)/100 as ?vote_ratio)
+    {select ?sec ?el (max(?n_votes) as ?votes_max){
+            
+            
+            {select ?sec {
+                    
+#            		bind(<https://elections.ontotext.com/resource/metaSection/153900001> as ?msec) # OK section 
+#            		bind(<https://elections.ontotext.com/resource/metaSection/153900012> as ?msec) # Anomalous section 
+                    bind(<https://elections.ontotext.com/resource/metaSection/224607077> as ?msec) # Anomalous section 
+                    ?sec myd:meta_section ?msec .
+                }
+                
+            }
+            ?sec a  my:Section ;
+                 myd:place ?place ;
+                 .
+
+            ?voting myd:section ?sec ;
+                    myp:vote ?vote_st ;
+                    myd:voters_voted_count ?total_votes ;
+                    myd:vote ?party ;
+                    myd:election ?el ;
+                    .
+            ?vote_st myps:vote ?party ;
+                     mypq:type ?vote_type ;
+                     mypq:valid_votes_recieved ?n_votes.
+            
+            ?el rdfs:label ?el_label .
+            ?place rdfs:label ?place_label .
+        } group by ?sec ?el 
+    }
+} group by ?sec ?votes_max ?vote_ratio ?el ?party ?party_label
+```
+
+КогатоКогато братчедите не гласуват с/у когато гласуват (ми2015 / ми2019)
+
+<voting:mi2019/os/2246/224607076> 
+<voting:mi2015/os/2246/224607076>
 
 ## Sum pref of midlist candidates
 
