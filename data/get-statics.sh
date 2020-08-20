@@ -5,3 +5,5 @@ curl "https://docs.google.com/spreadsheets/d/1OK1vOC50uHklgVajIXCYdhrQJAqdagLePE
 curl "https://docs.google.com/spreadsheets/d/1tcz7iWx6Aj8gU0YT_r_TF8bAt4iFxMMAv0ZU4ljwji4/gviz/tq?tqx=out:csv&sheet=Parties" -o "static/sheets/main_parties_wd.csv"
 
 curl "https://docs.google.com/spreadsheets/d/1zzbUwJYiSEtiFSz3er4UhHiXsFV27CC83AnTiENGd7k/gviz/tq?tqx=out:csv&sheet=mun-mapping" -o "static/sheets/mun_wd_mapping.csv"
+
+curl "https://docs.google.com/spreadsheets/d/1UvQ2Oj2vfcdcTfxgVpX2du2sFRcjKiVvSfCiOF4tXxw/gviz/tq?tqx=out:csv&sheet=main" -o "static/sheets/main_election_data.csv"

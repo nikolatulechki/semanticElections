@@ -1,0 +1,11 @@
+construct {
+	?URI myd:date ?DATE  ;
+	     myd:type ?type ;
+	     myd:wikidata_entity ?WD ;
+    .
+}
+where {
+	bind(uri(concat(str(election:),?uri)) as ?URI)
+	bind(strdt(?date,xsd:date) as ?DATE)
+	bind(uri(concat(str(wd:),?wd)) as ?WD)
+}

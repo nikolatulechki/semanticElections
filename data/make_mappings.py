@@ -12,6 +12,16 @@ queryArgs = {
 
 basePath = "/home/nikola/projects/semanticElections/data/"
 
+## MAIN PARTIES
+basePath = "/home/nikola/projects/semanticElections/data/"
+infile = "/home/nikola/projects/semanticElections/data/static/sheets/main_election_data.csv"
+
+tarql.execute_query(basePath+"tarql/main_election_data.tarql",
+                    infile,
+                    basePath+"rdf/mappings/main_election_data.ttl",
+                    '-d ,',
+                    queryArgs)
+
 ## Coalitions Mapping 2015
 infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions_mi2015.csv"
 
