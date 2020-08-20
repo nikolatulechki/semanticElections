@@ -13,7 +13,7 @@ construct {
     .
 } where {
     bind(if(strlen(?c)=3,concat("0",?c),?c) as ?OB_CODE) # leading zero
-    bind(uri(concat("voting/{EL}/{TYP}",?OB_CODE,"/{RND}",?b)) as ?VOTE_URI)
+    bind(uri(concat("voting/{EL}/{TYP}{RND}",?OB_CODE,"/",?b)) as ?VOTE_URI)
     bind(strdt(?e,xsd:integer) as ?E)
     bind(strdt(?f,xsd:integer) as ?F)
     bind(strdt(?i,xsd:integer) as ?I)

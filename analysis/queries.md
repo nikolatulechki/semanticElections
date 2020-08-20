@@ -35,9 +35,76 @@ insert {
 
 # Analysis queries
 
+## Anomalous sections
+Indicator of controlled or bought voting
+Sections where a party has received more than 100 votes and has more than and a result in the section more than 2 times higher than its result in the municipality
+Example:
+
+Parlamentary 2017, Borovo Municipality GERB have 35.06% of the vote, while in section 190300005 в с.Брестовица, 74.67% of the voters vote for them. 
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select ?sec ?mun_label ?party ?party_label ?total_votes_sec ?sec_party_votes ?sec_party_vote_ratio ?mun_party_votes_total ?mun_party_vote_ratio ?prot_link ?pdf_link {
+
+    ?sec a  my:Section ;
+            myd:place/myd:municipality ?mun ;
+		    myd:election ?election;		
+    .     
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_voted_count ?total_votes_sec ;
+            myd:vote ?party ;
+    		myd:election ?election ;
+      		myd:link_html ?prot_link ;
+        	myd:link_pdf ?pdf_link ;
+    .
+    ?vote_st myps:vote ?party ;
+#             mypq:type ?vote_type ;
+             mypq:valid_votes_recieved ?sec_party_votes ;
+    .
+    ?party rdfs:label ?party_label .
+    ?mun rdfs:label ?mun_label .
+    bind(floor((?sec_party_votes/?total_votes_sec)*10000)/100 as ?sec_party_vote_ratio)
+
+    filter(?sec_party_votes > 100)
+    filter(?sec_party_vote_ratio/?mun_party_vote_ratio > 2)    
+    
+{select ?election ?mun ?party (sum(?valid_votes) as ?mun_party_votes_total) (floor((sum(?valid_votes)/sum(?total_votes))*10000)/100 as ?mun_party_vote_ratio)
+where {
+#    bind(<election/mi2019/os> as ?el_filter) # Местни Избори 2019 ОС
+    bind(<election/pi2017> as ?el_filter) # Парламент 2017
+#   bind(jurisdiction:2246 as ?mun) # Столична община
+#	bind(jurisdiction:2105 as ?mun) # община Борино
+#    bind(jurisdiction:1539 as ?mun) # община Кнежа 
+	
+        ?party a my:LocalParty ;
+              #myd:candidacy ?election ;
+              rdfs:label ?partyName .
+        ?voting myp:vote ?vote  ;
+                myd:election ?election;
+    			myd:votes_valid_count ?total_votes ;
+       			myd:section/myd:place/myd:municipality ?mun ;
+        .
+    	?election myd:partOf* ?el_filter .
+        ?vote myps:vote ?party;
+            mypq:valid_votes_recieved ?valid_votes ;
+        .
+     } 
+    group by ?election ?mun ?party order by desc(?vote_ratio_mun) }
+}
+```
+
 ## Intra-election comparison of results per section 
 
-Given a section query outputs the results fore winner of every election compared to mean of winner for all the sections in the location 
+Given a section ID, this query outputs the results fore winner of every election compared to mean of winner for all the sections in the location 
 
 ```sparql
 ## Intra-election comparison of results per single section 
@@ -111,12 +178,12 @@ select ?sec ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_
 } group by ?sec ?votes_max ?vote_ratio ?el ?party ?party_label
 ```
 
-КогатоКогато братчедите не гласуват с/у когато гласуват (ми2015 / ми2019)
-
+Когато братчедите не гласуват с/у когато гласуват (ми2015 / ми2019)
 <voting:mi2019/os/2246/224607076> 
 <voting:mi2015/os/2246/224607076>
 
 ## Sum pref of midlist candidates
+Explore extraordinary high preferences for candidates far down the electoral list. Hypotheisi is that such preferences are used as proof of bought votes. 
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -137,7 +204,9 @@ select ?cand ?c_lab ?p_lab (sum(?votes) as ?votes_sum) where {
 
 
 
-## Place level aggregations for 2 parties 
+## Place level aggregations for 2 parties TODO!
+
+"Swing places" where the voters in one place switch in bulk between two parties 
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
@@ -194,164 +263,167 @@ group by ?place ?label}
 }
 
 ```
-
-## Buisness Questions
-
-### Секции с над 80% избирателна активност.
+## Секции с над 80% избирателна активност.
 
 ```sparql
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 select * where { 
-    ?vot a my:Voting ; 
+#   bind(<election/mi2019/os> as ?election) # Местни Избори 2019 ОС
+#   bind(<election/pi2017> as ?election) # Парламент 2017
+    bind(<election/ep2019> as ?election) # ЕП 2019
+    ?voting a my:Voting ; 
+         myd:election/myd:partOf* ?election  ;
          myd:voters_count ?voters_reg ;
-         myd:voters_additional_count ?voters_add ;
+	     myd:voters_additional_count ?voters_add ;
          myd:votes_valid_count ?valid_votes ; 
-         myd:votes_invalid_count ?invalid_votes ;
-         myd:linkProtocol ?prot ;
-         myd:linkScanned ?pdf ;
-         myd:section/rdfs:label ?section_label ;
-    	 rdfs:label ?vote_label ;
-    	
-	. 
+         myd:link_html ?prot ;
+         myd:link_pdf ?pdf ;
+         myd:section/rdfs:label ?section_label ;	. 
     bind(?voters_reg+?voters_add as ?voters_tot)
     bind(?valid_votes/?voters_tot as ?voting_activity)
-    bind(?invalid_votes/?voters_tot as ?invalid_ratio)
+    filter(?voting_activity > 0.8)
 }  
-order by desc(?invalid_ratio) 
-limit 1000
+#order by desc(?voting_activity) 
+
 ```
 
-### Обърнато Гласуване
+## Обърнато Гласуване TODO!
 
 - 150-те секции, в които има "обърнато" гласуване между 1 и 2 тур за кмет.
 - какво значи по-точно?
 - примерно - на първи тур е бил Х с повече гласове, но на втори Y събира повече от него
 
 ```sparql
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-select distinct ?election_label ?section_label ?cand1_name ?cand2_name ?cand1_label ?cand2_label ?votes_tur1_c1 ?votes_tur1_c2 ?votes_tur2_c1 ?votes_tur2_c2 ?winner ?t1_ratio ?t2_ratio {
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX party: <https://elections.ontotext.com/resource/party/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+select distinct ?election_label ?section_label ?place_label ?cand1_name ?cand2_name ?party1_label ?party2_label ?votes_tur1_c1 ?votes_tur1_c2 ?votes_tur2_c1 ?votes_tur2_c2 ?winner ?t1_ratio ?t2_ratio 
+
+{
+    bind(election:mi2019\/ko as ?main_election)
+    ?election myd:partOf ?main_election .
+    
+    ?round1 myd:partOf ?election ; myd:round 1 .
+    ?round2 myd:partOf ?election ; myd:round 2 .
+    
     ?voting2 a my:Voting ;
-             myd:round 2 ;
-             myd:section ?section ;
-             myd:partOf/myd:partOf ?election ;
-                       myd:vote ?cand1, ?cand2 .
-    filter(str(?cand1)>str(?cand2))
+               myd:election ?round2 ;
+               myd:section ?section ;
+               myd:vote ?party1, ?party2 ;
+    .
+    filter(str(?party1)>str(?party2))
     
     ?election rdfs:label ?election_label .
-    ?section rdfs:label ?section_label .
+    ?section rdfs:label ?section_label ; myd:place ?place .
+    
+    ?place rdfs:label ?place_label .
+    
     ?voting2 myp:vote ?v2c1 , ?v2c2 .
     ?v2c1 mypq:valid_votes_recieved ?votes_tur2_c1 ;
-          myps:vote ?cand1 .
+          myps:vote ?party1 .
     ?v2c2 mypq:valid_votes_recieved ?votes_tur2_c2 ;
-          myps:vote ?cand2 .
-    
+          myps:vote ?party2 .
+
     ?voting1 a my:Voting ;
-             myd:round 1 ;
+             myd:election ?round1 ;
              myd:section ?section ;
-             myd:partOf/myd:partOf  ?election ;
-                       myd:vote ?cand1, ?cand2 ;
+             myd:vote ?party1, ?party2 ;
     .
+
     ?voting1 myp:vote ?v1c1 , ?v1c2 .
     ?v1c1 mypq:valid_votes_recieved ?votes_tur1_c1 ;
-          myps:vote ?cand1 ;
+          myps:vote ?party1 ;
     .
     ?v1c2 mypq:valid_votes_recieved ?votes_tur1_c2 ;
-          myps:vote ?cand2 ;
+          myps:vote ?party2 ;
      .
-    ## candidate party labels 
-    ?cand1 rdfs:label ?cand1_label .
-    ?cand2 rdfs:label ?cand2_label .
+    ## party labels 
+    ?party1 rdfs:label ?party1_label .
+    ?party2 rdfs:label ?party2_label .
     
-    ## candidate name 
-    
-    
-    
-    bind(if(?votes_tur2_c1>?votes_tur2_c2,?cand1_name,?cand2_name) as ?winner)
+   bind(if(?votes_tur2_c1>?votes_tur2_c2,?party1_label,?party2_label) as ?winner)
     
     bind(?votes_tur1_c1/?votes_tur1_c2 as ?t1_ratio)
     bind(?votes_tur2_c1/?votes_tur2_c2 as ?t2_ratio)
     filter ((?t1_ratio < 1 && ?t2_ratio > 1) || (?t1_ratio > 1 && ?t2_ratio < 1) )
     
-    ?cand1 ^mypq:represents ?csy1 .
-    ?csy1 myps:candidacy/myd:partOf ?election ; ^myp:candidacy/rdfs:label ?cand1_name .      
-    
-    ?cand2 ^mypq:represents ?csy2 .
-    ?csy2 myps:candidacy/myd:partOf ?election ; ^myp:candidacy/rdfs:label ?cand2_name .       
-    
+    ?cand1 myd:represents ?party1 ;
+           myd:candidacy ?round2 ; 
+           rdfs:label ?cand1_name .     
+    ?cand2 myd:represents ?party2 ; 
+           myd:candidacy ?round2 ; 
+           rdfs:label ?cand2_name . 
 }
 ```
 
-### Top 1000K votes for a given party
+## Top N votes for a given party in a given election
 
-```sparql
-BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>        
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX myp: <https://github.com/nikolatulechki/semanticElections/resource/prop/indirect/>
-PREFIX mys: <https://github.com/nikolatulechki/semanticElections/resource/entity/statement/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX myps: <https://github.com/nikolatulechki/semanticElections/resource/prop/statement/>
-PREFIX mypq: <https://github.com/nikolatulechki/semanticElections/resource/prop/qualifier/>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-select ?section_label ?voting_label ?vote_party ?vote_total ?vote_ratio ?protocol
-where { 
-    bind(<party/56> as ?party)
-    ?v a my:Voting ; 
-        rdfs:label ?voting_label ;
-        myd:votes_valid_count ?vote_total ;
-        myp:vote ?vote ;
-        myd:section/rdfs:label ?section_label ;
-        myd:linkProtocol ?protocol ;         
-    .
-    ?vote mypq:valid_votes_recieved ?vote_party ; 
-          myps:vote/myd:hasPart? ?party ;
-          myps:vote/rdfs:label ?party_label ;                       
-    .
-    bind(?vote_party/?vote_total as ?vote_ratio)
-} order by desc(?vote_ratio) limit 1000
-```
-
-## fix double party types +
-
-```sparql
-PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
-PREFIX myd: <https://github.com/nikolatulechki/semanticElections/resource/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete {
-    ?party myd:type "independant" } 
-where { 
-    ?party a my:Party ; myd:type "local_coalition" .
-}
-```
-
-### GEN MI2015 localparty mappings
+TODO: fix machine voting complications in EP2019
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
-select ?loc (group_concat(distinct ?num;separator=";") as ?nums) where { 
-	?loc a my:LocalParty ; rdfs:label ?locLabel  ; myd:candidacy/myd:partOf+ election:mi2015 .
-    ?main a my:ElectionParty ; rdfs:label ?mainLabel ; myd:candidacy election:mi2015 ; myd:number ?num .
-    filter(contains(lcase(?locLabel),lcase(?mainLabel)))
-    filter(!sameterm(?main,<party/mi2015/75>)) #шибаните зелени
-} group by ?loc
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX party: <https://elections.ontotext.com/resource/party/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select ?section_label ?v ?voting_label ?vote_party ?vote_total ?vote_ratio ?protocol
+where { 
+    
+#    bind(wd:Q164242 as ?party) #DPS
+    bind(wd:Q133968 as ?party) #GERB
+    
+    ?election_party myd:party+ ?party .
+    
+#     bind(election:ep2019 as ?election )
+
+    bind(election:pi2017 as ?main_election) #use ?main_election for local and parliamentary 
+    ?election myd:partOf ?main_election . #uncomment for local and parliamentary 
+      
+
+    
+    ?v a my:Voting ; 
+        rdfs:label ?voting_label ;
+        myd:election ?election ;
+        myd:votes_valid_count ?vote_total ;
+        myp:vote ?vote ;
+        myd:vote ?election_party ;
+        myd:section/rdfs:label ?section_label ;
+        myd:link_html ?protocol ;         
+    .
+    ?vote mypq:valid_votes_recieved ?vote_party ; 
+          myps:vote ?election_party ;                      
+    .
+    filter(?vote_party > 100)
+    bind(floor((?vote_party/?vote_total)*10000)/100 as ?vote_ratio)
+ 
+} order by desc(?vote_ratio) limit 500
 ```
 
-### Candidate Matching query 
+## Candidate Matching analysis
 
 ### Names not following the main pattern 
-```
+
+```sparql
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>        
 PREFIX my: <https://github.com/nikolatulechki/semanticElections/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -361,10 +433,9 @@ where {
     filter(!regex(?l1, "^[^ ]+ [^ ]+ [^ ]+$","i"))
 } 
 ```
-
 ## Geography 
 
-nearby voting places
+### nearby voting places
 
 ```sparql
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -381,7 +452,7 @@ select * where {
 } limit 100 
 ```
 
-federation for wikidata places and their GEO
+### federation for wikidata places and their GEO
 
 ```sparql
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -406,7 +477,7 @@ where {
 }
 ```
 
-Comparing distance of voting places with center pof place in order to repair google geomatching
+### Comparing distance of voting places with center pof place in order to repair google geomatching
 
 ```sparql
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>
@@ -434,12 +505,16 @@ select * where {
 } #limit 100 
 ```
 
-Postprocessing Q to fix voting places positioned far from their parent places. Fallback solution is to place them at the same location as their parent place. Will add a flag so that eventually we can look and fix them directly in Wikidata.
+Postprocessing Q to fix voting places positioned far from their parent places. 
+Fallback solution is to place them at the same location as their parent place. 
+Will add a flag so that eventually we can look and fix them in the mapping sheets
 
 # Aggregation Queries
 
-Local elections - aggregation on parties
+TODO in time use these to produce aggregated results for different elections
 
+
+## Local elections - aggregation on parties
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -482,7 +557,9 @@ group by ?election ?party }
 Wikidata Municipalities and Oblast queries. 
 Not working need to debug > produces static mapping which is ok for now. 
 
+## Geography 
 
+### Municipalities from Wikidata
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -522,7 +599,7 @@ where {
     bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)
 } 
 ```
-
+### MIRs from wikidata
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -552,9 +629,9 @@ where {
 }
 ```
 
-Places from Wikdata
+### Places from Wikdata
 
-```sparql 
+```sparql
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX p: <http://www.wikidata.org/prop/>
@@ -590,7 +667,7 @@ construct {
     }
 }
 ```
-### Create metasections based on sections with matching ID
+## Create metasections based on sections with matching ID
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
@@ -605,4 +682,22 @@ where {
     ?sec a my:Section ; myd:number ?num .
     bind(uri(concat("metaSection/",?num)) as ?metasec)
 }
+```
+
+## Generate MI2015 local party mappings
+for export to google sheet
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select ?loc (group_concat(distinct ?num;separator=";") as ?nums) where { 
+	?loc a my:LocalParty ; rdfs:label ?locLabel  ; myd:candidacy/myd:partOf+ election:mi2015 .
+    ?main a my:ElectionParty ; rdfs:label ?mainLabel ; myd:candidacy election:mi2015 ; myd:number ?num .
+    filter(contains(lcase(?locLabel),lcase(?mainLabel)))
+    filter(!sameterm(?main,<party/mi2015/75>)) #шибаните зелени
+} group by ?loc
 ```

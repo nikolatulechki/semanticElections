@@ -268,16 +268,6 @@ tarql.execute_query(basePath+"tarql/candidate_os.tarql",
                     '-H -d ;',
                     queryArgs)
 
-## Coalitions Mapping
-infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions.csv"
-
-tarql.execute_query(basePath+"tarql/coalitions.tarql",
-                    infile,
-                    basePath+"/rdf/mi2019/coalitions_mapping.ttl",
-                    '-d ,',
-                    queryArgs)
-
-
 ## SECTIONS GEOGRAPHY
 
 queryArgs = {
