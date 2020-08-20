@@ -8,7 +8,6 @@ remove jurisdiction from uris where section is present
 1. grok WTF this serves broken csv
 `curl "https://docs.google.com/spreadsheets/d/1UvQ2Oj2vfcdcTfxgVpX2du2sFRcjKiVvSfCiOF4tXxw/gviz/tq?tqx=out:csv&sheet=main" -o "static/sheets/main_election_data.csv"`
 
-1. add dates wherever needed
 1. documentaition
 1. Add dcat verison in static
 1. see if you need to map  more local coalitions for mi2019
