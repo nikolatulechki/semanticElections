@@ -31,7 +31,7 @@ construct {
 	bind(concat("Секция ",str(?a)," в ",?e,""@bg) as ?SEC_LABEL)
 
 	bind(if(?f=0,TRUE,FALSE) as ?IS_MOBILE)
-	bind(uri(concat("voting/{EL}/{RND}",?a)) as ?VOTE_URI)
+	bind(uri(concat("voting/{EL}/{RND}/",?a)) as ?VOTE_URI)
 	bind(concat("Гласуване в секция ",str(?a)," на {EL_LABEL} - {RND_LABEL}"@bg) as ?VOTE_LABEL)
 
 	bind(uri(concat("election/{EL}/{RND}")) as ?ROUND_URI)

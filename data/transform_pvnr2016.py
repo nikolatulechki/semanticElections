@@ -14,7 +14,7 @@ queryArgs = {
     "EL": "pvnr2016" ,
     "TYP" : "pvnr",
     "EL_LABEL" : "Избори за Президент и Вицепрезидент 2016",
-    "RND": "tur1/",
+    "RND": "tur1",
     "RND_LABEL": "Тур 1",
     "RND_INT": "1"
 }
@@ -31,7 +31,7 @@ queryArgs = {
     "EL": "pvnr2016" ,
     "TYP" : "pvnr",
     "EL_LABEL" : "Избори за Президент и Вицепрезидент 2016",
-    "RND": "tur2/",
+    "RND": "tur2",
     "RND_LABEL": "Тур 2",
     "RND_INT": "2"
 }
