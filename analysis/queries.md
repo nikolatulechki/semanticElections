@@ -12,6 +12,7 @@ insert {
     values ?t {
         my:Election 
         my:VotingRound
+        my:ElectionRound 
     }
     ?main_el a ?t ; myd:date ?date .
 	?el myd:partOf* ?main_el .
@@ -136,7 +137,7 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX wd: <http://www.wikidata.org/entity/>
-select ?sec ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_place)/sum(?total_votes_place))*10000)/100 as ?vote_ratio_place){
+select ?sec ?label ?date ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_place)/sum(?total_votes_place))*10000)/100 as ?vote_ratio_place){
     ?sec a  my:Section ;
          myd:place ?place ;
     .     
@@ -145,6 +146,8 @@ select ?sec ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_
             myd:voters_voted_count ?total_votes ;
             myd:vote ?party ;
     		myd:election ?el ;
+            myd:date ?date ;
+            rdfs:label ?label ;
     .
     ?vote_st myps:vote ?party ;
              mypq:type ?vote_type ;
@@ -170,8 +173,8 @@ select ?sec ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_
             {select ?sec {
                     
 #            		bind(<https://elections.ontotext.com/resource/metaSection/153900001> as ?msec) # OK section 
-#            		bind(<https://elections.ontotext.com/resource/metaSection/153900012> as ?msec) # Anomalous section 
-                    bind(<https://elections.ontotext.com/resource/metaSection/224607077> as ?msec) # Anomalous section 
+            		bind(<https://elections.ontotext.com/resource/metaSection/153900012> as ?msec) # Anomalous section in Knezha
+#                    bind(<https://elections.ontotext.com/resource/metaSection/224607077> as ?msec) # Anomalous section in Sofia - Hr Botev
                     ?sec myd:meta_section ?msec .
                 }
                 
@@ -194,7 +197,7 @@ select ?sec ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_
             ?place rdfs:label ?place_label .
         } group by ?sec ?el 
     }
-} group by ?sec ?votes_max ?vote_ratio ?el ?party ?party_label
+} group by ?sec ?label ?date  ?votes_max ?vote_ratio ?el ?party ?party_label order by desc(?date)
 ```
 
 Когато братчедите не гласуват с/у когато гласуват (ми2015 / ми2019)

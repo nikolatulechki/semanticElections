@@ -25,8 +25,11 @@ construct {
 
 	?ROUND_URI a my:VotingRound ;
 		rdfs:label ?ROUND_LABEL ;
-		myd:partOf ?EL_URI ;
+		myd:partOf ?EL_URI , ?TUR_URI ;
 		myd:round {RND_INT} ;
+	.
+	?TUR_URI a my:ElectionRound ;
+	    myd:round {RND_INT} ;
 	.
 
 
@@ -45,6 +48,9 @@ construct {
 
 	bind(uri(concat("election/{EL}/{TYP}/",?OB_CODE)) as ?EL_URI)
 	bind(concat("{EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?EL_LABEL)
+
+	bind(uri(concat("election/{EL}/{TYP}/{RND}")) as ?TUR_URI)
+
 
     bind(<election/{EL}/{TYP}> as ?EL_TYP_URI)
     bind(concat("{EL_LABEL} за {TYP_LABEL}"@bg) as ?EL_TYP_LABEL)
