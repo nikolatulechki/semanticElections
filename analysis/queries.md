@@ -14,7 +14,7 @@ insert {
         my:VotingRound
     }
     ?main_el a ?t ; myd:date ?date .
-	?el myd:partOf+ ?main_el .
+	?el myd:partOf* ?main_el .
     ?voting myd:election ?el .
 } 
 ```
@@ -309,7 +309,7 @@ select * where {
 
 ```
 
-## Обърнато Гласуване TODO!
+## Обърнато Гласуване 
 
 - 150-те секции, в които има "обърнато" гласуване между 1 и 2 тур за кмет.
 - какво значи по-точно?
