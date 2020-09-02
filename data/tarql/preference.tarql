@@ -16,7 +16,7 @@ where {
 	bind(STRDT(?c, xsd:integer) as ?CAND_NUM)
 	bind(concat("candidate/{EL}/{TYP}",?OB_CODE,"/",?b,"/",?c) as ?CAND_STR)
 	bind(uri(?CAND_STR) as ?CAND_URI)
-	bind(uri(concat("vote/{EL}/",?a,"/",?b,"/",?c,"{MV}")) as ?S_VOTE_URI)
+	bind(uri(concat("vote/{EL}/",?a,"/",?OB_CODE,"/",?b,"/",?c,"{MV}")) as ?S_VOTE_URI)
 	bind(STRDT(?d, xsd:integer) as ?VV)
 	bind(if(?CAND_NUM != 0,?EL_URI,?UNDEF) as ?EL_URI_OK)
 	bind(if(?CAND_NUM != 0,?S_VOTE_URI,?UNDEF) as ?S_VOTE_URI_OK)

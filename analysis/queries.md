@@ -128,7 +128,6 @@ Given a section ID, this query outputs the results fore winner of every election
 
 ```sparql
 ## Intra-election comparison of results per single section 
-# Вот по секции за даден набор партии в дадено населено място 
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -439,6 +438,171 @@ where {
     bind(floor((?vote_party/?vote_total)*10000)/100 as ?vote_ratio)
  
 } order by desc(?vote_ratio) limit 500
+```
+## Vote winners vs turnover
+Inspired by "Statistical fingerprints of electoral fraud" [pdf](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2016.00936.x)
+
+### Local 
+
+```sparql 
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX party: <https://elections.ontotext.com/resource/party/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select ?v ?voting_label ?vote_party ?voters_voted ?section_label ?election_party_label ?vote_ratio_party ?voter_turnover ?protocol 
+where { 
+              
+    ?election_party rdfs:label ?election_party_label
+    
+    {select ?v ?election_party {
+        ?v myp:vote ?vote .
+        ?vote mypq:valid_votes_recieved ?max_votes ; 
+          myps:vote ?election_party ;  
+         .
+        {select ?v (max(?votes) as ?max_votes) {
+#           bind(election:ep2019 as ?election )
+            bind(election:mi2019\/ko as ?main_election) #use ?main_election for local and parliamentary 
+            ?election myd:partOf/myd:partOf ?main_election . #uncomment for local and parliamentary 
+            ?v a my:Voting ; myd:election ?election ; myp:vote/mypq:valid_votes_recieved ?votes            
+        } group by ?v }  
+    }}
+    
+    ?v a my:Voting ; 
+        rdfs:label ?voting_label ;
+        myd:election ?election ;
+        myd:voters_count ?voters_listed ;
+        myd:voters_voted_count ?voters_voted ;
+        myd:voters_additional_count ?voters_additional ;
+        myp:vote ?vote ;
+        myd:vote ?election_party ;
+        myd:section/rdfs:label ?section_label ;
+        myd:link_html ?protocol ;         
+    .
+    ?vote mypq:valid_votes_recieved ?vote_party ; 
+          myps:vote ?election_party ;                      
+    .
+#    filter(?vote_party > 100)
+    bind(floor((?vote_party/?voters_voted)*10000)/100 as ?vote_ratio_party)
+    bind(floor((?voters_voted/(?voters_listed+?voters_additional))*10000)/100 as ?voter_turnover)
+    
+} 
+``` 
+
+### EP
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX party: <https://elections.ontotext.com/resource/party/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select ?v ?voting_label ?vote_party ?voters_voted ?section_label ?election_party_label ?vote_ratio_party ?voter_turnover ?protocol 
+where { 
+              
+    ?election_party rdfs:label ?election_party_label
+    
+    {select ?v ?election_party {
+        ?v myp:vote ?vote .
+        ?vote mypq:valid_votes_recieved ?max_votes ;
+          myps:vote ?election_party ;  
+         .
+        {select ?v (max(?votes) as ?max_votes) {
+           bind(election:ep2019 as ?election )
+#            bind(election:mi2019\/ko as ?main_election) #use ?main_election for local and parliamentary 
+#            ?election myd:partOf/myd:partOf ?main_election . #uncomment for local and parliamentary 
+            ?v a my:Voting ; myd:election ?election ; myp:vote/mypq:valid_votes_recieved ?votes            
+        } group by ?v }  
+    }}
+    
+    ?v a my:Voting ; 
+        rdfs:label ?voting_label ;
+        myd:election ?election ;
+        myd:voters_count ?voters_listed ;
+        myd:voters_voted_count ?voters_voted ;
+        myd:voters_additional_count ?voters_additional ;
+        myp:vote ?vote ;
+        myd:vote ?election_party ;
+        myd:section/rdfs:label ?section_label ;
+        myd:link_html ?protocol ;         
+    .
+    ?vote mypq:valid_votes_recieved ?vote_party ; 
+          mypq:type "paper" ;
+          myps:vote ?election_party ;                      
+    .
+#    filter(?vote_party > 100)
+    bind(floor((?vote_party/?voters_voted)*10000)/100 as ?vote_ratio_party)
+    bind(floor((?voters_voted/(?voters_listed+?voters_additional))*10000)/100 as ?voter_turnover)
+    
+} 
+```
+
+### Presidential 
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX party: <https://elections.ontotext.com/resource/party/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select ?v ?voting_label ?vote_party ?voters_voted ?section_label ?election_party_label ?vote_ratio_party ?voter_turnover ?protocol 
+where { 
+              
+    ?election_party rdfs:label ?election_party_label
+    
+    {select ?v ?election_party {
+        ?v myp:vote ?vote .
+        ?vote mypq:valid_votes_recieved ?max_votes ;
+          myps:vote ?election_party ;  
+         .
+        {select ?v (max(?votes) as ?max_votes) {
+#           bind(election:ep2019 as ?election )
+            bind(election:pi2017 as ?main_election) #use ?main_election for local and parliamentary 
+            ?election myd:partOf ?main_election . #uncomment for local and parliamentary 
+            ?v a my:Voting ; myd:election ?election ; myp:vote/mypq:valid_votes_recieved ?votes            
+        } group by ?v }  
+    }}
+    
+    ?v a my:Voting ; 
+        rdfs:label ?voting_label ;
+        myd:election ?election ;
+        myd:voters_count ?voters_listed ;
+        myd:voters_voted_count ?voters_voted ;
+        myd:voters_additional_count ?voters_additional ;
+        myp:vote ?vote ;
+        myd:vote ?election_party ;
+        myd:section/rdfs:label ?section_label ;
+        myd:link_html ?protocol ;         
+    .
+    ?vote mypq:valid_votes_recieved ?vote_party ; 
+          mypq:type "paper" ;
+          myps:vote ?election_party ;                      
+    .
+#    filter(?vote_party > 100)
+    bind(floor((?vote_party/?voters_voted)*10000)/100 as ?vote_ratio_party)
+    bind(floor((?voters_voted/(?voters_listed+?voters_additional))*10000)/100 as ?voter_turnover)    
+} 
 ```
 
 ## Candidate Matching analysis
