@@ -621,6 +621,47 @@ where {
 ```
 ## Geography 
 
+## MAP Sections on YASGUI
+
+### Sections with more than 80% turnover
+
+<https://api.triplydb.com/s/5xCFWepKC>
+
+Query on for yasgui
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select * where { 
+   bind(<election/mi2019/ko/tur2> as ?election) # Местни Избори 2019 ОС
+#   bind(<election/pi2017> as ?election) # Парламент 2017
+#    bind(<election/ep2019> as ?election) # ЕП 2019
+    ?voting a my:Voting ; 
+         myd:election/myd:partOf ?election  ;
+         myd:voters_count ?voters_reg ;
+	     myd:voters_additional_count ?voters_add ;
+         myd:votes_valid_count ?valid_votes ; 
+         myd:link_html ?prot ;
+         myd:link_pdf ?pdf ;
+         myd:section ?section 
+     .  
+    ?section rdfs:label ?section_label ;	
+             myd:votingPlace ?place   				
+             . 
+    ?place geo:hasGeometry/geo:asWKT ?x ; rdfs:label ?xTooltip 
+    bind(?voters_reg+?voters_add as ?voters_tot)
+    bind(?valid_votes/?voters_tot as ?voting_activity)
+#    bind(?voting_activity as ?xTooltip)
+#  	bind(?prot as ?xLabel)
+  	bind(floor(?voting_activity*10000)/100 as ?voter_activity_ratio)
+  bind(strdt(concat("<p>",?section_label," ",str(?voter_activity_ratio),"% <a href=\"",str(?prot),"\">prot</a></p>"),rdf:HTML) as ?xLabel)  
+  filter(?voting_activity > 0.8) 
+} 
+```  
+
 ### nearby voting places
 
 ```sparql
