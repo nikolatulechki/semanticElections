@@ -1338,3 +1338,65 @@ select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_la
     ?place rdfs:label ?place_label .
 } group by ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label ?total_votes ?prot
 ```
+
+All votes for a selection of main parties with a half-assed filter on election URIS
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select ?voting ?round ?date (sample(?el_label) as ?EL_LABEL) ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label (sum(?n_votes) as ?VOTES) ?total_votes ?prot where { 
+    values ?main_party {
+       wd:Q164242  #DPS
+       wd:Q133968 #GERB,
+       wd:Q792527 #VMRO,
+       wd:Q283129 #Zelenite,
+       wd:Q841253 #SDS,
+       wd:Q62808154 #db,
+       wd:Q97387007 #NFSB-ep,
+       wd:Q971439 #Koalicia za Bulgaria,
+       wd:Q97395772 #Nova republika,
+       wd:Q31191941 #DaBG,
+       wd:Q97382346 #OP,
+       wd:Q97396346 #RB2017,
+       wd:Q15991304 #RB,
+       wd:Q178049 #Ataka,
+       wd:Q752259 #BSP       
+    }
+    
+    ?party rdfs:label ?party_label ; myd:party+ ?main_party .	
+	?main_party rdfs:label ?main_party_label .
+    ?sec a  my:Section ;
+         myd:place ?place ;
+         rdfs:label ?section_label ;
+         myd:election ?el ;
+         myd:number ?sec_num ;
+    .
+	filter(contains(str(?el),"mi2019")) #FILTER ELECTIONS HERE
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_voted_count ?total_votes ;
+        	myd:vote ?party ;
+         	myd:link_html ?prot ;
+            myd:date ?date ;
+    .		
+    optional {?voting myd:round ?round}
+    ?vote_st myps:vote ?party ;
+             mypq:valid_votes_recieved ?n_votes.
+    
+    optional {
+        ?sec myd:votingPlace ?voting_place .
+        ?voting_place rdfs:label ?section_address .
+    }  
+    
+    ?el rdfs:label ?el_label .
+    ?place rdfs:label ?place_label .
+} group by ?voting ?round ?date ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label ?total_votes ?prot
+```
