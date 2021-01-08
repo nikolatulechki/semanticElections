@@ -151,6 +151,38 @@ select ?place_label ?el_label ?party_label (sum(?n_votes) as ?sum_votes) where {
     ?place rdfs:label ?place_label .
 } group by ?place_label ?el ?el_label ?party_label order by ?el desc(?sum_votes)
 ```
+всички резултати на дадена партия, агрегирани по населено място, за определен избор (в случая - за ДПС за изборите за общински съветници 2019
+
+```spaqrl
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+select ?place ?place_label ?el_label ?el ?party ?party_label (sum(?n_votes) as ?sum_votes) where {
+    
+ 	?el myd:partOf	<election/mi2019/os> . #use <election/mi2019/os> for 2015 municipal council elections 
+    ?party myd:party/myd:party wd:Q164242 . # gerb is wd:Q133968
+        
+    ?sec a  my:Section ;
+         myd:place ?place ;
+         rdfs:label ?section_label ;
+         myd:election ?el .
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st .
+    ?vote_st myps:vote ?party ;
+             mypq:valid_votes_recieved ?n_votes.
+    ?party rdfs:label ?party_label .
+    ?el rdfs:label ?el_label .
+    ?place rdfs:label ?place_label .
+} group by ?place ?place_label ?el ?el_label ?party ?party_label order by ?el
+```
 
 ### Вот по секции за даден набор партии в дадено населено място 
 
