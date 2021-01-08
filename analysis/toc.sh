@@ -1,1 +1,1 @@
-md_toc -p github queries.md
+md_toc -p -s 1 github queries.md

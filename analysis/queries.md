@@ -1,8 +1,7 @@
-# TOC
+# List of SPARQL Queries 
 
 <!--TOC-->
 
-- [TOC](#toc)
 - [Postprocessing queries ](#postprocessing-queries-)
   - [Add dates where needed](#add-dates-where-needed)
   - [Query to clean-up broken labels ](#query-to-clean-up-broken-labels-)
