@@ -121,7 +121,108 @@ where {
     group by ?election ?mun ?party order by desc(?vote_ratio_mun) }
 }
 ```
+## Elections Abroad
 
+Kludge for pi2017 - reason fucked up parites
+```spaqrl
+## Winners abroad  
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX party: <https://elections.ontotext.com/resource/party/>
+select ?sec ?sec_label ?date ?total_votes ?votes_winner ?vote_ratio ?el ?el_label ?party ?party_label {
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_voted_count ?total_votes ;
+            myd:vote ?party ;
+    		myd:election ?el ;
+            myd:date ?date ;
+            rdfs:label ?label ;
+    .
+    ?vote_st myps:vote ?party ;
+             mypq:type ?vote_type ;
+             mypq:valid_votes_recieved ?votes_winner ;
+    .
+    bind(uri(concat(str(party:),"pi2017",strafter(str(?party),"https://elections.ontotext.com/resource/party/pi2017/32"))) as ?party_ok)
+    ?party_ok rdfs:label ?party_label .
+	?sec rdfs:label ?sec_label .
+    ?el rdfs:label ?el_label .
+    bind(floor((?votes_winner/?total_votes)*10000)/100 as ?vote_ratio)
+    {select ?sec ?el (max(?n_votes) as ?votes_winner){
+            #subquery 2 - selects tne maximum votes in each voting .
+            {select ?sec {
+                #subquery 1 - sections abroad start with 32   
+                ?sec a my:Section ; myd:number ?num
+                filter(strstarts(str(?num),"32"))
+                }
+            }
+            ?voting myd:section ?sec ;
+                    myp:vote ?vote_st ;
+                    myd:voters_voted_count ?total_votes ;
+                    myd:vote ?party ;
+                    myd:election election:pi2017\/32 ;
+                    .
+            ?vote_st myps:vote ?party ;
+                     mypq:type ?vote_type ;
+                     mypq:valid_votes_recieved ?n_votes.
+            
+        } group by ?sec ?el 
+    }
+    
+} group by ?sec ?sec_label ?date ?total_votes ?votes_winner ?vote_ratio ?el ?el_label ?party ?party_label order by desc(?date) str(?sec)
+```
+
+```sparql
+## Winners abroad  
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select ?sec ?sec_label ?date ?total_votes ?votes_winner ?vote_ratio ?el ?el_label ?party ?party_label {
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_voted_count ?total_votes ;
+            myd:vote ?party ;
+    		myd:election ?el ;
+            myd:date ?date ;
+            rdfs:label ?label ;
+    .
+    ?vote_st myps:vote ?party ;
+             mypq:type ?vote_type ;
+             mypq:valid_votes_recieved ?votes_winner ;
+    .
+    ?party rdfs:label ?party_label .
+	?sec rdfs:label ?sec_label .
+    ?el rdfs:label ?el_label .
+    bind(floor((?votes_winner/?total_votes)*10000)/100 as ?vote_ratio)
+    {select ?sec ?el (max(?n_votes) as ?votes_winner){
+            #subquery 2 - selects tne maximum votes in each voting .
+            {select ?sec {
+                #subquery 1 - sections abroad start with 32   
+                ?sec a my:Section ; myd:number ?num
+                filter(strstarts(str(?num),"32"))
+                }
+            }
+            ?voting myd:section ?sec ;
+                    myp:vote ?vote_st ;
+                    myd:voters_voted_count ?total_votes ;
+                    myd:vote ?party ;
+                    myd:election ?el ;
+                    .
+            ?vote_st myps:vote ?party ;
+                     mypq:type ?vote_type ;
+                     mypq:valid_votes_recieved ?n_votes.
+            
+        } group by ?sec ?el 
+    }
+} group by ?sec ?sec_label ?date ?total_votes ?votes_winner ?vote_ratio ?el ?el_label ?party ?party_label order by desc(?date) str(?sec)
+```
 ## Intra-election comparison of results per section 
 
 Given a section ID, this query outputs the results fore winner of every election compared to mean of winner for all the sections in the location 
@@ -197,9 +298,161 @@ select ?sec ?label ?date ?votes_max ?vote_ratio ?el ?party ?party_label (floor((
         } group by ?sec ?el 
     }
 } group by ?sec ?label ?date  ?votes_max ?vote_ratio ?el ?party ?party_label order by desc(?date)
+
+```
+## Gurkovo
+
+```sparql
+## Intra-election comparison of results per single section 
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select ?sec ?sec_num ?label ?date ?voters_list ?total_votes  ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_place)/sum(?total_votes_place))*10000)/100 as ?vote_ratio_place) ?prot_link ?pdf_link {
+    ?sec a  my:Section ;
+         myd:place/myd:municipality ?place ;
+         myd:number ?sec_num ;
+    .     
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_count ?voters_list ;
+            myd:voters_voted_count ?total_votes ;
+            myd:link_html ?prot_link ;
+            myd:link_pdf ?pdf_link ;
+            myd:vote ?party ;
+    		myd:election ?el ;
+            myd:date ?date ;
+            rdfs:label ?label ;
+    .
+    ?vote_st myps:vote ?party ;
+             mypq:type ?vote_type ;
+             mypq:valid_votes_recieved ?votes_max ;
+    .
+    ?voting_place myd:section/myd:place/myd:municipality ?place ;
+            myp:vote ?vote_place_st ;
+            myd:voters_voted_count ?total_votes_place ;
+            myd:vote ?party ;
+    .
+    ?vote_place_st myps:vote ?party ;
+            mypq:valid_votes_recieved ?n_votes_place.
+    
+    ?party rdfs:label ?party_label ;
+    optional{
+        ?party myd:party+ ?main_party .
+        ?main_party a my:Party ; rdfs:label ?main_label .
+    }
+    bind(floor((?votes_max/?total_votes)*10000)/100 as ?vote_ratio)
+    {select ?sec ?el (max(?n_votes) as ?votes_max){
+            
+            
+            {select distinct ?sec {
+                    ?sec myd:meta_section/^myd:meta_section/myd:place/myd:municipality jurisdiction:2437 
+                }
+                
+            }
+            ?sec a  my:Section ;
+                 myd:place ?place ;
+                 .
+
+            ?voting myd:section ?sec ;
+                    myp:vote ?vote_st ;
+                    myd:voters_voted_count ?total_votes ;
+                    myd:vote ?party ;
+                    myd:election ?el ;
+                    .
+            ?vote_st myps:vote ?party ;
+                     mypq:type ?vote_type ;
+                     mypq:valid_votes_recieved ?n_votes.
+            
+            ?el rdfs:label ?el_label .
+            ?place rdfs:label ?place_label .
+        } group by ?sec ?el 
+    }
+} group by ?sec ?sec_num ?label ?date ?total_votes  ?votes_max ?vote_ratio ?el ?party ?party_label ?prot_link ?pdf_link ?voters_list order by desc(?sec_num) desc(?date)
+
 ```
 
-Когато братчедите не гласуват с/у когато гласуват (ми2015 / ми2019)
+
+
+## Hristo Botev local anomaly (ми2015 / ми2019)
+
+```spaqrl
+## Intra-election comparison of results per single section 
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select ?sec ?sec_num ?label ?date ?voters_list ?total_votes  ?votes_max ?vote_ratio ?el ?party ?party_label (floor((sum(?n_votes_place)/sum(?total_votes_place))*10000)/100 as ?vote_ratio_place) ?prot_link ?pdf_link {
+    ?sec a  my:Section ;
+         myd:place ?place ;
+         myd:number ?sec_num ;
+    .     
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_count ?voters_list ;
+            myd:voters_voted_count ?total_votes ;
+            myd:link_html ?prot_link ;
+            myd:link_pdf ?pdf_link ;
+            myd:vote ?party ;
+    		myd:election ?el ;
+            myd:date ?date ;
+            rdfs:label ?label ;
+    .
+    ?vote_st myps:vote ?party ;
+             mypq:type ?vote_type ;
+             mypq:valid_votes_recieved ?votes_max ;
+    .
+    ?voting_place myd:section/myd:place ?place ;
+            myp:vote ?vote_place_st ;
+            myd:voters_voted_count ?total_votes_place ;
+            myd:vote ?party ;
+    .
+    ?vote_place_st myps:vote ?party ;
+            mypq:valid_votes_recieved ?n_votes_place.
+    
+    ?party rdfs:label ?party_label ;
+    optional{
+        ?party myd:party+ ?main_party .
+        ?main_party a my:Party ; rdfs:label ?main_label .
+    }
+    bind(floor((?votes_max/?total_votes)*10000)/100 as ?vote_ratio)
+    {select ?sec ?el (max(?n_votes) as ?votes_max){
+            
+            
+            {select distinct ?sec {
+                    ?sec myd:meta_section/^myd:meta_section/myd:votingPlace <https://elections.ontotext.com/resource/votingPlace/bc453f1580fef97f05e8f2db96a2bc9bec813595>
+                }
+                
+            }
+            ?sec a  my:Section ;
+                 myd:place ?place ;
+                 .
+
+            ?voting myd:section ?sec ;
+                    myp:vote ?vote_st ;
+                    myd:voters_voted_count ?total_votes ;
+                    myd:vote ?party ;
+                    myd:election ?el ;
+                    .
+            ?vote_st myps:vote ?party ;
+                     mypq:type ?vote_type ;
+                     mypq:valid_votes_recieved ?n_votes.
+            
+            ?el rdfs:label ?el_label .
+            ?place rdfs:label ?place_label .
+        } group by ?sec ?el 
+    }
+} group by ?sec ?sec_num ?label ?date ?total_votes  ?votes_max ?vote_ratio ?el ?party ?party_label ?prot_link ?pdf_link ?voters_list order by desc(?sec_num) desc(?date)
+```
 <voting:mi2019/os/2246/224607076> 
 <voting:mi2015/os/2246/224607076>
 
@@ -439,6 +692,7 @@ where {
  
 } order by desc(?vote_ratio) limit 500
 ```
+
 ## Vote winners vs turnover
 Inspired by "Statistical fingerprints of electoral fraud" [pdf](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2016.00936.x)
 
@@ -978,4 +1232,64 @@ select ?loc (group_concat(distinct ?num;separator=";") as ?nums) where {
     filter(contains(lcase(?locLabel),lcase(?mainLabel)))
     filter(!sameterm(?main,<party/mi2015/75>)) #шибаните зелени
 } group by ?loc
+```
+# Dump and export
+
+All votes for a selection of main parties 
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label ?n_votes ?total_votes ?prot where { 
+    values ?main_party {
+        wd:Q164242  #DPS
+        wd:Q133968 #GERB,
+        wd:Q792527 #VMRO,
+        wd:Q283129 #Zelenite,
+        wd:Q841253 #SDS,
+        wd:Q62808154 #db,
+        wd:Q97387007 #NFSB-ep,
+        wd:Q971439 #Koalicia za Bulgaria,
+        wd:Q97395772 #Nova republika,
+        wd:Q31191941 #DaBG,
+        wd:Q97382346 #OP,
+        wd:Q97396346 #RB2017,
+        wd:Q15991304 #RB,
+       wd:Q178049 #Ataka,
+       wd:Q752259 #BSP       
+    }
+    ?party rdfs:label ?party_label ; myd:party+ ?main_party .	
+	?main_party rdfs:label ?main_party_label .
+    ?sec a  my:Section ;
+         myd:place ?place ;
+         rdfs:label ?section_label ;
+         myd:election ?el ;
+         myd:number ?sec_num ;
+    .
+	
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_voted_count ?total_votes ;
+        	myd:vote ?party ;
+         	myd:link_html ?prot ;
+            myd:date ?date ;
+    .		
+    optional {?voting myd:round ?round}
+    ?vote_st myps:vote ?party ;
+             mypq:valid_votes_recieved ?n_votes.
+    
+    optional {
+        ?sec myd:votingPlace ?voting_place .
+        ?voting_place rdfs:label ?section_address .
+    }  
+    
+    ?el rdfs:label ?el_label .
+    ?place rdfs:label ?place_label .
+} 
 ```
