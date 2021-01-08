@@ -1246,21 +1246,21 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX wd: <http://www.wikidata.org/entity/>
-select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label ?n_votes ?total_votes ?prot where { 
+select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label (sum(?n_votes) as ?VOTES) ?total_votes ?prot where { 
     values ?main_party {
-        wd:Q164242  #DPS
-        wd:Q133968 #GERB,
-        wd:Q792527 #VMRO,
-        wd:Q283129 #Zelenite,
-        wd:Q841253 #SDS,
-        wd:Q62808154 #db,
-        wd:Q97387007 #NFSB-ep,
-        wd:Q971439 #Koalicia za Bulgaria,
-        wd:Q97395772 #Nova republika,
-        wd:Q31191941 #DaBG,
-        wd:Q97382346 #OP,
-        wd:Q97396346 #RB2017,
-        wd:Q15991304 #RB,
+       wd:Q164242  #DPS
+       wd:Q133968 #GERB,
+       wd:Q792527 #VMRO,
+       wd:Q283129 #Zelenite,
+       wd:Q841253 #SDS,
+       wd:Q62808154 #db,
+       wd:Q97387007 #NFSB-ep,
+       wd:Q971439 #Koalicia za Bulgaria,
+       wd:Q97395772 #Nova republika,
+       wd:Q31191941 #DaBG,
+       wd:Q97382346 #OP,
+       wd:Q97396346 #RB2017,
+       wd:Q15991304 #RB,
        wd:Q178049 #Ataka,
        wd:Q752259 #BSP       
     }
@@ -1291,5 +1291,5 @@ select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_la
     
     ?el rdfs:label ?el_label .
     ?place rdfs:label ?place_label .
-} 
+} group by ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label ?total_votes ?prot
 ```
