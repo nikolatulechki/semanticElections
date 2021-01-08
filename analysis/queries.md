@@ -1,3 +1,49 @@
+# TOC
+
+<!--TOC-->
+
+- [TOC](#toc)
+- [Postprocessing queries ](#postprocessing-queries-)
+  - [Add dates where needed](#add-dates-where-needed)
+  - [Query to clean-up broken labels ](#query-to-clean-up-broken-labels-)
+  - [Party labels from wikidata ](#party-labels-from-wikidata-)
+- [Analysis queries](#analysis-queries)
+  - [Anomalous sections](#anomalous-sections)
+  - [Elections Abroad](#elections-abroad)
+  - [Intra-election comparison of results per section ](#intra-election-comparison-of-results-per-section-)
+  - [Gurkovo](#gurkovo)
+  - [Hristo Botev local anomaly (ми2015 / ми2019)](#hristo-botev-local-anomaly-ми2015--ми2019)
+  - [Sum pref of midlist candidates](#sum-pref-of-midlist-candidates)
+  - [Place level aggregations for 2 parties TODO!](#place-level-aggregations-for-2-parties-todo)
+  - [Секции с над 80% избирателна активност.](#секции-с-над-80-избирателна-активност)
+  - [Обърнато Гласуване ](#обърнато-гласуване-)
+  - [Top N votes for a given party in a given election](#top-n-votes-for-a-given-party-in-a-given-election)
+  - [Vote winners vs turnover](#vote-winners-vs-turnover)
+    - [Local ](#local-)
+    - [EP](#ep)
+    - [Presidential ](#presidential-)
+    - [Parliamentary](#parliamentary)
+  - [Candidate Matching analysis](#candidate-matching-analysis)
+    - [Names not following the main pattern ](#names-not-following-the-main-pattern-)
+  - [Geography ](#geography-)
+  - [MAP Sections on YASGUI](#map-sections-on-yasgui)
+    - [Sections with more than 80% turnover](#sections-with-more-than-80-turnover)
+    - [nearby voting places](#nearby-voting-places)
+    - [federation for wikidata places and their GEO](#federation-for-wikidata-places-and-their-geo)
+    - [Comparing distance of voting places with center pof place in order to repair google geomatching](#comparing-distance-of-voting-places-with-center-pof-place-in-order-to-repair-google-geomatching)
+- [Aggregation Queries](#aggregation-queries)
+  - [Local elections - aggregation on parties](#local-elections---aggregation-on-parties)
+- [Integration Queries ](#integration-queries-)
+  - [Geography ](#geography--1)
+    - [Municipalities from Wikidata](#municipalities-from-wikidata)
+    - [MIRs from wikidata](#mirs-from-wikidata)
+    - [Places from Wikdata](#places-from-wikdata)
+  - [Create metasections based on sections with matching ID](#create-metasections-based-on-sections-with-matching-id)
+  - [Generate MI2015 local party mappings](#generate-mi2015-local-party-mappings)
+- [Dump and export](#dump-and-export)
+
+<!--TOC-->
+
 # Postprocessing queries 
 
 ## Add dates where needed
