@@ -3,8 +3,6 @@
 Analysis inspired by the methodology in **Statistical fingerprints of electoral fraud?**
 <https://doi.org/10.1111/j.1740-9713.2016.00936.x>
 
-Result-Turnover hheatmaps for Bulgariaan elections
-
 ##ep2019
 ![](img/ep2019.png)  
 
