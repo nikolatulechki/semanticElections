@@ -60,3 +60,14 @@ tarql.execute_query(basePath+"tarql/mun_wd_mapping.tarql",
                     basePath+"rdf/mappings/mun_wd_mapping.ttl",
                     '-d ,',
                     queryArgs)
+
+## SECTIONS_GEOGRAPHY
+
+basePath = "/home/nikola/projects/semanticElections/data/"
+infile = "/home/nikola/projects/semanticElections/data/static/sections/sections_geography_all.csv"
+
+tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
+                    infile,
+                    basePath+"rdf/mappings/section_geography.ttl",
+                    '-d ,',
+                    queryArgs)

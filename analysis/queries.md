@@ -45,6 +45,22 @@
 
 # Postprocessing queries 
 
+## Add Direct main election links .
+
+```sparql
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+insert {
+    ?el myd:main_election ?main_el .
+    ?voting myd:main_election ?main_el .    
+} where { 
+
+    ?main_el a my:Election ; 
+	?el myd:partOf* ?main_el .
+    ?voting myd:election ?el .
+} 
+```
+
 ## Add dates where needed
 
 ```sparql
@@ -1283,6 +1299,7 @@ select ?loc (group_concat(distinct ?num;separator=";") as ?nums) where {
 All votes for a selection of main parties 
 
 ```sparql
+BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -1291,7 +1308,8 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX wd: <http://www.wikidata.org/entity/>
-select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label (sum(?n_votes) as ?VOTES) ?total_votes ?prot where { 
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select ?voting ?round ?date (sample(?el_label) as ?EL_LABEL) ?sec_num ?sec_address ?place ?place_label ?party_label ?main_party_label (sum(?n_votes) as ?VOTES) ?total_votes ?prot where { 
     values ?main_party {
        wd:Q164242  #DPS
        wd:Q133968 #GERB,
@@ -1308,7 +1326,8 @@ select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_la
        wd:Q15991304 #RB,
        wd:Q178049 #Ataka,
        wd:Q752259 #BSP       
-    }
+}
+    
     ?party rdfs:label ?party_label ; myd:party+ ?main_party .	
 	?main_party rdfs:label ?main_party_label .
     ?sec a  my:Section ;
@@ -1317,7 +1336,7 @@ select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_la
          myd:election ?el ;
          myd:number ?sec_num ;
     .
-	
+	filter(contains(str(?el),"pi2014")) #FILTER ELECTIONS HERE
     ?voting myd:section ?sec ;
             myp:vote ?vote_st ;
             myd:voters_voted_count ?total_votes ;
@@ -1331,10 +1350,10 @@ select ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_la
     
     optional {
         ?sec myd:votingPlace ?voting_place .
-        ?voting_place rdfs:label ?section_address .
-    }  
+        ?voting_place rdfs:label ?sec_address .
+    }
     
     ?el rdfs:label ?el_label .
     ?place rdfs:label ?place_label .
-} group by ?voting ?round ?date ?el_label ?sec_num ?section_address ?place ?place_label ?party_label ?main_party_label ?total_votes ?prot
+} group by ?voting ?round ?date ?sec_num ?sec_address ?place ?place_label ?party_label ?main_party_label ?total_votes ?prot
 ```

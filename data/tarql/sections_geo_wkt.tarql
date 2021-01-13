@@ -1,25 +1,24 @@
 construct {
 
 ?VPLACE_URI a my:VotingPlace ;
-    rdfs:label ?address ;
-    myd:wd_type ?WD_TYPE ;
-    myd:type ?building_type ;
+    rdfs:label ?place_name;
+    myd:address ?place_address;
     geo:hasGeometry ?GEO_URI ;
     myd:place ?PLACE_URI ;
 .
 ?GEO_URI a geo:Geometry ;
     geo:asWKT ?WKT ;
+    myd:source ?location_source ;
+
 .
 
 ?SEC_URI myd:votingPlace ?VPLACE_URI ; myd:place ?PLACE_URI .
 
 } where {
     bind(uri(concat("place/",?ekatte)) as ?PLACE_URI)
-    bind(uri(concat("votingPlace/",?sha)) as ?VPLACE_URI)
-    bind(uri(concat("votingPlace/",?sha,"/geo")) as ?GEO_URI)
-	bind(uri(concat("section/{EL}/",?SECID)) as ?SEC_URI)
-	bind(uri(concat("http://www.wikidata.org/entity/",?building_type_WD)) as ?WD_TYPE)
-	bind(strdt(?Lat,xsd:double) as ?LAT)
-	bind(strdt(?Lng,xsd:double) as ?LONG)
-	bind(strdt(concat("Point(",?Lng," ",?Lat,")"),<http://www.opengis.net/ont/geosparql#wktLiteral>) as ?WKT)
+    bind(uri(concat("votingPlace/",?place_id)) as ?VPLACE_URI)
+    bind(uri(concat("votingPlace/",?place_id,"/geo")) as ?GEO_URI)
+    bind(if(strlen(?SECID)=8,concat("0",?SECID),?c) as ?SECID_OK)
+	bind(uri(concat("section/",?el,"/",?SECID_OK)) as ?SEC_URI)
+	bind(strdt(concat("Point(",?location_lon," ",?location_lat,")"),<http://www.opengis.net/ont/geosparql#wktLiteral>) as ?WKT)
 }

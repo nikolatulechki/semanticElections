@@ -22,6 +22,10 @@ python ../common/flatten.py /home/nikola/projects/semanticElections/gdrive/data/
 
 python ../common/flatten.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/votes_26.03.2017.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2017/votes_26.03.2017.flat.txt
 
+#PI2014
+
+python ../common/flatten_old.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2014/votes_pe2014.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2014/votes_pe2014.flat.txt
+
 #PRNR2016
 
 python ../common/flatten_mv.py  /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/votes_06.11.2016.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pvnr2016/tur1/votes_06.11.2016.flat.txt
