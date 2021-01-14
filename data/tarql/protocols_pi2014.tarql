@@ -1,0 +1,47 @@
+construct {
+    ?VOTE_URI
+        myd:recieved_ballots ?C ;
+        myd:voters_count ?D ;
+        myd:voters_additional_count ?E ;
+        myd:voters_voted_count ?F ;
+        myd:votes_valid_count ?R ;
+        myd:votes_invalid_count ?Q ;
+        myd:votes_blanc_count ?S ;
+        myd:link_html ?PROT_LINK ;
+        myd:link_pdf ?PDF_LINK ;
+    .
+} where {
+    bind(strdt(?c,xsd:integer) as ?C)
+    bind(substr(?a,1,2) as ?OB_CODE)
+    bind(replace(?OB_CODE,"^0","") as ?JUR)
+    bind(substr(?a,3,7) as ?SEC_SUFF)
+    bind(uri(concat("voting/{EL}/{TYP}",?JUR,"/{RND}",?a)) as ?VOTE_URI)
+    bind(strdt(?e,xsd:integer) as ?E)
+    bind(strdt(?f,xsd:integer) as ?F)
+    bind(strdt(?d,xsd:integer) as ?D)
+    bind(strdt(?q,xsd:integer) as ?Q)
+    bind(strdt(?r,xsd:integer) as ?R)
+    bind(strdt(?s,xsd:integer) as ?S)
+    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?SEC_SUFF,".html")) as ?PROT_LINK)
+    bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?SEC_SUFF,".pdf")) as ?PDF_LINK)
+}
+
+#a   060500007;
+#b   25;
+#c   400;
+#d   420;
+#e   1;
+#f   280;
+#g   0;
+#h   0;
+#i   1;
+#j   117;
+#k   1;
+#l   0;
+#m   1;
+#n   0;
+#o   1;
+#p   280;
+#q   29;
+#r   251;
+#s   20;|060243|060243|060243|060243

@@ -18,7 +18,7 @@ construct {
     bind(uri(concat("place/",?ekatte)) as ?PLACE_URI)
     bind(uri(concat("votingPlace/",?place_id)) as ?VPLACE_URI)
     bind(uri(concat("votingPlace/",?place_id,"/geo")) as ?GEO_URI)
-    bind(if(strlen(?SECID)=8,concat("0",?SECID),?c) as ?SECID_OK)
+    bind(if(strlen(?SECID)=8,concat("0",?SECID),?SECID) as ?SECID_OK)
 	bind(uri(concat("section/",?el,"/",?SECID_OK)) as ?SEC_URI)
 	bind(strdt(concat("Point(",?location_lon," ",?location_lat,")"),<http://www.opengis.net/ont/geosparql#wktLiteral>) as ?WKT)
 }

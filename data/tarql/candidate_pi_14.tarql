@@ -1,0 +1,27 @@
+construct {
+	?CAND_URI a my:Candidate ;
+		rdfs:label ?e ;
+		myd:candidacy ?EL_URI ;
+		myd:party_number ?PARTY_NUM ;
+		myd:number ?CAND_NUM ;
+		myd:represents ?PARTY_URI ;
+	.
+	?PARTY_URI a my:LocalParty ;
+	    myd:candidacy ?EL_URI ;
+	    myd:party ?MAIN_PARTY_URI ;
+	    myd:jurisdiction ?JUR_URI ;
+	    rdfs:label ?c ;
+	.
+}
+where {
+		bind(uri(concat("candidate/{EL}/",?a,"/",?b,"/",?d)) as ?CAND_URI)
+		bind(STRDT(?d, xsd:integer) as ?CAND_NUM)
+		bind(STRDT(?b, xsd:integer) as ?PARTY_NUM)
+		bind(uri(concat("party/{EL}/",?a,"/",?b)) as ?PARTY_URI)
+		bind(uri(concat("election/{EL}/",str(?a))) as ?EL_URI)
+        bind(uri(concat(str(jurisdiction:),?a)) as ?JUR_URI)
+		bind(uri(concat("party/{EL}/",?b)) as ?MAIN_PARTY_URI)
+}
+
+#1;3;БЪЛГАРСКИ НАЦИОНАЛЕН СЪЮЗ - НД;1;Йордан Стоянов Манасиев
+
