@@ -4,7 +4,7 @@ This project's goal is to convert CIK open data about bulgarian elections to 5-s
 
 ## Endpoint
 
- The sparql endpont is situated at <https://elections.ontotext.com>
+ The sparql endpoint is situated at <https://elections.ontotext.com>
 
 ## Data Model
 
