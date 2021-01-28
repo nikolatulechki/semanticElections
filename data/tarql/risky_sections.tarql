@@ -1,0 +1,5 @@
+CONSTRUCT {
+    ?SECURI my:is_risky true .
+} WHERE {
+    BIND(URI(CONCAT("section/pi2017/",?secid)) as ?SECURI)
+}
