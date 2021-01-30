@@ -1,5 +1,5 @@
 CONSTRUCT {
-    ?SECURI my:is_risky true .
+    ?SECURI myd:is_risky true .
 } WHERE {
-    BIND(URI(CONCAT("section/pi2017/",?secid)) as ?SECURI)
+    BIND(URI(CONCAT("metaSection/",?secid)) as ?SECURI)
 }
