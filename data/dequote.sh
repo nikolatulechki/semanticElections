@@ -12,6 +12,8 @@ sed -i "s/[\"\„\“]//g" /home/nikola/projects/semanticElections/gdrive/data/c
 sed -i "s/[\"\„\“]//g" /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur1/os/local_candidates_25.10.2015.txt
 sed -i "s/[\"\„\“]//g" /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur1/ko/local_parties_25.10.2015.txt
 sed -i "s/[\"\„\“]//g" /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur1/os/local_parties_25.10.2015.txt
+sed -i "s/[\"\„\“]//g" /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_cikparties.txt
+sed -i "s/[\"\„\“]//g" /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_candidates.txt
 
 
 sed -i "s/партия ЕДИННА НАРОДНА ПАРТИЯ; партия ВМРО-БЪЛГАРСКО НАЦИОНАЛНО ДВИЖЕНИЕ; партия ПОЛИТИЧЕСКИ КЛУБ ЕКОГЛАСНОСТ”; партия ОБЕДИНЕНА СОЦИАЛДЕМОКРАЦИЯ; партия БЪЛГАРИЯ БЕЗ ЦЕНЗУРА; коалиция РЕФОРМАТОРСКИ БЛОК; партия БЪЛГАРСКА СОЦИAЛДЕМОКРАТИЧЕСКА ПАРТИЯ/партия ЕДИННА НАРОДНА ПАРТИЯ, партия ВМРО-БЪЛГАРСКО НАЦИОНАЛНО ДВИЖЕНИЕ, партия ПОЛИТИЧЕСКИ КЛУБ ЕКОГЛАСНОСТ”, партия ОБЕДИНЕНА СОЦИАЛДЕМОКРАЦИЯ, партия БЪЛГАРИЯ БЕЗ ЦЕНЗУРА, коалиция РЕФОРМАТОРСКИ БЛОК, партия БЪЛГАРСКА СОЦИAЛДЕМОКРАТИЧЕСКА ПАРТИЯ/g" /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/mi2015/tur1/os/local_candidates_25.10.2015.txt

@@ -27,7 +27,7 @@ infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions_
 
 tarql.execute_query(basePath+"tarql/coalitions_mi2015.tarql",
                     infile,
-                    basePath+" rdf/mi2015/coalitions_mapping.ttl",
+                    basePath+"rdf/mi2015/coalitions_mapping.ttl",
                     '-d ,',
                     queryArgs)
 

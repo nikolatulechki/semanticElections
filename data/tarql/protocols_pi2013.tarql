@@ -1,0 +1,58 @@
+construct {
+    ?VOTE_URI
+        myd:recieved_ballots ?C ;
+        myd:voters_count ?D ;
+        myd:voters_additional_count ?E ;
+        myd:voters_voted_count ?G ;
+        myd:votes_valid_count ?AG ;
+        myd:votes_invalid_count ?AF ;
+        myd:link_html ?PROT_LINK ;
+        myd:link_pdf ?PDF_LINK ;
+    .
+} where {
+    bind(strdt(?c,xsd:integer) as ?C)
+    bind(substr(?a,1,2) as ?OB_CODE)
+    bind(replace(?OB_CODE,"^0","") as ?JUR)
+    bind(substr(?a,3,7) as ?SEC_SUFF)
+    bind(uri(concat("voting/{EL}/{TYP}",?JUR,"/{RND}",?a)) as ?VOTE_URI)
+    bind(strdt(?d,xsd:integer) as ?D)
+    bind(strdt(?g,xsd:integer) as ?G)
+    bind(strdt(?ag,xsd:integer) as ?AG)
+    bind(strdt(?af,xsd:integer) as ?AF)
+    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?SEC_SUFF,".html")) as ?PROT_LINK)
+    bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?SEC_SUFF,".pdf")) as ?PDF_LINK)
+}
+
+#a 221800022
+#b 33
+#c 50
+#d 36
+#e 4
+#f 0
+#g 28
+#h 4
+#i 0
+#j 0
+#k 0
+#l 0
+#m 0
+#n 0
+#o 0
+#p 2
+#q 0
+#r 0
+#s 22
+#t 0
+#u 0
+#v 0
+#w 0
+#x 28
+#y 0
+#z 0
+#aa 0
+#ab 0
+#ac 0
+#ad 0
+#ae 0
+#af 0
+#ag 28

@@ -1,0 +1,30 @@
+construct {
+	?EL_URI_OK
+		myd:vote ?PARTY_URI ;
+		myp:vote ?S_VOTE_URI ;
+	.
+	?S_VOTE_URI_OK a my:SectionVote ;
+		myps:vote ?PARTY_URI ;
+		mypq:valid_votes_recieved ?VV ;
+		mypq:type ?vote_type ;
+	.	
+}
+where {
+
+	bind(replace(substr(?a,1,2),"^0","") as ?OBINFIX)
+
+    bind(uri(concat("voting/{EL}/",?OBINFIX,"/",?a)) as ?EL_URI)
+	bind(concat("party/{EL}/",?OBINFIX,"/",?b) as ?PARTY_STR)
+
+	bind(uri(?PARTY_STR) as ?PARTY_URI)
+	bind(uri(concat("vote/{EL}/{TYP}{RND}",?a,"/",?b)) as ?S_VOTE_URI)
+	bind(STRDT(?c, xsd:integer) as ?VV)
+	bind(STRDT(?b, xsd:integer) as ?CAND_NUM)
+    bind(if(?CAND_NUM != 0,?EL_URI,?UNDEF) as ?EL_URI_OK)
+	bind(if(?CAND_NUM != 0,?S_VOTE_URI,?UNDEF) as ?S_VOTE_URI_OK)
+	bind(if("{MV}"="","paper","electronic") as ?vote_type)
+}
+
+#010100001;5;156
+#<https://elections.ontotext.com/resource/party/pi2013/5/156>
+#<https://elections.ontotext.com/resource/voting/pi2013/1/010100013>
