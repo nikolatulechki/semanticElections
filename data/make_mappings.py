@@ -27,7 +27,7 @@ infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions_
 
 tarql.execute_query(basePath+"tarql/coalitions_mi2015.tarql",
                     infile,
-                    basePath+"rdf/mi2015/coalitions_mapping.ttl",
+                    basePath+" rdf/mi2015/coalitions_mapping.ttl",
                     '-d ,',
                     queryArgs)
 
@@ -64,10 +64,10 @@ tarql.execute_query(basePath+"tarql/mun_wd_mapping.tarql",
 ## SECTIONS_GEOGRAPHY
 
 basePath = "/home/nikola/projects/semanticElections/data/"
-infile = "/home/nikola/projects/semanticElections/data/static/sections/sections_geography_all.csv"
+infile = "/home/nikola/projects/semanticElections/data/static/sections/sections_all.tsv"
 
 tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
                     infile,
                     basePath+"rdf/mappings/section_geography.ttl",
-                    '-d ,',
+                    '-t',
                     queryArgs)

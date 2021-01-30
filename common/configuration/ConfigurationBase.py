@@ -1,11 +1,11 @@
-import ConfigParser
+import configparser
 import os
 import json
 import logging
 
 
 class ConfigurationBase(object):
-    __config = ConfigParser.ConfigParser()
+    __config = configparser.ConfigParser()
 
     def __init__(self):
         pass

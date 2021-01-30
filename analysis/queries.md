@@ -54,8 +54,7 @@ insert {
     ?el myd:main_election ?main_el .
     ?voting myd:main_election ?main_el .    
 } where { 
-
-    ?main_el a my:Election ; 
+    ?main_el a my:Election ; myd:type [] .
 	?el myd:partOf* ?main_el .
     ?voting myd:election ?el .
 } 
@@ -84,15 +83,24 @@ insert {
 ## Query to clean-up broken labels 
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-delete {?s rdfs:label ?label}
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+delete {
+    ?s ?p ?label
+}
 #select *
-where { 
-    ?s rdfs:label ?label .
+where {
+    ?s ?p ?label .
     filter(contains(?label,"��"))
-    {select ?s (count(*) as ?c) where {
-        ?s rdfs:label ?label . 
-        } group by ?s having(?c>1) }
-} 
+    {
+        select ?s ?p (count(*) as ?c) where {
+            values ?p {
+                rdfs:label
+                myd:address 
+            }
+            ?s ?p ?label .
+        } group by ?s ?p having(?c>1) 
+    }
+}
 ```
 ## Party labels from wikidata 
 
@@ -1336,7 +1344,8 @@ select ?voting ?round ?date (sample(?el_label) as ?EL_LABEL) ?sec_num ?sec_addre
          myd:election ?el ;
          myd:number ?sec_num ;
     .
-	filter(contains(str(?el),"pi2014")) #FILTER ELECTIONS HERE
+    ?el myd:main_election election:mi2015 . #FILTER ELECTIONS HERE
+    
     ?voting myd:section ?sec ;
             myp:vote ?vote_st ;
             myd:voters_voted_count ?total_votes ;
