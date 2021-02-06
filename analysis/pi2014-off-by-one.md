@@ -17,9 +17,9 @@ These three examples illustrate the inconsistency. They not exhaustive. We can n
 
 As can be seen by the protocols, in all three of these sections, party DPS is the winner.
 
-<https://results.cik.bg/pi2014/protokoli/17/0100089.html> 
-<https://results.cik.bg/pi2014/protokoli/17/2300029.html>
-<https://results.cik.bg/pi2014/protokoli/01/1100031.html> 
+* <https://results.cik.bg/pi2014/protokoli/17/0100089.html> 
+* <https://results.cik.bg/pi2014/protokoli/17/2300029.html>
+* <https://results.cik.bg/pi2014/protokoli/01/1100031.html> 
 
 However in the corresponding lines in `votes_pe2014.txt` , in sections 170100089 and 172300029, the winners votes appear in the 18th position, whereas they should appear in the 19th position. 
 
