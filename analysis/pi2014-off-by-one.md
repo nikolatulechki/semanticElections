@@ -6,16 +6,16 @@ The data is available for download here: <https://results.cik.bg/pi2014/csv.html
 
 ## Context and problem 
 
- The file `votes_pe2014.txt` contains vote counts. According to the documentations (readme_pe2014.txt), each line starts with the section number and is followed by pairs of values, corresponding to valid and invalid votes for each party. The order is fixed in the readme file. 
+ The file `votes_pe2014.txt` contains vote counts. According to the documentation (readme_pe2014.txt), each line starts with the section number and is followed by pairs of values, corresponding to valid and invalid votes for each party. The order is fixed in the readme file. 
 
 The problem is that for an unknown number of lines the order in the data does not correspond to the order specified in the readme file, effectively attributing votes to the wrong party. 
 
 
 ## Example data
-The data inconsistent, as can be seen by these three examples. 
-These are by no means exhaustive. We can not estimate how mane sections are concerned by this inconsistency.  
 
-In all three of these sections, party DPS is the winner.
+These three examples illustrate the inconsistency. They not exhaustive. We can not estimate how many lines (sections) are concerned.
+
+As can be seen by the protocols, in all three of these sections, party DPS is the winner.
 
 <https://results.cik.bg/pi2014/protokoli/17/0100089.html> 
 <https://results.cik.bg/pi2014/protokoli/17/2300029.html>
@@ -27,7 +27,7 @@ However in the corresponding lines in `votes_pe2014.txt` , in sections 170100089
 
 Below are the corresponding lines and a breakdown of the vote values and their position.
 
-#line 6279 - Problem
+## line 6279 - Problem
 ```
 170100089;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0;0;0;3;0;0;0;0;0;0;0;1;0;316;0;2;0;0;0;0;0;3;0;0;0;2;0;0;0;
 ```
@@ -58,7 +58,7 @@ Below are the corresponding lines and a breakdown of the vote values and their p
 1. 2;0;
 1. 0;0;
 
-### line 6489 - Problem 
+## line 6489 - Problem 
 ```                  
 172300029;0;0;6;0;0;0;0;0;0;0;1;0;2;0;0;0;12;0;0;0;1;0;0;0;16;0;0;0;0;0;0;0;290;2;1;0;0;0;0;0;1;0;0;0;0;0;0;0;
 ```
@@ -90,7 +90,7 @@ Below are the corresponding lines and a breakdown of the vote values and their p
 1. 0;0;  
 
 
-#Line 189 - OK
+## line 189 - OK
 This part of the file corresponds to the specification in the readme, DPS votes are in 19-th position 
 ```
 011100031;0;0;0;0;0;0;0;0;0;0;1;0;8;0;1;0;18;0;0;0;1;0;0;0;3;0;5;0;0;0;0;0;0;0;506;0;0;0;0;0;0;0;10;0;0;0;3;0;0;0;0;0;
