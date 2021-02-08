@@ -162,6 +162,54 @@ insert {
     }
 } 
 ```
+## Place population from wikidata
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+
+insert {
+    graph <graph/place-population> {
+    	?place myd:population ?pop .
+	}
+}
+where { 
+    bind(uri(concat(str(place:),?ekatte)) as ?place)
+    ?place a my:Place .
+    service <https://query.wikidata.org/sparql> {
+        select ?ekatte ?pop {
+        	?wd p:P1082 ?pops ; wdt:P3990 ?ekatte .
+        	?pops pq:P459 wd:Q90878157 ; ps:P1082 ?pop .
+        }
+    }
+}
+
+```
+
+##Postmortem for missing pi2013 places
+TODO fix this at source, probably pb with missing leading zeroes 
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+insert {
+    ?s13 myd:place ?place .
+}
+where { 
+	?s17 a my:Section ; myd:main_election election:pi2017 ; myd:place ?place .
+	?s13 a my:Section ; myd:main_election election:pi2013 .
+    ?s13 myd:number/^myd:number ?s17 .
+    filter not exists {?s13 myd:place [] }
+} 
+```
 
 # Analysis queries
 
@@ -1187,6 +1235,40 @@ Postprocessing Q to fix voting places positioned far from their parent places.
 Fallback solution is to place them at the same location as their parent place. 
 Will add a flag so that eventually we can look and fix them in the mapping sheets
 
+## Comparing population with sum of registered voters
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+select 
+?mun_label ?place_label ?ekatte ?pop 
+(sum(?pi2013) as ?PI2013) 
+(sum(?pi2014) as ?PI2014) 
+(sum(?pi2017) as ?PI2017) 
+(sum(?mi2015) as ?MI2015) 
+(sum(?mi2019) as ?MI2019) 
+(sum(?ep2019) as ?EP2019) 
+(sum(?pvnr2016) as ?PVNR2016) 
+where { 
+	?voting a my:Voting ; myd:section ?sec ; myd:voters_count ?voters .
+    bind(if(contains(str(?voting),"pi2013"),?voters,0) as ?pi2013)
+    bind(if(contains(str(?voting),"pi2014"),?voters,0) as ?pi2014)
+    bind(if(contains(str(?voting),"mi2015/os"),?voters,0) as ?mi2015)
+    bind(if(contains(str(?voting),"pvnr2016/tur1"),?voters,0) as ?pvnr2016)
+    bind(if(contains(str(?voting),"pi2017"),?voters,0) as ?pi2017)
+    bind(if(contains(str(?voting),"ep2019"),?voters,0) as ?ep2019)
+    bind(if(contains(str(?voting),"mi2019/os"),?voters,0) as ?mi2019)
+
+    ?sec myd:place ?place . 
+    ?place rdfs:label ?place_label ; myd:population ?pop ; myd:municipality ?mun .
+    ?mun rdfs:label ?mun_label 
+    bind(strafter(str(?place),str(place:)) as ?ekatte) 
+} 
+group by ?mun_label ?place_label ?ekatte ?pop
+```
+
 # Aggregation Queries
 
 TODO in time use these to produce aggregated results for different elections
@@ -1345,6 +1427,24 @@ construct {
     }
 }
 ```
+### Coordinates based on WKT
+
+```spaqrl
+PREFIX sf: <http://www.opengis.net/ont/sf#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+insert {
+    graph <https://elections.ontotext.com/resource/graph/geo-test> {
+    ?point geo:lat ?lat ;
+           geo:long ?lon .
+	}
+} where {
+	?point a geo:Geometry ; geo:asWKT ?wkt .
+    bind(xsd:float(replace(strafter(str(?wkt),"Point(")," .*","")) as ?lon)
+    bind(xsd:float(replace(strafter(str(?wkt),"Point("),"([0-9]|\\.)* |\\)","")) as ?lat)
+};
+```
+
 ## Create metasections based on sections with matching ID
 
 ```sparql
