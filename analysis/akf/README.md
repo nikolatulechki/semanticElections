@@ -131,6 +131,8 @@ select ?election_id ?sec_id ?mun_label ?party_label ?total_votes_sec ?sec_party_
 
 Map URL <https://www.arcgis.com/apps/StorytellingSwipe/index.html?appid=0ccfb76657c64a36b37c6062a5e20090>
 
+Story URL <https://arcg.is/1W0jXG>
+
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
