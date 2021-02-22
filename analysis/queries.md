@@ -417,7 +417,52 @@ select ?sec ?sec_label ?date ?total_votes ?votes_winner ?vote_ratio ?el ?el_labe
     }
 } group by ?sec ?sec_label ?date ?total_votes ?votes_winner ?vote_ratio ?el ?el_label ?party ?party_label order by desc(?date) str(?sec)
 ```
-## Intra-election comparison of results per section 
+
+## Intra-election comparison of results for a given party
+
+```sparql
+## GERB votes local elections 
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select ?sec_num ?voters_15 ?voted_15 ?party_votes_15 ?voters_19 ?voted_19 ?party_votes_19 ?prot_15 ?prot_19  {
+    ?sec_15 myd:meta_section/^myd:meta_section ?sec_19 ; myd:number ?sec_num . 
+    ?voting_15 myd:section ?sec_15 ;
+            myp:vote ?vote_st_15 ;
+            myd:voters_count ?voters_15 ;
+            myd:voters_voted_count ?voted_15 ;
+            myd:vote ?party_15 ;
+            myd:link_html ?prot_15 ;
+    		myd:main_election election:mi2015 ;
+    .
+    filter(contains(str(?voting_15),"ko/tur2")) 
+    ?vote_st_15 myps:vote ?party_15 ;
+             mypq:valid_votes_recieved ?party_votes_15 ;
+    .
+    ?party_15 myd:party/myd:party wd:Q133968 .
+        ?voting_19 myd:section ?sec_19 ;
+            myp:vote ?vote_st_19 ;
+            myd:voters_count ?voters_19 ;
+            myd:voters_voted_count ?voted_19 ;
+            myd:vote ?party_19 ;
+            myd:link_html ?prot_19 ;
+    		myd:main_election election:mi2019 ;
+    .
+    filter(contains(str(?voting_19),"ko/tur2")) 
+    ?vote_st_19 myps:vote ?party_19 ;
+             mypq:valid_votes_recieved ?party_votes_19 ;
+    .
+    ?party_19 myd:party/myd:party wd:Q133968 .
+} 
+```
+
+## Intra-election comparison of results per section
 
 Given a section ID, this query outputs the results fore winner of every election compared to mean of winner for all the sections in the location 
 
