@@ -526,3 +526,76 @@ WHERE        {
 } group by ?ms having(?ent_avg < 1) 
 }
 ```
+
+```sparql
+PREFIX place: <http://edu.ontotext.com/resource/place/>
+PREFIX : <http://edu.ontotext.com/resource/ontology/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX ethnic_group: <http://edu.ontotext.com/resource/ethnic_group/>
+select * where { 
+    bind(place:Q391159 as ?place_edu)
+    ?obs :place ?place_edu ; qb:dataSet <http://edu.ontotext.com/resource/cube/nsi_ethnicity/2011> ;
+    	 :ethnic_group ?eg ;
+      	 :quantity_people ?qp ;
+    bind(if(sameterm(?eg,ethnic_group:roma),?qp,0) as ?roma)
+    bind(if(sameterm(?eg,ethnic_group:bg),?qp,0) as ?bg)
+    bind(if(sameterm(?eg,ethnic_group:tr),?qp,0) as ?tr)
+} limit 100 
+```
+
+### Crazy federated query for ethnicity
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX place: <http://edu.ontotext.com/resource/place/>
+PREFIX : <http://edu.ontotext.com/resource/ontology/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX ethnic_group: <http://edu.ontotext.com/resource/ethnic_group/>
+
+select ?sec_id ?risky ?place_label ?ekatte ?BG ?TR ?ROMA ?TOTAL where { 
+	?ms a my:MetaSection .
+    optional{?ms myd:isRisky ?risky}
+    ?sec myd:meta_section ?ms ; 
+         myd:place ?place ;
+    	 myd:number ?sec_id .
+    ?place rdfs:label ?place_label .
+    bind(strafter(str(?place),"https://elections.ontotext.com/resource/place/") as ?ekatte)
+    filter(contains(str(?sec),"pi2017"))
+    {select ?place (sum(?roma) as ?ROMA) (sum(?tr) as ?TR) (sum(?bg) as ?BG) (sum(?qp) as ?TOTAL) {
+    ?place a my:Place ; rdfs:label ?place_label ; myd:wikidata_entity ?wd . 
+    bind(uri(replace(str(?wd),str(wd:),str(place:))) as ?place_edu)
+    service <http://edu.ontotext.com/repositories/semantic-schools> {
+         ?obs :place ?place_edu ; qb:dataSet <http://edu.ontotext.com/resource/cube/nsi_ethnicity/2011> ;
+    	 :ethnic_group ?eg ;
+      	 :quantity_people ?qp ;
+        bind(if(sameterm(?eg,ethnic_group:roma),?qp,0) as ?roma)
+        bind(if(sameterm(?eg,ethnic_group:bg),?qp,0) as ?bg)
+        bind(if(sameterm(?eg,ethnic_group:tr),?qp,0) as ?tr)
+    }} group by ?place}
+} 
+
+```
+
+#Ethnic group query on EDU
+```spqrql
+PREFIX place: <http://edu.ontotext.com/resource/place/>
+PREFIX : <http://edu.ontotext.com/resource/ontology/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX ethnic_group: <http://edu.ontotext.com/resource/ethnic_group/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?label ?eg ?qp where { 
+    bind(place:Q407207 as ?place_edu)
+    ?obs :place ?place_edu ; qb:dataSet <http://edu.ontotext.com/resource/cube/nsi_ethnicity/2011> ;
+    	 :ethnic_group ?eg ;
+      	 :quantity_people ?qp ;
+    .    
+    ?place_edu rdfs:label ?label .   
+    filter(lang(?label)="bg")
+    bind(if(sameterm(?eg,ethnic_group:roma),?qp,0) as ?roma)
+    bind(if(sameterm(?eg,ethnic_group:bg),?qp,0) as ?bg)
+    bind(if(sameterm(?eg,ethnic_group:tr),?qp,0) as ?tr)
+} limit 100 
+```

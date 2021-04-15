@@ -1,49 +1,49 @@
-# List of SPARQL Queries 
+# List of SPARQL Queries
 
 <!--TOC-->
 
 - [Postprocessing queries ](#postprocessing-queries-)
-  - [Add dates where needed](#add-dates-where-needed)
-  - [Query to clean-up broken labels ](#query-to-clean-up-broken-labels-)
-  - [Party labels from wikidata ](#party-labels-from-wikidata-)
+    - [Add dates where needed](#add-dates-where-needed)
+    - [Query to clean-up broken labels ](#query-to-clean-up-broken-labels-)
+    - [Party labels from wikidata ](#party-labels-from-wikidata-)
 - [Analysis queries](#analysis-queries)
-  - [Anomalous sections](#anomalous-sections)
-  - [Elections Abroad](#elections-abroad)
-  - [Intra-election comparison of results per section ](#intra-election-comparison-of-results-per-section-)
-  - [Gurkovo](#gurkovo)
-  - [Hristo Botev local anomaly (ми2015 / ми2019)](#hristo-botev-local-anomaly-ми2015--ми2019)
-  - [Sum pref of midlist candidates](#sum-pref-of-midlist-candidates)
-  - [Place level aggregations for 2 parties TODO!](#place-level-aggregations-for-2-parties-todo)
-  - [Секции с над 80% избирателна активност.](#секции-с-над-80-избирателна-активност)
-  - [Обърнато Гласуване ](#обърнато-гласуване-)
-  - [Top N votes for a given party in a given election](#top-n-votes-for-a-given-party-in-a-given-election)
-  - [Vote winners vs turnover](#vote-winners-vs-turnover)
-    - [Local ](#local-)
-    - [EP](#ep)
-    - [Presidential ](#presidential-)
-    - [Parliamentary](#parliamentary)
-  - [Candidate Matching analysis](#candidate-matching-analysis)
-    - [Names not following the main pattern ](#names-not-following-the-main-pattern-)
-  - [Geography ](#geography-)
-  - [MAP Sections on YASGUI](#map-sections-on-yasgui)
-    - [Sections with more than 80% turnover](#sections-with-more-than-80-turnover)
-    - [nearby voting places](#nearby-voting-places)
-    - [federation for wikidata places and their GEO](#federation-for-wikidata-places-and-their-geo)
-    - [Comparing distance of voting places with center pof place in order to repair google geomatching](#comparing-distance-of-voting-places-with-center-pof-place-in-order-to-repair-google-geomatching)
+    - [Anomalous sections](#anomalous-sections)
+    - [Elections Abroad](#elections-abroad)
+    - [Intra-election comparison of results per section ](#intra-election-comparison-of-results-per-section-)
+    - [Gurkovo](#gurkovo)
+    - [Hristo Botev local anomaly (ми2015 / ми2019)](#hristo-botev-local-anomaly-ми2015--ми2019)
+    - [Sum pref of midlist candidates](#sum-pref-of-midlist-candidates)
+    - [Place level aggregations for 2 parties TODO!](#place-level-aggregations-for-2-parties-todo)
+    - [Секции с над 80% избирателна активност.](#секции-с-над-80-избирателна-активност)
+    - [Обърнато Гласуване ](#обърнато-гласуване-)
+    - [Top N votes for a given party in a given election](#top-n-votes-for-a-given-party-in-a-given-election)
+    - [Vote winners vs turnover](#vote-winners-vs-turnover)
+        - [Local ](#local-)
+        - [EP](#ep)
+        - [Presidential ](#presidential-)
+        - [Parliamentary](#parliamentary)
+    - [Candidate Matching analysis](#candidate-matching-analysis)
+        - [Names not following the main pattern ](#names-not-following-the-main-pattern-)
+    - [Geography ](#geography-)
+    - [MAP Sections on YASGUI](#map-sections-on-yasgui)
+        - [Sections with more than 80% turnover](#sections-with-more-than-80-turnover)
+        - [nearby voting places](#nearby-voting-places)
+        - [federation for wikidata places and their GEO](#federation-for-wikidata-places-and-their-geo)
+        - [Comparing distance of voting places with center pof place in order to repair google geomatching](#comparing-distance-of-voting-places-with-center-pof-place-in-order-to-repair-google-geomatching)
 - [Aggregation Queries](#aggregation-queries)
-  - [Local elections - aggregation on parties](#local-elections---aggregation-on-parties)
+    - [Local elections - aggregation on parties](#local-elections---aggregation-on-parties)
 - [Integration Queries ](#integration-queries-)
-  - [Geography ](#geography--1)
-    - [Municipalities from Wikidata](#municipalities-from-wikidata)
-    - [MIRs from wikidata](#mirs-from-wikidata)
-    - [Places from Wikdata](#places-from-wikdata)
-  - [Create metasections based on sections with matching ID](#create-metasections-based-on-sections-with-matching-id)
-  - [Generate MI2015 local party mappings](#generate-mi2015-local-party-mappings)
+    - [Geography ](#geography--1)
+        - [Municipalities from Wikidata](#municipalities-from-wikidata)
+        - [MIRs from wikidata](#mirs-from-wikidata)
+        - [Places from Wikdata](#places-from-wikdata)
+    - [Create metasections based on sections with matching ID](#create-metasections-based-on-sections-with-matching-id)
+    - [Generate MI2015 local party mappings](#generate-mi2015-local-party-mappings)
 - [Dump and export](#dump-and-export)
 
 <!--TOC-->
 
-# Postprocessing queries 
+# Postprocessing queries
 
 ## Add Direct main election links .
 
@@ -80,7 +80,8 @@ insert {
 } 
 ```
 
-## Query to clean-up broken labels 
+## Query to clean-up broken labels
+
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -102,7 +103,8 @@ where {
     }
 }
 ```
-## Party labels from wikidata 
+
+## Party labels from wikidata
 
 ```sparql
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -119,8 +121,9 @@ insert {
             ?wd rdfs:label ?wdLabel .
         }
     }
-} 
+}
 ```
+
 ## Add enrtropy to votings
 
 ```sparql
@@ -162,6 +165,7 @@ insert {
     }
 } 
 ```
+
 ## Place population from wikidata
 
 ```sparql
@@ -190,11 +194,11 @@ where {
         }
     }
 }
-
 ```
 
-##Postmortem for missing pi2013 places
-TODO fix this at source, probably pb with missing leading zeroes 
+## Postmortem for missing pi2013 places
+
+TODO fix this at source, probably pb with missing leading zeroes
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -214,6 +218,7 @@ where {
 # Analysis queries
 
 ## Entropy in votes
+
 Minimum entropy is when everybody in a section voted for 1 party
 
 ```sparql 
@@ -250,11 +255,12 @@ order by ?entropy
 ```
 
 ## Anomalous sections
-Indicator of controlled or bought voting
-Sections where a party has received more than 100 votes and has more than and a result in the section more than 2 times higher than its result in the municipality
-Example:
 
-Parlamentary 2017, Borovo Municipality GERB have 35.06% of the vote, while in section 190300005 в с.Брестовица, 74.67% of the voters vote for them. 
+Indicator of controlled or bought voting Sections where a party has received more than 100 votes and has more than and a
+result in the section more than 2 times higher than its result in the municipality Example:
+
+Parlamentary 2017, Borovo Municipality GERB have 35.06% of the vote, while in section 190300005 в с.Брестовица, 74.67%
+of the voters vote for them.
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
@@ -271,7 +277,7 @@ select ?sec ?mun_label ?party ?party_label ?total_votes_sec ?sec_party_votes ?se
     ?sec a  my:Section ;
             myd:place/myd:municipality ?mun ;
 		    myd:election ?election;		
-    .     
+    .
     ?voting myd:section ?sec ;
             myp:vote ?vote_st ;
             myd:voters_voted_count ?total_votes_sec ;
@@ -315,9 +321,11 @@ where {
     group by ?election ?mun ?party order by desc(?vote_ratio_mun) }
 }
 ```
+
 ## Elections Abroad
 
 Kludge for pi2017 - reason fucked up parites
+
 ```spaqrl
 ## Winners abroad  
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -464,7 +472,8 @@ select ?sec_num ?voters_15 ?voted_15 ?party_votes_15 ?voters_19 ?voted_19 ?party
 
 ## Intra-election comparison of results per section
 
-Given a section ID, this query outputs the results fore winner of every election compared to mean of winner for all the sections in the location 
+Given a section ID, this query outputs the results fore winner of every election compared to mean of winner for all the
+sections in the location
 
 ```sparql
 ## Intra-election comparison of results per single section 
@@ -539,6 +548,7 @@ select ?sec ?label ?date ?votes_max ?vote_ratio ?el ?party ?party_label (floor((
 } group by ?sec ?label ?date  ?votes_max ?vote_ratio ?el ?party ?party_label order by desc(?date)
 
 ```
+
 ## Gurkovo
 
 ```sparql
@@ -616,8 +626,6 @@ select ?sec ?sec_num ?label ?date ?voters_list ?total_votes  ?votes_max ?vote_ra
 
 ```
 
-
-
 ## Hristo Botev local anomaly (ми2015 / ми2019)
 
 ```spaqrl
@@ -692,11 +700,14 @@ select ?sec ?sec_num ?label ?date ?voters_list ?total_votes  ?votes_max ?vote_ra
     }
 } group by ?sec ?sec_num ?label ?date ?total_votes  ?votes_max ?vote_ratio ?el ?party ?party_label ?prot_link ?pdf_link ?voters_list order by desc(?sec_num) desc(?date)
 ```
-<voting:mi2019/os/2246/224607076> 
+
+<voting:mi2019/os/2246/224607076>
 <voting:mi2015/os/2246/224607076>
 
 ## Sum pref of midlist candidates
-Explore extraordinary high preferences for candidates far down the electoral list. Hypotheisi is that such preferences are used as proof of bought votes. 
+
+Explore extraordinary high preferences for candidates far down the electoral list. Hypotheisi is that such preferences
+are used as proof of bought votes.
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -715,11 +726,9 @@ select ?cand ?c_lab ?p_lab (sum(?votes) as ?votes_sum) where {
 } group by ?cand ?c_lab ?p_lab order by desc(?votes_sum) 
 ```
 
-
-
 ## Place level aggregations for 2 parties TODO!
 
-"Swing places" where the voters in one place switch in bulk between two parties 
+"Swing places" where the voters in one place switch in bulk between two parties
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
@@ -776,6 +785,7 @@ group by ?place ?label}
 }
 
 ```
+
 ## Секции с над 80% избирателна активност.
 
 ```sparql
@@ -803,7 +813,7 @@ select * where {
 
 ```
 
-## Обърнато Гласуване 
+## Обърнато Гласуване
 
 - 150-те секции, в които има "обърнато" гласуване между 1 и 2 тур за кмет.
 - какво значи по-точно?
@@ -933,9 +943,11 @@ where {
 ```
 
 ## Vote winners vs turnover
-Inspired by "Statistical fingerprints of electoral fraud" [pdf](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2016.00936.x)
 
-### Local 
+Inspired by "Statistical fingerprints of electoral
+fraud" [pdf](https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2016.00936.x)
+
+### Local
 
 ```sparql 
 BASE <https://elections.ontotext.com/resource/>
@@ -1044,7 +1056,7 @@ where {
 } 
 ```
 
-### Presidential 
+### Presidential
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
@@ -1151,7 +1163,7 @@ where {
 
 ## Candidate Matching analysis
 
-### Names not following the main pattern 
+### Names not following the main pattern
 
 ```sparql
 BASE <https://github.com/nikolatulechki/semanticElections/resource/entity/>        
@@ -1163,7 +1175,8 @@ where {
     filter(!regex(?l1, "^[^ ]+ [^ ]+ [^ ]+$","i"))
 } 
 ```
-## Geography 
+
+## Geography
 
 ## MAP Sections on YASGUI
 
@@ -1172,6 +1185,7 @@ where {
 <https://api.triplydb.com/s/5xCFWepKC>
 
 Query on for yasgui
+
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -1276,9 +1290,8 @@ select * where {
 } #limit 100 
 ```
 
-Postprocessing Q to fix voting places positioned far from their parent places. 
-Fallback solution is to place them at the same location as their parent place. 
-Will add a flag so that eventually we can look and fix them in the mapping sheets
+Postprocessing Q to fix voting places positioned far from their parent places. Fallback solution is to place them at the
+same location as their parent place. Will add a flag so that eventually we can look and fix them in the mapping sheets
 
 ## Comparing population with sum of registered voters
 
@@ -1318,8 +1331,8 @@ group by ?mun_label ?place_label ?ekatte ?pop
 
 TODO in time use these to produce aggregated results for different elections
 
-
 ## Local elections - aggregation on parties
+
 ```sparql
 BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -1357,14 +1370,14 @@ group by ?election ?party }
 }
 ```
 
-# Integration Queries 
+# Integration Queries
 
-Wikidata Municipalities and Oblast queries. 
-Not working need to debug > produces static mapping which is ok for now. 
+Wikidata Municipalities and Oblast queries. Not working need to debug > produces static mapping which is ok for now.
 
-## Geography 
+## Geography
 
 ### Municipalities from Wikidata
+
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -1404,7 +1417,9 @@ where {
     bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)
 } 
 ```
+
 ### MIRs from wikidata
+
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
@@ -1472,6 +1487,7 @@ construct {
     }
 }
 ```
+
 ### Coordinates based on WKT
 
 ```spaqrl
@@ -1508,6 +1524,7 @@ where {
 ```
 
 ## Generate MI2015 local party mappings
+
 for export to google sheet
 
 ```sparql
@@ -1524,9 +1541,10 @@ select ?loc (group_concat(distinct ?num;separator=";") as ?nums) where {
     filter(!sameterm(?main,<party/mi2015/75>)) #шибаните зелени
 } group by ?loc
 ```
+
 # Dump and export
 
-All votes for a selection of main parties 
+All votes for a selection of main parties
 
 ```sparql
 BASE <https://elections.ontotext.com/resource/>

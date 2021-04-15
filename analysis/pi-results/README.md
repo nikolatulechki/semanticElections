@@ -18,7 +18,7 @@ We want to be able to write rules with SPARQL and simulate different outcomes in
 ### Total vote counts per MIR (table 1)
 
 ```sparql
-BASE <https://elections.ontotext.com/resource/>
+ BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

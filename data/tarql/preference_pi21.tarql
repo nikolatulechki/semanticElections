@@ -1,0 +1,28 @@
+construct {
+	?EL_URI
+		myd:preference_vote ?CAND_URI ;
+		myp:preference_vote ?S_VOTE_URI ;
+	.
+	?S_VOTE_URI
+	    a my:PreferenceVote ;
+		myps:preference_vote ?CAND_URI ;
+		mypq:valid_votes_recieved ?VV ;
+		mypq:votes_electronic ?V_MV ;
+		mypq:votes_paper ?V_PV ;
+	.	
+}
+where {
+	bind(0+"" as ?UNDEF)
+	bind(if(strstarts(?a,"0"),substr(?a,2,1),substr(?a,1,2)) as ?OB_CODE)
+	bind(uri(concat("voting/{EL}/{TYP}",?OB_CODE,"/",?a)) as ?EL_URI)
+	bind(if(contains(lcase(?c),"б") || contains(lcase(?c),"е"),?UNDEF,STRDT(?c, xsd:integer)) as ?CAND_NUM)
+	bind(concat("candidate/{EL}/{TYP}",?OB_CODE,"/",?b,"/",?c) as ?CAND_STR)
+	bind(if(?CAND_NUM > 100,uri(?CAND_STR),?UNDEF) as ?CAND_URI)
+	bind(concat("vote/{EL}/",?a,"/",?OB_CODE,"/",?b,"/",?c,"{MV}") as ?S_VOTE_STR)
+	bind(if(?CAND_NUM > 100,uri(?S_VOTE_STR),?UNDEF) as ?S_VOTE_URI)
+	bind(STRDT(?d, xsd:integer) as ?VV)
+	bind(STRDT(?e, xsd:integer) as ?V_PV)
+	bind(STRDT(?f, xsd:integer) as ?V_MV)
+	filter(?VV != 0)
+}
+

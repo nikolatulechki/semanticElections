@@ -1,0 +1,46 @@
+construct {
+    ?VOTE_URI
+        myd:recieved_ballots ?E ;
+        myd:voters_count ?F ;
+        myd:voters_voted_count ?G ;
+        myd:votes_valid_count ?O ;
+        myd:votes_blanc_count ?S ;
+        myd:link_html ?PROT_LINK ;
+        myd:link_pdf ?PDF_LINK ;
+    .
+} where {
+    bind(strdt(?c,xsd:integer) as ?C)
+    bind(if(?C<10,concat("0",?c),?c) as ?OB_CODE) # leading zero
+    bind(uri(concat("voting/{EL}/{TYP}",?c,"/{RND}",?b)) as ?VOTE_URI)
+    bind(strdt(?e,xsd:integer) as ?E)
+    bind(strdt(?f,xsd:integer) as ?F)
+    bind(strdt(?g,xsd:integer) as ?G)
+    bind(strdt(?o,xsd:integer) as ?O)
+    bind(strdt(?s,xsd:integer) as ?S)
+    bind(strdt(?t,xsd:integer) as ?T)
+    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".html")) as ?PROT_LINK)
+    bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?b,".pdf")) as ?PDF_LINK)
+}
+
+#A 8;
+#B 010100001;
+#C 1;
+#D |3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147|3010147;
+#E 600;
+#F 622;
+#G 406;
+#H 1;
+#I 300;
+#J 106;
+#K 406;
+#L 3;
+#M 297;
+#N 106;
+#O 403;
+#P 295;
+#Q 106;
+#R 401;
+#S 2;
+#T 0;
+#U 2;
+#V 401

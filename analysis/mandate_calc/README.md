@@ -72,3 +72,5 @@ where {
     }
 } group by ?mir ?partyName order by ?mir ?partyName
 ```
+
+https://www.capital.bg/politika_i_ikonomika/bulgaria/2021/04/06/4195043_300_lv_i_5_greshnite_smetki_i_realnata_tejest_na/

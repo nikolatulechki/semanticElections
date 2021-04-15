@@ -127,6 +127,7 @@ group by ?election ?party ?partyName ?candidate ?name order by desc(?sum_valid_v
 
 ```sparql
 # Агрегирани резултати по населено място 
+# Агрегирани резултати по населено място 
 
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -135,21 +136,37 @@ PREFIX place: <https://elections.ontotext.com/resource/place/>
 PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
-select ?place_label ?el_label ?party_label (sum(?n_votes) as ?sum_votes) where {
+select
+
+?place_label ?date ?el ?el_label ?party_label (sum(?n_votes) as ?sum_votes) ?sum_voted (floor(?sum_votes/?sum_voted*10000)/100 as ?ratio)
+where {
     
-    bind(place:07702 as ?place) # place:EKATTE 
+    bind(place:22530 as ?place) # place:EKATTE 
+    
+    {select distinct ?el ?place (sum(?voted) as ?sum_voted) {
+       ?sec a  my:Section ;
+         myd:place ?place ;
+         myd:election ?el .
+    ?voting myd:section ?sec ;
+            myd:voters_voted_count ?voted ;
+    } group by ?el ?place }
+    
     ?sec a  my:Section ;
          myd:place ?place ;
          rdfs:label ?section_label ;
          myd:election ?el .
     ?voting myd:section ?sec ;
-            myp:vote ?vote_st .
+            myp:vote ?vote_st ;
+    		myd:voters_voted_count ?voted ;
+     .
     ?vote_st myps:vote ?party ;
-             mypq:valid_votes_recieved ?n_votes.
+             mypq:valid_votes_recieved ?n_votes ;
+    .
+    filter(?n_votes > 10)
     ?party rdfs:label ?party_label .
-    ?el rdfs:label ?el_label .
+    ?el rdfs:label ?el_label ; myd:date ?date . 
     ?place rdfs:label ?place_label .
-} group by ?place_label ?el ?el_label ?party_label order by ?el desc(?sum_votes)
+} group by ?date ?place_label ?el ?el_label ?party_label ?sum_voted order by desc(?date) ?el desc(?sum_votes)
 ```
 всички резултати на дадена партия, агрегирани по населено място, за определен избор (в случая - за ДПС за изборите за общински съветници 2019
 

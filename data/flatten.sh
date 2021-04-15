@@ -1,3 +1,6 @@
+#PI2021
+python ../common/flatten_4.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/votes_04.04.2021.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/votes_04.04.2021.flat.txt
+
 #EP2019
 python ../common/flatten.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/votes.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/ep2019/votes.flat.txt
 
