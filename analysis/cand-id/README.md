@@ -10,7 +10,7 @@ Depending on the election type, candidates are identified by a combination of:
 * The candidate's three names
 
 Example from `local_candidates_04.04.2021.txt`
-```buildoutcfg
+```csv
 1;01. БЛАГОЕВГРАД;4;БСП за БЪЛГАРИЯ;119;Кирил Пецев Пецев;
 1;01. БЛАГОЕВГРАД;4;БСП за БЪЛГАРИЯ;120;Славчо Иванов Попов;
 1;01. БЛАГОЕВГРАД;4;БСП за БЪЛГАРИЯ;121;Костадин Красимиров Харисков;
