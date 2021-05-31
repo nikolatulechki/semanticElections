@@ -25,7 +25,7 @@ In this example, `Александър Сотиров Стойков` is the 3rd
 
 While this is sufficient to identify _the candidacy_ it is not sufficient to identify _the individual_ for whom we dispose only with their three names. Thus,  currently we do not have any mechanism of identification of individuals between elections or even between candidacies in the same election.
 
-The following query lists names, which appear in more than 10 candidacies in elections since 2013:
+The following SPARQL query lists names, which appear in more than 10 candidacies in elections since 2013:
 
 ```spaqrl
 PREFIX my: <https://elections.ontotext.com/resource/entity/>

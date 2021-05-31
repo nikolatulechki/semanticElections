@@ -1,6 +1,6 @@
 # Semantic Elections
 
-This project's goal is to convert CIK open data about bulgarian elections to 5-star RDF 
+This project's goal is to convert CIK open data about bulgarian elections to 5-star RDF. If you don't already know why this is useful, read this [blog post](https://www.ontotext.com/blog/5-star-linked-open-elections-data/).
 
 ## Endpoint
 
