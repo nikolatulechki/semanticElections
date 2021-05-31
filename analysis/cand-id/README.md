@@ -97,8 +97,10 @@ Here is an example from the Registry Agency's open data for 16.02.2021 (availabl
 
 ## Dataset interoperability
 
-Beside proper identification and deduplication oif the candidate data, a very worthwhile stretch goal would be to ensure **data interoperability between the two datasests**. 
+Beside proper identification and deduplication if the candidate data, a very worthwhile stretch goal would be to ensure **data interoperability between the two datasets**. 
 
 This is relatively straightforward and requires implementing **exactly the same hash function** as the one used by the Trade Registry. 
 
-If this is achieved, it would be guaranteed that if Mr. Tulechki is ever a candidate in an election in Bulgaria, he would receive the same identifier as the one in the trade registry dataset. Such a correspondence will eliminate any ambiguity between the two datasets and pave the way for much more precise data analytics in the future.     
+If this is achieved, it would be guaranteed that if Mr. Tulechki is ever a candidate in an election in Bulgaria, he would receive the same identifier as the one in the trade registry dataset. 
+
+Such a correspondence will eliminate any ambiguity between the two datasets and in consequence the necessity to perform costly and inherently imprecise entity-linking tasks. Such higher quality data will and pave the way for much more precise analytics in the future.
