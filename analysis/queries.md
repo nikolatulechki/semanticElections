@@ -715,6 +715,29 @@ PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+select ?sec_id ?pref_total ?pref_votes ?party_num ?cand_num ?party_name ?cand_name where { 
+    {select ?v (sum(?pref) as ?pref_total) {
+    ?v myd:main_election election:pi2021 ; 
+       myp:preference_vote/mypq:valid_votes_recieved ?pref .   
+    } group by ?v }
+	?v myp:preference_vote ?s ; myd:section/myd:number ?sec_id .
+    ?s a my:PreferenceVote ; mypq:valid_votes_recieved ?pref_votes ; myps:preference_vote ?cand .
+    ?cand myd:number ?cand_num ; rdfs:label ?cand_name .
+    ?cand myd:represents ?party .
+    ?party myd:number ?party_num ; rdfs:label ?party_name .
+    filter(?cand_num>103)
+    filter(?pref_votes>15)
+} order by ?sec_id desc(?pref_votes)
+```
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 select ?cand ?c_lab ?p_lab (sum(?votes) as ?votes_sum) where { 
 	?s a my:PreferenceVote ; mypq:valid_votes_recieved ?votes ; myps:preference_vote ?cand .
     ?cand myd:number ?cand_num ; rdfs:label ?c_lab .

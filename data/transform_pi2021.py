@@ -87,7 +87,7 @@ queryArgs = {
     "EL": "pi2021" ,
     "TYP" : "" ,
     "RND" : "",
-    "CIK_THR": "21"
+    "CIK_THR": "31"
 }
 
 infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/local_parties_04.04.2021.txt'
