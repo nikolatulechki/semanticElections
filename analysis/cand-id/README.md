@@ -23,9 +23,9 @@ In this example, `Александър Сотиров Стойков` is the 3rd
 
 ## Candidate Homonymy
 
-While this is sufficient to identify _the candidacy_ it is not sufficient to identify _the individual_. This is because across elections, we can rely only on their three names. Thus, currently *we do not have any mechanism of identification of individuals between elections* or even between candidacies in the same election.
+While this is sufficient to identify _the candidacy_ it is not sufficient to identify _the individual_. This is because across elections, we can rely only on their three names. Thus, currently **we do not have any mechanism of identification of individuals between elections** or even between candidacies in the same election.
 
-The following SPARQL query lists names, which appear in more than 10 candidacies in elections since 2013:
+Let's illustrate this! The following SPARQL query lists names, which appear in more than 10 candidacies in elections since 2013:
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
