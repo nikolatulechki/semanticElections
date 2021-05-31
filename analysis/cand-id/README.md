@@ -2,7 +2,8 @@
 
 ## Current state
 
-Candidates are currently shared in a file named `cik_candidates_DATE.txt` or `local_candidates_DATE.txt`. Depending on the election type, candidates are identified by a combination of: 
+Candidates are currently shared by the Central Elections Committee (CEC) as part of the open data dump, in a file named `cik_candidates_DATE.txt` or `local_candidates_DATE.txt`. 
+Depending on the election type, candidates are identified by a combination of: 
 * the ballot number of the party,
 * the constituency (region or municipality)
 * their number in the electoral list.
