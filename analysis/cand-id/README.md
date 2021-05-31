@@ -27,7 +27,7 @@ While this is sufficient to identify _the candidacy_ it is not sufficient to ide
 
 The following SPARQL query lists names, which appear in more than 10 candidacies in elections since 2013:
 
-```spaqrl
+```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
