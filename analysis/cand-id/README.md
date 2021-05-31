@@ -59,7 +59,7 @@ select ?candidate_uri ?candidate_name ?election_label ?election_date ?candidate_
 ## Proposed solution
 
 It is clear that three names are not enough to identify the individuals from their candidacies. The obvious solution is to distribute the candidate's EGN identifiers, but this is impossible ad it is against current data privacy regulations.
-Fortunately, a very similar problem is faced by the Bulgarian Registry agency, who have already proposed a solution. In the open data provided by the Registry Agency, identifiers are anonymised using a hash function (ususally) on the individual's EGN identifier. This way the original is obfuscated while the uniquenss of the identification remains. 
+Fortunately, a very similar problem is faced by the Bulgarian Registry agency, who have already proposed a solution. In the open data provided by the Registry Agency, identifiers are anonymized using a [hash function](https://en.wikipedia.org/wiki/Hash_function) (usually) on the individual's EGN identifier. This way the original is obfuscated while the uniquenss of the identification remains. 
 Here is an example from the Registry Agency's open data for 16.02.2021 (available [here](https://data.egov.bg/organisation/datasets/resourceView/bd6ae065-1035-4020-89a1-40095288a4a1)) In this JSON snippet, the person named `Никола Красимиров Тулечки` is identified by the string `1065f008ebe9874127eaa2858247d448ebc280f6f6f3da8e5b62458056dbac7c`. This string is guaranteed to be te same for every other mention of the same person in the data.
 
 ```json
