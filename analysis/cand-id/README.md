@@ -59,10 +59,10 @@ select ?candidate_uri ?candidate_name ?election_label ?election_date ?candidate_
 ## Proposed solution
 
 It is clear that three names are not enough to identify the individuals from their candidacies. The obvious solution is to distribute the candidate's EGN identifiers, but this is impossible ad it is against current data privacy regulations. 
-Our proposition is in accordance with the annonymisation procedure in [Article 15,4](https://www.lex.bg/en/laws/ldoc/2136995819#i_19) of "НАРЕДБА ЗА ОБЩИТЕ ИЗИСКВАНИЯ КЪМ ИНФОРМАЦИОННИТЕ СИСТЕМИ, РЕГИСТРИТЕ И ЕЛЕКТРОННИТЕ АДМИНИСТРАТИВНИ УСЛУГИ" and has the following features:
+Our proposition is in accordance with the anonymisation procedure in [Article 15,4](https://www.lex.bg/en/laws/ldoc/2136995819#i_19) of "НАРЕДБА ЗА ОБЩИТЕ ИЗИСКВАНИЯ КЪМ ИНФОРМАЦИОННИТЕ СИСТЕМИ, РЕГИСТРИТЕ И ЕЛЕКТРОННИТЕ АДМИНИСТРАТИВНИ УСЛУГИ" and has the following features:
 
 * It generates a unique identifier based on an individual's three names and EGN number
-* It is not reversable and not succeptible to brute-force attacks as hashing juts the EGN would be
+* It is not reversible and not susceptible to brute-force attacks as hashing juts the EGN would be
 * Does not require sharing secrets as the current solution in the Trade Registry and is thus adapted for widespread adoption for bettering data interoperability
 
 In order to generate a stable identifier for an individual without revealing his EGN number we apply SHA256 to a concatenation of the lowercase variants of the individual's first middle and last name and the first 7 digits of their EGN number. for "Никола Красимиров Тулечки",  EGN 8404236***, 
