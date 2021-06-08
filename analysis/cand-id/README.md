@@ -58,49 +58,26 @@ select ?candidate_uri ?candidate_name ?election_label ?election_date ?candidate_
 
 ## Proposed solution
 
-It is clear that three names are not enough to identify the individuals from their candidacies. The obvious solution is to distribute the candidate's EGN identifiers, but this is impossible ad it is against current data privacy regulations.
-Fortunately, a very similar problem is faced by the Bulgarian Registry agency, who have already proposed a solution. In the open data provided by the Registry Agency, identifiers are anonymized using a [hash function](https://en.wikipedia.org/wiki/Hash_function) (usually) on the individual's EGN identifier. This way the original is obfuscated while the uniquenss of the identification remains. 
+It is clear that three names are not enough to identify the individuals from their candidacies. The obvious solution is to distribute the candidate's EGN identifiers, but this is impossible ad it is against current data privacy regulations. 
+Our proposition is in accordance with the annonymisation procedure in [Article 15,4](https://www.lex.bg/en/laws/ldoc/2136995819#i_19) of "НАРЕДБА ЗА ОБЩИТЕ ИЗИСКВАНИЯ КЪМ ИНФОРМАЦИОННИТЕ СИСТЕМИ, РЕГИСТРИТЕ И ЕЛЕКТРОННИТЕ АДМИНИСТРАТИВНИ УСЛУГИ" and has the following features:
+
+* It generates a unique identifier based on an individual's three names and EGN number
+* It is not reversable and not succeptible to brute-force attacks as hashing juts the EGN would be
+* Does not require sharing secrets as the current solution in the Trade Registry and is thus adapted for widespread adoption for bettering data interoperability
+
+In order to generate a stable identifier for an individual without revealing his EGN number we apply SHA256 to a concatenation of the lowercase variants of the individual's first middle and last name and the first 7 digits of their EGN number. for "Никола Красимиров Тулечки",  EGN 8404236***, 
+
+```SHA256("николакрасимировтулечки8404236") = 00bd86e8887e95525fb08db52c938dbc3f60f537f4df5c65f56d33acb2861b94```    
+
+In order to control for consistency and avoid unwanted variants we propose adding the following constraints.
+* only lowercase cyrillic letters from the bulgarian alphabet are allowed
+* any spaces are removed (this is done to avoid ambiguity due to the plethora of spacing characters out there)
+
+The input string of the hash function should match the following regex
+`/^абвгдежзийклмнопрстуфхцчшщъьюя+[0-9]{7}$/`
 
 
-Here is an example from the Registry Agency's open data for 16.02.2021 (available [here](https://data.egov.bg/organisation/datasets/resourceView/bd6ae065-1035-4020-89a1-40095288a4a1)) In this JSON snippet, the person named `Никола Красимиров Тулечки` is identified by the string `1065f008ebe9874127eaa2858247d448ebc280f6f6f3da8e5b62458056dbac7c`. This string is guaranteed to be te same for every other mention of the same person in the data.
 
-```json
-{ "Person": [
-    {
-        "$": {
-            "CountryCode": "BGR",
-            "Position": "Председател на Управителния съвет",
-            "IsForeignTraderText": "0"
-        },
-        "_": "",
-        "Indent": [
-            {
-                "_": "1065f008ebe9874127eaa2858247d448ebc280f6f6f3da8e5b62458056dbac7c"
-            }
-        ],
-        "Name": [
-            {
-                "_": "Никола Красимиров Тулечки"
-            }
-        ],
-        "IndentType": [
-            {
-                "_": "EGN"
-            }
-        ]
-    }
-  ]
-}
-```
 
-**We propose to implement the same solution for the election data and alonside the name provide the product of a hash function over the candidate's identifier.** 
 
-## Dataset interoperability
 
-Beside proper identification and deduplication if the candidate data, a very worthwhile stretch goal would be to ensure **data interoperability between the two datasets**. 
-
-This is relatively straightforward and requires implementing **exactly the same hash function** as the one used by the Trade Registry. 
-
-If this is achieved, it would be guaranteed that if Mr. Tulechki is ever a candidate in an election in Bulgaria, he would receive the same identifier as the one in the trade registry dataset. 
-
-Such a correspondence will eliminate any ambiguity between the two datasets and in consequence the necessity to perform costly and inherently imprecise entity-linking tasks. Such higher quality data will and pave the way for much more precise analytics in the future.
