@@ -337,7 +337,7 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-select ?section_label ?sec_id ?mun_label ?city_label ?lat ?lon ?total_votes_sec ?winner_votes ?winner_vote_ratio ?winner_label ?link_html ?link_pdf  {
+select ?section_label ?sec_id ?mun_label ?city_label ?lat ?lon ?total_votes_sec ?winner_votes ?winner_vote_ratio ?winner_label ?link_html ?link_pdf ?models ?n_models ?gplace_link ?gcoords_link {
     
     ?sec a  my:Section ;
          rdfs:label ?section_label ;
@@ -359,7 +359,15 @@ select ?section_label ?sec_id ?mun_label ?city_label ?lat ?lon ?total_votes_sec 
     ?place geo:hasGeometry
             ?geo .
     ?geo geo:lat ?lat ; geo:long ?lon .
-    
+    optional{
+		?place geo:hasGeometry/myd:source "google_maps" .
+        bind(uri(concat("https://www.google.com/maps/place/?q=place_id:",strafter(str(?place),str(<votingPlace/>)))) as ?gplace_link)                                                  
+    }
+    optional{
+		?place geo:hasGeometry/myd:source "parent_place_coords" .
+        bind(uri(concat("https://www.google.com/maps/search/?api=1&query=",str(?lat),",",str(?lon))) as ?gcoords_link)                                                  
+    }
+   
     ?voting myd:section ?sec ;
             myp:vote ?vote_st ;
             myd:voters_voted_count ?total_votes_sec ;
@@ -380,10 +388,12 @@ select ?section_label ?sec_id ?mun_label ?city_label ?lat ?lon ?total_votes_sec 
     bind(coalesce(?main_party_label,?party_label) as ?winner_label)
     
     {
-        select ?voting (max(?valid_votes) as ?winner_votes)  where {
+        select ?voting (max(?valid_votes) as ?winner_votes) (count(distinct ?model) as ?n_models) (group_concat(distinct ?model;separator="|") as ?models) where {
             bind(<election/pi2017> as ?election) # Парламент 2017 
             ?sec a  my:Section ;
-                 myd:meta_section/myd:isRisky true .
+                 myd:meta_section ?ms .
+            ?ms myd:isRisky true ;
+                myd:risky_model ?model .
             ?voting myp:vote ?vote  ;
                     myd:main_election ?election ;
                     myd:section ?sec .
@@ -407,31 +417,8 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-PREFIX wd: <http://www.wikidata.org/entity/>
-select 
-(sum(?cand_votes) as ?cand_votes_total) (count(*) as ?count) 
-# ?section_label ?sec_id ?mun_label ?city_label ?lat ?lon ?total_votes_sec ?cand_votes ?cand_vote_ratio ?cand_label ?link_html ?link_pdf
-{
+select ?place ?section_label ?sec_id ?mun_label ?city_label ?lat ?lon ?total_votes_sec ?winner_votes ?winner_vote_ratio ?winner_label ?link_html ?link_pdf ?models ?n_models ?gplace_link ?gcoords_link {
     
-    bind(<election/pi2017> as ?election) # Парламент 2017 
-    bind(wd:Q25485773 as ?main_party) # Воля
-#    bind(wd:Q16943183 as ?main_party) # ББЦ
-    
-    ?party rdfs:label ?party_label ; myd:party+ ?main_party .
-    ?main_party rdfs:label ?cand_label .
-    
-    ?voting myd:section ?sec ;
-            myp:vote ?vote_st ;
-            myd:voters_voted_count ?total_votes_sec ;
-            myd:vote ?party ;
-            myd:main_election ?election ;
-            myd:link_html ?link_html ;
-            myd:link_pdf ?link_pdf ;
-            .
-    ?vote_st myps:vote ?party ;
-             mypq:valid_votes_recieved ?cand_votes .
-    filter(?cand_votes > 20)   
-    bind(floor((?cand_votes/?total_votes_sec)*10000)/100 as ?cand_vote_ratio)
     
     ?sec a  my:Section ;
          rdfs:label ?section_label ;
@@ -452,7 +439,49 @@ select
     }
     ?place geo:hasGeometry
             ?geo .
-    ?geo geo:lat ?lat ; geo:long ?lon .    
+    ?geo geo:lat ?lat ; geo:long ?lon .
+    optional{
+		?place geo:hasGeometry/myd:source "google_maps" .
+        bind(uri(concat("https://www.google.com/maps/place/?q=place_id:",strafter(str(?place),str(<votingPlace/>)))) as ?gplace_link)                                                  
+    }
+    optional{
+		?place geo:hasGeometry/myd:source "parent_place_coords" .
+        bind(uri(concat("https://www.google.com/maps/search/?api=1&query=",str(?lat),",",str(?lon))) as ?gcoords_link)                                                  
+    }
+   
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st ;
+            myd:voters_voted_count ?total_votes_sec ;
+            myd:vote ?party ;
+            myd:main_election ?election ;
+            myd:link_html ?link_html ;
+            myd:link_pdf ?link_pdf ;
+            .
+    ?vote_st myps:vote ?party ;
+             mypq:valid_votes_recieved ?winner_votes .
+    bind(floor((?winner_votes/?total_votes_sec)*10000)/100 as ?winner_vote_ratio)
+ 	
+    ?party rdfs:label ?party_label .
+     optional {             
+        ?party myd:party+ ?main_party .
+        ?main_party a my:Party ; rdfs:label ?main_party_label .
+    }
+    bind(coalesce(?main_party_label,?party_label) as ?winner_label)
+    
+    {
+        select ?voting (max(?valid_votes) as ?winner_votes) (count(distinct ?model) as ?n_models) (group_concat(distinct ?model;separator="|") as ?models) where {
+            bind(<election/pi2014> as ?election) # Парламент 2017 
+            ?sec a  my:Section ;
+                 myd:meta_section ?ms .
+            ?ms myd:isRisky true ;
+                myd:risky_model ?model .
+            ?voting myp:vote ?vote  ;
+                    myd:main_election ?election ;
+                    myd:section ?sec .
+            ?vote myps:vote ?party;
+                  mypq:valid_votes_recieved ?valid_votes ;
+                  } group by ?voting having(?n_models = 1)
+    }
 }
 ```
 
@@ -525,6 +554,64 @@ WHERE        {
         #    filter not exists {?v myd:section/myd:meta_section/myd:isRisky true ;}
 } group by ?ms having(?ent_avg < 1) 
 }
+```
+
+ ## Dolni Cibar
+
+Избирателна активност 
+
+```spaqrl
+# Агрегирани резултати по населено място 
+
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select ?place_label ?date ?el ?el_label (sum(?voters) as ?sum_voters) (sum(?voted) as ?sum_voted) where {
+    
+    bind(place:22530 as ?place) # place:EKATTE 
+    ?sec a  my:Section ;
+         myd:place ?place ;
+         rdfs:label ?section_label ;
+         myd:election ?el .
+    ?voting myd:section ?sec ;
+            myd:voters_voted_count ?voted ;
+            myd:voters_count ?voters .
+    ?el rdfs:label ?el_label ; myd:date ?date . 
+    ?place rdfs:label ?place_label .
+} group by ?date ?place_label ?el ?el_label  order by ?date ?el 
+```
+
+Разбивка
+
+```sparql
+# Агрегирани резултати по населено място 
+
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select ?place_label ?date ?el ?el_label ?party_label (sum(?n_votes) as ?sum_votes) where {
+    
+    bind(place:22530 as ?place) # place:EKATTE 
+    ?sec a  my:Section ;
+         myd:place ?place ;
+         rdfs:label ?section_label ;
+         myd:election ?el .
+    ?voting myd:section ?sec ;
+            myp:vote ?vote_st .
+    ?vote_st myps:vote ?party ;
+             mypq:valid_votes_recieved ?n_votes.
+    ?party rdfs:label ?party_label .
+    ?el rdfs:label ?el_label ; myd:date ?date . 
+    ?place rdfs:label ?place_label .
+} group by ?date ?place_label ?el ?el_label ?party_label order by ?date ?el desc(?sum_votes)
 ```
 
 ```sparql
