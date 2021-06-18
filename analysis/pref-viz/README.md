@@ -12,15 +12,15 @@ PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
-select ?name ?cand_number_norm ?mir (sum(?pref) as ?pref_votes) where { 
+select ?name ?cand_number ?mir_norm (sum(?pref) as ?pref_votes) where { 
 
-#    bind(wd:Q164242 as ?party) #DPS
-    bind(wd:Q133968 as ?party) #ГЕРБ
+    bind(wd:Q164242 as ?party) #DPS
+#    bind(wd:Q133968 as ?party) #ГЕРБ
     bind(<election/pi2021> as ?main_el) #"Избори за Европейски Парламент 2019"
     ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?name ; myd:number ?cand_number .
     ?localParty  myd:party/myd:party ?party ; myd:number ?party_number .
     ?el myd:main_election ?main_el ; myd:jurisdiction/myd:number ?mir .
     ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?pref .
-    bind(if(xsd:integer(?cand_number)>100,xsd:integer(?cand_number)-100,?cand_number) as ?cand_number_norm)
-} group by ?name ?cand_number_norm ?mir order by ?mir
+    bind(if(strlen(?mir)=1,concat("0",str(?mir)),?mir) as ?mir_norm)
+} group by ?name ?cand_number ?mir_norm order by ?mir
 ```
