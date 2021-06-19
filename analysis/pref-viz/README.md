@@ -24,3 +24,69 @@ select ?name ?cand_number ?mir_norm (sum(?pref) as ?pref_votes) where {
     bind(if(strlen(?mir)=1,concat("0",str(?mir)),?mir) as ?mir_norm)
 } group by ?name ?cand_number ?mir_norm order by ?mir
 ```
+
+Query with drill down link
+```sparql
+# pref votes per party and per election
+
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select ?candidate ?name ?cand_number ?mir_norm (sum(?pref) as ?pref_votes) ?link where { 
+
+#    bind(wd:Q164242 as ?party) #DPS
+    bind(wd:Q133968 as ?party) #ГЕРБ
+    bind(<election/pi2017> as ?main_el) 
+    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?name ; myd:number ?cand_number .
+    ?localParty  myd:party/myd:party ?party ; myd:number ?party_number .
+    ?el myd:main_election ?main_el ; myd:jurisdiction/myd:number ?mir .
+    ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?pref .
+    bind(if(strlen(?mir)=1,concat("0",str(?mir)),?mir) as ?mir_norm)
+    
+    bind(uri(concat("https://elections.ontotext.com/sparql?name=&infer=true&sameAs=true&query=%23%20pref%20votes%20for%20a%20single%20candidate%0A%0ABASE%20%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2F%3E%0APREFIX%20my%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fentity%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20wd%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX%20myd%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fdirect%2F%3E%0APREFIX%20election%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Felection%2F%3E%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX%20myps%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fstatement%2F%3E%0APREFIX%20mypq%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fqualifier%2F%3E%0APREFIX%20myp%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Findirect%2F%3E%0Aselect%20%3Fparty_label%20%3Fcand_number%20%3Fcand_name%20%3Fobl%20%3Fmun%20%3Fplace%20%3Fsec_id%20%3Fcand_preferences%20%3Fparty_votes%20%3Fpref_ratio%20%3Fprotocol%20where%20%7B%20%0A%20%20%20%20bind(%3C",encode_for_uri(str(?candidate)),"%3E%20as%20%3Fcandidate)%0A%20%20%20%20%3Fcandidate%20a%20my%3ACandidate%20%3B%20myd%3Arepresents%20%3FlocalParty%20%20%3B%20myd%3Acandidacy%20%3Fel%20%3B%20rdfs%3Alabel%20%3Fcand_name%20%3B%20myd%3Anumber%20%3Fcand_number%20.%20%0A%20%20%20%20%3Fvoting%20myp%3Apreference_vote%20%3Fpv%20%3B%20myp%3Avote%20%3Fv%20%3B%20%20myd%3Asection%20%3Fsection%20%3B%20myd%3Alink_html%20%3Fprotocol%20.%0A%20%20%20%20%3Fv%20myps%3Avote%20%3FlocalParty%20%3B%20mypq%3Avalid_votes_recieved%20%3Fparty_votes%20.%0A%20%20%20%20%3Fpv%20myps%3Apreference_vote%20%3Fcandidate%20%3B%20mypq%3Avalid_votes_recieved%20%3Fcand_preferences%20.%0A%20%20%20%20%3FlocalParty%20rdfs%3Alabel%20%3Fparty_label%20.%0A%20%20%20%20%3Fsection%20myd%3Anumber%20%3Fsec_id%20%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Frdfs%3Alabel%20%3Fplace%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Fmyd%3Amunicipality%2Frdfs%3Alabel%20%3Fmun%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Fmyd%3Amunicipality%2Fmyd%3Aprovince%2Frdfs%3Alabel%20%3Fobl%20%3B%0A%20%20%20%20.%0A%20%20%20%20%0A%20%20%20%20bind(floor((%3Fcand_preferences%2F%3Fparty_votes)*10000)%2F100%20as%20%3Fpref_ratio)%0A%20%20%20%20%0A%7D%20order%20by%20desc(%3Fcand_preferences)&execute")) as ?link)
+    
+} group by ?candidate ?name ?cand_number ?mir_norm ?link order by ?mir
+```
+
+```sparql
+# pref votes for a single candidate
+
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+select ?party_label ?cand_number ?cand_name ?obl ?mun ?place ?sec_id ?cand_preferences ?party_votes ?pref_ratio ?protocol where { 
+    bind(<https://elections.ontotext.com/resource/candidate/pi2021/1/9/102> as ?candidate)
+    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?cand_name ; myd:number ?cand_number . 
+    ?voting myp:preference_vote ?pv ; myp:vote ?v ;  myd:section ?section ; myd:link_html ?protocol .
+    ?v myps:vote ?localParty ; mypq:valid_votes_recieved ?party_votes .
+    ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?cand_preferences .
+    ?localParty rdfs:label ?party_label .
+    ?section myd:number ?sec_id ; 
+             myd:place/rdfs:label ?place ;
+             myd:place/myd:municipality/rdfs:label ?mun ;
+             myd:place/myd:municipality/myd:province/rdfs:label ?obl ;
+    .
+    
+    bind(floor((?cand_preferences/?party_votes)*10000)/100 as ?pref_ratio)
+    
+} order by desc(?cand_preferences)
+```
+
+https://elections.ontotext.com/sparql?name=&infer=true&sameAs=true&query=%23%20pref%20votes%20for%20a%20single%20candidate%0A%0ABASE%20%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2F%3E%0APREFIX%20my%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fentity%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20wd%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX%20myd%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fdirect%2F%3E%0APREFIX%20election%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Felection%2F%3E%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX%20myps%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fstatement%2F%3E%0APREFIX%20mypq%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fqualifier%2F%3E%0APREFIX%20myp%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Findirect%2F%3E%0Aselect%20%3Fparty_label%20%3Fcand_number%20%3Fcand_name%20%3Fobl%20%3Fmun%20%3Fplace%20%3Fsec_id%20%3Fcand_preferences%20%3Fparty_votes%20%3Fpref_ratio%20%3Fprotocol%20where%20%7B%20%0A%20%20%20%20bind(
+
+%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fcandidate%2Fpi2021%2F1%2F9%2F102%3E
+
+%20as%20%3Fcandidate)%0A%20%20%20%20%3Fcandidate%20a%20my%3ACandidate%20%3B%20myd%3Arepresents%20%3FlocalParty%20%20%3B%20myd%3Acandidacy%20%3Fel%20%3B%20rdfs%3Alabel%20%3Fcand_name%20%3B%20myd%3Anumber%20%3Fcand_number%20.%20%0A%20%20%20%20%3Fvoting%20myp%3Apreference_vote%20%3Fpv%20%3B%20myp%3Avote%20%3Fv%20%3B%20%20myd%3Asection%20%3Fsection%20%3B%20myd%3Alink_html%20%3Fprotocol%20.%0A%20%20%20%20%3Fv%20myps%3Avote%20%3FlocalParty%20%3B%20mypq%3Avalid_votes_recieved%20%3Fparty_votes%20.%0A%20%20%20%20%3Fpv%20myps%3Apreference_vote%20%3Fcandidate%20%3B%20mypq%3Avalid_votes_recieved%20%3Fcand_preferences%20.%0A%20%20%20%20%3FlocalParty%20rdfs%3Alabel%20%3Fparty_label%20.%0A%20%20%20%20%3Fsection%20myd%3Anumber%20%3Fsec_id%20%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Frdfs%3Alabel%20%3Fplace%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Fmyd%3Amunicipality%2Frdfs%3Alabel%20%3Fmun%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Fmyd%3Amunicipality%2Fmyd%3Aprovince%2Frdfs%3Alabel%20%3Fobl%20%3B%0A%20%20%20%20.%0A%20%20%20%20%0A%20%20%20%20bind(floor((%3Fcand_preferences%2F%3Fparty_votes)*10000)%2F100%20as%20%3Fpref_ratio)%0A%20%20%20%20%0A%7D%20order%20by%20desc(%3Fcand_preferences)
