@@ -42,12 +42,14 @@ PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 select ?candidate ?name ?cand_number ?mir_norm (sum(?pref) as ?pref_votes) ?link where { 
 
 #    bind(wd:Q164242 as ?party) #DPS
+#    bind(wd:Q106393525 as ?party) #ИСМВ
+    bind(wd:Q62808154 as ?party) #ДБ
 #    bind(wd:Q133968 as ?party) #ГЕРБ
 #    bind(wd:Q752259 as ?party) #БСП
-    bind(wd:Q98098908 as ?party) #ИТН
+#    bind(wd:Q98098908 as ?party) #ИТН
     
     
-    bind(<election/pi2021> as ?main_el) 
+    bind(<election/pi2021_07> as ?main_el) 
     ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?name ; myd:number ?cand_number .
     ?localParty  myd:party/myd:party ?party ; myd:number ?party_number .
     ?el myd:main_election ?main_el ; myd:jurisdiction/myd:number ?mir .

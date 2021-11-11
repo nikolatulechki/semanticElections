@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.0"></script>
+  <style>
+    button.tablinks {
+    font-size: 1.5em;
+    padding: 2 px;
+    }
+  </style>
+</head>
+<body>
+
+<!--БУТАШ В ТЕКСТА ОТ ТУК-->
+
+<div id="preference_viz">
+
+  <div class="tab">
+  <button class="tablinks" onclick='vegaEmbed("#vis", spec_itn, {mode: "vega-lite"}).then(console.log).catch(console.warn)'>ИТН</button>
+  <button class="tablinks" onclick='vegaEmbed("#vis", spec_gerb, {mode: "vega-lite"}).then(console.log).catch(console.warn)'>ГЕРБ</button>
+  <button class="tablinks" onclick='vegaEmbed("#vis", spec_bsp, {mode: "vega-lite"}).then(console.log).catch(console.warn)'>БСП</button>
+  <button class="tablinks" onclick='vegaEmbed("#vis", spec_db, {mode: "vega-lite"}).then(console.log).catch(console.warn)'> ДБ</button>
+  <button class="tablinks" onclick='vegaEmbed("#vis", spec_dps, {mode: "vega-lite"}).then(console.log).catch(console.warn)'>ДПС</button>
+  <button class="tablinks" onclick='vegaEmbed("#vis", spec_ismv, {mode: "vega-lite"}).then(console.log).catch(console.warn)'>ИСБГ</button>
+</div>
+
+<div id="vis"/>
+
+  <script>
+
+   const spec_ismv = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "ИСБГ  - Разпределение на преференициалния вот - 11.07.2021",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nikolatulechki/semanticElections/master/analysis/pref-viz/ismv_2021_07.csv"
+  },
+  "width": 1200,
+  "height": 900,
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1,
+    "color": "#028d25"
+  },
+  "encoding": {
+    "x": {
+      "field": "cand_number",
+      "type": "ordinal",
+      "axis": {"grid": false, "title": "Кандидат номер"}
+    },
+    "y": {"field": "mir_norm", "type": "ordinal", "axis": {"title": "МИР"}},
+    "size": {
+      "field": "pref_votes",
+      "type": "quantitative",
+      "scale": {"rangeMax": 5000}
+    },
+    "tooltip": [
+      {"field": "mir_norm", "type": "ordinal", "title": "МИР"},
+      {"field": "cand_number", "type": "ordinal", "title": "Номер"},
+      {"field": "name", "type": "nominal", "title": "Кандидат"},
+      {"field": "pref_votes", "type": "quantitative", "title": "Преференции"}
+    ],
+    "href": {"field": "link", "type": "nominal"}
+  },
+  "config": {"legend": {"disable": true}}
+};
+
+   const spec_dps = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": " ДПС - Разпределение на преференициалния вот - 11.07.2021",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nikolatulechki/semanticElections/master/analysis/pref-viz/dps_2021_07.csv"
+  },
+  "width": 1200,
+  "height": 900,
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1,
+    "color": "#4f667c"
+  },
+  "encoding": {
+    "x": {
+      "field": "cand_number",
+      "type": "ordinal",
+      "axis": {"grid": false, "title": "Кандидат номер"}
+    },
+    "y": {"field": "mir_norm", "type": "ordinal", "axis": {"title": "МИР"}},
+    "size": {
+      "field": "pref_votes",
+      "type": "quantitative",
+      "scale": {"rangeMax": 5000}
+    },
+    "tooltip": [
+      {"field": "mir_norm", "type": "ordinal", "title": "МИР"},
+      {"field": "cand_number", "type": "ordinal", "title": "Номер"},
+      {"field": "name", "type": "nominal", "title": "Кандидат"},
+      {"field": "pref_votes", "type": "quantitative", "title": "Преференции"}
+    ],
+    "href": {"field": "link", "type": "nominal"}
+  },
+  "config": {"legend": {"disable": true}}
+};
+
+   const spec_db = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "ДБ  - Разпределение на преференициалния вот - 11.07.2021",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nikolatulechki/semanticElections/master/analysis/pref-viz/db_2021_07.csv"
+  },
+  "width": 1200,
+  "height": 900,
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1,
+    "color": "#aa03f8"
+  },
+  "encoding": {
+    "x": {
+      "field": "cand_number",
+      "type": "ordinal",
+      "axis": {"grid": false, "title": "Кандидат номер"}
+    },
+    "y": {"field": "mir_norm", "type": "ordinal", "axis": {"title": "МИР"}},
+    "size": {
+      "field": "pref_votes",
+      "type": "quantitative",
+      "scale": {"rangeMax": 5000}
+    },
+    "tooltip": [
+      {"field": "mir_norm", "type": "ordinal", "title": "МИР"},
+      {"field": "cand_number", "type": "ordinal", "title": "Номер"},
+      {"field": "name", "type": "nominal", "title": "Кандидат"},
+      {"field": "pref_votes", "type": "quantitative", "title": "Преференции"}
+    ],
+    "href": {"field": "link", "type": "nominal"}
+  },
+  "config": {"legend": {"disable": true}}
+};
+
+    const spec_bsp = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "БСП  - Разпределение на преференициалния вот - 11.07.2021",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nikolatulechki/semanticElections/master/analysis/pref-viz/bsp_2021_07.csv"
+  },
+  "width": 1200,
+  "height": 900,
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1,
+    "color": "#be0b0bc2"
+  },
+  "encoding": {
+    "x": {
+      "field": "cand_number",
+      "type": "ordinal",
+      "axis": {"grid": false, "title": "Кандидат номер"}
+    },
+    "y": {"field": "mir_norm", "type": "ordinal", "axis": {"title": "МИР"}},
+    "size": {
+      "field": "pref_votes",
+      "type": "quantitative",
+      "scale": {"rangeMax": 5000}
+    },
+    "tooltip": [
+      {"field": "mir_norm", "type": "ordinal", "title": "МИР"},
+      {"field": "cand_number", "type": "ordinal", "title": "Номер"},
+      {"field": "name", "type": "nominal", "title": "Кандидат"},
+      {"field": "pref_votes", "type": "quantitative", "title": "Преференции"}
+    ],
+    "href": {"field": "link", "type": "nominal"}
+  },
+  "config": {"legend": {"disable": true}}
+};
+
+  const spec_gerb = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "ГЕРБ - Разпределение на преференициалния вот - 11.07.2021",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nikolatulechki/semanticElections/master/analysis/pref-viz/gerb_2021_07.csv"
+  },
+  "width": 1200,
+  "height": 900,
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1,
+    "color": "#1c4d9c"
+  },
+  "encoding": {
+    "x": {
+      "field": "cand_number",
+      "type": "ordinal",
+      "axis": {"grid": false, "title": "Кандидат номер"}
+    },
+    "y": {"field": "mir_norm", "type": "ordinal", "axis": {"title": "МИР"}},
+    "size": {
+      "field": "pref_votes",
+      "type": "quantitative",
+      "scale": {"rangeMax": 5000}
+    },
+    "tooltip": [
+      {"field": "mir_norm", "type": "ordinal", "title": "МИР"},
+      {"field": "cand_number", "type": "ordinal", "title": "Номер"},
+      {"field": "name", "type": "nominal", "title": "Кандидат"},
+      {"field": "pref_votes", "type": "quantitative", "title": "Преференции"}
+    ],
+    "href": {"field": "link", "type": "nominal"}
+  },
+  "config": {"legend": {"disable": true}}
+};
+
+    const spec_itn = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "ПП ИТН - Разпределение на преференициалния вот - 11.07.2021",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nikolatulechki/semanticElections/master/analysis/pref-viz/itn_2021_07.csv"
+  },
+  "width": 1200,
+  "height": 900,
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1,
+    "color": "#07abecc2"
+  },
+  "encoding": {
+    "x": {
+      "field": "cand_number",
+      "type": "ordinal",
+      "axis": {"grid": false, "title": "Кандидат номер"}
+    },
+    "y": {"field": "mir_norm", "type": "ordinal", "axis": {"title": "МИР"}},
+    "size": {
+      "field": "pref_votes",
+      "type": "quantitative",
+      "scale": {"rangeMax": 5000}
+    },
+    "tooltip": [
+      {"field": "mir_norm", "type": "ordinal", "title": "МИР"},
+      {"field": "cand_number", "type": "ordinal", "title": "Номер"},
+      {"field": "name", "type": "nominal", "title": "Кандидат"},
+      {"field": "pref_votes", "type": "quantitative", "title": "Преференции"}
+    ],
+    "href": {"field": "link", "type": "nominal"}
+  },
+  "config": {"legend": {"disable": true}}
+};
+
+vegaEmbed("#vis", spec_itn, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+
+</script>
+</div>
+
+<!--БУТАШ В ТЕКСТА ДО ТУК-->
+
+</body>
+</html>
