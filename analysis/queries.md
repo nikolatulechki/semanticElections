@@ -80,6 +80,23 @@ insert {
 } 
 ```
 
+## Sum up sub_votes for pi2021_07
+```spaqrl
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+insert {
+    ?vote mypq:valid_votes_recieved ?VOTES .
+} where 
+{ select ?vote (sum(?votes) as ?VOTES) where {
+    ?voting myp:vote ?vote ;
+            myd:main_election election:pi2021_07 ;
+    .
+    ?vote mypq:votes_electronic ?votes .
+} group by ?vote }
+```
+
 ## Query to clean-up broken labels
 
 ```sparql

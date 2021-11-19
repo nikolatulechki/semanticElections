@@ -1,0 +1,22 @@
+construct {
+    ?VOTE_URI
+        myd:voters_count ?F ;
+        myd:voters_additional_count ?G ;
+        myd:voters_voted_count ?H ;
+        myd:votes_valid_count ?H ;
+        myd:link_html ?PROT_LINK ;
+        myd:link_pdf ?PDF_LINK ;
+    .
+} where {
+    bind(strdt(?c,xsd:integer) as ?C)
+    bind(if(?C<10,concat("0",?c),?c) as ?OB_CODE) # leading zero
+    bind(uri(concat("voting/{EL}/{TYP}",?c,"/{RND}",?b)) as ?VOTE_URI)
+    bind(strdt(?f,xsd:integer) as ?F)
+    bind(strdt(?g,xsd:integer) as ?G)
+    bind(strdt(?h,xsd:integer) as ?H)
+    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".0.html")) as ?PROT_LINK)
+    bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?b,".pdf")) as ?PDF_LINK)
+}
+
+# 24;020400205;2;|0200017|0200017|0200017|0200017|0200017|0200017|0200017|0200017|0200017|0200017|0200017|0200017;200;189;7;119;79;2;;119;;0;119;118;1
+
