@@ -1,5 +1,6 @@
 #PI2021
-python ../common/flatten_2.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021_07/votes_11.07.2021.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/votes_votes_11.07.2021.txt
+python ../common/flatten_2.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021_11/votes_14.11.2021.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021_11/votes_votes_14.11.2021.flat.txt
+python ../common/flatten_2.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021_07/votes_11.07.2021.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021_07/votes_votes_11.07.2021.flat.txt
 
 #PI2021
 python ../common/flatten_4.py /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/votes_04.04.2021.txt > /home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/votes_04.04.2021.flat.txt

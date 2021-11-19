@@ -92,6 +92,7 @@ insert {
 { select ?vote (sum(?votes) as ?VOTES) where {
     ?voting myp:vote ?vote ;
             myd:main_election election:pi2021_07 ;
+            #myd:main_election election:pi2021_11 ;
     .
     ?vote mypq:votes_electronic ?votes .
 } group by ?vote }
