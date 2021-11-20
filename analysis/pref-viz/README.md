@@ -1,93 +1,28 @@
 # Preference plots
 
-```sparql
-# pref votes per party and per election
+# November 2021
 
-BASE  <https://elections.ontotext.com/resource/>
-PREFIX my: <https://elections.ontotext.com/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX election: <https://elections.ontotext.com/resource/election/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
-PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
-select ?name ?cand_number ?mir_norm (sum(?pref) as ?pref_votes) where { 
+## ПП 
 
-    bind(wd:Q164242 as ?party) #DPS
-#    bind(wd:Q133968 as ?party) #ГЕРБ
-    bind(<election/pi2021> as ?main_el) #"Избори за Европейски Парламент 2019"
-    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?name ; myd:number ?cand_number .
-    ?localParty  myd:party/myd:party ?party ; myd:number ?party_number .
-    ?el myd:main_election ?main_el ; myd:jurisdiction/myd:number ?mir .
-    ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?pref .
-    bind(if(strlen(?mir)=1,concat("0",str(?mir)),?mir) as ?mir_norm)
-} group by ?name ?cand_number ?mir_norm order by ?mir
-```
+[Link to visualization](https://vega.github.io/editor/#/url/vega-lite/N4IgJAzgxgFgpgWwIYgFwhgF0wBwqgegIDc4BzJAOjIEtMYBXAI0poHsDp5kTykBaADZ04JAKyUAVhDYA7EABoQmOoLhoQgfBBNAAh38dgAhBADCCB2EED8IIAEQQKwggFhBrgbhBrgXhBAHCDWdz4zqvXAIiDWNm6AYiCuxg5ugPIgOoBMIIB8IIBCIPo6AIwALJQpKZQATAAMOSmKIAAmSJgoqKAMAE6CGli4+EQ1SADu1HSMTAwQcDVQcphwspiUgwgEsjQA1myC5QxqsDM0nIhIozRQAKLLKnIQBMgQwzUEm0iCAJ4QNEc4NXAAZvzENABeBDg4APr5hV+WXGEGIIAAvko2jQSvQ0Cl8nklPAaGQsGgAJx5JEgZA1GZoUCYa44dToKA0AZqYpsHBICnEtB5SgADiUpxqbBmZJATAWUAJ7MwnO5AHUYXDUCklINBGwahoAMQpOB5DEssQQpQjQYlGiyMiEkAADyNzxocEEJQ0UE2JV+sgYCCY-WKxNJGnletkV2KSGN9yNZBqMLQzyufSUKkw1PQgCwQYzOWyuWzGJLOOKAHhBAhDISBrmaLVaNAhKQ75Qg3SSeV79b6lP7A1VlKoeYAcEEAGCCGXPsz5k0Dmy3W9CPF6-YhsYYQKse9AARwYm2j5RopGK0Cu-ZArQNcAAsv60GJsXlwXnMGx5iocGgANoDovD3Fl2QVmc1mre+stmPtrtah8hxtO0HSdF0FSjatPU-Ot6ijVsNEAXBAsxzSFAOLdAfQQdRINnEBX1LH04J-WMQATJMUzTACQEHDCQFHZ5x0nOBp1wnkFyXOgVzXeDfw0TQbACIJQlcCEAF1kSeZ5CyA9BhFkQVlCgzC2EI30zxlORzUNZs1DIEZh1APUICQPkyWFBg4DPcEgA/view)
 
-Query with drill down link
+## ГЕРБ
 
-```sparql
-# pref votes per party and per election
+[Link to visualization](https://vega.github.io/editor/#/url/vega-lite/N4IgJAzgxgFgpgWwIYgFwhgF0wBwqgegIDc4BzJAOjIEtMYBXAI0poHsDp5kTykBaADZ04JAKyUAVhDYA7EABoQmOoLhoQgZBBAqCCACEECIIAAJD-Q7sAMIIHYQQPwggARBArCCAWEHuBuEHuBeEEAcIPcPvzhu3tAERB7By9AMRBPcxcvQHkQQ0AmEEA+EEAhEBNDAEYAFkoMjMoAJgAGAozFEAATJEwUVFAGACdBDSxcfCIGpAB3ajpGJgYIOAaoOUw4WUxKUYQCWRoAazZBaoY1WAWaTkQkSZooAFF1lTkIAmQIcYaCXaRBAE8IGjOcBrgAM35iGgAvAjJhkwAPrFUpAvLTCDEEAAXyUXRoFXoaAyxSKSngNDIWDQAE4iuiQMgGgs0KBMPccOp0FAaCM1OU2DgkLSKWgipQABxKS4NNgLakgJgrKCknmYPkCgDqiORqAySlGgjYDQ0AGIClBcQU4AA2WFKCajCo0WRkMkgAAeFveNDgggqGiguwqQNkDAQTGG5QpVI0KpNsju5SQlueFrIDURaHedyGShUmAZ6EAWCDmdyOTyOcxpdxJQA8IKFYXCQPcbXaHRoEHS3SqED7KYKA6bg0pQ+G6spVILADgggAwQXTFnm-amgW32x3oV4fIHENjjCANv3oACODF2ieqNFI5Wgd1HIE6ZrgAFlQ2gxASijCS5g2MsVDg0ABtMcVydEmuyOtLpsNQOtl2Sa9gOBpvhOToum6HpeqqCaNv6-4ts0CbdhogC4IAWRZwuBlboEGCDqPBy4gN+1ZBihQHJiAaYZlmOZgSA454SA07vLO85wIuxGCmuG50FuO6ocBGiAPggDghGEkSeLCAC6GJvO85YQegwiyGKygIfhbDkcGN6KnItrmp2agArIk6gCaEBIMK1ISgwcA3jCQA/view)
 
-BASE  <https://elections.ontotext.com/resource/>
-PREFIX my: <https://elections.ontotext.com/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX election: <https://elections.ontotext.com/resource/election/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
-PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
-select ?candidate ?name ?cand_number ?mir_norm (sum(?pref) as ?pref_votes) ?link where { 
+## ДПС
 
-#    bind(wd:Q164242 as ?party) #DPS
-#    bind(wd:Q106393525 as ?party) #ИСМВ
-    bind(wd:Q62808154 as ?party) #ДБ
-#    bind(wd:Q133968 as ?party) #ГЕРБ
-#    bind(wd:Q752259 as ?party) #БСП
-#    bind(wd:Q98098908 as ?party) #ИТН
-    
-    
-    bind(<election/pi2021_07> as ?main_el) 
-    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?name ; myd:number ?cand_number .
-    ?localParty  myd:party/myd:party ?party ; myd:number ?party_number .
-    ?el myd:main_election ?main_el ; myd:jurisdiction/myd:number ?mir .
-    ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?pref .
-    bind(if(strlen(?mir)=1,concat("0",str(?mir)),?mir) as ?mir_norm)
-    
-    bind(uri(concat("https://elections.ontotext.com/sparql?name=&infer=true&sameAs=true&query=%23%20pref%20votes%20for%20a%20single%20candidate%0A%0ABASE%20%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2F%3E%0APREFIX%20my%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fentity%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20wd%3A%20%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0APREFIX%20myd%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fdirect%2F%3E%0APREFIX%20election%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Felection%2F%3E%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX%20myps%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fstatement%2F%3E%0APREFIX%20mypq%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Fqualifier%2F%3E%0APREFIX%20myp%3A%20%3Chttps%3A%2F%2Felections.ontotext.com%2Fresource%2Fprop%2Findirect%2F%3E%0Aselect%20%3Fparty_label%20%3Fcand_number%20%3Fcand_name%20%3Fobl%20%3Fmun%20%3Fplace%20%3Fsec_id%20%3Fcand_preferences%20%3Fparty_votes%20%3Fpref_ratio%20%3Fprotocol%20where%20%7B%20%0A%20%20%20%20bind(%3C",encode_for_uri(str(?candidate)),"%3E%20as%20%3Fcandidate)%0A%20%20%20%20%3Fcandidate%20a%20my%3ACandidate%20%3B%20myd%3Arepresents%20%3FlocalParty%20%20%3B%20myd%3Acandidacy%20%3Fel%20%3B%20rdfs%3Alabel%20%3Fcand_name%20%3B%20myd%3Anumber%20%3Fcand_number%20.%20%0A%20%20%20%20%3Fvoting%20myp%3Apreference_vote%20%3Fpv%20%3B%20myp%3Avote%20%3Fv%20%3B%20%20myd%3Asection%20%3Fsection%20%3B%20myd%3Alink_html%20%3Fprotocol%20.%0A%20%20%20%20%3Fv%20myps%3Avote%20%3FlocalParty%20%3B%20mypq%3Avalid_votes_recieved%20%3Fparty_votes%20.%0A%20%20%20%20%3Fpv%20myps%3Apreference_vote%20%3Fcandidate%20%3B%20mypq%3Avalid_votes_recieved%20%3Fcand_preferences%20.%0A%20%20%20%20%3FlocalParty%20rdfs%3Alabel%20%3Fparty_label%20.%0A%20%20%20%20%3Fsection%20myd%3Anumber%20%3Fsec_id%20%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Frdfs%3Alabel%20%3Fplace%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Fmyd%3Amunicipality%2Frdfs%3Alabel%20%3Fmun%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20myd%3Aplace%2Fmyd%3Amunicipality%2Fmyd%3Aprovince%2Frdfs%3Alabel%20%3Fobl%20%3B%0A%20%20%20%20.%0A%20%20%20%20%0A%20%20%20%20bind(floor((%3Fcand_preferences%2F%3Fparty_votes)*10000)%2F100%20as%20%3Fpref_ratio)%0A%20%20%20%20%0A%7D%20order%20by%20desc(%3Fcand_preferences)&execute")) as ?link)
-    
-} group by ?candidate ?name ?cand_number ?mir_norm ?link order by ?mir
-```
+[Link to visualization](https://vega.github.io/editor/#/url/vega-lite/N4IgJAzgxgFgpgWwIYgFwhgF0wBwqgegIDc4BzJAOjIEtMYBXAI0poHsDp5kTykBaADZ04JAKyUAVhDYA7EABoQmOoLhoQgFBBA+CCBCEAAE+-vsAEIIAYQQOwggfhBAAiCBWEEAsIHcDcIHcC8IIA4QO-rdn9tu0AREDt7T0AxEA8zZ09AeRB9QCYQQD4QQCEQI30ARgAWSnT0ygAmAAZ89MUQABMkTBRUUAYAJ0ENLFx8InqkAHdqOkYmBgg4eqg5TDhZTEoRhAJZGgBrNkEqhjVYeZpORCQJmigAUTWVOQgCZAgx+oIdpEEATwgaU5x6uAAzfmIaAC8CcrwAPpFEoA3JTCDEEAAXyUnRo5XoaHSRUKSngNDIWDQAE5CqiQMh6vM0KBMHccOp0FAaMM1GU2DgkNSyWhCpQABxKC71NjzSkgJjLKDErmYHl8gDq8MRqHSShGgjY9Q0AGJCuUxOl2ezsezoUpxiNyjRZGQSSAAB7mt40OCCcoaKA7coA2QMBBMIZlMkUjRK42yW5lJAWp7msj1eFoN63QZKFSYOnoQBYIGY3A4PA4zKk3IlADwgIWhMJAd2ttvtGgQNNdSoQ3vJ-P9JqDShDYdqylU-MAOCCADBATEWuT9KaAbXaHegXu8AcQ2GMIPXfegAI4MHYJqo0UhlaC3EcgDqmuAAWRDaDEeMKUOLmDYSxUODQAG1R+WJwTq7Ja4vG-UAy3O0THt+31V9x0dZ1XXdT1lXjBs-T-ZsmnjLsNEAXBB80LGEwIrdBAwQdQ4KXEAvyrQNkMApMQFTdNM2zUCQDHXCQCnN4ZznOAFyI-lV3XOhN23FCgI0bR7GCUIIg8aEAF00VeN4y3A9BhFkEVlHgvC2DIoNr3lOQbTNDs1DIcYJ1AY0ICQQVKTFBg4GvKEgA/view)
 
-```sparql
-# pref votes for a single candidate
+## БСП
 
-BASE  <https://elections.ontotext.com/resource/>
-PREFIX my: <https://elections.ontotext.com/resource/entity/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX election: <https://elections.ontotext.com/resource/election/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
-PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
-PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
-select ?party_label ?cand_number ?cand_name ?obl ?mun ?place ?sec_id ?cand_preferences ?party_votes ?pref_ratio ?protocol where { 
-    bind(<https://elections.ontotext.com/resource/candidate/pi2021/1/9/102> as ?candidate)
-    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?cand_name ; myd:number ?cand_number . 
-    ?voting myp:preference_vote ?pv ; myp:vote ?v ;  myd:section ?section ; myd:link_html ?protocol .
-    ?v myps:vote ?localParty ; mypq:valid_votes_recieved ?party_votes .
-    ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?cand_preferences .
-    ?localParty rdfs:label ?party_label .
-    ?section myd:number ?sec_id ; 
-             myd:place/rdfs:label ?place ;
-             myd:place/myd:municipality/rdfs:label ?mun ;
-             myd:place/myd:municipality/myd:province/rdfs:label ?obl ;
-    .
-    
-    bind(floor((?cand_preferences/?party_votes)*10000)/100 as ?pref_ratio)
-    
-} order by desc(?cand_preferences)
-```
+[Link to visualization](https://vega.github.io/editor/#/url/vega-lite/N4IgJAzgxgFgpgWwIYgFwhgF0wBwqgegIDc4BzJAOjIEtMYBXAI0poHsDp5kTykBaADZ04JAKyUAVhDYA7EABoQmOoLhoQgRBBAhCCB8EAAE+-vsAEIIAYQQOwggfhBAAiCBWEEAsIHcDcIHcC8IIA4QO-rdn9tu0AREDt7T0AxEA8zZ09AeRB9QCYQQD4QQCEQI30ARgAWSnT0ygAmAAZ89MUQABMkTBRUUAYAJ0ENLFx8InqkAHdqOkYmBgg4eqg5TDhZTEoRhAJZGgBrNkEqhjVYeZpORCQJmigAUTWVOQgCZAgx+oIdpEEATwgaU5x6uAAzfmIaAC8CJggcAB9IolQG5KYQYggAC+Sk6NHK9DQ6SKhSU8BoZCwaAAnIU0SBkPV5mhQJg7jh1OgoDRhmoymwcEgaeS0IVKAAOJQXepseZUkBMZZQEnczC8-kAdQRSNQ6SUI0EbHqGgAxExMviUTClOMRuUaLIyKSQAAPE1vGhwQTlDRQHblQGyBgIJhDMrkykaZUG2S3MpIU1PE1keoItBvW6DJQqTD09CALBAzG4HB4HGZUm5EoAeEBCMNhIDuFqtNo0CFpTuVCA9FIFPsN-qUgeDtWUqgFgBwQQAYICZ89yflTQJbrbb0C93oDiGwxhAa170ABHBg7WNVGikMrQW6DkAdI1wACygbQYnxhWhBcwbCWKhwaAA2kOS6PCRXZFW53X6r7G22452ex1J8RztB0nRdN0VRjWtvW-BsmhjdsNEAXBAczzWFgNLdA-QQdRoPnEB33LP0EL-eMQCTFM0wzICQGHLCQHHN5J2nOBZ3wgUlxXOg1w3RD-w0XR7GCUIIg8GEAF10VeN5ixA9BhFkUVlBg7C2GI-0LwVORLWNVs1DIcZR1AA0ICQIUqXFBg4AvaEgA/view)
+
+## ДБ
+
+[Link to visualization](https://vega.github.io/editor/#/url/vega-lite/N4IgJAzgxgFgpgWwIYgFwhgF0wBwqgegIDc4BzJAOjIEtMYBXAI0poHsDp5kTykBaADZ04JAKyUAVhDYA7EABoQmOoLhoQgFBBAiCAACXf12ACEEAMIIHYQQPwggARBArCCAWEBuBuEBuBeEEAcIDd0uTu6zcAiIDa27oBiIG4mju6A8iC6gEwggHwggEIgBroAjAAslKmplABMAAy5qYogACZImCiooAwAToIaWLj4RLVIAO7UdIxMDBBwtVBymHCymJRDCASyNADWbIIVDGqwszSciEhjNFAAoisqchAEyBAjtQRbSIIAnhA0xzi1cABm-MQ0AF4EpUwA+gUin9shMIMQQABfJTtGilehoVIFfJKeA0MhYNAATnyyJAyFqszQoEwNxw6nQUBogzUJTYOCQlJJaHylAAHEozrU2LNySAmIsoISOZguTyAOqw+GoVJKIaCNi1DQAYgA7KycUx0pClKMhqUaLIyESQAAPY0vGhwQSlDRQLalP6yBgIJgDEokskaBX62TXEpIE0PY1kWqwtAva79JQqTA09CALBATC47G47CZki54oAeECCkKhIBu5st1o0CCpjoVCHdpN53oNfqUAaD1WUql5gBwQQAYIEY8xyvuTQBarTb0E9Xn9iGwRhBq570ABHBhbGMVGikErQa4DkBtQ1wACyAbQYhx+Qh+cwbAWKhwaAA2oPiyO8eXZJXZ7Xaj6G63Yx3u9qj7Dra9qOs6rqKtGNZel+9YNNGbYaIAuCDZrmUJASW6C+gg6hQXOIBvmWvrwb+cYgImyapumgEgEOmEgGOLwTlOcAznhvKLsudCruuCF-hogD4ILYgTBGEbiQgAuiizwvEWwHoMIshCso0FYWwRF+uespyBaRotmoZCjCOoD6hASD8uSIoMHA54QkAA)
+
+## Възраждане
+
+[Link to visualization](https://vega.github.io/editor/#/url/vega-lite/N4IgJAzgxgFgpgWwIYgFwhgF0wBwqgegIDc4BzJAOjIEtMYBXAI0poHsDp5kTykBaADZ04JAKyUAVhDYA7EABoQmOoLhoQgJBBAUiCB2EEACIIAYQQGwggFhBDgXhBArCAACG-xuACEEO7A-CD6rpq4G4QKxcAcILYWhjbuVoAiIFYeAYBiIP6G3gGA8iA2gEwggHwggEIg9jYAjAAslLm5lABMAAyluYogACZImCiooAwAToIaWLj4RK1IAO7UdIxMDBBwrVBymHCymJRTCASyNADWbIINDGqwqzSciEhzNFAAojsqchAEyBAzrQRHSIIAnhA01zitcABm-MQ0ABeJAYgNaAH0KlVwcUFhBiCAAL5Kfo0Wr0NC5CrlJTwGhkLBoACc5RxIGQrVWaFAmBeOHU6CgNEmahqbBwSCZtLQ5UoAA4lHdWmxVgyQExNlAqYLMMLRQB1NEY1C5JRTQRsVoaADERNKAGYxJUkUpZlNajRZGRqSAAB42n40OCCWoaKBHWrg2QMBBMCY1Wn0jSai2yZ41JC2j42sitNFoH7PcZKFSYVnoQBYIJZTP5zNkLOlADwgUSRyJALwdTpdGgQzK9moQAbpYpDlvDSkj0eaylUYsAOCCADBBHKXBUCGaBHc7Xegvr9wcQ2DMIE2g+gAI4MI6pho0Ug1aDPccgPpWuAAWUjaCNpMRZcwbA2KhwaAA2hOq9PyXXZA2Vy3WqG7Y9mm-ZDia75Tm6Hpej6fpaimzbBgBbYdCmvYaIAuCBFiWyIQdW6Bhgg6gIauIA-rWYaocB6YgFmFg5nm4EgJO+EgLOPzzoucDLiRYobludA7nuaEgRogD4IB4kTRHE-hIgAuri3w-JWkHoMIsjSsoiEEWwFHhreapyI61rdmoZCzNOoAWhASASgysoMHAt6IkAA/view)
+
