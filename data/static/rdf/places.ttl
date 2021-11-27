@@ -27365,7 +27365,7 @@ place:87014 a my:Place;
 
 place:70648 a my:Place;
   rdfs:label "Сърница"@bg;
-  myd:municipality jurisdiction:1308, jurisdiction:1339;
+  myd:municipality jurisdiction:1339;
   geo:hasGeometry <https://elections.ontotext.com/resource/place/70648/geo>;
   myd:wikidata_entity wd:Q405972 .
 
