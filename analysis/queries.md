@@ -1332,22 +1332,7 @@ insert {
 };
 ```
 
-## Create metasections based on sections with matching ID
 
-```sparql
-BASE <https://elections.ontotext.com/resource/>
-PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX my: <https://elections.ontotext.com/resource/entity/>
-insert {
-graph <graph/metasections> {	
-	?metasec a my:MetaSection .
-    ?sec  myd:meta_section ?metasec .    
-}}
-where {
-    ?sec a my:Section ; myd:number ?num .
-    bind(uri(concat("metaSection/",?num)) as ?metasec)
-}
-```
 
 ## Generate MI2015 local party mappings
 
