@@ -1,0 +1,37 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+construct {
+	?s a my:Municipality ;
+	    rdfs:label ?munLabel ;
+	    myd:mir ?MIRURI ;
+	    myd:province ?obl ;
+	    geo:hasGeometry ?MUN_GEO ;
+	    myd:wdid ?mun .
+    ?obl a my:Province ; rdfs:label ?oblLabel .
+    ?MUN_GEO a geo:Geometry ; geo:asWKT ?munCoord .
+}
+where {
+	?s a my:Municipality ; myd:wdid ?mun .
+    service <https://query.wikidata.org/sparql> {
+        ?mun wdt:P625 ?munCoord .
+        ?mun wdt:P131?/wdt:P7938 ?mir ; wdt:P131 ?obl .
+        ?mir p:P31/pq:P1545 ?mirnum ; wdt:P625 ?mirCoord .
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "bg,en".
+            ?mun rdfs:label ?munLabel .
+            ?mir rdfs:label ?mirLabel .
+            ?obl rdfs:label ?oblLabel .
+        }
+    }
+    bind(uri(concat(str(jurisdiction:),?mirnum)) as ?MIRURI)
+    bind(uri(concat(str(?s),"/geo")) as ?MUN_GEO)
+    bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)
+}

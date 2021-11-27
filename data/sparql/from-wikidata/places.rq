@@ -1,0 +1,34 @@
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+construct {
+    ?PLACE_URI a my:Place ;
+               rdfs:label ?placeLabel ;
+               myd:municipality ?s ;
+               geo:hasGeometry ?PLACE_GEO_URI ;
+               myd:wikidata_entity ?place ;
+    .
+    ?PLACE_GEO_URI a geo:Geometry ; geo:asWKT ?placeCoord .
+} where {
+	?s myd:wdid ?mun
+    service <https://query.wikidata.org/sparql> {
+        ?place wdt:P131 ?mun ; p:P3990 ?ekst ; wdt:P625 ?placeCoord .
+        ?ekst ps:P3990 ?ekatte .
+        filter not exists {?ekst pq:P518 [] }
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "bg".
+            ?place rdfs:label ?placeLabel .
+        }
+    bind(uri(concat(str(place:),?ekatte)) as ?PLACE_URI)
+    bind(uri(concat(str(place:),?ekatte,"/geo")) as ?PLACE_GEO_URI)
+    }
+}

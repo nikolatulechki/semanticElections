@@ -1,0 +1,26 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+construct {
+	?MIRURI a my:MIR ; rdfs:label ?mirLabel ; geo:hasGeometry ?MIR_GEO ; myd:wdid ?mir ; myd:number ?mirnum .
+    ?MIR_GEO a geo:Geometry ; geo:asWKT ?mirCoord .
+}
+where {
+    service <https://query.wikidata.org/sparql> {
+        ?mir wdt:P31 wd:Q43791141 ; p:P31/pq:P1545 ?mirnum ; wdt:P625 ?mirCoord .
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "bg,en".
+            ?mir rdfs:label ?mirLabel .
+        }
+    }
+    bind(uri(concat(str(jurisdiction:),?mirnum)) as ?MIRURI)
+    bind(uri(concat(str(?s),"/geo")) as ?MUN_GEO)
+    bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)
+}
