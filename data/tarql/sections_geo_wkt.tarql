@@ -11,7 +11,7 @@ construct {
     myd:source ?location_source ;
 .
 
-?SEC_URI myd:votingPlace ?VPLACE_URI ; myd:place ?PLACE_URI .
+?SEC_URI myd:votingPlace ?VPLACE_URI .
 
 } where {
     bind(1+"a" as ?null)
