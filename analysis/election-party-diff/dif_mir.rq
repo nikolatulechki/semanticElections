@@ -51,7 +51,7 @@ select
 ?PP_11
 (?PP_07/?VOTED_07 as ?PP_RATIO_07)
 (?PP_11/?VOTED_11 as ?PP_RATIO_11)
-(?PP_11-?ITN_07 as ?PP_DELTA)
+(?PP_11-?PP_07 as ?PP_DELTA)
 (?PP_RATIO_11-?PP_RATIO_07 as ?PP_RATIO_DELTA)
 {
     ?mir myd:number ?mir_num ; rdfs:label ?mir_label .
