@@ -1,0 +1,96 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+select * where {
+    {
+     bind("municipal" as ?election_type)
+        ?s a my:Candidate ;
+           rdfs:label ?name ;
+           myd:candidacy ?el ;
+           myd:represents ?local_party .
+        ?local_party rdfs:label ?local_party_label
+        optional{
+            ?local_party myd:party+ ?main_party .
+            ?main_party a my:Party ;
+                        rdfs:label ?main_party_label
+        }
+        ?el myd:partOf?/myd:jurisdiction ?mun .
+        ?mun a my:Municipality ;
+             rdfs:label ?mun_label
+        optional {
+            ?mun myd:mir ?mir .
+            ?mir a my:MIR ;
+                 rdfs:label ?mir_label .
+        }
+        ?el myd:main_election ?main_el ;
+            myd:date ?date .
+        ?main_el rdfs:label ?main_el_label ;
+                 myd:type ?election_type .
+        optional{
+            ?el rdfs:label ?elLabel
+        }
+    }
+    UNION
+    {
+    bind("parliamentary" as ?election_type)
+        ?s a my:Candidate ;
+           rdfs:label ?name ;
+           myd:candidacy ?el ;
+           myd:represents ?local_party .
+        ?local_party rdfs:label ?local_party_label
+        optional{
+            ?local_party myd:party+ ?main_party .
+            ?main_party a my:Party ;
+                        rdfs:label ?main_party_label
+        }
+        ?el myd:jurisdiction ?mir .
+        ?mir a my:MIR ;
+             rdfs:label ?mir_label .
+        ?el myd:main_election ?main_el ;
+            myd:date ?date .
+        ?main_el rdfs:label ?main_el_label ;
+                 myd:type ?election_type .
+        optional{
+            ?el rdfs:label ?elLabel
+        }
+    }
+    UNION
+    {
+    bind("european" as ?election_type)
+
+        ?s a my:Candidate ;
+           rdfs:label ?name ;
+           myd:candidacy ?main_el ;
+           myd:represents ?local_party .
+        ?local_party rdfs:label ?local_party_label
+        optional{
+            ?local_party myd:party+ ?main_party .
+            ?main_party a my:Party ;
+                        rdfs:label ?main_party_label
+        }
+        ?main_el rdfs:label ?main_el_label ;
+                 myd:type ?election_type ;
+                 myd:date ?date ;
+                 .
+
+    }
+    union
+    {
+        bind("presidential" as ?election_type)
+
+        ?s a my:Candidate ;
+           rdfs:label ?name ;
+           myd:candidacy <https://elections.ontotext.com/resource/election/pvnr2016/tur1/> ;
+           myd:represents ?local_party .
+
+        <https://elections.ontotext.com/resource/election/pvnr2016/tur1> myd:date ?date .
+        ?local_party rdfs:label ?local_party_label
+        optional{
+            ?local_party myd:party+ ?main_party .
+            ?main_party a my:Party ;
+                        rdfs:label ?main_party_label
+        }
+        ?main_el rdfs:label ?main_el_label ;
+                 myd:type ?election_type .
+    }
+}
