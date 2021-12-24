@@ -77,6 +77,24 @@ In order to control for consistency and avoid unwanted variants we propose addin
 The input string of the hash function should match the following regex
 `/^абвгдежзийклмнопрстуфхцчшщъьюя+[0-9]{7}$/`
 
+# Same list homonym examples 
+
+The following 3 occurences come from 2019 municipal elections and represent cases where the same 3 nаmes appear in the same candidates list.
+
+Георги Василев Георгиев - Община Аксаково - ДПС
+
+* [OIK Link](https://oik0302.cik.bg/mi2019/registers/candidates?t=2)
+* [109](https://elections.ontotext.com/resource/candidate/mi2019/os/0302/55/109), [118](https://elections.ontotext.com/resource/candidate/mi2019/os/0302/55/118)
+
+Милко Йорданов Димитров - Община Велики Преслав - ГЕРБ 
+
+* [OIK link](https://oik2723.cik.bg/mi2019/registers/candidates?t=2)
+* [104](https://elections.ontotext.com/resource/candidate/mi2019/os/2723/43/115), [115](https://elections.ontotext.com/resource/candidate/mi2019/os/2723/43/104)
+
+Иван Димитров Иванов - Община Ямбол - АТАКА 
+
+* [OIK link](https://oik2826.cik.bg/mi2019/registers/candidates?t=2)
+* [111](https://elections.ontotext.com/resource/candidate/mi2019/os/2826/4/111), [115](https://elections.ontotext.com/resource/candidate/mi2019/os/2826/4/115) 
 
 
 
