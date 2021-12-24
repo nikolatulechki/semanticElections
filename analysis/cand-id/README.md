@@ -79,7 +79,7 @@ The input string of the hash function should match the following regex
 
 # Same list homonym examples 
 
-The following 3 occurences come from 2019 municipal elections and represent cases where the same 3 nаmes appear in the same candidates list.
+The following 3 occurrences come from 2019 municipal elections and represent cases where the same 3 nаmes appear in the same list of candidates.
 
 Георги Василев Георгиев - Община Аксаково - ДПС
 
