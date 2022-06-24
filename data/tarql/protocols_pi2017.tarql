@@ -5,7 +5,7 @@ construct {
         myd:voters_additional_count ?G ;
         myd:voters_voted_count ?H ;
         myd:votes_valid_count ?R ;
-        myd:myd:invalid_ballots ?P ;
+        myd:invalid_ballots ?P ;
         myd:votes_blanc_count ?S ;
         myd:ballots_empty ?T ;
         myd:link_html ?PROT_LINK ;
