@@ -1,6 +1,7 @@
 construct {
     ?VOTE_URI
         myd:voters_count ?F ;
+        myd:invalid_ballots ?J ;
         myd:voters_additional_count ?G ;
         myd:voters_voted_count ?H ;
         myd:votes_valid_count ?H ;
@@ -12,6 +13,7 @@ construct {
     bind(if(?C<10,concat("0",?c),?c) as ?OB_CODE) # leading zero
     bind(uri(concat("voting/{EL}/{TYP}",?c,"/{RND}",?b)) as ?VOTE_URI)
     bind(strdt(?f,xsd:integer) as ?F)
+    bind(strdt(?j,xsd:integer) as ?J)
     bind(strdt(?g,xsd:integer) as ?G)
     bind(strdt(?h,xsd:integer) as ?H)
     bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".0.html")) as ?PROT_LINK)

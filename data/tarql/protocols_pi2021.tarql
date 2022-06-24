@@ -1,6 +1,7 @@
 construct {
     ?VOTE_URI
         myd:recieved_ballots ?E ;
+        myd:invalid_ballots ?H ;
         myd:voters_count ?F ;
         myd:voters_voted_count ?G ;
         myd:votes_valid_count ?O ;
@@ -10,11 +11,13 @@ construct {
     .
 } where {
     bind(strdt(?c,xsd:integer) as ?C)
+    bind(strdt(?b,xsd:integer) as ?B)
     bind(if(?C<10,concat("0",?c),?c) as ?OB_CODE) # leading zero
     bind(uri(concat("voting/{EL}/{TYP}",?c,"/{RND}",?b)) as ?VOTE_URI)
     bind(strdt(?e,xsd:integer) as ?E)
     bind(strdt(?f,xsd:integer) as ?F)
     bind(strdt(?g,xsd:integer) as ?G)
+    bind(strdt(?h,xsd:integer) as ?H)
     bind(strdt(?o,xsd:integer) as ?O)
     bind(strdt(?s,xsd:integer) as ?S)
     bind(strdt(?t,xsd:integer) as ?T)
