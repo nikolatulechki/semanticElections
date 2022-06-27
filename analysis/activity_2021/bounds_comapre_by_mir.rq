@@ -1,0 +1,71 @@
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select 
+?MIR_NAME 
+(sum(?voters_04) as ?VOTERS_04) (sum(?voted_04) as ?VOTED_04) (?VOTED_04/?VOTERS_04 as ?ACTIVTY_04) 
+(sum(?voters_04_low) as ?VOTERS_04_LOW) (sum(?voted_04_low) as ?VOTED_04_LOW) (?VOTED_04_LOW/?VOTERS_04_LOW as ?ACTIVTY_04_LOW) 
+(sum(?voters_04_high) as ?VOTERS_04_HIGH) (sum(?voted_04_high) as ?VOTED_04_HIGH) (?VOTED_04_HIGH/?VOTERS_04_HIGH as ?ACTIVTY_04_HIGH) 
+
+(sum(?voters_07) as ?VOTERS_07) (sum(?voted_07) as ?VOTED_07) (?VOTED_07/?VOTERS_07 as ?ACTIVTY_07) 
+(sum(?voters_07_low) as ?VOTERS_07_LOW) (sum(?voted_07_low) as ?VOTED_07_LOW) (?VOTED_07_LOW/?VOTERS_07_LOW as ?ACTIVTY_07_LOW) 
+(sum(?voters_07_high) as ?VOTERS_07_HIGH) (sum(?voted_07_high) as ?VOTED_07_HIGH) (?VOTED_07_HIGH/?VOTERS_07_HIGH as ?ACTIVTY_07_HIGH) 
+
+(sum(?voters_11) as ?VOTERS_11) (sum(?voted_11) as ?VOTED_11) (?VOTED_11/?VOTERS_11 as ?ACTIVTY_11) 
+(sum(?voters_11_low) as ?VOTERS_11_LOW) (sum(?voted_11_low) as ?VOTED_11_LOW) (?VOTED_11_LOW/?VOTERS_11_LOW as ?ACTIVTY_11_LOW) 
+(sum(?voters_11_high) as ?VOTERS_11_HIGH) (sum(?voted_11_high) as ?VOTED_11_HIGH) (?VOTED_11_HIGH/?VOTERS_11_HIGH as ?ACTIVTY_11_HIGH) 
+
+where {
+   
+    {
+    ?mir a my:MIR ; 
+         myd:number ?mir_num ; 
+         rdfs:label ?mir_name .
+    bind(concat(str(?mir_num)," ",?mir_name) as ?MIR_NAME)        
+    ?s_04 a my:Voting ; 
+    myd:election/myd:jurisdiction ?mir ;      
+    myd:main_election election:pi2021 ;
+    myd:voters_count ?voters_04 ;
+    myd:voters_voted_count ?voted_04 ;
+    .
+    bind(if(?voters_04 > 300,?voters_04,0) as ?voters_04_high)
+    bind(if(?voters_04 > 300,?voted_04,0) as ?voted_04_high)
+    bind(if(?voters_04 > 300,0,?voters_04) as ?voters_04_low)
+    bind(if(?voters_04 > 300,0,?voted_04) as ?voted_04_low)
+    }
+    
+    UNION{
+     ?mir a my:MIR ; 
+         myd:number ?mir_num ; 
+         rdfs:label ?mir_name .
+    bind(concat(str(?mir_num)," ",?mir_name) as ?MIR_NAME)
+    ?s_07 a my:Voting ;  
+    myd:election/myd:jurisdiction ?mir ;
+    myd:main_election election:pi2021_07 ;
+    myd:voters_count ?voters_07 ;
+    myd:voters_voted_count ?voted_07 ;
+    .
+    bind(if(?voters_07 > 300,?voters_07,0) as ?voters_07_high)
+    bind(if(?voters_07 > 300,?voted_07,0) as ?voted_07_high)
+    bind(if(?voters_07 > 300,0,?voters_07) as ?voters_07_low)
+    bind(if(?voters_07 > 300,0,?voted_07) as ?voted_07_low)
+    }
+    
+    UNION {
+    ?mir a my:MIR ; 
+         myd:number ?mir_num ; 
+         rdfs:label ?mir_name .
+    bind(concat(str(?mir_num)," ",?mir_name) as ?MIR_NAME)
+    ?s_11 a my:Voting ; 
+    myd:election/myd:jurisdiction ?mir ;      
+    myd:main_election election:pi2021_11 ;
+    myd:voters_count ?voters_11 ;
+    myd:voters_voted_count ?voted_11 ;
+    .
+    bind(if(?voters_11 > 300,?voters_11,0) as ?voters_11_high)
+    bind(if(?voters_11 > 300,?voted_11,0) as ?voted_11_high)
+    bind(if(?voters_11 > 300,0,?voters_11) as ?voters_11_low)
+    bind(if(?voters_11 > 300,0,?voted_11) as ?voted_11_low)
+    }
+} group by ?MIR_NAME order by ?MIR_NAME

@@ -1,0 +1,40 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select * where {
+	?s_2017 a my:Voting ;
+    myd:main_election election:pi2017 ;
+    myd:voters_count ?voters_2017 ;
+    myd:voters_voted_count ?voted_2017 ;
+    myd:section/myd:number ?num ;
+    myd:votes_invalid_count ?invalid_2017 ;
+    myd:link_html ?prot_2017 ;
+    .
+    ?s_04 a my:Voting ;
+    myd:main_election election:pi2021 ;
+    myd:voters_count ?voters_04 ;
+    myd:voters_voted_count ?voted_04 ;
+    myd:section/myd:number ?num ;
+    myd:invalid_ballots ?invalid_04 ;
+    myd:link_html ?prot_04 ;
+    .
+
+    ?s_07 a my:Voting ;
+    myd:main_election election:pi2021_07 ;
+    myd:voters_count ?voters_07 ;
+    myd:voters_voted_count ?voted_07 ;
+    myd:section/myd:number ?num ;
+    myd:invalid_ballots ?invalid_07 ;
+    myd:link_html ?prot_07 ;
+    .
+    ?s_11 a my:Voting ;
+    myd:main_election election:pi2021_11 ;
+    myd:voters_count ?voters_11 ;
+    myd:voters_voted_count ?voted_11 ;
+    myd:section/myd:number ?num ;
+#    myd:invalid_ballots ?invalid_11 ;
+    myd:link_html ?prot_11 ;
+    .
+    filter(abs(?voters_2017-?voters_04)<50)
+    filter(?voters_04>100)
+}

@@ -1,7 +1,7 @@
 construct {
     ?VOTE_URI
         myd:recieved_ballots ?E ;
-        myd:invalid_ballots ?H ;
+        myd:invalid_ballots ?L ;
         myd:voters_count ?F ;
         myd:voters_voted_count ?G ;
         myd:votes_valid_count ?O ;
@@ -17,7 +17,7 @@ construct {
     bind(strdt(?e,xsd:integer) as ?E)
     bind(strdt(?f,xsd:integer) as ?F)
     bind(strdt(?g,xsd:integer) as ?G)
-    bind(strdt(?h,xsd:integer) as ?H)
+    bind(strdt(?l,xsd:integer) as ?L)
     bind(strdt(?o,xsd:integer) as ?O)
     bind(strdt(?s,xsd:integer) as ?S)
     bind(strdt(?t,xsd:integer) as ?T)

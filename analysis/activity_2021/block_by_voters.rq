@@ -1,0 +1,68 @@
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select
+?RANGE
+(sum(?voters_04) as ?VOTERS_04) (sum(?voted_04) as ?VOTED_04) (?VOTED_04/?VOTERS_04 as ?ACTIVTY_04)
+(sum(?voters_07) as ?VOTERS_07) (sum(?voted_07) as ?VOTED_07) (?VOTED_07/?VOTERS_07 as ?ACTIVTY_07)
+(sum(?voters_11) as ?VOTERS_11) (sum(?voted_11) as ?VOTED_11) (?VOTED_11/?VOTERS_11 as ?ACTIVTY_11)
+
+where {
+    VALUES ?RANGE {
+        100
+        150
+        200
+        250
+        300
+        350
+        400
+        450
+        500
+        550
+        600
+        650
+        700
+        750
+        800
+        850
+        900
+        950
+        1000
+    }
+    {
+    ?s_04 a my:Voting ;
+    myd:election/myd:jurisdiction ?mir ;
+    myd:main_election election:pi2021 ;
+    myd:voters_count ?voters_04 ;
+    myd:voters_voted_count ?voted_04 ;
+    .
+	filter(?voters_04 > ?RANGE
+            && ?voters_04 <= ?RANGE+50
+        )
+    }
+
+    UNION{
+    ?s_07 a my:Voting ;
+    myd:election/myd:jurisdiction ?mir ;
+    myd:main_election election:pi2021_07 ;
+    myd:voters_count ?voters_07 ;
+    myd:voters_voted_count ?voted_07 ;
+    .
+	filter(?voters_07 > ?RANGE
+            && ?voters_07 <= ?RANGE+50
+        )
+    }
+
+    UNION {
+    ?s_11 a my:Voting ;
+    myd:election/myd:jurisdiction ?mir ;
+    myd:main_election election:pi2021_11 ;
+    myd:voters_count ?voters_11 ;
+    myd:voters_voted_count ?voted_11 ;
+    .
+	filter(?voters_11 > ?RANGE
+            && ?voters_11 <= ?RANGE+50
+        )
+    }
+} GROUP BY ?RANGE
