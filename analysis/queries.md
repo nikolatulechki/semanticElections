@@ -136,6 +136,49 @@ where {
 
 # Analysis queries
 
+## Preference analysis of a single candidate - 
+
+GSheet [pivot](https://docs.google.com/spreadsheets/d/10VJCxktNmaPdUUHphrnluQNR_86DQQnCJdb_U8YDHsw/edit#gid=1736458899) 
+
+```sparql
+# pref votes for a single candidate
+
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+select ?date ?party_label ?cand_number ?cand_name ?obl ?mun ?place ?sec_id ?cand_preferences ?party_votes ?pref_ratio ?protocol where { 
+    
+   {select * where { 
+            ?candidate a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
+            optional{?el rdfs:label ?elLabel }
+            filter(contains(lcase(?lab),"красен георгиев кръстев"))
+    }}
+    
+    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?cand_name ; myd:number ?cand_number . 
+    ?voting myp:preference_vote ?pv ; myp:vote ?v ;  myd:section ?section ; myd:link_html ?protocol ; myd:date ?date .
+    ?v myps:vote ?localParty ; mypq:valid_votes_recieved ?party_votes .
+    ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?cand_preferences .
+    ?localParty rdfs:label ?party_label .
+    ?section myd:number ?sec_id ; 
+             myd:place/rdfs:label ?place ;
+             myd:place/myd:municipality/rdfs:label ?mun ;
+             myd:place/myd:municipality/myd:province/rdfs:label ?obl ;
+    .
+    
+    bind(floor((?cand_preferences/?party_votes)*10000)/100 as ?pref_ratio)
+    
+} order by desc(?cand_preferences)
+```
+
+
+
 ## Entropy in votes
 
 Minimum entropy is when everybody in a section voted for 1 party
@@ -1417,3 +1460,4 @@ select ?voting ?round ?date (sample(?el_label) as ?EL_LABEL) ?sec_num ?sec_addre
     ?place rdfs:label ?place_label .
 } group by ?voting ?round ?date ?sec_num ?sec_address ?place ?place_label ?party_label ?main_party_label ?total_votes ?prot
 ```
+
