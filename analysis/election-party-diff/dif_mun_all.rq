@@ -9,7 +9,6 @@ select
 ?mir_num
 ?mir_label
 ?mun_label
-?place_label
 ?VOTERS_2017
 ?VOTED_2017
 (?VOTED_2017/?VOTERS_2017 as ?ACTIVITY_2017)
@@ -22,6 +21,7 @@ select
 ?VOTERS_11
 ?VOTED_11
 (?VOTED_11/?VOTERS_11 as ?ACTIVITY_11)
+
 ?BSP_2017
 ?BSP_04
 ?BSP_07
@@ -30,6 +30,7 @@ select
 (?BSP_04/?VOTED_04 as ?BSP_RATIO_04)
 (?BSP_07/?VOTED_07 as ?BSP_RATIO_07)
 (?BSP_11/?VOTED_11 as ?BSP_RATIO_11)
+
 ?DB_2017
 ?DB_04
 ?DB_07
@@ -76,13 +77,12 @@ select
 ?PP_11
 (?PP_11/?VOTED_11 as ?PP_RATIO_11)
 {
-    ?place myd:municipality ?mun ; rdfs:label ?place_label .
     ?mun rdfs:label ?mun_label .
     optional {?mun myd:mir ?mir . ?mir myd:number ?mir_num ; rdfs:label ?mir_label .}
  	#2017
     {
         select
-        ?place
+        ?mun
         (sum(?voters_count) as ?VOTERS_2017)
         (sum(?voters_voted) as ?VOTED_2017)
         (sum(?votes_bsp) as ?BSP_2017)
@@ -108,7 +108,7 @@ select
             ;
                     myd:section ?section;
             .
-    		?section myd:place ?place ;
+    		?section myd:place/myd:municipality ?mun ;
                                 .
             ?vote_bsp myps:vote/myd:party/myd:party wd:Q752259;
                       mypq:valid_votes_recieved ?votes_bsp ;
@@ -129,12 +129,12 @@ select
                       mypq:valid_votes_recieved ?votes_vuz ;
                       .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?place
+        } group by ?mun
     }
 	#2021-04
     {
         select
-        ?place
+        ?mun
         (sum(?voters_count) as ?VOTERS_04)
         (sum(?voters_voted) as ?VOTED_04)
         (sum(?votes_bsp) as ?BSP_04)
@@ -157,7 +157,7 @@ select
             ;
                     myd:section ?section;
             .
-    		?section myd:place ?place ;
+    		?section myd:place/myd:municipality ?mun ;
                                 .
             ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
                        mypq:valid_votes_recieved ?votes_bsp ;
@@ -178,12 +178,12 @@ select
                        mypq:valid_votes_recieved ?votes_vuz ;
                        .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?place
+        } group by ?mun
     }
 	#2021-07
     {
         select
-        ?place
+        ?mun
         (sum(?voters_count) as ?VOTERS_07)
         (sum(?voters_voted) as ?VOTED_07)
         (sum(?votes_bsp) as ?BSP_07)
@@ -206,7 +206,7 @@ select
             ;
                     myd:section ?section;
             .
-    		?section myd:place ?place ;
+    		?section myd:place/myd:municipality ?mun ;
                                 .
             ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
                        mypq:valid_votes_recieved ?votes_bsp ;
@@ -227,12 +227,12 @@ select
                        mypq:valid_votes_recieved ?votes_vuz ;
                        .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?place
+        } group by ?mun
     }
 	#2021-11
     {
         select
-        ?place
+        ?mun
         (sum(?voters_count) as ?VOTERS_11)
         (sum(?voters_voted) as ?VOTED_11)
         (sum(?votes_bsp) as ?BSP_11)
@@ -255,7 +255,7 @@ select
             ;
           	myd:section ?section;
             .
-    		?section myd:place ?place;
+    		?section myd:place/myd:municipality ?mun;
                                 .
             ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
                        mypq:valid_votes_recieved ?votes_bsp ;
@@ -278,7 +278,6 @@ select
             ?vote_vuz  myps:vote/myd:party/myd:party wd:Q28943121;
                        mypq:valid_votes_recieved ?votes_vuz ;
                        .
-        } group by ?place
+        } group by ?mun
     }
-
 }
