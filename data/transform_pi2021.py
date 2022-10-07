@@ -6,7 +6,7 @@ from common.tarql import Tarql
 
 tarql = Tarql(QueryUtils())
 
-basePath = "/home/nikola/projects/semanticElections/data/"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
 
 ## SECTIONS
 
@@ -16,7 +16,7 @@ queryArgs = {
     "TYP_LABEL": "Парламент на РБ МИР ",
     "EL_LABEL" : "Избори 2021",
 }
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/sections_04.04.2021.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021/sections_04.04.2021.txt'
 tarql.execute_query(basePath+"tarql/sections_pi.tarql",
                     infile,
                     basePath+"rdf/pi2021/sections.ttl",
@@ -29,26 +29,26 @@ queryArgs = {
     "RND" : "" ,
     "MV" : "",
 }
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/votes_04.04.2021.flat.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021/votes_04.04.2021.flat.txt'
 tarql.execute_query(basePath+"tarql/votes_pi21.tarql",
                     infile,
                     basePath+"rdf/pi2021/votes.ttl",
                     '-d ; -H',
                     queryArgs)
 
-  ## PREFERENCE
-queryArgs = {
-    "EL": "pi2021" ,
-    "TYP" : "" ,
-    "RND" : "" ,
-    "MV" : "",
-}
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/preferences_04.04.2021.txt'
-tarql.execute_query(basePath+"tarql/preference_pi21.tarql",
-                    infile,
-                    basePath+"rdf/pi2021/preferences.ttl",
-                    '-d ; -H',
-                    queryArgs)
+#   ## PREFERENCE
+# queryArgs = {
+#     "EL": "pi2021" ,
+#     "TYP" : "" ,
+#     "RND" : "" ,
+#     "MV" : "",
+# }
+# infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021/preferences_04.04.2021.txt'
+# tarql.execute_query(basePath+"tarql/preference_pi21.tarql",
+#                     infile,
+#                     basePath+"rdf/pi2021/preferences.ttl",
+#                     '-d ; -H',
+#                     queryArgs)
 
  # PROTOCOLS
 queryArgs = {
@@ -58,7 +58,7 @@ queryArgs = {
     "LINK_HTML" : "https://results.cik.bg/pi2021/protokoli/64/",
     "LINK_PDF" : "https://results.cik.bg/pi2021/pdf/64/"
 }
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/protocols_04.04.2021.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021/protocols_04.04.2021.txt'
 tarql.execute_query(basePath+"tarql/protocols_pi2021.tarql",
                     infile,
                     basePath+"rdf/pi2021/protocols.ttl",
@@ -73,7 +73,7 @@ queryArgs = {
     "RND" : ""
 }
 
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/cik_parties_04.04.2021.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021/cik_parties_04.04.2021.txt'
 tarql.execute_query(basePath+"tarql/cik_parties.tarql",
                     infile,
                     basePath+"rdf/pi2021/cik_parties.ttl",
@@ -90,7 +90,7 @@ queryArgs = {
     "CIK_THR": "31"
 }
 
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/local_parties_04.04.2021.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021/local_parties_04.04.2021.txt'
 tarql.execute_query(basePath+"tarql/local_parties.tarql",
                     infile,
                     basePath+"rdf/pi2021/local_parties.ttl",
@@ -105,7 +105,7 @@ queryArgs = {
 }
 
 
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2021/local_candidates_04.04.2021.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021/local_candidates_04.04.2021.txt'
 tarql.execute_query(basePath+"tarql/candidate_pi.tarql",
                     infile,
                     basePath+"rdf/pi2021/candidates.ttl",

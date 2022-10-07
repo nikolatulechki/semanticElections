@@ -1,0 +1,49 @@
+construct {
+	?SEC_URI a my:Section ;
+		rdfs:label ?SEC_LABEL ;
+		myd:election ?EL_URI ;
+		myd:isMobile ?IS_MOBILE;
+		myd:isShipOrHospital ?IS_SHIP;
+		myd:place ?PLACE_URI;
+		myd:number ?a ;
+		myd:countMachines ?COUNT_MACHINES ;
+		myd:streetAddress ?f ;
+	.
+	?VOTE_URI a my:Voting ;
+		rdfs:label ?VOTE_LABEL ;
+		myd:election ?EL_URI ;
+		myd:section ?SEC_URI ;
+	.
+	?EL_URI a my:Election ;
+	    rdfs:label ?EL_LABEL ;
+	    myd:partOf ?MAIN_EL_URI ;
+	    myd:jurisdiction ?JUR_URI ;
+	.
+	?MAIN_EL_URI a my:Election ;
+	    rdfs:label "Парламентарни Избори {YEAR}" ;
+	.
+
+} where {
+	bind(1+"" as ?UNDEF)
+
+	bind(uri(concat("section/{EL}/",?a)) as ?SEC_URI)
+	bind(concat("Секция ",str(?a)," в ",?e,""@bg) as ?SEC_LABEL)
+
+	bind(if(strlen(?b)=3 || strlen(?a)=1,concat("0",?b),?b) as ?OB_CODE) # leading zero
+	bind(if(?g="0",FALSE,TRUE) as ?IS_MOBILE)
+	bind(if(?h="0",FALSE,TRUE) as ?IS_SHIP)
+	bind(strdt(?i,xsd:integer) as ?COUNT_MACHINES)
+
+	bind(uri(concat("voting/{EL}/",?OB_CODE,"/",?a)) as ?VOTE_URI)
+	bind(concat("Гласуване в секция ",str(?a)," на {EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?VOTE_LABEL)
+
+	bind(uri(concat("election/{EL}/",?OB_CODE)) as ?EL_URI)
+	bind(concat("{EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?EL_LABEL)
+
+    bind(uri("election/{EL}") as ?MAIN_EL_URI)
+
+	bind(uri(concat("jurisdiction/",?OB_CODE)) as ?JUR_URI)
+
+	bind(if(strlen(?d)=4,concat("0",?d),?d) as ?ekatte)
+	bind(if(strlen(?ekatte)=5,uri(concat(str(place:),?ekatte)),?UNDEF) as ?PLACE_URI)
+}
