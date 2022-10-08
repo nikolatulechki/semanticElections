@@ -20,14 +20,17 @@ construct {
     .
     ?PLACE_GEO_URI a geo:Geometry ; geo:asWKT ?placeCoord .
 } where {
-	?s myd:wdid ?mun
+	?s myd:wikidata_entity ?mun
     service <https://query.wikidata.org/sparql> {
-        ?place wdt:P131 ?mun ; p:P3990 ?ekst ; wdt:P625 ?placeCoord .
+        ?place wdt:P131?/p:P131 ?munst ; p:P3990 ?ekst ; wdt:P625 ?placeCoord .
+        ?munst ps:P131 ?mun .
+        ?mun wdt:P31 wd:Q1906268 .
+        filter not exists {?munst pq:P582 []}
         ?ekst ps:P3990 ?ekatte .
-        filter not exists {?ekst pq:P518 [] }
+        filter not exists {?ekst pq:P518 wd:Q4224624}
         SERVICE wikibase:label { bd:serviceParam wikibase:language "bg".
             ?place rdfs:label ?placeLabel .
-        }
+    }
     bind(uri(concat(str(place:),?ekatte)) as ?PLACE_URI)
     bind(uri(concat(str(place:),?ekatte,"/geo")) as ?PLACE_GEO_URI)
     }
