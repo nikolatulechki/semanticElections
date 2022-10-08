@@ -10,11 +10,11 @@ queryArgs = {
     "EL": "mi2019" ,
 }
 
-basePath = "/home/nikola/projects/semanticElections/data/"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
 
 ## MAIN PARTIES
-basePath = "/home/nikola/projects/semanticElections/data/"
-infile = "/home/nikola/projects/semanticElections/data/static/sheets/main_election_data.csv"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/main_election_data.csv"
 
 tarql.execute_query(basePath+"tarql/main_election_data.tarql",
                     infile,
@@ -23,7 +23,7 @@ tarql.execute_query(basePath+"tarql/main_election_data.tarql",
                     queryArgs)
 
 ## Coalitions Mapping 2015
-infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions_mi2015.csv"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/coalitions_mi2015.csv"
 
 tarql.execute_query(basePath+"tarql/coalitions_mi2015.tarql",
                     infile,
@@ -33,7 +33,7 @@ tarql.execute_query(basePath+"tarql/coalitions_mi2015.tarql",
 
 
 ## Coalitions Mapping 2019
-infile = "/home/nikola/projects/semanticElections/data/static/sheets/coalitions_mi2019.csv"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/coalitions_mi2019.csv"
 
 tarql.execute_query(basePath+"tarql/coalitions.tarql",
                     infile,
@@ -42,8 +42,8 @@ tarql.execute_query(basePath+"tarql/coalitions.tarql",
                     queryArgs)
 
 ## MAIN PARTIES
-basePath = "/home/nikola/projects/semanticElections/data/"
-infile = "/home/nikola/projects/semanticElections/data/static/sheets/main_parties_wd.csv"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/main_parties_wd.csv"
 
 tarql.execute_query(basePath+"tarql/main_party.tarql",
                     infile,
@@ -52,8 +52,8 @@ tarql.execute_query(basePath+"tarql/main_party.tarql",
                     queryArgs)
 
 ## MUNICIPALITIES
-basePath = "/home/nikola/projects/semanticElections/data/"
-infile = "/home/nikola/projects/semanticElections/data/static/sheets/mun_wd_mapping.csv"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/mun_wd_mapping.csv"
 
 tarql.execute_query(basePath+"tarql/mun_wd_mapping.tarql",
                     infile,
@@ -63,11 +63,13 @@ tarql.execute_query(basePath+"tarql/mun_wd_mapping.tarql",
 
 ## SECTIONS_GEOGRAPHY
 
-basePath = "/home/nikola/projects/semanticElections/data/"
-infile = "/home/nikola/projects/semanticElections/data/static/sections/sections_all.tsv"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sections/sections_all.tsv"
 
 tarql.execute_query(basePath+"tarql/sections_geo_wkt.tarql",
                     infile,
                     basePath+"rdf/mappings/section_geography.ttl",
                     '-t',
                     queryArgs)
+
+

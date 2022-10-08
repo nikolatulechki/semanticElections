@@ -29,11 +29,11 @@ queryArgs = {
     "RND" : "" ,
     "MV" : "true",
 }
-infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021_07/votes_11.07.2021.flat.txt'
-tarql.execute_query(basePath+"tarql/votes_pi21_07.tarql",
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021_07/votes_11.07.2021.flat.sum.txt'
+tarql.execute_query(basePath+"tarql/votes_mv.tarql",
                     infile,
                     basePath+"rdf/pi2021_07/votes.ttl",
-                    '-d ; -H',
+                    '-d , -H',
                     queryArgs)
 
 ## PREFERENCE
@@ -43,11 +43,11 @@ queryArgs = {
     "RND" : "" ,
     "MV" : "",
 }
-infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021_07/preferences_11.07.2021.txt'
-tarql.execute_query(basePath+"tarql/preference_pi21_7.tarql",
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2021_07/preferences_11.07.2021.sum.txt'
+tarql.execute_query(basePath+"tarql/preference_mv.tarql",
                     infile,
                     basePath+"rdf/pi2021_07/preferences.ttl",
-                    '-d ; -H',
+                    '-d , -H',
                     queryArgs)
 
 # PROTOCOLS

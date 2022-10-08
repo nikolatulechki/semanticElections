@@ -8,4 +8,4 @@ insert {
 	?point a geo:Geometry ; geo:asWKT ?wkt .
     bind(xsd:float(replace(strafter(str(?wkt),"Point(")," .*","")) as ?lon)
     bind(xsd:float(replace(strafter(str(?wkt),"Point("),"([0-9]|\\.)* |\\)","")) as ?lat)
-}`
+}

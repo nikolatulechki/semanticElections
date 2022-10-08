@@ -23,51 +23,50 @@ tarql.execute_query(basePath+"tarql/sections_pi22.tarql",
                     '-d ; -H',
                      queryArgs)
 
-## VOTE
-# queryArgs = {
-#     "EL": "pi2022" ,
-#     "TYP" : "" ,
-#     "RND" : "" ,
-#     "MV" : "true",
-# }
-# infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/votes_02.10.2022.flat.txt'
-# tarql.execute_query(basePath+"tarql/votes_pi21_07.tarql",
-#                     infile,
-#                     basePath+"rdf/pi2022/votes.ttl",
-#                     '-d ; -H',
-#                     queryArgs)
+# VOTE
+queryArgs = {
+    "EL": "pi2022" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "MV" : "true",
+}
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/votes_02.10.2022.flat.sum.txt'
+tarql.execute_query(basePath+"tarql/votes_mv.tarql",
+                    infile,
+                    basePath+"rdf/pi2022/votes.ttl",
+                    '-d , -H',
+                    queryArgs)
 
-## PREFERENCE
-# queryArgs = {
-#     "EL": "pi2022" ,
-#     "TYP" : "" ,
-#     "RND" : "" ,
-#     "MV" : "",
-# }
-# infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/preferences_02.10.2022.txt'
-# tarql.execute_query(basePath+"tarql/preference_pi21_7.tarql",
-#                     infile,
-#                     basePath+"rdf/pi2022/preferences.ttl",
-#                     '-d ; -H',
-#                     queryArgs)
+# PREFERENCE
+queryArgs = {
+    "EL": "pi2022" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "MV" : "",
+}
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/preferences_02.10.2022.sum.txt'
+tarql.execute_query(basePath+"tarql/preference_mv.tarql",
+                    infile,
+                    basePath+"rdf/pi2022/preferences.ttl",
+                    '-d , -H',
+                    queryArgs)
 
-# PROTOCOLS
-# queryArgs = {
-#     "EL": "pi2022" ,
-#     "TYP" : "" ,
-#     "RND" : "" ,
-#     "LINK_HTML" : "https://results.cik.bg/ns2022/protokoli/64/",
-#     "LINK_PDF" : "https://results.cik.bg/pvrns2021/tur1/pdf/256/"
-# }
-# infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/protocols_02.10.2022.txt'
-# tarql.execute_query(basePath+"tarql/protocols_pi2021.tarql",
-#                     infile,
-#                     basePath+"rdf/pi2022/protocols.ttl",
-#                     '-d ; -H',
-#                     queryArgs)
+#PROTOCOLS
+queryArgs = {
+    "EL": "pi2022" ,
+    "TYP" : "" ,
+    "RND" : "" ,
+    "LINK_HTML" : "https://results.cik.bg/ns2022/protokoli/64/",
+    "LINK_PDF" : "https://results.cik.bg/pvrns2021/tur1/pdf/256/"
+}
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/protocols_02.10.2022.txt'
+tarql.execute_query(basePath+"tarql/protocols_pi2022.tarql",
+                    infile,
+                    basePath+"rdf/pi2022/protocols.ttl",
+                    '-d ; -H',
+                    queryArgs)
 
 # CIK Parties
-
 queryArgs = {
     "EL": "pi2022" ,
     "TYP" : "pi" ,
@@ -98,7 +97,7 @@ tarql.execute_query(basePath+"tarql/local_parties.tarql",
                     '-H -d ;',
                     queryArgs)
 
-# ## Candidates
+# Candidates
 queryArgs = {
     "EL": "pi2022" ,
     "TYP" : "pi" ,

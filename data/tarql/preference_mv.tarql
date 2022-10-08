@@ -6,7 +6,7 @@ construct {
 	?S_VOTE_URI
 	    a my:PreferenceVote ;
 		myps:preference_vote ?CAND_URI ;
-		mypq:sub_votes ?VV ;
+		mypq:valid_votes_recieved ?VV ;
 	.	
 }
 where {

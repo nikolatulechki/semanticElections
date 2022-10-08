@@ -5,7 +5,7 @@ construct {
 	.
 	?S_VOTE_URI_OK a my:SectionVote ;
 		myps:vote ?PARTY_URI ;
-		mypq:sub_votes ?VV ; #will have 2 values where there are 2 machines, sum them up in post processing
+		mypq:valid_votes_recieved ?VV ;
 		mypq:type ?vote_type ;
 	.	
 }

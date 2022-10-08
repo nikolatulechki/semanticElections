@@ -74,3 +74,46 @@ where {
 ```
 
 https://www.capital.bg/politika_i_ikonomika/bulgaria/2021/04/06/4195043_300_lv_i_5_greshnite_smetki_i_realnata_tejest_na/
+
+Query with votes abroad and ugly hack
+
+```sparql
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select ?mir ?partyName (sum(?valid_votes) as ?sum_valid_votes) 
+where {
+    bind(<election/pi2021_11> as ?election) 
+    {
+        ?party a my:ElectionParty ;
+               rdfs:label ?partyName .
+        ?voting myp:vote ?vote  ;
+                myd:main_election ?election ;
+                myd:election/myd:jurisdiction/myd:number ?mir ;
+                                             myd:section ?sec ;
+                                             .
+        ?vote myps:vote/myd:party ?party;
+                       mypq:valid_votes_recieved ?valid_votes ;
+                       .
+    } UNION {
+        ?party a my:ElectionParty ;
+               rdfs:label ?partyName .
+        ?voting myp:vote ?vote  ;
+                myd:main_election ?election ;
+                myd:section/myd:number ?sec ;
+                           .
+        filter(strstarts(str(?sec),"32"))
+        bind(32 as ?mir)
+        ?vote myps:vote ?vote_nok;
+              mypq:valid_votes_recieved ?valid_votes ;
+              .
+        bind(uri(replace(str(?vote_nok),"/32/","/31/")) as ?vote_ok)
+        ?vote_ok myd:party ?party
+    }
+} group by ?mir ?partyName order by ?mir ?partyName
+```
