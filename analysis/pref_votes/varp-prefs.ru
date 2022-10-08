@@ -16,4 +16,5 @@ select ?candidate ?n (sum(?norm2)/?n as ?varp)   {
     ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?cand_preferences .
     bind(?cand_preferences - ?avg as ?norm)
     bind(?norm*?norm as ?norm2)
-    } group by ?candidate ?n }
+    } group by ?candidate ?n
+}

@@ -1,0 +1,269 @@
+@prefix myd: <https://elections.ontotext.com/resource/prop/direct/> .
+@prefix my: <https://elections.ontotext.com/resource/entity/> .
+@prefix wikibase: <http://wikiba.se/ontology#> .
+@prefix bd: <http://www.bigdata.com/rdf#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+<http://www.wikidata.org/entity/Q792527> rdfs:label "ВМРО – Българско национално движение"@bg .
+
+<http://www.wikidata.org/entity/Q752259> rdfs:label "БСП"@bg .
+
+<http://www.wikidata.org/entity/Q28943121> rdfs:label "Възраждане"@bg .
+
+<http://www.wikidata.org/entity/Q17173534> rdfs:label "Алтернатива за българско възраждане"@bg .
+
+<http://www.wikidata.org/entity/Q178049> rdfs:label "Атака"@bg .
+
+<http://www.wikidata.org/entity/Q164242> rdfs:label "Движение за права и свободи"@bg .
+
+<http://www.wikidata.org/entity/Q62808154> rdfs:label "Демократична България"@bg .
+
+<http://www.wikidata.org/entity/Q104203765> rdfs:label "Републиканци"@bg .
+
+<http://www.wikidata.org/entity/Q12290026> rdfs:label "Партия на зелените"@bg .
+
+<http://www.wikidata.org/entity/Q133968> rdfs:label "ГЕРБ"@bg .
+
+<http://www.wikidata.org/entity/Q98098908> rdfs:label "Има такъв народ"@bg .
+
+<http://www.wikidata.org/entity/Q834016> rdfs:label "Български земеделски народен съюз"@bg .
+
+<http://www.wikidata.org/entity/Q1003898> rdfs:label "Българска нова демокрация"@bg .
+
+<http://www.wikidata.org/entity/Q74879027> rdfs:label "СОЦИАЛДЕМОКРАТИЧЕСКА ПАРТИЯ"@bg .
+
+<http://www.wikidata.org/entity/Q23044310> rdfs:label "Български демократичен център"@bg .
+
+<http://www.wikidata.org/entity/Q20497195> rdfs:label "Глас народен"@bg .
+
+<http://www.wikidata.org/entity/Q97382475> rdfs:label "Политическо Движение Социалдемократи"@bg .
+
+<http://www.wikidata.org/entity/Q1968054> rdfs:label "Национален фронт за спасение на България"@bg .
+
+<http://www.wikidata.org/entity/Q3657993> rdfs:label "Движение „Гергьовден“"@bg .
+
+<http://www.wikidata.org/entity/Q74877806> rdfs:label "ПП СВОБОДА"@bg .
+
+<http://www.wikidata.org/entity/Q74877874> rdfs:label "ПРЯКА ДЕМОКРАЦИЯ"@bg .
+
+<http://www.wikidata.org/entity/Q74877840> rdfs:label "ПП ПОДЕМ"@bg .
+
+<http://www.wikidata.org/entity/Q74877884> rdfs:label "КОАЛИЦИЯ КАУЗА ПЛОВДИВ"@bg .
+
+<http://www.wikidata.org/entity/Q4314927> rdfs:label "Национално движение за права и свободи"@bg .
+
+<http://www.wikidata.org/entity/Q74877898> rdfs:label "ПОЛИТИЧЕСКА ПАРТИЯ ДВИЖЕНИЕ ИНИЦИАТИВА ЗА БОТЕВГРАДСКА ОБЩИНА"@bg .
+
+<http://www.wikidata.org/entity/Q74877843> rdfs:label "ПП МОРЕ"@bg .
+
+<http://www.wikidata.org/entity/Q74877838> rdfs:label "БЪЛГАРСКО НАЦИОНАЛНО ОБЕДИНЕНИЕ"@bg .
+
+<http://www.wikidata.org/entity/Q12295876> rdfs:label "Съюз за Пловдив"@bg .
+
+<http://www.wikidata.org/entity/Q74877800> rdfs:label "ПП ДВИЖЕНИЕ „НАПРЕД БЪЛГАРИЯ“"@bg .
+
+<http://www.wikidata.org/entity/Q897740> rdfs:label "Съюз на свободните демократи"@bg .
+
+<http://www.wikidata.org/entity/Q74877810> rdfs:label "ПП НОВА АЛТЕРНАТИВА"@bg .
+
+<http://www.wikidata.org/entity/Q10785508> rdfs:label "България на гражданите"@bg .
+
+<http://www.wikidata.org/entity/Q4325952> rdfs:label "Новото време"@bg .
+
+<http://www.wikidata.org/entity/Q74877889> rdfs:label "СОЦИАЛИСТИЧЕСКА ПАРТИЯ „Български път“"@bg .
+
+<http://www.wikidata.org/entity/Q74877823> rdfs:label "коалиция АЛТЕРНАТИВАТА НА ГРАЖДАНИТЕ"@bg .
+
+<http://www.wikidata.org/entity/Q74877815> rdfs:label "\"коалиция Ние, Гражданите\""@bg .
+
+<http://www.wikidata.org/entity/Q74877829> rdfs:label "ДВИЖЕНИЕ 21"@bg .
+
+<http://www.wikidata.org/entity/Q97386429> rdfs:label "ОБТ - Български лейбъристи"@bg .
+
+<http://www.wikidata.org/entity/Q25477668> rdfs:label "Единна народна партия"@bg .
+
+<http://www.wikidata.org/entity/Q74877818> rdfs:label "БЪЛГАРСКИ СЪЮЗ ЗА ДИРЕКТНА ДЕМОКРАЦИЯ (БСДД)"@bg .
+
+<http://www.wikidata.org/entity/Q74877833> rdfs:label "СРЕДНА ЕВРОПЕЙСКА КЛАСА"@bg .
+
+<http://www.wikidata.org/entity/Q9182522> rdfs:label "Българска социалдемократическа партия (1891)"@bg .
+
+<http://www.wikidata.org/entity/Q2996483> rdfs:label "Евророма"@bg .
+
+<http://www.wikidata.org/entity/Q74877869> rdfs:label "БАСТА"@bg .
+
+<http://www.wikidata.org/entity/Q74877900> rdfs:label "БЪЛГАРСКИ ДЕМОКРАТИЧЕСКИ ФОРУМ"@bg .
+
+<http://www.wikidata.org/entity/Q12287728> rdfs:label "Народна партия „Свобода и достойнство“"@bg .
+
+<http://www.wikidata.org/entity/Q74877890> rdfs:label "Национална Републиканска партия"@bg .
+
+<http://www.wikidata.org/entity/Q74877877> rdfs:label "ПП ДВИЖЕНИЕ НАШИЯТ ГРАД"@bg .
+
+<http://www.wikidata.org/entity/Q283129> rdfs:label "Зелено движение"@bg .
+
+<http://www.wikidata.org/entity/Q74877851> rdfs:label "Българска демократична общност"@bg .
+
+<http://www.wikidata.org/entity/Q74877880> rdfs:label "ХРИСТИЯНРЕФОРМИСТКА ПАРТИЯ"@bg .
+
+<http://www.wikidata.org/entity/Q7887330> rdfs:label "Обединени земеделци"@bg .
+
+<http://www.wikidata.org/entity/Q74877855> rdfs:label "Християндемократическа партия на България"@bg .
+
+<http://www.wikidata.org/entity/Q764717> rdfs:label "Земеделски съюз „Александър Стамболийски“"@bg .
+
+<http://www.wikidata.org/entity/Q97386476> rdfs:label "МИР"@bg .
+
+<http://www.wikidata.org/entity/Q25485773> rdfs:label "ВОЛЯ"@bg .
+
+<http://www.wikidata.org/entity/Q74877857> rdfs:label "ПОЛИТИЧЕСКА ПАРТИЯ „НИКОЛА ПЕТКОВ“"@bg .
+
+<http://www.wikidata.org/entity/Q74877894> rdfs:label "НАЦИОНАЛНА ПОЛИТИЧЕСКА ПАРТИЯ БЪЛГАРЕ (НППБ)"@bg .
+
+<http://www.wikidata.org/entity/Q928435> rdfs:label "НДСВ"@bg .
+
+<http://www.wikidata.org/entity/Q74877804> rdfs:label "Движение ЗАЕДНО за промяна"@bg .
+
+<http://www.wikidata.org/entity/Q1048010> rdfs:label "Ред, законност и справедливост"@bg .
+
+<http://www.wikidata.org/entity/Q74877862> rdfs:label "ПП ОБЕДИНЕНА СОЦИАЛДЕМОКРАЦИЯ"@bg .
+
+<http://www.wikidata.org/entity/Q127790> rdfs:label "Български социалдемократи"@bg .
+
+<http://www.wikidata.org/entity/Q74877866> rdfs:label "БДС „РАДИКАЛИ“"@bg .
+
+<http://www.wikidata.org/entity/Q1133279> rdfs:label "Радикалдемократическа партия"@bg .
+
+<http://www.wikidata.org/entity/Q841253> rdfs:label "Съюз на демократичните сили"@bg .
+
+<http://www.wikidata.org/entity/Q74877827> rdfs:label "ПП „ДВИЖЕНИЕ ЗА РАДИКАЛНА ПРОМЯНА БЪЛГАРСКАТА ПРОЛЕТ“"@bg .
+
+<http://www.wikidata.org/entity/Q97387007> rdfs:label "ПАТРИОТИ ЗА ВАЛЕРИ СИМЕОНОВ"@bg .
+
+<http://www.wikidata.org/entity/Q97387389> rdfs:label "Път на младите"@bg .
+
+<http://www.wikidata.org/entity/Q97397899> rdfs:label "ВОЛТ"@bg .
+
+<http://www.wikidata.org/entity/Q97438558> rdfs:label "Q97438558" .
+
+<http://www.wikidata.org/entity/Q971439> rdfs:label "Коалиция за България"@bg .
+
+<http://www.wikidata.org/entity/Q16943183> rdfs:label "Презареди БГ"@bg .
+
+<http://www.wikidata.org/entity/Q12277739> rdfs:label "Движение за равноправен обществен модел"@bg .
+
+<http://www.wikidata.org/entity/Q97395772> rdfs:label "Нова Република"@en .
+
+<http://www.wikidata.org/entity/Q97395774> rdfs:label "Q97395774" .
+
+<http://www.wikidata.org/entity/Q97395791> rdfs:label "Коалиция „АБВ – Движение 21\""@en .
+
+<http://www.wikidata.org/entity/Q97395983> rdfs:label "Q97395983" .
+
+<http://www.wikidata.org/entity/Q31191941> rdfs:label "Коалиция Движение Да, България"@bg .
+
+<http://www.wikidata.org/entity/Q97382346> rdfs:label "ОБЕДИНЕНИ ПАТРИОТИ – НФСБ, АТАКА и ВМРО"@en .
+
+<http://www.wikidata.org/entity/Q97396254> rdfs:label "Кой"@bg .
+
+<http://www.wikidata.org/entity/Q97396346> rdfs:label "Глас Народен - Реформаторски блок"@en .
+
+<http://www.wikidata.org/entity/Q97396354> rdfs:label "Християнсоциален съюз"@en .
+
+<http://www.wikidata.org/entity/Q15991304> rdfs:label "Реформаторски блок"@bg .
+
+<http://www.wikidata.org/entity/Q3060519> rdfs:label "Българска евролевица"@bg .
+
+<http://www.wikidata.org/entity/Q97396393> rdfs:label "Движение 21 – НДСВ"@en .
+
+<http://www.wikidata.org/entity/Q97396409> rdfs:label "Коалиция Kалфин-президент"@en .
+
+<http://www.wikidata.org/entity/Q97396399> rdfs:label "Балканска демократична лига"@en .
+
+<http://www.wikidata.org/entity/Q3487386> rdfs:label "Българска социалдемокрация"@bg .
+
+<http://www.wikidata.org/entity/Q3772946> rdfs:label "Европейска сигурност и интеграция"@bg .
+
+<http://www.wikidata.org/entity/Q12282760> rdfs:label "Кауза България"@bg .
+
+<http://www.wikidata.org/entity/Q97396767> rdfs:label "Новите лидери"@en .
+
+<http://www.wikidata.org/entity/Q97396921> rdfs:label "Обединена България"@en .
+
+<http://www.wikidata.org/entity/Q2058305> rdfs:label "Политически клуб „Екогласност“"@bg .
+
+<http://www.wikidata.org/entity/Q97397099> rdfs:label "„Политически клуб „Тракия”"@bg .
+
+<http://www.wikidata.org/entity/Q97397232> rdfs:label "Родина"@en .
+
+<http://www.wikidata.org/entity/Q97397299> rdfs:label "Движение демократично действие"@en .
+
+<http://www.wikidata.org/entity/Q97397288> rdfs:label "Партия на българските жени"@bg .
+
+<http://www.wikidata.org/entity/Q2351908> rdfs:label "Комунистическа партия на България"@bg .
+
+<http://www.wikidata.org/entity/Q12295893> rdfs:label "Съюз на патриотичните сили „Защита“"@bg .
+
+<http://www.wikidata.org/entity/Q97397318> rdfs:label "Политическа партия „Солидарност”"@en .
+
+<http://www.wikidata.org/entity/Q2906775> rdfs:label "Обединен блок на труда"@bg .
+
+<http://www.wikidata.org/entity/Q1268539> rdfs:label "Движение за социален хуманизъм"@bg .
+
+<http://www.wikidata.org/entity/Q12274242> rdfs:label "Българска социалдемократическа партия"@bg .
+
+<http://www.wikidata.org/entity/Q804929> rdfs:label "Българската левица"@bg .
+
+<http://www.wikidata.org/entity/Q97397340> rdfs:label "ПП Бургас"@en .
+
+<http://www.wikidata.org/entity/Q12288881> rdfs:label "Нова зора (партия)"@bg .
+
+<http://www.wikidata.org/entity/Q97397345> rdfs:label "Българска партия либерали"@en .
+
+<http://www.wikidata.org/entity/Q97397353> rdfs:label "Отечество"@en .
+
+<http://www.wikidata.org/entity/Q97397356> rdfs:label "Целокупна България"@en .
+
+<http://www.wikidata.org/entity/Q20498113> rdfs:label "ДЕОС"@bg .
+
+<http://www.wikidata.org/entity/Q97397368> rdfs:label "Синьо единство"@en .
+
+<http://www.wikidata.org/entity/Q97397539> rdfs:label "ПП „ВОТ Консерватори”"@en .
+
+<http://www.wikidata.org/entity/Q12274218> rdfs:label "Българска комунистическа партия (Владимир Спасов)"@bg .
+
+<http://www.wikidata.org/entity/Q97397881> rdfs:label "Политическа партия Щит"@en .
+
+<http://www.wikidata.org/entity/Q97397873> rdfs:label "Обединение достойна България"@en .
+
+<http://www.wikidata.org/entity/Q97397861> rdfs:label "Нова България"@en .
+
+<http://www.wikidata.org/entity/Q851822> rdfs:label "Зелена партия (България)"@bg .
+
+<http://www.wikidata.org/entity/Q97397830> rdfs:label "Нова сила"@en .
+
+<http://www.wikidata.org/entity/Q97397813> rdfs:label "Движение за благоденствие и възход"@en .
+
+<http://www.wikidata.org/entity/Q97397792> rdfs:label "Движение за европейска интеграция"@en .
+
+<http://www.wikidata.org/entity/Q12279158> rdfs:label "Другата България"@bg .
+
+<http://www.wikidata.org/entity/Q834030> rdfs:label "Български народен съюз"@bg .
+
+<http://www.wikidata.org/entity/Q97397656> rdfs:label "Българска радикална левица"@en .
+
+<http://www.wikidata.org/entity/Q20498806> rdfs:label "Партия Нова България"@bg .
+
+<http://www.wikidata.org/entity/Q17514144> rdfs:label "Патриотичен фронт"@bg .
+
+<http://www.wikidata.org/entity/Q106393525> rdfs:label "Изправи се! Мутри вън!"@bg .
+
+<http://www.wikidata.org/entity/Q108601789> rdfs:label "Продължаваме промяната"@bg .
+
+<http://www.wikidata.org/entity/Q111985616> rdfs:label "Български възход"@bg .

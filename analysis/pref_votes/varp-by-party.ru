@@ -12,7 +12,7 @@ select ?party ?label ?n (sum(?norm2)/?n as ?varp)   {
             ?pv myps:preference_vote ?cand ;
                 mypq:valid_votes_recieved ?cand_preferences .
             ?cand myd:represents/myd:party ?party ; myd:number ?num .
-            ?party myd:candidacy election:pi2021_11 .
+            ?party myd:candidacy election:pi2022 .
         } group by ?party
     }
     ?party rdfs:label ?label .
@@ -20,4 +20,4 @@ select ?party ?label ?n (sum(?norm2)/?n as ?varp)   {
         mypq:valid_votes_recieved ?cand_preferences .
     bind(?cand_preferences - ?avg as ?norm)
     bind(?norm*?norm as ?norm2)
-} group by ?party ?label ?n
+} group by ?party ?label ?n order by desc(?varp)
