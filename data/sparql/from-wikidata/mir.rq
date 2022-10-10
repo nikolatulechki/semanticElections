@@ -9,8 +9,13 @@ PREFIX p: <http://www.wikidata.org/prop/>
 PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 construct {
-	?MIRURI a my:MIR ; rdfs:label ?mirLabel ; geo:hasGeometry ?MIR_GEO ; myd:wdid ?mir ; myd:number ?mirnum .
+	?MIRURI a my:MIR ;
+	        rdfs:label ?mirLabel ;
+	        geo:hasGeometry ?MIR_GEO ;
+	        myd:wdid ?mir ;
+	        myd:number ?MIRNUM .
     ?MIR_GEO a geo:Geometry ; geo:asWKT ?mirCoord .
 }
 where {
@@ -20,6 +25,7 @@ where {
             ?mir rdfs:label ?mirLabel .
         }
     }
+    bind(strdt(?mirnum,xsd:integer) as ?MIRNUM)
     bind(uri(concat(str(jurisdiction:),?mirnum)) as ?MIRURI)
     bind(uri(concat(str(?s),"/geo")) as ?MUN_GEO)
     bind(uri(concat(str(?MIRURI),"/geo")) as ?MIR_GEO)

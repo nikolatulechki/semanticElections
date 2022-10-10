@@ -1,9 +1,11 @@
 construct {
     ?MSEC_URI a my:matchedSection ;
+        myd:number ?akf_id ;
         myd:section ?SEC_URI .
     ?SEC_URI myd:matched_section ?MSEC_URI .
 } where {
     bind(if(strlen(?sec_id)=8,concat("0",?sec_id),?sec_id) as ?sec_id_ok)
     bind(uri(concat("section/{EL}/",?sec_id_ok)) as ?SEC_URI)
     bind(uri(concat("matchedSection/",?akf_id)) as ?MSEC_URI)
+    filter(contains(?akf_id,"PE"))
 }

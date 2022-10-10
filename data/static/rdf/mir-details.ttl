@@ -1,295 +1,296 @@
-@prefix bd: <http://www.bigdata.com/rdf#> .
-@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
-@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/> .
 @prefix my: <https://elections.ontotext.com/resource/entity/> .
 @prefix myd: <https://elections.ontotext.com/resource/prop/direct/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix wikibase: <http://wikiba.se/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bd: <http://www.bigdata.com/rdf#> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
 @prefix p: <http://www.wikidata.org/prop/> .
 @prefix pq: <http://www.wikidata.org/prop/qualifier/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
-@prefix wd: <http://www.wikidata.org/entity/> .
-@prefix wdt: <http://www.wikidata.org/prop/direct/> .
-@prefix wikibase: <http://wikiba.se/ontology#> .
+@prefix jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
 
 jurisdiction:1 a my:MIR;
-  rdfs:label "Благоевград"@bg;
+  rdfs:label "1 МИР Благоевград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1/geo>;
-  myd:number "1";
-  myd:wikidata_entity wd:Q4596443 .
+  myd:wdid wd:Q4596443;
+  myd:number 1 .
 
 <https://elections.ontotext.com/resource/jurisdiction/1/geo> a geo:Geometry;
   geo:asWKT "Point(23.25 41.75)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:21 a my:MIR;
-  rdfs:label "Сливен"@bg;
+  rdfs:label "21 МИР Сливен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/21/geo>;
-  myd:number "21";
-  myd:wikidata_entity wd:Q4631130 .
+  myd:wdid wd:Q4631130;
+  myd:number 21 .
 
 <https://elections.ontotext.com/resource/jurisdiction/21/geo> a geo:Geometry;
   geo:asWKT "Point(24.75 42.1667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:31 a my:MIR;
-  rdfs:label "Ямбол"@bg;
+  rdfs:label "31 МИР Ямбол"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/31/geo>;
-  myd:number "31";
-  myd:wikidata_entity wd:Q4634850 .
+  myd:wdid wd:Q4634850;
+  myd:number 31 .
 
 <https://elections.ontotext.com/resource/jurisdiction/31/geo> a geo:Geometry;
   geo:asWKT "Point(26.5167 42.4167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:3 a my:MIR;
-  rdfs:label "Варна"@bg;
+  rdfs:label "3 МИР Варна"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/3/geo>;
-  myd:number "3";
-  myd:wikidata_entity wd:Q4636830 .
+  myd:wdid wd:Q4636830;
+  myd:number 3 .
 
 <https://elections.ontotext.com/resource/jurisdiction/3/geo> a geo:Geometry;
   geo:asWKT "Point(27.4667 43.2167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:4 a my:MIR;
-  rdfs:label "Велико Търново"@bg;
+  rdfs:label "4 МИР Велико Търново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/4/geo>;
-  myd:number "4";
-  myd:wikidata_entity wd:Q4639339 .
+  myd:wdid wd:Q4639339;
+  myd:number 4 .
 
 <https://elections.ontotext.com/resource/jurisdiction/4/geo> a geo:Geometry;
   geo:asWKT "Point(25.55 43.3167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:20 a my:MIR;
-  rdfs:label "Силистра"@bg;
+  rdfs:label "20 МИР Силистра"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/20/geo>;
-  myd:number "20";
-  myd:wikidata_entity wd:Q4630780 .
+  myd:wdid wd:Q4630780;
+  myd:number 20 .
 
 <https://elections.ontotext.com/resource/jurisdiction/20/geo> a geo:Geometry;
   geo:asWKT "Point(27.1667 43.9167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:27 a my:MIR;
-  rdfs:label "Стара Загора"@bg;
+  rdfs:label "27 МИР Стара Загора"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/27/geo>;
-  myd:number "27";
-  myd:wikidata_entity wd:Q4632628 .
+  myd:wdid wd:Q4632628;
+  myd:number 27 .
 
 <https://elections.ontotext.com/resource/jurisdiction/27/geo> a geo:Geometry;
   geo:asWKT "Point(25.5 42.4167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:9 a my:MIR;
-  rdfs:label "Кърджали"@bg;
+  rdfs:label "9 МИР Кърджали"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/9/geo>;
-  myd:number "9";
-  myd:wikidata_entity wd:Q4646605 .
+  myd:wdid wd:Q4646605;
+  myd:number 9 .
 
 <https://elections.ontotext.com/resource/jurisdiction/9/geo> a geo:Geometry;
   geo:asWKT "Point(25.3667 41.65)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:16 a my:MIR;
-  rdfs:label "Пловдив Град"@bg;
+  rdfs:label "16 МИР Пловдив (град)"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/16/geo>;
-  myd:number "16";
-  myd:wikidata_entity wd:Q4552188 .
+  myd:wdid wd:Q4552188;
+  myd:number 16 .
 
 <https://elections.ontotext.com/resource/jurisdiction/16/geo> a geo:Geometry;
   geo:asWKT "Point(24.75 42.15)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:23 a my:MIR;
-  rdfs:label "София 23"@bg;
+  rdfs:label "София 23 (МИР)"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/23/geo>;
-  myd:number "23";
-  myd:wikidata_entity wd:Q4631659 .
+  myd:wdid wd:Q4631659;
+  myd:number 23 .
 
 <https://elections.ontotext.com/resource/jurisdiction/23/geo> a geo:Geometry;
   geo:asWKT "Point(23.3658 42.6461)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:5 a my:MIR;
-  rdfs:label "Видин"@bg;
+  rdfs:label "5 МИР Видин"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/5/geo>;
-  myd:number "5";
-  myd:wikidata_entity wd:Q4641358 .
+  myd:wdid wd:Q4641358;
+  myd:number 5 .
 
 <https://elections.ontotext.com/resource/jurisdiction/5/geo> a geo:Geometry;
   geo:asWKT "Point(22.6833 43.8)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:15 a my:MIR;
-  rdfs:label "Плевен"@bg;
+  rdfs:label "15 МИР Плевен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/15/geo>;
-  myd:number "15";
-  myd:wikidata_entity wd:Q4550999 .
+  myd:wdid wd:Q4550999;
+  myd:number 15 .
 
 <https://elections.ontotext.com/resource/jurisdiction/15/geo> a geo:Geometry;
   geo:asWKT "Point(24.6667 43.4167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:10 a my:MIR;
-  rdfs:label "Кюстендил"@bg;
+  rdfs:label "10 МИР Кюстендил"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/10/geo>;
-  myd:number "10";
-  myd:wikidata_entity wd:Q4547089 .
+  myd:wdid wd:Q4547089;
+  myd:number 10 .
 
 <https://elections.ontotext.com/resource/jurisdiction/10/geo> a geo:Geometry;
   geo:asWKT "Point(23.0 42.25)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:11 a my:MIR;
-  rdfs:label "Ловеч"@bg;
+  rdfs:label "11 МИР Ловеч"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/11/geo>;
-  myd:number "11";
-  myd:wikidata_entity wd:Q4547904 .
+  myd:wdid wd:Q4547904;
+  myd:number 11 .
 
 <https://elections.ontotext.com/resource/jurisdiction/11/geo> a geo:Geometry;
   geo:asWKT "Point(24.5 43.0)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:12 a my:MIR;
-  rdfs:label "Монатана"@bg;
+  rdfs:label "12 МИР Монтана"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/12/geo>;
-  myd:number "12";
-  myd:wikidata_entity wd:Q4548860 .
+  myd:wdid wd:Q4548860;
+  myd:number 12 .
 
 <https://elections.ontotext.com/resource/jurisdiction/12/geo> a geo:Geometry;
   geo:asWKT "Point(23.1833 43.6)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:13 a my:MIR;
-  rdfs:label "Пазарджик"@bg;
+  rdfs:label "13 Многомандатен избирателен район"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/13/geo>;
-  myd:number "13";
-  myd:wikidata_entity wd:Q4549482 .
+  myd:wdid wd:Q4549482;
+  myd:number 13 .
 
 <https://elections.ontotext.com/resource/jurisdiction/13/geo> a geo:Geometry;
   geo:asWKT "Point(24.331805555 42.189166666)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:19 a my:MIR;
-  rdfs:label "Русе"@bg;
+  rdfs:label "19 МИР Русе"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/19/geo>;
-  myd:number "19";
-  myd:wikidata_entity wd:Q4595785 .
+  myd:wdid wd:Q4595785;
+  myd:number 19 .
 
 <https://elections.ontotext.com/resource/jurisdiction/19/geo> a geo:Geometry;
   geo:asWKT "Point(26.0 43.75)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:30 a my:MIR;
-  rdfs:label "Шумен"@bg;
+  rdfs:label "30 МИР Шумен"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/30/geo>;
-  myd:number "30";
-  myd:wikidata_entity wd:Q4634617 .
+  myd:wdid wd:Q4634617;
+  myd:number 30 .
 
 <https://elections.ontotext.com/resource/jurisdiction/30/geo> a geo:Geometry;
   geo:asWKT "Point(27.0 43.25)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:14 a my:MIR;
-  rdfs:label "Перник"@bg;
+  rdfs:label "14 МИР Перник"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/14/geo>;
-  myd:number "14";
-  myd:wikidata_entity wd:Q4550046 .
+  myd:wdid wd:Q4550046;
+  myd:number 14 .
 
 <https://elections.ontotext.com/resource/jurisdiction/14/geo> a geo:Geometry;
   geo:asWKT "Point(23.0 42.5833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:28 a my:MIR;
-  rdfs:label "Търговище"@bg;
+  rdfs:label "28 МИР Търговище"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/28/geo>;
-  myd:number "28";
-  myd:wikidata_entity wd:Q4632791 .
+  myd:wdid wd:Q4632791;
+  myd:number 28 .
 
 <https://elections.ontotext.com/resource/jurisdiction/28/geo> a geo:Geometry;
   geo:asWKT "Point(26.5 43.25)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:29 a my:MIR;
-  rdfs:label "Хасково"@bg;
+  rdfs:label "29 МИР Хасково"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/29/geo>;
-  myd:number "29";
-  myd:wikidata_entity wd:Q4632957 .
+  myd:wdid wd:Q4632957;
+  myd:number 29 .
 
 <https://elections.ontotext.com/resource/jurisdiction/29/geo> a geo:Geometry;
   geo:asWKT "Point(25.9167 41.8333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:2 a my:MIR;
-  rdfs:label "Бургас"@bg;
+  rdfs:label "2 МИР Бургас"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2/geo>;
-  myd:number "2";
-  myd:wikidata_entity wd:Q4633764 .
+  myd:wdid wd:Q4633764;
+  myd:number 2 .
 
 <https://elections.ontotext.com/resource/jurisdiction/2/geo> a geo:Geometry;
   geo:asWKT "Point(27.25 42.5)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:6 a my:MIR;
-  rdfs:label "Вратца"@bg;
+  rdfs:label "6 МИР Враца"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/6/geo>;
-  myd:number "6";
-  myd:wikidata_entity wd:Q4642707 .
+  myd:wdid wd:Q4642707;
+  myd:number 6 .
 
 <https://elections.ontotext.com/resource/jurisdiction/6/geo> a geo:Geometry;
   geo:asWKT "Point(23.6 43.5167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:7 a my:MIR;
-  rdfs:label "Габрово"@bg;
+  rdfs:label "7 МИР Габрово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/7/geo>;
-  myd:number "7";
-  myd:wikidata_entity wd:Q4644101 .
+  myd:wdid wd:Q4644101;
+  myd:number 7 .
 
 <https://elections.ontotext.com/resource/jurisdiction/7/geo> a geo:Geometry;
   geo:asWKT "Point(25.25 42.9167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:24 a my:MIR;
-  rdfs:label "София 24"@bg;
+  rdfs:label "София 24 (МИР)"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/24/geo>;
-  myd:number "24";
-  myd:wikidata_entity wd:Q4631990 .
+  myd:wdid wd:Q4631990;
+  myd:number 24 .
 
 <https://elections.ontotext.com/resource/jurisdiction/24/geo> a geo:Geometry;
   geo:asWKT "Point(23.3783 42.7208)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:25 a my:MIR;
-  rdfs:label "София 25"@bg;
+  rdfs:label "София 25 (МИР)"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/25/geo>;
-  myd:number "25";
-  myd:wikidata_entity wd:Q4632290 .
+  myd:wdid wd:Q4632290;
+  myd:number 25 .
 
 <https://elections.ontotext.com/resource/jurisdiction/25/geo> a geo:Geometry;
   geo:asWKT "Point(23.2856 42.7258)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:26 a my:MIR;
-  rdfs:label "София Област"@bg;
+  rdfs:label "26 МИР София (област)"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/26/geo>;
-  myd:number "26";
-  myd:wikidata_entity wd:Q4632458 .
+  myd:wdid wd:Q4632458;
+  myd:number 26 .
 
 <https://elections.ontotext.com/resource/jurisdiction/26/geo> a geo:Geometry;
   geo:asWKT "Point(23.6667 42.6667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:17 a my:MIR;
-  rdfs:label "Пловдив Област"@bg;
+  rdfs:label "17 МИР Пловдив (област)"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/17/geo>;
-  myd:number "17";
-  myd:wikidata_entity wd:Q4553637 .
+  myd:wdid wd:Q4553637;
+  myd:number 17 .
 
 <https://elections.ontotext.com/resource/jurisdiction/17/geo> a geo:Geometry;
   geo:asWKT "Point(24.75 42.1667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:18 a my:MIR;
-  rdfs:label "Разград"@bg;
+  rdfs:label "18 МИР Разград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/18/geo>;
-  myd:number "18";
-  myd:wikidata_entity wd:Q4557626 .
+  myd:wdid wd:Q4557626;
+  myd:number 18 .
 
 <https://elections.ontotext.com/resource/jurisdiction/18/geo> a geo:Geometry;
   geo:asWKT "Point(26.5833 43.5)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:22 a my:MIR;
-  rdfs:label "Смолян"@bg;
+  rdfs:label "22 МИР Смолян"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/22/geo>;
-  myd:number "22";
-  myd:wikidata_entity wd:Q4631389 .
+  myd:wdid wd:Q4631389;
+  myd:number 22 .
 
 <https://elections.ontotext.com/resource/jurisdiction/22/geo> a geo:Geometry;
   geo:asWKT "Point(24.5833 41.6667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:8 a my:MIR;
-  rdfs:label "Добрич"@bg;
+  rdfs:label "8 МИР Добрич"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/8/geo>;
-  myd:number "8";
-  myd:wikidata_entity wd:Q4645404 .
+  myd:wdid wd:Q4645404;
+  myd:number 8 .
 
 <https://elections.ontotext.com/resource/jurisdiction/8/geo> a geo:Geometry;
   geo:asWKT "Point(28.0 43.5833)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .

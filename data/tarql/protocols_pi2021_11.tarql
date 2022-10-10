@@ -1,10 +1,11 @@
 construct {
     ?VOTE_URI
         myd:voters_count ?H ;
-        myd:invalid_ballots ?L ;
+        myd:invalid_ballots ?P ;
         myd:voters_additional_count ?I ;
         myd:voters_voted_count ?J ;
-        myd:votes_valid_count ?J ;
+        myd:votes_valid_count ?Q ;
+        myd:votes_blanc_count ?S ;
         myd:link_html ?PROT_LINK ;
         myd:link_pdf ?PDF_LINK ;
     .
@@ -15,7 +16,9 @@ construct {
     bind(strdt(?h,xsd:integer) as ?H)
     bind(strdt(?i,xsd:integer) as ?I)
     bind(strdt(?j,xsd:integer) as ?J)
-    bind(strdt(?l,xsd:integer) as ?L)
+    bind(strdt(?p,xsd:integer) as ?P)
+    bind(strdt(?q,xsd:integer) as ?Q)
+    bind(strdt(?s,xsd:integer) as ?S)
     bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".0.html")) as ?PROT_LINK)
     bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?b,".pdf")) as ?PDF_LINK)
 }
