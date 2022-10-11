@@ -1,0 +1,62 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select
+?election_date
+?mir_label
+?MIR_NUMBER
+?election_party_label
+?election_party_number
+?matched_party_label
+?candidate_name
+?candidate_number
+?LIST_NUMBER
+?PARTY_VOTES
+(?PARTY_VOTES/?MIR_VOTES as ?PARTY_RATIO)
+?CAND_PREF_VOTES
+(?CAND_PREF_VOTES/?PARTY_VOTES as ?CAND_PREF_RATIO)
+where {
+    {select ?local_el ?local_party ?MIR_VOTES ?PARTY_VOTES ?candidate (sum(?cand_prefs) as ?CAND_PREF_VOTES) where {
+        {select ?local_el ?local_party (sum(?party_votes) as ?PARTY_VOTES) ?MIR_VOTES where {
+            {select ?local_el (sum(?party_votes) as ?MIR_VOTES) where {
+                    ?local_el a my:Election ;
+                           myd:main_election ?el ;
+                    .
+                    ?local_party  myd:candidacy ?local_el .
+                    ?vote a my:SectionVote ; myps:vote ?local_party ; mypq:valid_votes_recieved ?party_votes .
+                    ?el myd:type "parliamentary" ;
+#						myd:date "2022-10-02"^^xsd:date ;
+                     .
+            } group by ?local_el }
+            ?local_party  myd:candidacy ?local_el .
+            ?vote a my:SectionVote ; myps:vote ?local_party ; mypq:valid_votes_recieved ?party_votes
+
+            } group by ?local_el ?local_party ?MIR_VOTES }
+			?candidate a my:Candidate ;
+                   myd:represents ?local_party .
+         	?pref a my:PreferenceVote ;
+                myps:preference_vote ?candidate ;
+                mypq:valid_votes_recieved ?cand_prefs
+
+    } group by ?local_el ?local_party ?candidate ?MIR_VOTES ?PARTY_VOTES }
+    ?candidate rdfs:label ?candidate_name ;
+               myd:number ?candidate_number ;
+               myd:represents ?local_party
+    .
+    bind(if(?candidate_number>100,?candidate_number-100,?candidate_number) as ?LIST_NUMBER)
+    ?local_el    myd:main_election ?el ;
+    			 myd:jurisdiction ?mir .
+    ?mir myd:number ?mir_number ; rdfs:label ?mir_label .
+    bind(xsd:integer(?mir_number) as ?MIR_NUMBER)
+    ?el myd:date ?election_date .
+    ?local_party rdfs:label ?election_party_label ;
+                 myd:number ?election_party_number ;
+                 .
+    optional{?local_party myd:party/myd:party/rdfs:label ?matched_party_label}
+} order by desc(?election_date) ?MIR_NUMBER ?election_party_number ?LIST_NUMBER

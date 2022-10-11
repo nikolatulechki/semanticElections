@@ -1,0 +1,22 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+select * where {
+    {
+        select ?v (sum(?pref_votes) as ?total_pref) where {
+            ?v myd:main_election election:pi2021_11 ;
+               myp:preference_vote ?s .
+            ?s a my:PreferenceVote ;
+               mypq:valid_votes_recieved ?pref_votes .
+        } group by ?v
+    }
+    ?v myd:section/myd:number ?sec_id ;
+                  myd:link_html ?prot ;
+                  myd:voters_voted_count ?total_voted ;
+                  myd:election/myd:jurisdiction/myd:number ?mir ;
+     .
+}
