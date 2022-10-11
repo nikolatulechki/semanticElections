@@ -17,6 +17,7 @@ select
 ?candidate_name
 ?candidate_number
 ?LIST_NUMBER
+?MIR_VOTES
 ?PARTY_VOTES
 (?PARTY_VOTES/?MIR_VOTES as ?PARTY_RATIO)
 ?CAND_PREF_VOTES
