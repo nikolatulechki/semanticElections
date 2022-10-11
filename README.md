@@ -265,6 +265,34 @@ select * {
     filter(?pref > 10)
 } 
 ```
+
+### Преференциите на даден кандидат с географски сечения и относителен резултат
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select * {
+	
+    {select * where { 
+            ?cand a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
+            optional{?el rdfs:label ?elLabel }
+            filter(contains(lcase(?lab),"красен георгиев кръстев"))
+    }}
+    ?voting myp:preference_vote ?pv ; myd:election ?el ; myd:section ?sec .
+    ?sec myd:place/rdfs:label ?place_label .
+    ?sec myd:place/myd:municipality/rdfs:label ?mun_label .
+    
+    
+    
+    ?pv myps:preference_vote ?cand ; mypq:valid_votes_recieved ?pref .
+    filter(?pref > 5)
+} 
+```
+
 ### Изборните секции в Драгичево
 
 ```sparql
