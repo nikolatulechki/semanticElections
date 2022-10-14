@@ -43,6 +43,12 @@ place:97046 https://www.wikidata.org/wiki/Q12297627
 place:97149 https://www.wikidata.org/wiki/Q12297627
 place:65535 - NA old leftovert ekatte - no sections point to it
 
+# Sections abroad geography 
+- there seems to be a stable identifier
+- check if it is really stable
+- integrate it, reconcile and produce a static mapping with coords from wikidata 
+- think of a maintanance workflow  
+
 # Todo 
 These places have no geography and seem relevant for local elections 
 
@@ -96,3 +102,80 @@ https://elections.ontotext.com/resource/section/pi2021_11/020100040
 
 place:56438
 
+49,127,141
+
+### Akf analysis tem queries
+
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+select 
+(sum(?voted7) as ?sum_voted7)
+(sum(?voted11) as ?sum_voted11)
+(count(?v11) as ?count)
+where { 
+	{?v7 a my:Voting ;
+    myd:section ?sec7 ;
+    myd:main_election election:pi2021_07;
+    myd:voters_voted_count ?voted7 ;
+    .
+    ?sec7 myd:matched_section/myd:risk_model risky_model:akf_all_time_risky ;
+    .
+    } union {                         
+    ?v11 a my:Voting ;
+    myd:section ?sec11 ;
+    myd:main_election election:pi2021_11;
+    myd:voters_voted_count ?voted11 ;
+    .
+    ?sec11 myd:matched_section/myd:risk_model risky_model:akf_all_time_risky ;
+    }
+} 
+
+
+### Party vote ordering
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX seq: <http://www.ontotext.com/plugins/sequences#>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+# Reset sequence so next value will be 1
+insert data {
+   my:seq1 seq:reset [] .
+};
+insert {
+    ?sv mypq:result_order ?order .
+}
+where {
+    {
+        select * where {
+            ?v a my:Voting ;
+               myd:main_election election:pi2022 ;
+               myp:vote ?sv .
+            ?sv a my:SectionVote ;
+                mypq:valid_votes_recieved ?votes ;
+                myps:vote ?party 
+        } order by ?v desc(?votes) ?party
+    }
+    my:seq1 seq:nextValue ?order .
+};
+delete {
+    ?sv mypq:result_order ?order .
+}
+insert {
+    ?sv mypq:result_order ?local_order .
+}
+where {
+    { select ?v (min(?order) as ?min) where { 
+        ?v a my:Voting ; myp:vote ?sv .
+        ?sv a my:SectionVote  ; mypq:result_order ?order  .
+    } group by ?v }
+    ?v myp:vote ?sv .
+    ?sv mypq:result_order ?order .
+    bind((?order - ?min + 1) as ?local_order)
+}
+```

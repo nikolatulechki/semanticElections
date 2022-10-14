@@ -1,0 +1,14 @@
+matched_section:PE00706 myd:risky_model risky_model:akf_all_time_risky .
+
+risky_model:akf_all_time_risky a my:RiskModel ;
+    rdfs:label "AKF all time risky" ;
+    rdfs:comment "Flags sections when they have appeared in more than 2 low-level models" ;
+.
+
+matched_section:PE00706 myp:risky_model <statement/SHA13245678> .
+
+<statement/SHA13245678>  myps:risky_model risky_model:akf_all_time_risky ;
+                        mypq:n_models 4 ;
+.
+
+

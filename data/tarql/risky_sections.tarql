@@ -1,5 +1,0 @@
-CONSTRUCT {
-    ?SECURI myd:isRisky true .
-} WHERE {
-    BIND(URI(CONCAT("metaSection/",?secid)) as ?SECURI)
-}

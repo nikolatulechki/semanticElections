@@ -10,7 +10,7 @@
 @prefix myp: <https://elections.ontotext.com/resource/prop/indirect/> .
 @prefix myps: <https://elections.ontotext.com/resource/prop/statement/> .
 @prefix mypq: <https://elections.ontotext.com/resource/prop/qualifier/> .
-@prefix mys: <https://elections.ontotext.com/resource/entity/statement/> .
+@prefix statement: <https://elections.ontotext.com/resource/statement/> .
 
 # entity prefixes
 
@@ -23,6 +23,8 @@
 @prefix jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/> .
 @prefix place: <https://elections.ontotext.com/resource/place/> .
 @prefix person: <https://elections.ontotext.com/resource/person/> .
+@prefix matched_section: <https://elections.ontotext.com/resource/matched_section/> .
+@prefix risky_model: <https://elections.ontotext.com/resource/risky_model/> .
 
 
 @prefix puml:     <http://plantuml.com/ontology#>.
@@ -38,7 +40,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix v: <http://www.wikidata.org/value/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
@@ -59,12 +61,12 @@
 @prefix prn: <http://www.wikidata.org/prop/reference/value-normalized/> .
 @prefix wdno: <http://www.wikidata.org/prop/novalue/> .
 
-#gdb geo shit
-PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-PREFIX omgeo: <http://www.ontotext.com/owlim/geo#>
-PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
-PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>
+#gdb geo
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix omgeo: <http://www.ontotext.com/owlim/geo#> .
+@prefix myd: <https://elections.ontotext.com/resource/prop/direct/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix uom: <http://www.opengis.net/def/uom/OGC/1.0/> .
 
 # rdfpuml should render this (external) URL inline
 

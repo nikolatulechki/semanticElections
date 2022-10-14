@@ -15,7 +15,7 @@ for infile in os.listdir(path):
         queryArgs = {
             "EL" : el_str
         }
-        tarql.execute_query(basePath+"tarql/metasections_akf.tarql",
+        tarql.execute_query(basePath+"tarql/matched_sections_akf.tarql",
                             f"{path}/{infile}",
                             basePath+"rdf/mappings/akf_sections/"+el_str+".ttl",
                             '-d ,',

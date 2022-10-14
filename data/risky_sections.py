@@ -10,15 +10,15 @@ queryArgs = {
     "EL": "mi2019" ,
 }
 
-basePath = "/home/nikola/projects/semanticElections/data/"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
 
 ## risky sections
-basePath = "/home/nikola/projects/semanticElections/data/"
-infile = "/home/nikola/projects/semanticElections/analysis/akf/risky_2021/11-2021/risky-low.csv"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sections/risky/akf_all_time_risky.csv"
 
-tarql.execute_query(basePath+"tarql/risky_sections.tarql",
+tarql.execute_query(basePath+"tarql/akf_all_time_risky.tarql",
                     infile,
-                    basePath+"rdf/mappings/risky_2021-11_low.ttl",
+                    basePath+"rdf/mappings/risky_akf_all_time.ttl",
                     '-d ,',
                     queryArgs)
 

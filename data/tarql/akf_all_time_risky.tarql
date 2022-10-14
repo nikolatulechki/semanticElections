@@ -1,0 +1,12 @@
+CONSTRUCT {
+    ?SECURI myd:risk_model risky_model:akf_all_time_risky ;
+            myp:risky_model ?STMT ;
+    .
+    ?STMT myps:risky_model risky_model:akf_all_time_risky ;
+            mypq:n_models ?N_MODELS ;
+    .
+} WHERE {
+    bind(uri(concat("matched_section/",?match_id)) as ?SECURI)
+    bind(uri(concat("statement/",str(sha1(concat(str(?SECURI),str(myd:risk_model),str(risky_model:akf_all_time_risky)))))) as ?STMT)
+    bind(xsd:integer(?n_models) as ?N_MODELS)
+}
