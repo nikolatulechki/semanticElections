@@ -3,7 +3,7 @@ version: "3.6"
 
 services:
   rdf2rml:
-    image: maven.ontotext.com/rdf2rml:latest
+    image: docker-registry.ontotext.com/rdf2rml:latest
     volumes:
       - ./model:/files
 
