@@ -7,8 +7,9 @@ risky_model:akf_all_time_risky a my:RiskModel ;
 
 matched_section:PE00706 myp:risky_model <statement/SHA13245678> .
 
-<statement/SHA13245678>  myps:risky_model risky_model:akf_all_time_risky ;
-                        mypq:n_models 4 ;
+<statement/SHA13245678>  a my:Statement ;
+                         myps:risky_model risky_model:akf_all_time_risky ;
+                         mypq:n_models 4 ;
 .
 
 

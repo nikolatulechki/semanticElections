@@ -1,16 +1,28 @@
 <section/mi2019/224607026>  a my:Section ;
    	rdfs:label	"Секция 224607026 в гр.София" ;
    	myd:place	place:68134 ;
-   	myd:votingPlace <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> ;
+   	myd:voting_place <voting_place/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> ;
+   	myd:neighborhood <place/2246/317> ;
+   	myp:neighborhood <statement/1234567890> ;
+   	geo:hasGeometry <section/mi2019/224607026/geo> ;
 .
 
-<votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> a my:VotingPlace ;
+<statement/1234567890> a my:Statement ;
+    myps:neighborhood <place/2246/317> ;
+    mypq:inclusion_ratio 1 ;
+.
+
+<section/mi2019/224607026/geo> a geo:Geometry ;
+    geo:asWKT "MultiPolygon(23.3586574 42.6784358 42.6784358 42.6784358)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> ;
+.
+
+<voting_place/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> a my:VotingPlace ;
     myd:type "school" ;
     rdfs:label "138 СОУ, ул. \"Алфред Нобел\" № 3" ;
     myd:place <place/68134> ;
-    geo:hasGeometry <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> ;
+    geo:hasGeometry <voting_place/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> ;
 .
-<votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> a geo:Geometry ;
+<voting_place/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> a geo:Geometry ;
     geo:asWKT "Point(23.3586574 42.6784358)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> ;
 .
 
@@ -19,7 +31,6 @@
     rdfs:label "Столична Община" ;
     myd:code "2246" ;
     myd:wikidata_entity wd:Q4442915 ;
-    myd:mir <jurisdiction/24> ;
     myd:province wd:Q1585725 ;
 .
 
@@ -41,14 +52,27 @@ wd:Q1585725 a my:Province ;
         geo:hasGeometry	<place/68134/geo> ;
 .
 
+<place/2207> a my:District ;
+        rdfs:label "Слатина" ;
+        myd:code "2207" ;
+        myd:wikidata_entity wd:Q7538927 ;
+        myd:municipality <jurisdiction/2246> ;
+        myd:mir <jurisdiction/24> ;
+.
+
+<place/2246/317> a my:Neighborhood ;
+        rdfs:label "ж.к. Гео Милев" ;
+        myd:district <place/2207> ;
+ .
+
 <place/68134/geo>  a	geo:Geometry ;
     geo:asWKT "Point(23.32415 42.69751)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> ;
 .
 
 #puml
 <section/mi2019/224607026> puml:down <place/68134> ;
-                           puml:down <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> ;
+                           puml:down <voting_place/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> ;
                            .
-<votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> puml:right <votingPlace/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> .
+<voting_place/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0> puml:right <voting_place/7c07ee55ccfcc3b81d25b23c82b0e4c005350ec0/geo> .
 <place/68134> puml:right <place/68134/geo> .
 myd:wikidata_entity a puml:InlineProperty .

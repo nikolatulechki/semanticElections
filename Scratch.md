@@ -5,12 +5,7 @@ fixed using csvtk summing in preprocessing
 https://results.cik.bg/ns2022/protokoli/64/24/244607007.0.html
 `sort ../gdrive/data/cikOpenData/pi2022/votes_02.10.2022.flat.txt | uniq -c | sort -rn | grep -v -E ";0$" | less`
 
-
-
-# wikidata federation not working 
-
-option 1: figure out how to get rdf out of wikidata directly, probably using curl and a saved query
-option 2: fix federation ot post a bug
+# TODO fix voting_place uris to have underscore
 
 # my section 
 https://results.cik.bg/ns2022/protokoli/64/24/244607007.0.html

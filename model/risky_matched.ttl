@@ -1,0 +1,65 @@
+<risk_model/pref_abuse/2022-10-11> a my:RiskModelRun ;
+    myd:date "2022-10-11"^^xsd:date ;
+    myd:witness <voting/pi2021/011100025> ;
+    myd:model <risk_model/pref_abuse> ;
+.
+
+<risk_model/pref_abuse> a my:RiskModel ;
+    rdfs:label "Preference Abuse Model" ;
+    rdfs:comment "Preference" ;
+    rdfs:seeAlso <github-uri-to-query> ;
+    myd:type "single" ;
+.
+
+<risk_model/volatility/2022-10-11> a my:RiskModelRun ;
+    myd:date "2022-10-11"^^xsd:date ;
+    myd:type "chronological" ;
+    myd:witness <voting/pi2022/011100025> ;
+    myd:context <matchedSection/PE00211> ;
+    myd:model <risk_model/volatility> ;
+.
+
+<risk_model/volatility> a my:RiskModel ;
+    myd:type "chronological" ;
+.
+
+
+
+<section/pi2021/011100025> a my:Section ;
+    myd:main_election election:pi2021 ;
+.
+
+<voting/pi2021/011100025> a my:Voting ;
+    myd:section <section/pi2021/011100025> ;
+.
+
+<section/pi2022/011100025> a my:Section ;
+    myd:main_election election:pi2022 ;
+.
+
+<voting/pi2022/011100025> a my:Voting ;
+    myd:section <section/pi2022/011100025> ;
+.
+
+<section/mi2019/011100025> a my:Section ;
+    myd:main_election election:mi2019 ;
+.
+
+<voting/mi2019/ko/tur1/0111/011100025> a my:Voting ;
+    myd:section <section/mi2019/011100025> ;
+.
+
+<voting/mi2019/ko/tur2/0111/011100025> a my:Voting ;
+    myd:section <section/mi2019/011100025> ;
+.
+
+<voting/mi2019/os/0111/011100025> a a my:Voting ;
+    myd:section <section/mi2019/011100025> ;
+.
+
+<matchedSection/PE00211> a my:matchedSection ;
+    myd:section <section/pi2021/011100025> ,
+                <section/pi2022/011100025>,
+                <section/mi2019/011100025> ;
+.
+
