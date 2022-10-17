@@ -1,0 +1,10 @@
+construct {
+    ?SEC_URI geo:hasGeometry ?GEO_URI .
+    ?GEO_URI a geo:Geometry ;
+      geo:asWKT ?WKT ;
+    .
+} where {
+  bind(uri(concat("section/mi2019/2246",?a)) as ?SEC_URI)
+  bind(uri(concat(str(?SEC_URI),"/geo")) as ?GEO_URI)
+  bind(strdt(?b,<http://www.opengis.net/ont/geosparql#wktLiteral>) as ?WKT)
+}
