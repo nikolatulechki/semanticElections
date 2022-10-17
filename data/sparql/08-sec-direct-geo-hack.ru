@@ -3,7 +3,7 @@ PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 insert {
-    ?sec geo:hasGeometry ?geo .
+    ?sec myd:hasLocation ?geo .
 }
 where {
     ?sec a my:Section ; myd:votingPlace ?vp .

@@ -125,8 +125,30 @@ where {
     .
     ?sec11 myd:matched_section/myd:risk_model risky_model:akf_all_time_risky ;
     }
-} 
-
+}
+``` 
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select 
+(sum(?winner) as ?sum_winner)
+where {
+    ?v a my:Voting ;
+       myd:section ?sec7 ;
+       myd:main_election election:pi2022;
+       myp:vote ?vs ;
+       .
+    ?sec7 myd:matched_section/myd:risk_model risky_model:akf_all_time_risky ;
+                             .
+    ?vs mypq:result_order ?order ;
+        mypq:valid_votes_recieved ?winner .
+    filter(?order in (1))
+}
+```
 
 ### Party vote ordering
 
@@ -172,5 +194,42 @@ where {
     ?v myp:vote ?sv .
     ?sv mypq:result_order ?order .
     bind((?order - ?min + 1) as ?local_order)
+}
+```
+
+### Very sloppy matching by sufix for MI sections
+
+```sparql
+    PREFIX my: <https://elections.ontotext.com/resource/entity/>
+    PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+    PREFIX election: <https://elections.ontotext.com/resource/election/>
+    insert {
+        ?match myd:sof_suffix ?sof_suf .
+    }
+    where { 
+        ?s_pi a my:Section ; myd:main_election election:pi2021 ; myd:number ?pi_num ; myd:matched_section ?match .
+    #	?s_mi a my:Section ; myd:main_election election:mi2019 ; myd:number ?mi_num .
+        filter(substr(?pi_num,1,2) in ("23","24","25"))
+        bind(substr(?pi_num,3,9) as ?sof_suf)
+    #    filter(substr(?mi_num,1,4)="2246")
+    #    filter(substr(?pi_num,3,9)=substr(?mi_num,3,9))
+    }
+```
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+insert {
+    ?match myd:section ?s_mi .
+    ?s_mi myd:matched_section ?match .        
+}
+where { 
+    ?match  myd:sof_suffix ?sof_suf .
+#	?s_pi a my:Section ; myd:main_election election:pi2021 ; myd:number ?pi_num ; myd:matched_section ?match .
+	?s_mi a my:Section ; myd:main_election election:mi2019 ; myd:number ?mi_num .
+#    filter(substr(?pi_num,1,2) in ("23","24","25"))
+    filter(substr(?mi_num,3,9)=?sof_suf)
+    filter(substr(?mi_num,1,4)="2246")
 }
 ```

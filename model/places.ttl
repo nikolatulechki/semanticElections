@@ -54,7 +54,7 @@ wd:Q1585725 a my:Province ;
 
 <place/2207> a my:District ;
         rdfs:label "Слатина" ;
-        myd:code "2207" ;
+        myd:number "2207" ;
         myd:wikidata_entity wd:Q7538927 ;
         myd:municipality <jurisdiction/2246> ;
         myd:mir <jurisdiction/24> ;
@@ -62,6 +62,7 @@ wd:Q1585725 a my:Province ;
 
 <place/2246/317> a my:Neighborhood ;
         rdfs:label "ж.к. Гео Милев" ;
+        myd:number "317" ;
         myd:district <place/2207> ;
  .
 
