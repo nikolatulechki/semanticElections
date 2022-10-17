@@ -5,7 +5,7 @@
 
 https://ge.sofiaplan.bg/
 
-https://api.triplydb.com/s/RI5pslheA
+https://api.triplydb.com/s/Idy7BnEfc
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -18,14 +18,15 @@ PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 select * {
-{select ?ge ?ge_geo ?ge_geoTooltip ?party_label 
+{select ?ge ?ge_geo ?ge_geoTooltip ?party_label     
+(SUM(?voters) as ?VOTERS_GE)     
 (SUM(?VOTED) as ?VOTED_GE) 
 (SUM(?PARTY_VOTES) as ?PARTY_VOTES_GE) 
 (?PARTY_VOTES_GE/?VOTED_GE as ?PARTY_RATIO)
 (concat("jet,",str(?PARTY_RATIO*2)) as ?ge_geoColor) where {
     
-    bind(wd:Q133968 as ?party) #GERB
-#    bind(wd:Q108601789 as ?party) #PP
+#    bind(wd:Q133968 as ?party) #GERB
+    bind(wd:Q108601789 as ?party) #PP
 #    bind(wd:Q28943121 as ?party) #VUZ
 #    bind(wd:Q62808154 as ?party) #DB
     ?ge a my:Neighborhood ;
@@ -37,7 +38,8 @@ select * {
     
     ?voting a my:Voting ; myd:main_election election:pi2022 ; 
               myd:section/myd:matched_section/myd:section ?mi_sec ; 
-              myd:voters_voted_count ?voted .
+              myd:voters_voted_count ?voted ;
+              myd:voters_count ?voters .
     
     bind(floor(?voted*?ratio) as ?VOTED)
     
@@ -52,6 +54,7 @@ select * {
      "GE: ",?ge_geoTooltip,"\n",
      "Party: ",?party_label,"\n",
      "Voted: ",str(?VOTED_GE),"\n",
+     "Voters: ",str(?VOTERS_GE),"\n",      
      "Party_votes: ",str(?PARTY_VOTES_GE),"\n",
      "Party Ratio: ",str(?PARTY_RATIO)
   ) as ?ge_geoLabel)  

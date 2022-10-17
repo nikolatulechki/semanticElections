@@ -1,0 +1,50 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?election ?mun_label ?total_voters ?total_voted ?all_sections
+(sum(?voters_risky) as ?total_risky_voters)
+(sum(?voted_risky) as ?total_risky_voted)
+(sum(?winner) as ?winner_risky_voted)
+(count(?v) as ?risky_sections)
+(?total_risky_voted/?total_voted as ?risky_ratio)
+(?total_risky_voted/?total_risky_voters as ?risky_activity)
+(?total_voted/?total_voters as ?total_activity)
+{
+    {select
+    ?mun
+    ?election
+    (sum(?voters) as ?total_voters)
+    (sum(?voted) as ?total_voted)
+    (count(?v) as ?all_sections)
+    where {
+        bind(election:pi2021_11 as ?election)
+        ?v a my:Voting ;
+           myd:section/myd:place/myd:municipality ?mun ;
+           myd:main_election ?election;
+           myd:voters_voted_count ?voted ;
+           myd:voters_count ?voters_list ;
+           myd:voters_additional_count ?voters_additional ;
+           bind(?voters_list + ?voters_additional as ?voters)
+        .
+    } group by ?election ?mun
+}
+?v a my:Voting ;
+myd:section ?sec ;
+myd:section/myd:place/myd:municipality ?mun;
+myd:main_election ?election ;
+myd:voters_voted_count ?voted_risky  ;
+myd:voters_count ?voters_list ;
+myd:voters_additional_count ?voters_additional ;
+myp:vote ?vs ;
+.
+?vs mypq:result_order ?order ;
+    mypq:valid_votes_recieved ?winner .
+ filter(?order in (1))
+?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
+?mun rdfs:label ?mun_label .
+bind(?voters_list + ?voters_additional as ?voters_risky)
+} group by ?election ?mun_label ?total_voters ?total_voted ?all_sections order by ?mun_label

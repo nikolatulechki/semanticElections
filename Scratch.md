@@ -5,6 +5,8 @@ fixed using csvtk summing in preprocessing
 https://results.cik.bg/ns2022/protokoli/64/24/244607007.0.html
 `sort ../gdrive/data/cikOpenData/pi2022/votes_02.10.2022.flat.txt | uniq -c | sort -rn | grep -v -E ";0$" | less`
 
+# TODO why no results for Yavorov
+
 # TODO fix voting_place uris to have underscore
 
 # my section 
