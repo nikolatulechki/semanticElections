@@ -25,6 +25,7 @@ select ?election ?total_voters ?total_voted ?all_sections
            myd:voters_additional_count ?voters_additional ;
            bind(?voters_list + ?voters_additional as ?voters)
         .
+        filter not exists {?v myd:election/myd:jurisdiction jurisdiction:32 .}
     } group by ?election
 }
 ?v a my:Voting ;

@@ -235,3 +235,39 @@ where {
     filter(substr(?mi_num,1,4)="2246")
 }
 ```
+
+## Concentrated pref vote
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?party_label ?party_votes ?prefs ?pref_ratio ?cand_label ?cand_num ?protocol {
+    {
+        select ?v ?party ?party_votes  where {
+            ?v a my:Voting ;
+               myp:vote ?vs ;
+               myd:main_election election:pi2022 ;
+               .
+            ?vs mypq:valid_votes_recieved ?party_votes ;
+                mypq:result_order ?order ;
+                myps:vote ?party ;
+                         filter(?order < 5)            
+        }
+    }
+	?v myp:preference_vote ?pvs ; myd:link_html ?protocol .
+    ?pvs mypq:valid_votes_recieved ?prefs ;
+        myps:preference_vote ?cand .
+    ?cand myd:represents ?party ; rdfs:label ?cand_label ; myd:number ?cand_num .
+    ?party rdfs:label ?party_label .
+    
+   
+    filter(?party_votes > 30)
+    bind(?prefs/?party_votes as ?pref_ratio)
+    filter(?pref_ratio>0.7)
+}
+```
