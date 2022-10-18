@@ -31,6 +31,7 @@ select ?election ?mir_num ?mir_label ?total_voters ?total_voted ?all_sections
            myd:voters_additional_count ?voters_additional ;
            bind(?voters_list + ?voters_additional as ?voters)
         .
+        filter(?mir != jurisdiction:32)
     } group by ?election ?mir
 }
 ?v a my:Voting ;

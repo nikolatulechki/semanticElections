@@ -27,6 +27,7 @@ select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
                                myd:main_election ?election;
                                myd:voters_voted_count ?voted ;
                                .
+                            filter not exists {?v myd:election/myd:jurisdiction jurisdiction:32 .}
                         } group by ?election
                     }
                     ?v a my:Voting ;
@@ -42,6 +43,7 @@ select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
                myd:main_election ?election ;
                myp:vote ?vs ;
                .
+            filter not exists {?v myd:election/myd:jurisdiction jurisdiction:32 .}
             ?vs mypq:result_order ?order ;
                 mypq:valid_votes_recieved ?party_votes ;
                 myps:vote/myd:party ?party ;
