@@ -1,0 +1,45 @@
+<section/mi2019/224602031> a my:Section;
+  rdfs:label "Секция 224602031 в гр.София";
+  myd:neighborhood <place/2246/42>, <place/2246/199>;
+  myp:neighborhood <statement/0ae92351a1e0753f8ed9ab3e26e288acf2aae883>, <statement/ff83436f1e2d5ea1ba85935e58df2bf4a1c6243c> .
+
+<place/2246/42> a my:Neighborhood;
+  rdfs:label "ж.к. Красно село";
+  myd:number "42";
+.
+
+<place/2246/199> a my:Neighborhood;
+  rdfs:label "ж.к. Бели Брези";
+  myd:number "199";
+.
+
+<statement/0ae92351a1e0753f8ed9ab3e26e288acf2aae883> a my:Statement ;
+  myps:neighborhood <place/2246/42>;
+  mypq:inclusion_ratio "0.3"^^xsd:double .
+
+<statement/ff83436f1e2d5ea1ba85935e58df2bf4a1c6243c> a my:Statement ;
+  myps:neighborhood <place/2246/199>;
+  mypq:inclusion_ratio "0.7"^^xsd:double .
+
+<section/mi2019/224602055> a my:Section;
+  rdfs:label "Секция 224602055 в гр.София";
+  myd:neighborhood <place/2246/42>;
+  myp:neighborhood <statement/cbc6e408ea527613242435fdfc182d97e8470cf7> .
+
+
+<statement/cbc6e408ea527613242435fdfc182d97e8470cf7> a my:Statement ;
+   myps:neighborhood <place/2246/42>;
+  mypq:inclusion_ratio "1"^^xsd:double .
+
+<section/mi2019/224602055> myp:neighborhood
+    statement:cbc6e408ea527613242435fdfc182d97e8470cf7 .
+
+
+#PUML
+
+myd:main_election a puml:InlineProperty .
+<section/mi2019/224602031> puml:up <place/2246/42>, <place/2246/199> .
+<section/mi2019/224602055> puml:up <place/2246/42> .
+<statement/0ae92351a1e0753f8ed9ab3e26e288acf2aae883>  puml:up <place/2246/42> .
+<statement/ff83436f1e2d5ea1ba85935e58df2bf4a1c6243c>  puml:up <place/2246/199> .
+<statement/cbc6e408ea527613242435fdfc182d97e8470cf7>  puml:up <place/2246/42> .

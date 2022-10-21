@@ -81,12 +81,12 @@ wd:Q62808154 a my:Party ;
 
 <voting/mi2019/os/2246/224607026>
     myd:preference_vote <candidate/mi2019/os/2246/66/108> ;
-    myp:preference_vote <vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> ;
+    myp:preference_vote <vote/mi2019/224607026/66/108> ;
 .
 
-<vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> a my:PreferenceVote ;
+<vote/mi2019/224607026/66/108> a my:PreferenceVote ;
     myps:vote <candidate/mi2019/os/2246/66/108> ;
-    mypq:votes_received 5 ;
+    mypq:valid_votes_received 5 ;
 .
 
 ## puml
@@ -100,10 +100,6 @@ wd:Q62808154 a my:Party ;
 
 <candidate/mi2019/os/2246/66/108> puml:left <party/mi2019/2246/66> .
 
-<vote/mi2019/os/2246/224607026/candidate/os/2246/66/108> puml:down <candidate/mi2019/os/2246/66/108> .
-
-myd:link_html a puml:InlineProperty .
-myd:link_pdf a puml:InlineProperty .
-
+<vote/mi2019/224607026/66/108> puml:down <candidate/mi2019/os/2246/66/108> .
 
 

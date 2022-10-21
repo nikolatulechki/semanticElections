@@ -60,3 +60,9 @@ select * {
   ) as ?ge_geoLabel)  
 }
 ```
+
+## TODO
+
+GE-District missmatch
+Step 1-assign District to GE
+Step 2 sections should not be related to ge outside district  

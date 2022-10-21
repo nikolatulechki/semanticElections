@@ -68,6 +68,15 @@
 @prefix geof: <http://www.opengis.net/def/function/geosparql/> .
 @prefix uom: <http://www.opengis.net/def/uom/OGC/1.0/> .
 
-# rdfpuml should render this (external) URL inline
+# PUML
 
 myd:webLink a puml:InlineProperty .
+myd:wikidata_entity a puml:InlineProperty .
+skos:inScheme a puml:InlineProperty .
+myd:link_html a puml:InlineProperty .
+myd:link_pdf a puml:InlineProperty .
+
+my:Section puml:stereotype "(S,orange)" .
+my:Statement puml:stereotype "(S,gray)" .
+my:SectionVote puml:stereotype "(S,gray)" .
+my:Neighborhood puml:stereotype "(P,blue)" .
