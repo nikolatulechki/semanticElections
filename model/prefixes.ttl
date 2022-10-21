@@ -70,13 +70,31 @@
 
 # PUML
 
-myd:webLink a puml:InlineProperty .
+myd:webLink         a puml:InlineProperty .
 myd:wikidata_entity a puml:InlineProperty .
-skos:inScheme a puml:InlineProperty .
-myd:link_html a puml:InlineProperty .
-myd:link_pdf a puml:InlineProperty .
+skos:inScheme       a puml:InlineProperty .
+myd:link_html       a puml:InlineProperty .
+myd:link_pdf        a  puml:InlineProperty .
 
-my:Section puml:stereotype "(S,orange)" .
-my:Statement puml:stereotype "(S,gray)" .
-my:SectionVote puml:stereotype "(S,gray)" .
-my:Neighborhood puml:stereotype "(P,blue)" .
+my:SectionVote    puml:stereotype  "(V,red)" .
+my:PreferenceVote puml:stereotype  "(V,red)" .
+my:Voting         puml:stereotype  "(V,red)" .
+
+my:Section        puml:stereotype  "(S,orange)" .
+my:Election       puml:stereotype  "(S,orange)" .
+
+#PARTIES
+my:Candidate      puml:stereotype  "(P,lightblue)" .
+my:Party          puml:stereotype  "(P,lightblue)" .
+my:ElectionParty  puml:stereotype  "(P,lightblue)" .
+my:LocalParty     puml:stereotype  "(P,lightblue)" .
+
+#ATE
+my:Neighborhood   puml:stereotype    "(A,lightgreen)" .
+my:Municipality   puml:stereotype    "(A,lightgreen)" .
+my:MIR            puml:stereotype    "(A,lightgreen)" .
+my:Region         puml:stereotype    "(A,lightgreen)" .
+my:Place          puml:stereotype    "(A,lightgreen)" .
+my:District       puml:stereotype    "(A,green)" .
+
+my:Statement      puml:stereotype "(S,gray)" .
