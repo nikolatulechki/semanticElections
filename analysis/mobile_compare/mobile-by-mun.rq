@@ -1,0 +1,52 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?election ?mun_label ?total_voters ?total_voted ?all_sections
+(sum(?voters_mobile) as ?total_mobile_voters)
+(sum(?voted_mobile) as ?total_mobile_voted)
+(sum(?winner) as ?winner_mobie_voted)
+(count(?v) as ?mobile_sections)
+(?total_mobile_voted/?total_voted as ?mobile_ratio)
+(?total_mobile_voted/?total_mobile_voters as ?mobile_activity)
+(?total_voted/?total_voters as ?total_activity)
+{
+    {select
+    ?mun
+    ?election
+    (sum(?voters) as ?total_voters)
+    (sum(?voted) as ?total_voted)
+    (count(?v) as ?all_sections)
+    where {
+        bind(election:pi2021_07 as ?election)
+        ?v a my:Voting ;
+           myd:section/myd:place/myd:municipality ?mun ;
+           myd:main_election ?election;
+           myd:voters_voted_count ?voted ;
+           myd:voters_count ?voters_list ;
+        .
+        optional{ ?v myd:voters_additional_count ?voters_additional .}
+        bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+        bind(?voters_list + ?voters_additional_ok as ?voters)
+    } group by ?election ?mun
+}
+?v a my:Voting ;
+   myd:section ?sec ;
+   myd:section/myd:place/myd:municipality ?mun;
+   myd:main_election ?election ;
+   myd:voters_voted_count ?voted_mobile  ;
+   myd:voters_count ?voters_list ;
+   myp:vote ?vs ;
+.
+optional{ ?v myd:voters_additional_count ?voters_additional .}
+bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+bind(?voters_list + ?voters_additional_ok as ?voters_mobile)
+
+?vs mypq:result_order ?order ;
+    mypq:valid_votes_recieved ?winner .
+filter(?order in (1))
+?sec myd:isMobile true .
+?mun rdfs:label ?mun_label .
+} group by ?election ?mun_label ?total_voters ?total_voted ?all_sections order by ?mun_label
