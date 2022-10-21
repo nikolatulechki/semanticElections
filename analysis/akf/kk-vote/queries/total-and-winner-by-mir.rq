@@ -28,9 +28,10 @@ select ?election ?mir_num ?mir_label ?total_voters ?total_voted ?all_sections
            myd:main_election ?election;
            myd:voters_voted_count ?voted ;
            myd:voters_count ?voters_list ;
-           myd:voters_additional_count ?voters_additional ;
-           bind(?voters_list + ?voters_additional as ?voters)
         .
+        optional{ ?v myd:voters_additional_count ?voters_additional .}
+        bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+        bind(?voters_list + ?voters_additional_ok as ?voters)
         filter(?mir != jurisdiction:32)
     } group by ?election ?mir
 }
@@ -40,13 +41,16 @@ myd:election/myd:jurisdiction ?mir;
 myd:main_election ?election ;
 myd:voters_voted_count ?voted_risky  ;
 myd:voters_count ?voters_list ;
-myd:voters_additional_count ?voters_additional ;
 myp:vote ?vs ;
 .
+
+optional{ ?v myd:voters_additional_count ?voters_additional .}
+bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+bind(?voters_list + ?voters_additional_ok as ?voters_risky)
+
 ?vs mypq:result_order ?order ;
     mypq:valid_votes_recieved ?winner .
  filter(?order in (1))
 ?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
 ?mir myd:number ?mir_num ; rdfs:label ?mir_label .
-bind(?voters_list + ?voters_additional as ?voters_risky)
 } group by ?election ?mir_num ?mir_label ?total_voters ?total_voted ?all_sections order by ?mir_num

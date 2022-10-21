@@ -1,0 +1,16 @@
+construct {
+    ?URI a my:Neighborhood ;
+        rdfs:label ?regname ;
+        myd:number ?id ;
+        myd:district_str ?rajon ;
+        geo:hasGeometry ?GEO ;
+    .
+    ?GEO a geo:Geometry ;
+      geo:asWKT ?WKT_OK ;
+    .
+}
+where {
+    bind(uri(concat("place/2246/",?id)) as ?URI)
+    bind(uri(concat(str(?URI),"/geo")) as ?GEO)
+    bind(strdt(?WKT,<http://www.opengis.net/ont/geosparql#wktLiteral>) as ?WKT_OK)
+}

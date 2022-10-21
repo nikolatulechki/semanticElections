@@ -21,30 +21,33 @@ select ?election ?mun_label ?total_voters ?total_voted ?all_sections
     (sum(?voted) as ?total_voted)
     (count(?v) as ?all_sections)
     where {
-        bind(election:pi2021_11 as ?election)
+        bind(election:pi2021 as ?election)
         ?v a my:Voting ;
            myd:section/myd:place/myd:municipality ?mun ;
            myd:main_election ?election;
            myd:voters_voted_count ?voted ;
            myd:voters_count ?voters_list ;
-           myd:voters_additional_count ?voters_additional ;
-           bind(?voters_list + ?voters_additional as ?voters)
         .
+        optional{ ?v myd:voters_additional_count ?voters_additional .}
+        bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+        bind(?voters_list + ?voters_additional_ok as ?voters)
     } group by ?election ?mun
 }
 ?v a my:Voting ;
-myd:section ?sec ;
-myd:section/myd:place/myd:municipality ?mun;
-myd:main_election ?election ;
-myd:voters_voted_count ?voted_risky  ;
-myd:voters_count ?voters_list ;
-myd:voters_additional_count ?voters_additional ;
-myp:vote ?vs ;
+   myd:section ?sec ;
+   myd:section/myd:place/myd:municipality ?mun;
+   myd:main_election ?election ;
+   myd:voters_voted_count ?voted_risky  ;
+   myd:voters_count ?voters_list ;
+   myp:vote ?vs ;
 .
+optional{ ?v myd:voters_additional_count ?voters_additional .}
+bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+bind(?voters_list + ?voters_additional_ok as ?voters_risky)
+
 ?vs mypq:result_order ?order ;
     mypq:valid_votes_recieved ?winner .
- filter(?order in (1))
+filter(?order in (1))
 ?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
 ?mun rdfs:label ?mun_label .
-bind(?voters_list + ?voters_additional as ?voters_risky)
 } group by ?election ?mun_label ?total_voters ?total_voted ?all_sections order by ?mun_label

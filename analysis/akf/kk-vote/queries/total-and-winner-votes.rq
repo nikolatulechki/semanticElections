@@ -2,6 +2,7 @@ PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 select ?election ?total_voters ?total_voted ?all_sections
 (sum(?voters_risky) as ?total_risky_voters)
 (sum(?voted_risky) as ?total_risky_voted)
@@ -16,15 +17,17 @@ select ?election ?total_voters ?total_voted ?all_sections
     (sum(?voted) as ?total_voted)
     (count(?v) as ?all_sections)
     where {
-        bind(election:pi2021_11 as ?election) #election goes here
+        bind(election:pi2021 as ?election) #election goes here
         ?v a my:Voting ;
            myd:section ?sec ;
            myd:main_election ?election;
            myd:voters_voted_count ?voted ;
            myd:voters_count ?voters_list ;
-           myd:voters_additional_count ?voters_additional ;
-           bind(?voters_list + ?voters_additional as ?voters)
         .
+        optional{ ?v myd:voters_additional_count ?voters_additional .}
+        bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+        bind(?voters_list + ?voters_additional_ok as ?voters)
+
         filter not exists {?v myd:election/myd:jurisdiction jurisdiction:32 .}
     } group by ?election
 }
@@ -33,8 +36,9 @@ myd:section ?sec ;
 myd:main_election ?election ;
 myd:voters_voted_count ?voted_risky  ;
 myd:voters_count ?voters_list ;
-myd:voters_additional_count ?voters_additional ;
 .
+optional{?v myd:voters_additional_count ?voters_additional .}
+bind(if(bound(?voters_additional),?voters_additional,0) as ?voters_additional_ok)
+bind(?voters_list + ?voters_additional_ok as ?voters_risky)
 ?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky ;
-bind(?voters_list + ?voters_additional as ?voters_risky)
 } group by ?election ?total_voters ?total_voted ?all_sections
