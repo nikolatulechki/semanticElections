@@ -12,7 +12,7 @@ Example diagrams in the [model](./model) folder.
 
 ## Example SPARQL Queries 
 
-### Търся Кандидат 
+### Търся Кандидат по (част от) името 
 
 ```sparql
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -44,9 +44,10 @@ PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 select * where { 
     bind(wd:Q164242 as ?party) #DPS
 	?party rdfs:label ?lab .
-    ?electionParty myd:party ?party ; myd:candidacy ?election ; myd:number ?num .
+    ?electionParty myd:party ?party ; myd:candidacy ?election ; myd:number ?ballot_num .
+    ?election myd:date ?date .
     optional{ ?election rdfs:label ?label .}
-}
+} order by desc(?date)
 ```
 ### Партии и коалиции на местно ниво отнасящи се към дадена партия 
 
@@ -56,15 +57,16 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
-select ?localParty ?localPartyLabel ?localNum ?localEl ?localElLabel where { 
-    #bind(wd:Q164242 as ?party) #DPS
+select ?localParty ?localPartyLabel ?ballotNum ?localEl ?localElLabel ?munLabel where { 
+#    bind(wd:Q164242 as ?party) #DPS
     bind(wd:Q792527 as ?party) #VMRO
     
     bind(election:mi2015 as ?election) #LOCAL 2015, use mi2019 for local 2019
-	?party rdfs:label ?lab .
+	?party rdfs:label ?lab .	
     ?electionParty myd:party ?party ; myd:candidacy ?election ; myd:number ?num .
-    ?localParty a my:LocalParty ; myd:party ?electionParty ; rdfs:label ?localPartyLabel ; myd:number ?localNum ; myd:candidacy ?localEl .
-    ?localEl rdfs:label ?localElLabel .
+    ?localParty a my:LocalParty ; myd:party ?electionParty ; rdfs:label ?localPartyLabel ; myd:number ?ballotNum ; myd:candidacy ?localEl .
+    ?localEl rdfs:label ?localElLabel ; myd:jurisdiction ?mun. 
+    ?mun rdfs:label ?munLabel .
 }
 ```
 
@@ -77,19 +79,20 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
-select ?candidate ?candNumber ?name ?localParty ?localPartyLabel ?localPartyNumber ?localEl ?localElLabel where { 
+select ?localEl ?localElLabel ?mirNumber ?localParty ?localPartyLabel ?localPartyNumber ?candidate ?candNumber ?name   where { 
 
     bind(wd:Q164242 as ?party) #DPS
     #bind(wd:Q792527 as ?party) #VMRO
     
 #    bind(<election/mi2015/os/1910> as ?localEl) #"Местни Избори 2015 за общински съвет 1910. Дулово"
-#    bind(<election/pi2017/24> as ?localEl) #"Избори за Парламент на РБ МИР  24. СОФИЯ 24 МИР"
-    bind(<election/ep2019> as ?localEl) #"Избори за Европейски Парламент 2019"
+    bind(<election/pi2017/24> as ?localEl) #"Избори за Парламент на РБ МИР  24. СОФИЯ 24 МИР"
+#    bind(<election/ep2019> as ?localEl) #"Избори за Европейски Парламент 2019"
     
     ?localParty  myd:party+ ?party ; rdfs:label ?localPartyLabel ; myd:number ?localPartyNumber ; myd:candidacy ?localEl .
     ?candidate a my:Candidate ; myd:represents ?localParty  ; rdfs:label ?name ; myd:number ?candNumber .
     
-    ?localEl rdfs:label ?localElLabel .
+    ?localEl rdfs:label ?localElLabel ; 
+    optional{?localEl myd:jurisdiction/myd:number ?mirNumber}
 } order by ?candNumber 
 ```
 
@@ -168,7 +171,7 @@ where {
     ?place rdfs:label ?place_label .
 } group by ?date ?place_label ?el ?el_label ?party_label ?sum_voted order by desc(?date) ?el desc(?sum_votes)
 ```
-всички резултати на дадена партия, агрегирани по населено място, за определен избор (в случая - за ДПС за изборите за общински съветници 2019
+### всички резултати на дадена партия, агрегирани по населено място, за определен избор (в случая - за ДПС за изборите за общински съветници 2019
 
 ```spaqrl
 BASE  <https://elections.ontotext.com/resource/>
@@ -269,28 +272,44 @@ select * {
 ### Преференциите на даден кандидат с географски сечения и относителен резултат
 
 ```sparql
+BASE  <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
-PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
-select * {
-	
-    {select * where { 
-            ?cand a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select ?election ?election_date ?party_label ?cand_number ?cand_name ?obl ?mun ?place ?sec_id ?cand_preferences ?party_votes ?pref_ratio ?total_voted ?party_ratio ?protocol where {
+
+
+    {select ?candidate where {
+            ?candidate a my:Candidate ; rdfs:label ?lab ; myd:candidacy ?el .
             optional{?el rdfs:label ?elLabel }
-            filter(contains(lcase(?lab),"красен георгиев кръстев"))
+            filter(contains(lcase(?lab),"мартин николаев харизанов"))
     }}
-    ?voting myp:preference_vote ?pv ; myd:election ?el ; myd:section ?sec .
-    ?sec myd:place/rdfs:label ?place_label .
-    ?sec myd:place/myd:municipality/rdfs:label ?mun_label .
-    
-    
-    
-    ?pv myps:preference_vote ?cand ; mypq:valid_votes_recieved ?pref .
-    filter(?pref > 5)
-} 
+
+    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?cand_name ; myd:number ?cand_number .
+    ?voting  myp:vote ?v ;  myd:section ?section ; myd:link_html ?protocol ; myd:voters_voted_count ?total_voted .
+    ?el myd:main_election ?election ; myd:date ?election_date ; myd:jurisdiction jurisdiction:6 .
+    ?v myps:vote ?localParty ; mypq:valid_votes_recieved ?party_votes .
+        optional{?voting myp:preference_vote ?pv .
+        ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?cand_preferences .
+    }
+    ?localParty rdfs:label ?party_label .
+    ?section myd:number ?sec_id ;
+             myd:place/rdfs:label ?place ;
+             myd:place/myd:municipality/rdfs:label ?mun ;
+             myd:place/myd:municipality/myd:province/rdfs:label ?obl ;
+    .
+
+    bind(floor((?cand_preferences/?party_votes)*10000)/100 as ?pref_ratio)
+    bind(floor((?party_votes/?total_voted)*10000)/100 as ?party_ratio)
+
+} order by desc(?election_date)
 ```
 
 ### Изборните секции в Драгичево
@@ -305,4 +324,3 @@ select * where {
     ?el rdfs:label ?elLabel .
 } limit 100 
 ```
-

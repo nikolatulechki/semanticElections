@@ -136,6 +136,39 @@ where {
 
 # Analysis queries
 
+## Stats Query for the demonstartor page
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+select * {
+    {select (count(*) as ?n_el) {
+            ?x a my:Election ;
+               myd:type []
+    }}
+    {select (count(*) as ?party) {
+            ?x a my:Party .
+    }}
+    {select (sum(?pref) as ?pref_votes) {
+            ?x a my:PreferenceVote ; mypq:valid_votes_recieved ?pref.
+    }}
+    {select (sum(?vote) as ?votes) {
+            ?x a my:SectionVote ; mypq:valid_votes_recieved ?vote.
+    }}
+    {select (count(*) as ?sections) {
+            ?x a my:Section.
+    }}
+    {select (count(*) as ?candidates) {
+            ?x a my:Candidate.
+    }}
+    {select (count(*) as ?triples) {
+            ?s ?p ?o .
+    }}
+}
+```
+
 ## Preference analysis of a single candidate - 
 
 GSheet [pivot](https://docs.google.com/spreadsheets/d/10VJCxktNmaPdUUHphrnluQNR_86DQQnCJdb_U8YDHsw/edit#gid=1736458899) 
