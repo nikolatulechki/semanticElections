@@ -163,6 +163,9 @@ select * {
     {select (count(*) as ?candidates) {
             ?x a my:Candidate.
     }}
+    {select (count(*) as ?protocols) {
+            ?x a my:Voting.
+    }}
     {select (count(*) as ?triples) {
             ?s ?p ?o .
     }}
