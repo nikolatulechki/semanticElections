@@ -4,6 +4,7 @@ PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX graph: <https://elections.ontotext.com/resource/graph/>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+clear silent graph graph:pref_varp ;
 insert { graph graph:pref_varp {
     ?candidate myd:prefs_varp ?varp .
     }
