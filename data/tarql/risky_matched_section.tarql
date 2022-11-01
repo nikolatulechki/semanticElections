@@ -1,8 +1,8 @@
 CONSTRUCT {
-    ?SECURI myd:risk_model risky_model:akf_all_time_risky ;
+    ?SECURI myd:risk_model risky_model:{MODEL} ;
             myp:risky_model ?STMT ;
     .
-    ?STMT myps:risky_model risky_model:akf_all_time_risky ;
+    ?STMT myps:risky_model risky_model:{MODEL} ;
             mypq:n_models ?N_MODELS ;
     .
 } WHERE {

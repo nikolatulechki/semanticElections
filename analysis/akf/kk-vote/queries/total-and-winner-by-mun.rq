@@ -48,6 +48,6 @@ bind(?voters_list + ?voters_additional_ok as ?voters_risky)
 ?vs mypq:result_order ?order ;
     mypq:valid_votes_recieved ?winner .
 filter(?order in (1))
-?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
+?sec myd:matched_section?/myd:risk_model risky_model:akf_all_time_risky .
 ?mun rdfs:label ?mun_label .
 } group by ?election ?mun_label ?total_voters ?total_voted ?all_sections order by ?mun_label

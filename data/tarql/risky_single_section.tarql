@@ -1,0 +1,5 @@
+CONSTRUCT {
+    ?SECURI myd:risk_model risky_model:{MODEL} .
+} WHERE {
+    bind(uri(?sec) as ?SECURI)
+}

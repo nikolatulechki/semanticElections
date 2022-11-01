@@ -5,6 +5,7 @@ PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
 PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 select ?election ?mir_num ?mir_label ?total_voters ?total_voted ?all_sections
 (sum(?voters_risky) as ?total_risky_voters)
 (sum(?voted_risky) as ?total_risky_voted)
@@ -21,7 +22,7 @@ select ?election ?mir_num ?mir_label ?total_voters ?total_voted ?all_sections
     (sum(?voted) as ?total_voted)
     (count(?v) as ?all_sections)
     where {
-        bind(election:pi2021_11 as ?election)
+        bind(election:pi2022 as ?election)
         ?v a my:Voting ;
            myd:election/myd:jurisdiction ?mir;
            myd:section ?sec ;
@@ -51,6 +52,6 @@ bind(?voters_list + ?voters_additional_ok as ?voters_risky)
 ?vs mypq:result_order ?order ;
     mypq:valid_votes_recieved ?winner .
  filter(?order in (1))
-?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
+?sec myd:matched_section?/myd:risk_model risky_model:2022_high_abs_values .
 ?mir myd:number ?mir_num ; rdfs:label ?mir_label .
 } group by ?election ?mir_num ?mir_label ?total_voters ?total_voted ?all_sections order by ?mir_num
