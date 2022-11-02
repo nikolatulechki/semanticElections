@@ -5,6 +5,7 @@ construct {
 		myd:isMobile ?IS_MOBILE;
 		myd:place ?PLACE_URI;
 		myd:number ?a ;
+		myd:countMachines ?COUNT_MACHINES ;
 	.
 	?VOTE_URI a my:Voting ;
 		rdfs:label ?VOTE_LABEL ;
@@ -30,6 +31,8 @@ construct {
 	bind(if(?f="0",FALSE,TRUE) as ?IS_MOBILE)
 	bind(uri(concat("voting/{EL}/",?OB_CODE,"/",?a)) as ?VOTE_URI)
 	bind(concat("Гласуване в секция ",str(?a)," на {EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?VOTE_LABEL)
+
+    bind(strdt(?h,xsd:integer) as ?COUNT_MACHINES)
 
 	bind(uri(concat("election/{EL}/",?OB_CODE)) as ?EL_URI)
 	bind(concat("{EL_LABEL} за {TYP_LABEL} ",?c,""@bg) as ?EL_LABEL)
