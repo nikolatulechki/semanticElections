@@ -13,6 +13,7 @@ select ?election ?mun_label ?total_voters ?total_voted ?all_sections
 (?total_risky_voted/?total_voted as ?risky_ratio)
 (?total_risky_voted/?total_risky_voters as ?risky_activity)
 (?total_voted/?total_voters as ?total_activity)
+(?winner_risky_voted/?total_voted as ?winner_ratio)
 {
     {select
     ?mun
@@ -21,7 +22,7 @@ select ?election ?mun_label ?total_voters ?total_voted ?all_sections
     (sum(?voted) as ?total_voted)
     (count(?v) as ?all_sections)
     where {
-        bind(election:pi2021 as ?election)
+        bind(election:pi2022 as ?election)
         ?v a my:Voting ;
            myd:section/myd:place/myd:municipality ?mun ;
            myd:main_election ?election;
@@ -48,6 +49,6 @@ bind(?voters_list + ?voters_additional_ok as ?voters_risky)
 ?vs mypq:result_order ?order ;
     mypq:valid_votes_recieved ?winner .
 filter(?order in (1))
-?sec myd:matched_section?/myd:risk_model risky_model:akf_all_time_risky .
+?sec myd:matched_section?/myd:risk_model risky_model:2020_high_abs_values .
 ?mun rdfs:label ?mun_label .
 } group by ?election ?mun_label ?total_voters ?total_voted ?all_sections order by ?mun_label

@@ -6,6 +6,7 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
 (sum(?party_risky) as ?party_risky)
 (?party_risky/?party_voted as ?party_ratio_in_risky_sections)
@@ -22,7 +23,7 @@ select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
                         ?election
                         (sum(?voted) as ?total_voted)
                         where {
-                            bind(election:pi2021_11 as ?election)
+                            bind(election:pi2022 as ?election)
                             ?v a my:Voting ;
                                myd:main_election ?election;
                                myd:voters_voted_count ?voted ;
@@ -35,7 +36,7 @@ select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
                        myd:voters_voted_count ?voted_risky ;
                        myd:main_election ?election ;
                        .
-                    ?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
+                    ?sec myd:matched_section?/myd:risk_model risky_model:2020_high_abs_values .
                 } group by ?election ?total_voted
             }
             ?v a my:Voting ;
@@ -61,5 +62,5 @@ select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
                  .
     ?party rdfs:label ?party_name ;
            myd:number ?party_num .
-    ?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
+    ?sec myd:matched_section?/myd:risk_model risky_model:2020_low_abs_values .
 } group by ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted order by desc(?party_voted)

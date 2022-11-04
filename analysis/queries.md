@@ -57,7 +57,7 @@ PREFIX graph: <https://elections.ontotext.com/resource/graph/>
 
 insert {
     graph graph:entropy {
-        ?voting myd:entropy ?entropy .
+         .
     }
 } where {
     {
