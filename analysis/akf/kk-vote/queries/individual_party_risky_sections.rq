@@ -1,0 +1,50 @@
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select
+?obl
+?mun
+?place
+?sec_id
+?party_label
+?party_votes
+?party_order
+(?party_votes/?voted as ?party_ratio)
+?winner_label
+?winner_votes
+(?winner_votes/?voted as ?winner_ratio)
+
+where {
+    bind(election:pi2022 as ?election)
+    bind(wd:Q62808154 as ?main_party)
+    ?v a my:Voting ;
+       myd:section ?sec ;
+       myd:main_election ?election;
+       myp:vote ?vparty, ?vwinner ;
+	   myd:voters_voted_count ?voted ;
+       .
+    filter not exists {
+        ?v myd:election/myd:jurisdiction jurisdiction:32 .
+    }
+    ?vparty mypq:result_order ?party_order ;
+            mypq:valid_votes_recieved ?party_votes ;
+            myps:vote/myd:party ?party
+                     .
+    ?party  myd:party ?main_party ; rdfs:label ?party_label .
+    ?vwinner mypq:result_order 1;
+             mypq:valid_votes_recieved ?winner_votes ;
+             myps:vote/myd:party/rdfs:label ?winner_label ;
+                      .
+    ?sec myd:number ?sec_id ;
+         myd:place/rdfs:label ?place ;
+         myd:place/myd:municipality/rdfs:label ?mun ;
+         myd:place/myd:municipality/myd:province/rdfs:label ?obl ;
+         myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
+} order by desc(?party_ratio)

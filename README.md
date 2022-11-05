@@ -294,7 +294,7 @@ select ?election ?election_date ?party_label ?cand_number ?cand_name ?obl ?mun ?
 
     ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?cand_name ; myd:number ?cand_number .
     ?voting  myp:vote ?v ;  myd:section ?section ; myd:link_html ?protocol ; myd:voters_voted_count ?total_voted .
-    ?el myd:main_election ?election ; myd:date ?election_date ; myd:jurisdiction jurisdiction:6 .
+    ?el myd:main_election ?election ; myd:date ?election_date ; myd:jurisdiction ?mir.
     ?v myps:vote ?localParty ; mypq:valid_votes_recieved ?party_votes .
         optional{?voting myp:preference_vote ?pv .
         ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?cand_preferences .
