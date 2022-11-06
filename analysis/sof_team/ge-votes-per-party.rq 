@@ -1,0 +1,59 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+BASE <https://elections.ontotext.com/resource/>
+
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select
+(strafter(str(?el_cycle),str(election:)) as ?election_id)
+?date
+?ge
+?ge_label
+?party_label
+(sum(?votes_in_ge) as ?party_votes)
+(sum(?voted_in_ge) as ?voted_in_ge)
+(?party_votes/?voted_in_ge as ?party_ratio)
+where {
+    values (?party ?party_label) {
+        (<party/mi2019/2246/70> "bonev")
+        (<party/mi2019/2246/71> "bonev")
+        (<party/mi2019/2246/75> "mayama")
+        (wd:Q164242    "dps")
+        (wd:Q792527    "vmro")
+        (wd:Q108601789 "pp")
+        (wd:Q28943121  "vuz")
+        (wd:Q98098908  "itn")
+        (wd:Q133968    "gerb")
+        (wd:Q62808154  "db")
+        (wd:Q752259    "bsp")
+
+    }
+
+#    bind(<place/2246/191> as ?ge)
+
+    ?ge a my:Neighborhood ;
+        rdfs:label ?ge_label ;
+    .
+    ?mi_sec myd:neighborhood ?ge ; myp:neighborhood ?st .
+    ?st mypq:inclusion_ratio ?ratio ; myps:neighborhood ?ge .
+
+    ?v a my:Voting ;
+       myd:section/myd:matched_section/myd:section ?mi_sec ;
+       myd:election ?election ;
+       myp:vote ?vs ;
+       myd:voters_voted_count ?voted ;
+    .
+    ?election myd:date ?date .
+    {?election myd:partOf ?el_cycle . ?el_cycle a my:ElectionRound } union
+    {?election myd:partOf ?el_cycle . filter not exists {?election myd:partOf/a my:ElectionRound }}
+    ?vs mypq:valid_votes_recieved ?votes ;
+        myps:vote/myd:party* ?party ;
+    .
+    bind(floor(?votes*?ratio)    as ?votes_in_ge)
+    bind(floor(?voted*?ratio)    as ?voted_in_ge)
+} group by ?ge ?ge_label ?party_label ?date ?el_cycle
+order by ?ge desc(?date) desc(?party_votes)

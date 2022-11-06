@@ -1,0 +1,58 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+select
+?ge
+?ge_label
+(SUM(?VOTERS_MI19)    as ?VOTERS_MI19_GE)
+(SUM(?VOTERS_PI17)    as ?VOTERS_PI17_GE)
+(SUM(?VOTERS_PI21_4)  as ?VOTERS_PI21_4_GE)
+(SUM(?VOTERS_PI21_11) as ?VOTERS_PI21_11_GE)
+(SUM(?VOTERS_PI22)    as ?VOTERS_PI22_GE)
+{
+    ?ge a my:Neighborhood ;
+        rdfs:label ?ge_label ;
+    .
+    ?mi_sec myd:neighborhood ?ge ; myp:neighborhood ?st .
+    ?st mypq:inclusion_ratio ?ratio ; myps:neighborhood ?ge .
+
+    ?voting_mi19 a my:Voting ;
+              myd:election/myd:partOf election:mi2019\/os ;
+ 			   myd:section/myd:matched_section/myd:section ?mi_sec ;
+              myd:voters_count ?voters_mi19 .
+
+    ?voting_pi21_4 a my:Voting ;
+              myd:main_election election:pi2021 ;
+              myd:section/myd:matched_section/myd:section ?mi_sec ;
+              myd:voters_count ?voters_pi21_4 .
+
+    ?voting_pi21_11 a my:Voting ;
+              myd:main_election election:pi2021_11 ;
+              myd:section/myd:matched_section/myd:section ?mi_sec ;
+              myd:voters_count ?voters_pi21_11 .
+
+    ?voting_pi22 a my:Voting ;
+              myd:main_election election:pi2022 ;
+              myd:section/myd:matched_section/myd:section ?mi_sec ;
+              myd:voters_count ?voters_pi22 .
+
+    ?voting_pi17 a my:Voting ;
+              myd:main_election election:pi2017 ;
+              myd:section/myd:matched_section/myd:section ?mi_sec ;
+              myd:voters_count ?voters_pi17 .
+
+
+    bind(floor(?voters_mi19*?ratio)    as ?VOTERS_MI19)
+    bind(floor(?voters_pi17*?ratio)    as ?VOTERS_PI17)
+    bind(floor(?voters_pi21_4*?ratio)  as ?VOTERS_PI21_4)
+    bind(floor(?voters_pi21_11*?ratio) as ?VOTERS_PI21_11)
+    bind(floor(?voters_pi22*?ratio)    as ?VOTERS_PI22)
+
+}
+group by ?ge ?ge_label

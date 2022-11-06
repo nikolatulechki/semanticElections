@@ -10,6 +10,7 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX graph: <https://elections.ontotext.com/resource/graph/>
+clear silent graph graph:sofia_ge_sections ;
 insert {
   graph graph:sofia_ge_sections {
       ?sec myd:neighborhood ?ge ;
@@ -24,11 +25,11 @@ insert {
     geo:hasGeometry/geo:asWKT ?ge_geo ;
    .
   ?sec a my:Section ; geo:hasGeometry/geo:asWKT ?sec_geo .
-  filter(geof:sfOverlaps(?ge_geo,?sec_geo))
+  filter(geof:sfIntersects(?ge_geo,?sec_geo))
   bind(ext:area(geof:intersection(?ge_geo,?sec_geo)) as ?int_area)
   bind(ext:area(?sec_geo) as ?sec_area)
   bind(?int_area/?sec_area as ?int_ratio)
   filter(?int_ratio > 0.05)
-  bind(ceil(?int_ratio*10)/10 as ?int_ratio_norm)
+  bind(ceil(?int_ratio*100)/100 as ?int_ratio_norm)
   bind(uri(concat("statement/",str(sha1(concat(str(?sec),str(myd:neighborhood),str(?ge)))))) as ?ST_URI)
 }
