@@ -45,8 +45,8 @@ where {
 
 #    bind(<place/2246/93> as ?ge)
 
-    ?ge a my:Municipality ;
-        rdfs:label ?ge_label ;
+    ?mun a my:Municipality ;
+        rdfs:label ?mun_label ;
 
     .
 
@@ -63,4 +63,4 @@ where {
         myps:vote/myd:party* ?party ;
     .
 } group by ?mun ?mun_label ?party_label ?date ?el_cycle
-order by ?ge desc(?date) desc(?party_votes)
+order by ?mun desc(?date) desc(?party_votes)
