@@ -15,7 +15,7 @@ select
 ?mun
 ?mun_label
 ?party_label
-(sum(?votеs) as ?party_votes)
+(sum(?votes) as ?party_votes)
 (sum(?voted) as ?voted_in_mun)
 (?party_votes/?voted_in_mun as ?party_ratio)
 where {
