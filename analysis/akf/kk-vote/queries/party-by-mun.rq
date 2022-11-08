@@ -1,0 +1,66 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+BASE <https://elections.ontotext.com/resource/>
+
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select
+(strafter(str(?el_cycle),str(election:)) as ?election_id)
+?date
+?mun
+?mun_label
+?party_label
+(sum(?votеs) as ?party_votes)
+(sum(?voted) as ?voted_in_mun)
+(?party_votes/?voted_in_mun as ?party_ratio)
+where {
+    values ?mun {
+        jurisdiction:0635
+        jurisdiction:2404
+    }
+    values (?party ?party_label) {
+        (<party/mi2019/2246/70> "bonev")
+        (<party/mi2019/2246/71> "bonev")
+        (<party/mi2019/2246/75> "mayama")
+        (wd:Q164242    "dps")
+        (wd:Q792527    "vmro")
+        (wd:Q108601789 "pp")
+        (wd:Q28943121  "vuz")
+        (wd:Q98098908  "itn")
+        (wd:Q133968    "0-gerb")
+        (wd:Q62808154  "db")
+        (wd:Q752259    "1-bsp")
+        (wd:Q25485773  "volya")
+        (wd:Q97396346  "rb")
+        (wd:Q15991304  "rb")
+        (wd:Q97382346  "patr")
+        (wd:Q17514144  "patr")
+        (wd:Q178049    "ataka")
+    }
+
+#    bind(<place/2246/93> as ?ge)
+
+    ?ge a my:Municipality ;
+        rdfs:label ?ge_label ;
+
+    .
+
+    ?v a my:Voting ;
+       myd:section/myd:place/myd:municipality ?mun ;
+       myd:election ?election ;
+       myp:vote ?vs ;
+       myd:voters_voted_count ?voted ;
+    .
+    ?election myd:date ?date .
+    {?election myd:partOf ?el_cycle . ?el_cycle a my:ElectionRound } union
+    {?election myd:partOf ?el_cycle . filter not exists {?election myd:partOf/a my:ElectionRound }}
+    ?vs mypq:valid_votes_recieved ?votes ;
+        myps:vote/myd:party* ?party ;
+    .
+} group by ?mun ?mun_label ?party_label ?date ?el_cycle
+order by ?ge desc(?date) desc(?party_votes)
