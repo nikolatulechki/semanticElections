@@ -27,13 +27,18 @@ where {
         (wd:Q108601789 "pp")
         (wd:Q28943121  "vuz")
         (wd:Q98098908  "itn")
-        (wd:Q133968    "gerb")
+        (wd:Q133968    "0-gerb")
         (wd:Q62808154  "db")
-        (wd:Q752259    "bsp")
-
+        (wd:Q752259    "1-bsp")
+        (wd:Q25485773  "volya")
+        (wd:Q97396346  "rb")
+        (wd:Q15991304  "rb")
+        (wd:Q97382346  "patr")
+        (wd:Q17514144  "patr")
+        (wd:Q178049    "ataka")
     }
 
-#    bind(<place/2246/191> as ?ge)
+#    bind(<place/2246/93> as ?ge)
 
     ?ge a my:Neighborhood ;
         rdfs:label ?ge_label ;
@@ -56,4 +61,5 @@ where {
     bind(floor(?votes*?ratio)    as ?votes_in_ge)
     bind(floor(?voted*?ratio)    as ?voted_in_ge)
 } group by ?ge ?ge_label ?party_label ?date ?el_cycle
+having(?voted_in_ge > 500)
 order by ?ge desc(?date) desc(?party_votes)
