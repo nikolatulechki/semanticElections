@@ -1,6 +1,5 @@
 PREFIX wd: <http://www.wikidata.org/entity/>
 BASE <https://elections.ontotext.com/resource/>
-
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
@@ -11,55 +10,75 @@ PREFIX election: <https://elections.ontotext.com/resource/election/>
 select
 (strafter(str(?el_cycle),str(election:)) as ?election_id)
 ?date
-?ge
-?ge_label
+?local
+?local_label
 ?party_label
-(sum(?votes_in_ge) as ?party_votes)
-(sum(?voted_in_ge) as ?voted_in_ge)
-(?party_votes/?voted_in_ge as ?party_ratio)
+?party_label_bg
+?party_color
+?voted_in_local
+(sum(?party_votes) as ?party_votes_in_local)
+(?party_votes_in_local/?voted_in_local as ?party_ratio)
 where {
-    values (?party ?party_label) {
-        (<party/mi2019/2246/70> "bonev")
-        (<party/mi2019/2246/71> "bonev")
-        (<party/mi2019/2246/75> "mayama")
-        (wd:Q164242    "dps")
-        (wd:Q792527    "vmro")
-        (wd:Q108601789 "pp")
-        (wd:Q28943121  "vuz")
-        (wd:Q98098908  "itn")
-        (wd:Q133968    "0-gerb")
-        (wd:Q62808154  "db")
-        (wd:Q752259    "1-bsp")
-        (wd:Q25485773  "volya")
-        (wd:Q97396346  "rb")
-        (wd:Q15991304  "rb")
-        (wd:Q97382346  "patr")
-        (wd:Q17514144  "patr")
-        (wd:Q178049    "ataka")
+    {
+        select ?local ?election (sum(?voted) as ?voted_in_local) {
+#            bind(<place/2246/93> as ?local)
+            ?local a my:Neighborhood ;
+                   .
+            ?v a my:Voting ;
+               myd:section/myd:matched_section/myd:section ?mi_sec ;
+               myd:election ?election ;
+               myd:voters_voted_count ?voted_sec ;
+                                              .
+            ?mi_sec myd:neighborhood ?local ;
+                    myp:neighborhood ?st .
+            ?st mypq:inclusion_ratio ?ratio ;
+                myps:neighborhood ?local .
+            bind(floor(?voted_sec*?ratio)    as ?voted)
+        } group by ?local ?election having(?voted_in_local > 500)
     }
 
-#    bind(<place/2246/93> as ?ge)
-
-    ?ge a my:Neighborhood ;
-        rdfs:label ?ge_label ;
-    .
-    ?mi_sec myd:neighborhood ?ge ; myp:neighborhood ?st .
-    ?st mypq:inclusion_ratio ?ratio ; myps:neighborhood ?ge .
-
+    ?local rdfs:label ?local_label ;
+        .
+    ?mi_sec myd:neighborhood ?local ;
+            myp:neighborhood ?st .
+    ?st mypq:inclusion_ratio ?ratio ;
+        myps:neighborhood ?local .
     ?v a my:Voting ;
        myd:section/myd:matched_section/myd:section ?mi_sec ;
-       myd:election ?election ;
-       myp:vote ?vs ;
-       myd:voters_voted_count ?voted ;
-    .
+        myd:election ?election ;
+        myp:vote ?vs ;
+      .
+
     ?election myd:date ?date .
-    {?election myd:partOf ?el_cycle . ?el_cycle a my:ElectionRound } union
-    {?election myd:partOf ?el_cycle . filter not exists {?election myd:partOf/a my:ElectionRound }}
-    ?vs mypq:valid_votes_recieved ?votes ;
+    {
+        ?election myd:partOf ?el_cycle .
+        ?el_cycle a my:ElectionRound
+    } union
+    {
+        ?election myd:partOf ?el_cycle .
+        filter not exists {
+            ?election myd:partOf/a my:ElectionRound
+        }
+    }
+    {?vs mypq:valid_votes_recieved ?votes ;
         myps:vote/myd:party* ?party ;
-    .
-    bind(floor(?votes*?ratio)    as ?votes_in_ge)
-    bind(floor(?voted*?ratio)    as ?voted_in_ge)
-} group by ?ge ?ge_label ?party_label ?date ?el_cycle
-having(?voted_in_ge > 500)
-order by ?ge desc(?date) desc(?party_votes)
+                           .
+        ?party myd:notation ?party_label ;
+               myd:notation_bg ?party_label_bg ;
+               myd:color ?party_color ;
+               .
+    }union{
+
+     ?vs a my:SectionVote ; mypq:valid_votes_recieved ?votes ;
+
+        filter not exists {
+            ?vs myps:vote/myd:party*/myd:notation [] .
+        }
+        bind("oth" as ?party_label)
+        bind("други" as ?party_label_bg)
+        bind("#9e9e9e" as ?party_color)
+    }
+
+   bind(floor(?votes*?ratio)    as ?party_votes)
+} group by ?local ?local_label ?voted_in_local ?party_label ?party_label_bg ?party_color ?date ?el_cycle
+order by ?local desc(?date) desc(?party_votes)

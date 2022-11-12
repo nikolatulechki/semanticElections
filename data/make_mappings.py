@@ -51,6 +51,16 @@ tarql.execute_query(basePath+"tarql/main_party.tarql",
                     '-d ,',
                     queryArgs)
 
+## MAIN PARTY TAGS
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/main_party_tags.csv"
+
+tarql.execute_query(basePath+"tarql/main_party_tags.tarql",
+                    infile,
+                    basePath+"rdf/mappings/main_party_tags.ttl",
+                    '-d ,',
+                    queryArgs)
+
 ## MUNICIPALITIES
 basePath = "/home/nikola/projects/dgood/semanticElections/data/"
 infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/mun_wd_mapping.csv"

@@ -1,0 +1,9 @@
+construct {
+	?URI myd:notation    ?notation ;
+	     myd:notation_bg ?notation_bg ;
+	     myd:color ?color ;
+    .
+}
+where {
+	bind(uri(?uri) as ?URI)
+}
