@@ -6,7 +6,7 @@ from common.tarql import Tarql
 
 tarql = Tarql(QueryUtils())
 
-basePath = "/home/nikola/projects/semanticElections/data/"
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
 
 ## SECTIONS
 
@@ -16,7 +16,7 @@ queryArgs = {
     "TYP_LABEL": "Парламент на РБ МИР ",
     "EL_LABEL" : "Избори",
 }
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_sections.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_sections.txt'
 tarql.execute_query(basePath+"tarql/sections_pi_13.tarql",
                     infile,
                     basePath+"rdf/pi2013/sections.ttl",
@@ -30,7 +30,7 @@ queryArgs = {
     "RND" : "" ,
     "MV" : "",
 }
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_votes.flat.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_votes.flat.txt'
 tarql.execute_query(basePath+"tarql/votes_pi13.tarql",
                     infile,
                     basePath+"rdf/pi2013/votes.ttl",
@@ -44,7 +44,7 @@ queryArgs = {
     "LINK_HTML" : "https://results.cik.bg/pi2013/protokoli/",
     "LINK_PDF" : "https://results.cik.bg/pi2013/pdf/"
 }
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_protocols.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_protocols.txt'
 tarql.execute_query(basePath+"tarql/protocols_pi2013.tarql",
                     infile,
                     basePath+"rdf/pi2013/protocols.ttl",
@@ -59,7 +59,7 @@ queryArgs = {
     "RND" : ""
 }
 
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_cikparties.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_cikparties.txt'
 tarql.execute_query(basePath+"tarql/cik_parties.tarql",
                     infile,
                     basePath+"rdf/pi2013/cik_parties.ttl",
@@ -74,7 +74,7 @@ queryArgs = {
 }
 
 
-infile = '/home/nikola/projects/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_candidates.txt'
+infile = '/home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2013/pe2013_pe_candidates.txt'
 tarql.execute_query(basePath+"tarql/candidate_pi_13.tarql",
                     infile,
                     basePath+"rdf/pi2013/candidates.ttl",

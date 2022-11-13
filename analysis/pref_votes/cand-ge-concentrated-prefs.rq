@@ -1,0 +1,66 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select * {
+    {
+        select
+        ?candidate
+        ?cand_name
+        ?cand_number
+        ?total_pref
+        ?party_label
+        ?election_id
+        ?ge
+        ?ge_label
+        (sum(?preferences_ge) as ?ge_pref)
+        (?ge_pref/?total_pref as ?ge_pref_ratio)
+        {
+            {
+                select ?candidate (sum(?cand_preferences) as ?total_pref) where {
+                    values ?mir {
+                        jurisdiction:23
+                        jurisdiction:24
+                        jurisdiction:25
+                    }
+                    ?candidate a my:Candidate ;
+                               myd:candidacy ?el ;
+                               .
+                    ?el myd:jurisdiction ?mir .
+                    ?voting myp:preference_vote ?pv .
+                    ?pv myps:preference_vote ?candidate ;
+                        mypq:valid_votes_recieved ?cand_preferences .
+                } group by ?candidate having(?total_pref>200)
+            }
+            ?candidate myd:represents ?localParty  ;
+                       myd:candidacy ?election ;
+                       rdfs:label ?cand_name ;
+                       myd:number ?cand_number .
+            ?voting_ge myp:preference_vote ?pv ;
+                       myd:section ?section;
+                       .
+            ?localParty rdfs:label ?party_label .
+            ?pv myps:preference_vote ?candidate ;
+                mypq:valid_votes_recieved ?preferences_sec .
+            ?ge a my:Neighborhood ;
+                rdfs:label ?ge_label ;
+                .
+            ?section myd:number ?sec_id ;
+                     myd:matched_section/myd:section ?mi_sec ;
+                                        .
+            ?mi_sec myd:neighborhood ?ge ;
+                    myp:neighborhood ?st .
+            ?st mypq:inclusion_ratio ?ratio ;
+                myps:neighborhood ?ge .
+            ?election myd:partOf ?el_cycle .
+            bind(strafter(str(?el_cycle),str(election:)) as ?election_id)
+            bind(floor(?preferences_sec*?ratio)    as ?preferences_ge)
+        }
+        group by ?candidate ?cand_name ?cand_number ?total_pref ?party_label ?election_id ?ge ?ge_label
+    }
+    filter(?ge_pref_ratio>0.1)
+} order by desc(?ge_pref_ratio)

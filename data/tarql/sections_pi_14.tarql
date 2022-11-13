@@ -38,6 +38,6 @@ construct {
 
 	bind(uri(concat("jurisdiction/",?OB_CODE)) as ?JUR_URI)
 
-	bind(if(strlen(?c)=4,concat("0",?c),?c) as ?ekatte)
+	bind(if(strlen(?c)=4,concat("0",?c),if(strlen(?c)=3,concat("00",?c),if(strlen(?c)=2,concat("000",?c),?c))) as ?ekatte)
 	bind(if(strlen(?ekatte)=5,uri(concat(str(place:),?ekatte)),?UNDEF) as ?PLACE_URI)
 }

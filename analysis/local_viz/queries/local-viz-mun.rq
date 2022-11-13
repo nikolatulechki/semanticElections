@@ -1,0 +1,75 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select
+(strafter(str(?el_cycle),str(election:)) as ?election_id)
+?date
+?local
+?local_label
+?party_label
+?party_label_bg
+?party_color
+?voted_in_local
+(sum(?votes) as ?party_votes_in_local)
+(?party_votes_in_local/?voted_in_local as ?party_ratio)
+where {
+    {
+        select ?local ?election (sum(?voted) as ?voted_in_local) {
+#           bind(jurisdiction:0101 as ?local)
+#            bind(election:pi2022 as ?main_election)
+            ?v a my:Voting ;
+               myd:section/myd:place/myd:municipality ?local ;
+               myd:election ?election ;
+               myd:main_election ?main_election ;
+               myd:voters_voted_count ?voted ;
+               .
+            ?main_election myd:type "parliamentary".
+        } group by ?local ?election
+    }
+
+    ?local rdfs:label ?local_label ;
+        .
+    ?v a my:Voting ;
+        myd:section/myd:place/myd:municipality ?local ;
+        myd:election ?election ;
+        myp:vote ?vs ;
+      .
+
+    ?election myd:date ?date .
+    {
+        ?election myd:partOf ?el_cycle .
+        ?el_cycle a my:ElectionRound
+    } union
+    {
+        ?election myd:partOf ?el_cycle .
+        filter not exists {
+            ?election myd:partOf/a my:ElectionRound
+        }
+    }
+    {?vs mypq:valid_votes_recieved ?votes ;
+        myps:vote/myd:party* ?party ;
+                           .
+        ?party myd:notation ?party_label ;
+               myd:notation_bg ?party_label_bg ;
+               myd:color ?party_color ;
+               .
+    }union{
+
+     ?vs a my:SectionVote ; mypq:valid_votes_recieved ?votes ;
+
+        filter not exists {
+            ?vs myps:vote/myd:party*/myd:notation [] .
+        }
+        bind("z-oth" as ?party_label)
+        bind("я-други" as ?party_label_bg)
+        bind("#9e9e9e" as ?party_color)
+    }
+} group by ?local ?local_label ?voted_in_local ?party_label ?party_label_bg ?party_color ?date ?el_cycle
+order by ?local desc(?date) desc(?party_votes)
