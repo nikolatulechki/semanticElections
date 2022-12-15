@@ -1,0 +1,20 @@
+<cube/votes/SHA123> a qb:Observation ;
+        myc:election <election/pi2022> ;
+        myc:locality <jurisdiction/10> ;
+        myc:candidate wd:Q164242 ;
+        myc:election_candidate <party:pi2021/9> ;
+        myc:local_candidate  <party/pi2021/10/9> ;
+        myc:local_election <election:pi2021/10> ;
+        myc:activity <cube/activity/SHA567> ;
+        myc:votes 5000 ;
+.
+
+<cube/activity/SHA567> a qb:Observation ;
+        myc:election <election/pi2022> ;
+        myc:locality <jurisdiction/10> ;
+        myc:local_election <election:pi2021/10> ;
+        myc:voted 30000 ;
+        myc:voters 50000 ;
+.
+
+

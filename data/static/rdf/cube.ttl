@@ -1,0 +1,13 @@
+<cube/votes/dsd> a qb:DSD ;
+    qb:component
+        [qb:dimension  myc:election ],
+        [qb:dimension  myc:locality ],
+        [qb:dimension  myc:party    ],
+        [qb:attribute  myc:local_party  ],
+        [qb:attribute  myc:election_party  ],
+        [qb:attribute  myc:local_election ],
+        [qb:measure    myc:votes  ]
+.
+<cube/votes> a qb:DataSet ;
+    qb:structure <cube/votes/dsd> ;
+.
