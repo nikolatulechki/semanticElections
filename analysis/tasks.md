@@ -5,6 +5,8 @@ protocols data not present for mi2019/ko (total voters)
 uri mismatch - decide on common pattern and stick to it! 
 remove jurisdiction from uris where section is present
 
+1. Local party --> party not existing for jurisdiction:32
+
 1. mapping for pi2013
 1. party uris for pi2017 are fucked up
 1. documentaition
