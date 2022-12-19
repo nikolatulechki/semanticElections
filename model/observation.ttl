@@ -1,4 +1,4 @@
-<cube/votes/SHA123> a qb:Observation ;
+<cube/votes/SHA123> a qb:Observation , myc:Voting;
         myc:election <election/pi2022> ;
         myc:locality <jurisdiction/10> ;
         myc:candidate wd:Q164242 ;
@@ -9,7 +9,7 @@
         myc:votes 5000 ;
 .
 
-<cube/activity/SHA567> a qb:Observation ;
+<cube/activity/SHA567> a qb:Observation, myc:Activity ;
         myc:election <election/pi2022> ;
         myc:locality <jurisdiction/10> ;
         myc:local_election <election:pi2021/10> ;

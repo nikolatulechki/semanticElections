@@ -10,8 +10,15 @@ select
 ?mir_num
 ?mir_label
 ?mun_label
+?mun
 ?place_label
 ?secid
+?VOTED_04_07_DELTA
+(?DPS_07-?DPS_04 as ?DPS_04_07_DELTA)
+(?GERB_07-?GERB_04 as ?GERB_04_07_DELTA)
+(?BSP_07-?BSP_04 as ?BSP_04_07_DELTA)
+(?DB_07-?DB_04 as ?DB_04_07_DELTA)
+(?ITN_07-?ITN_04 as ?ITN_04_07_DELTA)
 ?VOTERS_2017
 ?VOTED_2017
 (?VOTED_2017/?VOTERS_2017 as ?ACTIVITY_2017)
@@ -311,4 +318,8 @@ select
                                          .
         } group by ?place ?secid
     }
-} order by ?mir_num ?mun_label ?place_label ?sec_id
+    BIND(?VOTED_07-?VOTED_04 as ?VOTED_04_07_DELTA)
+    BIND(ABS(?VOTERS_07-?VOTERS_04)/?VOTERS_04 as ?VOTERS_RATIO)
+    FILTER(?VOTERS_RATIO < 0.1 && ?VOTERS_04 >400 && ?VOTED_04_07_DELTA <= -100)
+}
+order by ?mir_num ?mun ?mun_label ?place_label ?sec_id

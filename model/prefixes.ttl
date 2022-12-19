@@ -8,6 +8,7 @@
 
 @prefix myd: <https://elections.ontotext.com/resource/prop/direct/> .
 @prefix myp: <https://elections.ontotext.com/resource/prop/indirect/> .
+@prefix myc: <https://elections.ontotext.com/resource/cube/> .
 @prefix myps: <https://elections.ontotext.com/resource/prop/statement/> .
 @prefix mypq: <https://elections.ontotext.com/resource/prop/qualifier/> .
 @prefix statement: <https://elections.ontotext.com/resource/statement/> .
@@ -25,6 +26,8 @@
 @prefix person: <https://elections.ontotext.com/resource/person/> .
 @prefix matched_section: <https://elections.ontotext.com/resource/matched_section/> .
 @prefix risky_model: <https://elections.ontotext.com/resource/risky_model/> .
+@prefix cube: <https://elections.ontotext.com/resource/cube/> .
+@prefix graph: <https://elections.ontotext.com/resource/graph/> .
 
 
 @prefix puml:     <http://plantuml.com/ontology#>.
