@@ -1,20 +1,92 @@
-<cube/votes/SHA123> a qb:Observation , myc:Voting;
-        myc:election <election/pi2022> ;
-        myc:locality <jurisdiction/10> ;
-        myc:candidate wd:Q164242 ;
-        myc:election_candidate <party:pi2021/9> ;
-        myc:local_candidate  <party/pi2021/10/9> ;
-        myc:local_election <election:pi2021/10> ;
-        myc:activity <cube/activity/SHA567> ;
-        myc:votes 5000 ;
+<cube/votes/0072964d30a67b3a3e4650c0365abab760ec715b>
+  a qb:Observation, myc:Voting;
+  qb:dataSet <cube/votes> ;
+  myc:election <election/pi2021>;
+  myc:locality <place/47977>;
+  myc:candidate wd:Q133968;
+  myc:election_candidate <party/pi2021/28>;
+  myc:local_candidate <party/pi2021/19/28>;
+  myc:local_election <election/pi2021/19>;
+  myc:activity <cube/activity/4e73db1f4a7682d023c2d4bd9e6cbb5f1025448a>;
+  myc:votes 61 .
+
+<cube/activity/4e73db1f4a7682d023c2d4bd9e6cbb5f1025448a>
+  a qb:Observation, myc:Activity;
+  qb:dataSet <cube/activity> ;
+  myc:election election:pi2021;
+  myc:locality <place/47977>;
+  myc:local_election <election/pi2021/19>;
+  myc:voters 517;
+  myc:voted 304 .
+
+place:47977 a my:Place;
+  rdfs:label "Мечка"@bg;
+  myd:wikidata_entity wd:Q7224955;
+  myd:municipality <jurisdiction/1813> .
+
+<cube/votes/d524db089c45742c955b3c4ee416a90a25865d89>
+  a <http://purl.org/linked-data/cube#Observation>, myc:Voting;
+  myc:election <election/pi2021>;
+  myc:locality <jurisdiction/1813>;
+  myc:candidate <http://www.wikidata.org/entity/Q133968>;
+  myc:election_candidate <party/pi2021/28>;
+  myc:local_candidate <party/pi2021/19/28>;
+  myc:local_election <election/pi2021/19>;
+  myc:activity <cube/activity/6bca93a9fe3708bfd64ccf1bf3c0b350e900cf7d>;
+  myc:votes 1151 .
+
+<cube/activity/6bca93a9fe3708bfd64ccf1bf3c0b350e900cf7d>
+  a <http://purl.org/linked-data/cube#Observation>, myc:Activity;
+  myc:election <election/pi2021>;
+  myc:locality <jurisdiction/1813>;
+  myc:local_election <election/pi2021/19>;
+  myc:voters 7688;
+  myc:voted 3903 .
+
+jurisdiction:1813 a my:Municipality;
+  rdfs:label "Община Иваново"@bg;
+  myd:mir jurisdiction:19;
 .
 
-<cube/activity/SHA567> a qb:Observation, myc:Activity ;
-        myc:election <election/pi2022> ;
-        myc:locality <jurisdiction/10> ;
-        myc:local_election <election:pi2021/10> ;
-        myc:voted 30000 ;
-        myc:voters 50000 ;
+<cube/votes/247568f8a841e697d74b812769f48e0fd1a7b363>
+  a <http://purl.org/linked-data/cube#Observation>, myc:Voting;
+  myc:election <election/pi2021>;
+  myc:locality <jurisdiction/19>;
+  myc:candidate <http://www.wikidata.org/entity/Q133968>;
+  myc:election_candidate <party/pi2021/28>;
+  myc:local_candidate <party/pi2021/19/28>;
+  myc:local_election <election/pi2021/19>;
+  myc:activity <cube/activity/17313d8e63d9d76ec15d99c9350cad9d5c4b2e59>;
+  myc:votes 18445 .
+
+<cube/votes/f18cba25a6ac57de2e7b088199ead9a53a7fc0ef>
+  a <http://purl.org/linked-data/cube#Observation>, myc:Voting;
+  myc:election <election/pi2022>;
+  myc:locality <jurisdiction/19>;
+  myc:candidate <http://www.wikidata.org/entity/Q133968>;
+  myc:election_candidate <party/pi2022/24>;
+  myc:local_candidate <party/pi2022/19/24>;
+  myc:local_election <election/pi2022/19>;
+  myc:activity <cube/activity/5fda281c0714768446c6983ae68d2c0ffc6bcd79>;
+  myc:votes 15481 .
+
+jurisdiction:19 a my:MIR;
+  rdfs:label "19 МИР Русе"@bg;
+  myd:number 19;
 .
 
+## PUML Layout
+
+jurisdiction:1813 puml:up jurisdiction:19  .
+place:47977 puml:up jurisdiction:1813  .
+
+<cube/votes/0072964d30a67b3a3e4650c0365abab760ec715b> puml:right place:47977 .
+<cube/activity/4e73db1f4a7682d023c2d4bd9e6cbb5f1025448a> puml:right place:47977 .
+
+## PUML
+myc:local_candidate a puml:InlineProperty .
+myc:local_election a puml:InlineProperty .
+myc:election_candidate a puml:InlineProperty .
+qb:dataSet a puml:InlineProperty .
+myd:wikidata_entity a puml:InlineProperty .
 

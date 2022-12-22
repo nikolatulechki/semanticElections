@@ -16,6 +16,7 @@ PREFIX party: <https://elections.ontotext.com/resource/party/>
 insert {
   graph <graph/cube/ath_pi_votes> {
   ?VOTES_URI a qb:Observation , myc:Voting ;
+             qb:dataSet <cube/votes> ;
              myc:election ?election ;
              myc:locality ?locality ;
              myc:candidate ?candidate ;

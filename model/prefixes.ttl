@@ -63,6 +63,7 @@
 @prefix prv: <http://www.wikidata.org/prop/reference/value/> .
 @prefix prn: <http://www.wikidata.org/prop/reference/value-normalized/> .
 @prefix wdno: <http://www.wikidata.org/prop/novalue/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
 
 #gdb geo
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
