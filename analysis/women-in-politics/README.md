@@ -4,7 +4,7 @@
 
 ## Gender balance in elections candidates
 
-Endpoint to use: <https://elections.ontotext.com/repositoeries/elections>
+Endpoint to use: <https://elections.ontotext.com/repositoeries/elections> ([Web](https://elections.ontotext.com/))
 
 Какво е процентното съотношение на жените и мъжете в кандидатските листи 
 на парламентарно представените партии и коалиции в периода 2013-2023?
@@ -120,6 +120,8 @@ order by desc(?date) ?party_label
 (ако е възможно да се покаже и разпределението по партии/коалиции и избирателни райони)
 
 ### Grouped by NS
+
+Endpoint to use: <https://query.wikidata.org/sppaqrl> ([Web](https://query.wikidata.org/))
 
 ```sparql
 select 
