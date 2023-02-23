@@ -202,3 +202,34 @@ select
 } group by ?nsLabel ?NUM ?mirLabel ?MIR_NUM
 order by desc(?NUM) ?MIR_NUM
 ```
+
+```sparq
+select 
+ ?nsLabel ?NUM ?POINT_TIME (sum(?M) as ?males) (sum(?F) as ?females) 
+{
+  {select ?POINT_TIME ?x ?ns ?NUM ?sex{
+    ?ns p:P31 [ps:P31 wd:Q43792361 ; pq:P1545 ?num] 
+    bind(strdt(?num,xsd:integer) as ?NUM)    
+    filter(?NUM >= 39)     
+    ?x p:P39 [ps:P39 wd:Q18924508 ; pq:P2937 ?ns ; pq:P4100 ?pg ; pq:P580 ?start ; pq:P582 ?end] ; wdt:P21 ?sex .
+    filter(?start<=?point_time && ?end >= ?point_time)
+    
+    {select distinct ?point_time ?ns {
+       ?ns p:P31 [ps:P31 wd:Q43792361 ; pq:P1545 ?num] 
+       bind(strdt(?num,xsd:integer) as ?NUM)    
+       filter(?NUM >= 39)
+       ?x p:P39 [ps:P39 wd:Q18924508 ; pq:P2937 ?ns ; pq:P580 ?start]
+    } order by ?point_time}
+  } group by ?x ?ns ?NUM ?sex}
+   bind(str(?point_time) as ?POINT_TIME)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "bg". 
+         ?ns rdfs:label ?nsLabel .
+         ?sex rdfs:label ?sexLabel .
+         ?pg rdfs:label ?pgLabel .
+         ?mir rdfs:label ?mirLabel .
+  }
+   bind(if(sameterm(?sex,wd:Q6581097),1,0) as ?M)
+   bind(if(sameterm(?sex,wd:Q6581097),0,1) as ?F)
+} group by ?POINT_TIME ?nsLabel ?NUM 
+order by desc(?NUM) desc(?POINT_TIME)
+```
