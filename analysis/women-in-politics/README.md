@@ -40,6 +40,9 @@ where {
         (wd:Q97382346  "patr")
         (wd:Q17514144  "patr")
         (wd:Q178049    "ataka")
+        (wd:Q106393525    "ismv")
+        (wd:Q74877838  "bno")
+        (wd:Q104203765  "rep")
     }
 
     ?c a my:Candidate ; 
@@ -93,6 +96,9 @@ where {
         (wd:Q97382346  "patr")
         (wd:Q17514144  "patr")
         (wd:Q178049    "ataka")
+        (wd:Q106393525    "ismv")
+        (wd:Q74877838  "bno")
+        (wd:Q104203765  "rep")
     }
 
     ?c a my:Candidate ; 
