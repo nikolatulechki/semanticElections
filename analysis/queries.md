@@ -1454,7 +1454,7 @@ select ?voting ?round ?date (sample(?el_label) as ?EL_LABEL) ?sec_num ?sec_addre
        wd:Q792527 #VMRO,
        wd:Q283129 #Zelenite,
        wd:Q841253 #SDS,
-       wd:Q62808154 #db,
+     [analysis_11_21_pivot.xlsx](akf%2Fkkvot22%2Fanalysis_11_21_pivot.xlsx)  wd:Q62808154 #db,
        wd:Q97387007 #NFSB-ep,
        wd:Q971439 #Koalicia za Bulgaria,
        wd:Q97395772 #Nova republika,
