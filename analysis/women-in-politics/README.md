@@ -41,7 +41,7 @@ where {
         (wd:Q17514144  "patr")
         (wd:Q178049    "ataka")
         (wd:Q111985616 "bv")
-        (wd:Q106393525  "ismv")
+        (wd:Q106393525 "ismv")
         (wd:Q74877838  "bno")
         (wd:Q104203765  "rep")
     }
