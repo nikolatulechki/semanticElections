@@ -1,0 +1,45 @@
+# pref votes per party and per election
+
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select ?candidate ?mir ?name ?cand_number ?mir_norm (sum(?pref) as ?pref_votes) ?el_date ?party_label ?party_color where {
+
+# bind(wd:Q164242 as ?party) #DPSel_date
+#    bind(wd:Q106393525 as ?party) #ИСМВ
+#    bind(wd:Q62808154 as ?party) #ДБ
+#	 bind(wd:Q133968 as ?party) #ГЕРБ
+#    bind(wd:Q752259 as ?party) #БСП
+#    bind(wd:Q98098908 as ?party) #ИТН
+#    bind(wd:Q108601789 as ?party) #ПП
+#    bind(wd:Q28943121 as ?party) #Възраждане
+
+
+
+    bind(<election/pi2021_11> as ?main_el)
+#    bind(<election/pi2021_07> as ?main_el)
+#    bind(<election/pi2022> as ?main_el)
+
+    bind(jurisdiction:1 as ?mir)
+
+    ?main_el myd:date ?el_date .
+    ?party myd:notation ?party_label ; myd:color ?party_color .
+
+    ?candidate a my:Candidate ; myd:represents ?localParty  ; myd:candidacy ?el ; rdfs:label ?name ; myd:number ?cand_number .
+    ?localParty  myd:party/myd:party ?party ; myd:number ?party_number .
+    ?el myd:main_election ?main_el ; myd:jurisdiction ?mir .
+    ?mir myd:number ?mir_num ;  rdfs:label ?mir_label .
+    ?pv myps:preference_vote ?candidate ; mypq:valid_votes_recieved ?pref .
+    bind(concat(if(strlen(str(?mir_num))=1,concat("0",str(?mir_num)),str(?mir_num))," - ",?mir_label) as ?mir_norm)
+
+}
+group by ?candidate ?name ?cand_number ?mir_norm ?el_date ?mir ?party_label ?party_color
+order by ?mir_norm ?cand_number
