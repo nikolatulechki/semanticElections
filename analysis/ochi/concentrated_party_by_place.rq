@@ -1,0 +1,62 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+BASE <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select * {
+    {
+        select
+        ?local
+        ?local_label
+        ?voted_in_local
+        (sum(?dps) as ?votes_dps)
+        (sum(?gerb) as ?votes_gerb)
+        (?votes_dps/?voted_in_local as ?dps_ratio)
+        (?votes_gerb/?voted_in_local as ?gerb_ratio)
+        where {
+            {
+                select ?local ?election (sum(?voted) as ?voted_in_local) {
+                    bind(jurisdiction:13 as ?mir) #pazardzhik
+                    ?v a my:Voting ;
+                       myd:section/myd:place ?local ;
+                                  myd:election ?election ;
+                                  myd:main_election election:pi2022 ;
+                                  myd:voters_voted_count ?voted ;
+                                  .
+                    ?local myd:municipality/myd:mir ?mir .
+                } group by ?local ?election
+            }
+            ?local rdfs:label ?local_label ;
+                   .
+            ?v a my:Voting ;
+               myd:section/myd:place ?local ;
+                          myd:election ?election ;
+                          .
+            optional{
+                ?v myp:vote [mypq:valid_votes_recieved ?gerb ;
+                   myps:vote/myd:party* wd:Q133968 ]
+            }
+            optional{
+                ?v myp:vote [mypq:valid_votes_recieved ?dps  ;
+                   myps:vote/myd:party* wd:Q164242 ]
+            }
+            ?election myd:date ?date .
+            {
+                ?election myd:partOf ?el_cycle .
+                ?el_cycle a my:ElectionRound
+            } union
+            {
+                ?election myd:partOf ?el_cycle .
+                filter not exists {
+                    ?election myd:partOf/a my:ElectionRound
+                }
+            }
+        } group by ?local ?local_label ?voted_in_local order by ?local
+    }
+    filter(?gerb_ratio>0.5 || ?dps_ratio > 0.5)
+}

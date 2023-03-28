@@ -1,0 +1,38 @@
+BASE        <https://elections.ontotext.com/resource/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mys: <https://elections.ontotext.com/resource/entity/statement/>
+select * where {
+    values (?thresh ?model) {
+        ("low" <risky_model/risky_model:akf_2022_low_risk>)
+        ("high" <risky_model/risky_model:akf_2022_high_risk>)
+    }
+	?section rdf:type my:Section ;
+             myd:number ?section_number ;
+             rdfs:label ?label ;
+             myd:streetAddress ?street_address  ;
+     		 myd:matched_section?/myd:risk_model ?model ;
+             myd:election/myd:jurisdiction/myd:number ?mir ;
+    .
+    ?voting myd:section ?section ;
+            myd:link_html ?protocol ;
+            myd:voters_count ?voters ;
+            myd:voters_voted_count ?voted ;
+    .
+    optional {?voting myp:vote [mypq:valid_votes_recieved ?gerb ; myps:vote/myd:party+ wd:Q133968]}
+    optional {?voting myp:vote [mypq:valid_votes_recieved ?dps  ; myps:vote/myd:party+ wd:Q164242]}
+    optional {?voting myp:vote [mypq:valid_votes_recieved ?pp   ; myps:vote/myd:party+ wd:Q108601789]}
+    optional {?voting myp:vote [mypq:valid_votes_recieved ?db   ; myps:vote/myd:party+ wd:Q62808154]}
+    optional {?voting myp:vote [mypq:valid_votes_recieved ?vuz  ; myps:vote/myd:party+ wd:Q28943121]}
+    optional {?voting myp:vote [mypq:valid_votes_recieved ?bsp  ; myps:vote/myd:party+ wd:Q752259]}
+
+
+}
