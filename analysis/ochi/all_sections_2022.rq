@@ -1,0 +1,39 @@
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select * where {
+
+    ?voting a my:Voting ;
+            myd:section ?sec ;
+            myd:main_election election:pi2022 ;
+            myd:voters_voted_count ?voted ;
+            myd:voters_count ?voters ;
+            myd:election/myd:jurisdiction/myd:number ?mir ;
+    .
+
+    ?sec myd:number ?number ; myd:streetAddress ?street_address .
+    ?sec myd:place/rdfs:label ?place .
+    ?sec myd:place/myd:municipality ?mun . ?mun rdfs:label ?municipality .
+
+    optional{
+       ?sec myd:matched_section/myd:risk_model risky_model:akf_all_time_risky .
+        bind(if(exists{?match myd:risk_model risky_model:2020_high_abs_values},"high","low")  as ?risk_level)
+
+    }
+
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?gerb ; myps:vote/myd:party* wd:Q133968 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?dps  ; myps:vote/myd:party* wd:Q164242 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?pp   ; myps:vote/myd:party* wd:Q108601789 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?db   ; myps:vote/myd:party* wd:Q62808154 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?vuz  ; myps:vote/myd:party* wd:Q28943121 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?bsp  ; myps:vote/myd:party* wd:Q752259 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?bv   ; myps:vote/myd:party* wd:Q111985616 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?itn  ; myps:vote/myd:party* wd:Q98098908 ]}
+} order by ?sec
