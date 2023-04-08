@@ -1,0 +1,55 @@
+construct {
+    ?VOTE_URI
+        myd:voters_count ?H ;
+        myd:voters_voted_count ?J ;
+        myd:invalid_ballots ?P ;
+        myd:voters_additional_count ?I ;
+        myd:voters_voted_count_mv ?N ;
+        myd:voters_voted_count_pv ?M ;
+        myd:votes_valid_count ?S ;
+        myd:votes_blanc_count ?Y ;
+        myd:link_html ?PROT_LINK ;
+        myd:link_pdf ?PDF_LINK ;
+    .
+} where {
+    bind(strdt(?c,xsd:integer) as ?C)
+    bind(if(?C<10,concat("0",?c),?c) as ?OB_CODE) # leading zero
+    bind(uri(concat("voting/{EL}/{TYP}",?c,"/{RND}",?b)) as ?VOTE_URI)
+    bind(strdt(?h,xsd:integer) as ?H)
+    bind(strdt(?j,xsd:integer) as ?J)
+    bind(strdt(?p,xsd:integer) as ?P)
+    bind(strdt(?i,xsd:integer) as ?I)
+    bind(strdt(?n,xsd:integer) as ?N)
+    bind(strdt(?m,xsd:integer) as ?M)
+    bind(strdt(?s,xsd:integer) as ?S)
+    bind(strdt(?y,xsd:integer) as ?Y)
+
+    bind(uri(concat("{LINK_HTML}",?OB_CODE,"/",?b,".1.html")) as ?PROT_LINK)
+    bind(uri(concat("{LINK_PDF}",?OB_CODE,"/",?b,".0.pdf")) as ?PDF_LINK)
+}
+
+#a26
+#b263900011
+#c26
+#d
+#e
+#f
+#g 400
+#h 433
+#i 0
+#j 172
+#k 332
+#l 1
+#m 67
+#n 105
+#o 172
+#p 5
+#q 62
+#s 105
+#t 167
+#u 62
+#v 99
+#w 161
+#x 0
+#y 6
+#z 6

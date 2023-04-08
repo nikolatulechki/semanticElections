@@ -1,4 +1,7 @@
 #PI2022
+python3 ../common/flatten_votes.py 1 3 4 /home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2023/votes_02.04.2023.txt > /home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2023/votes_02.04.2023.flat.txt
+
+#PI2022
 python ../common/flatten_2.py /home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/votes_02.10.2022.txt > /home/nikola/projects/dgood/semanticElections/gdrive/data/cikOpenData/pi2022/votes_02.10.2022.flat.txt
 
 #PI2021

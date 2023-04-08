@@ -1,0 +1,32 @@
+construct {
+    ?EL_URI_OK
+		myd:vote ?PARTY_URI ;
+		myp:vote ?S_VOTE_URI ;
+	.
+	?S_VOTE_URI_OK a my:SectionVote ;
+		myps:vote ?PARTY_URI ;
+		mypq:valid_votes_recieved ?VV ;
+		mypq:votes_paper ?V_PV ;
+		mypq:votes_machine ?V_MV ;
+	.	
+}
+where {
+
+	bind(replace(substr(?a,1,2),"^0","") as ?OBINFIX)
+
+    bind(uri(concat("voting/{EL}/",?OBINFIX,"/",?a)) as ?EL_URI)
+	bind(concat("party/{EL}/",?OBINFIX,"/",?b) as ?PARTY_STR)
+
+	bind(uri(?PARTY_STR) as ?PARTY_URI)
+	bind(uri(concat("vote/{EL}/{TYP}{RND}",?a,"/",?b)) as ?S_VOTE_URI)
+	bind(STRDT(?c, xsd:integer) as ?VV)
+	bind(STRDT(?d, xsd:integer) as ?V_PV)
+	bind(STRDT(?e, xsd:integer) as ?V_MV)
+	bind(STRDT(?b, xsd:integer) as ?CAND_NUM)
+    bind(if(?CAND_NUM != 0,?EL_URI,?UNDEF) as ?EL_URI_OK)
+	bind(if(?CAND_NUM != 0,?S_VOTE_URI,?UNDEF) as ?S_VOTE_URI_OK)
+}
+
+#193300003;2;37;21;16
+#<https://elections.ontotext.com/resource/party/pi2023/19/2>
+#<https://elections.ontotext.com/resource/voting/pi2023/19/010100013>

@@ -1,0 +1,66 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX graph: <https://elections.ontotext.com/resource/graph/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX matched_section: <https://elections.ontotext.com/resource/matched_section/>
+select  ?num ?mario_id ?voters23 ?addr23 ?place23 ?prot23 ?voters22 ?addr22 ?place22 ?prot22
+where {
+    {
+        ?v23 a my:Voting ;
+             myd:voters_count ?voters23 ;
+             myd:main_election election:pi2023 ;
+             myd:section ?sec23 ;
+             myd:link_html ?prot23 ;
+             .
+        ?sec23 myd:number ?num ;
+               myd:place ?place ;
+               myd:streetAddress ?addr23 ;
+               myd:matched_section ?match ;
+               myd:place/rdfs:label ?place23 ;
+                        .
+        ?v22 a my:Voting ;
+             myd:voters_count ?voters22 ;
+             myd:main_election election:pi2022 ;
+             myd:section ?sec22 ;
+             myd:link_html ?prot22 ;
+             .
+        ?sec22 myd:number ?num ;
+               myd:place ?place ;
+               myd:streetAddress ?addr22 ;
+               myd:matched_section ?match ;
+               myd:place/rdfs:label ?place22 ;
+                        .
+        bind(strafter(str(?match),str(matched_section:)) as ?mario_id)
+    }
+    UNION {
+        ?v23 a my:Voting ;
+             myd:voters_count ?voters23 ;
+             myd:main_election election:pi2023 ;
+             myd:section ?sec23 ;
+             myd:link_html ?prot23 ;
+             .
+        ?sec23 myd:number ?num ;
+               myd:place ?place ;
+               myd:streetAddress ?addr23 ;
+               myd:place/rdfs:label ?place23 ;
+                        filter not exists {
+            ?sec23 myd:matched_section []
+        }
+    } UNION {
+        ?v22 a my:Voting ;
+             myd:voters_count ?voters22 ;
+             myd:main_election election:pi2022 ;
+             myd:section ?sec22 ;
+             myd:link_html ?prot22 ;
+             .
+        ?sec22 myd:number ?num ;
+               myd:place ?place ;
+               myd:streetAddress ?addr22 ;
+               myd:place/rdfs:label ?place22 ;
+   			   myd:matched_section ?match ;
+                        filter not exists {
+            ?match ^myd:matched_section/myd:main_election election:pi2023
+        }
+    }
+} order by ?num

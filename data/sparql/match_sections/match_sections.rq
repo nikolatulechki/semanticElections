@@ -1,0 +1,25 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX graph: <https://elections.ontotext.com/resource/graph/>
+insert {
+    graph graph:match_23 {
+        ?sec23 myd:matched_section ?match .
+    }
+}
+where {
+    ?v23 a my:Voting ;
+    myd:voters_count ?voters23 ;
+    myd:main_election election:pi2023 ;
+    myd:section ?sec23 .
+    ?sec23 myd:number ?num ;
+    myd:place ?place .
+    ?v22 a my:Voting ;
+    myd:voters_count ?voters22 ;
+    myd:main_election election:pi2022 ;
+    myd:section ?sec22 .
+    ?sec22 myd:number ?num ;
+    myd:place ?place ;
+    myd:matched_section ?match .
+	filter(abs(?voters23-?voters22)/?voters22<0.15)
+}
