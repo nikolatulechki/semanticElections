@@ -127,11 +127,11 @@ select
 
 {
     ?mun rdfs:label ?mun_label .
-    optional {?mun myd:mir ?mir . ?mir myd:number ?mir_num ; rdfs:label ?mir_label .}
+    ?mir myd:number ?mir_num ; rdfs:label ?mir_label .
  	#2017
     {
         select
-        ?mun
+        ?mun ?mir
         (sum(?voters_count) as ?VOTERS_2017)
         (sum(?voters_voted) as ?VOTED_2017)
         (sum(?votes_bsp) as ?BSP_2017)
@@ -147,6 +147,7 @@ select
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
                     myd:votes_blanc_count ?npn ;
+                    myd:election/myd:jurisdiction ?mir ;
                     myd:main_election election:pi2017
             ;
                     myd:section ?section;
@@ -172,12 +173,12 @@ select
                       mypq:valid_votes_recieved ?votes_vuz ;
                       .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?mun
+        } group by ?mun ?mir
     }
 	#2021-04
     {
         select
-        ?mun
+        ?mun ?mir
         (sum(?voters_count) as ?VOTERS_04)
         (sum(?voters_voted) as ?VOTED_04)
         (sum(?votes_bsp) as ?BSP_04)
@@ -194,6 +195,7 @@ select
                     myd:voters_voted_count ?voters_voted ;
                     myd:votes_blanc_count ?npn ;
                     myd:main_election election:pi2021 ;
+                    myd:election/myd:jurisdiction ?mir ;
                     myd:section ?section;
             .
     		?section myd:place/myd:municipality ?mun ;
@@ -217,12 +219,12 @@ select
                        mypq:valid_votes_recieved ?votes_vuz ;
                        .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?mun
+        } group by ?mun ?mir
     }
 	#2021-07
     {
         select
-        ?mun
+        ?mun ?mir
         (sum(?voters_count) as ?VOTERS_07)
         (sum(?voters_voted) as ?VOTED_07)
         (sum(?votes_bsp) as ?BSP_07)
@@ -238,6 +240,7 @@ select
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
                     myd:votes_blanc_count ?npn ;
+                    myd:election/myd:jurisdiction ?mir ;
                     myd:main_election election:pi2021_07
             ;
                     myd:section ?section;
@@ -263,12 +266,12 @@ select
                        mypq:valid_votes_recieved ?votes_vuz ;
                        .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?mun
+        } group by ?mun ?mir
     }
 	#2021-11
     {
         select
-        ?mun
+        ?mun ?mir
         (sum(?voters_count) as ?VOTERS_11)
         (sum(?voters_voted) as ?VOTED_11)
         (sum(?votes_bsp) as ?BSP_11)
@@ -284,6 +287,7 @@ select
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
                     myd:votes_blanc_count ?npn ;
+                    myd:election/myd:jurisdiction ?mir ;
                     myd:main_election election:pi2021_11
             ;
           	myd:section ?section;
@@ -311,12 +315,12 @@ select
             ?vote_vuz  myps:vote/myd:party/myd:party wd:Q28943121;
                        mypq:valid_votes_recieved ?votes_vuz ;
                        .
-        } group by ?mun
+        } group by ?mun ?mir
     }
     #2022-10
     {
         select
-        ?mun
+        ?mun ?mir
         (sum(?voters_count) as ?VOTERS_2022)
         (sum(?voters_voted) as ?VOTED_2022)
         (sum(?votes_bsp) as ?BSP_2022)
@@ -334,6 +338,7 @@ select
                     myd:voters_voted_count ?voters_voted ;
                     myd:votes_blanc_count ?npn ;
                     myd:main_election election:pi2022 ;
+                    myd:election/myd:jurisdiction ?mir ;
                  	myd:section ?section;
             .
     		?section myd:place/myd:municipality ?mun;
@@ -362,12 +367,12 @@ select
             ?vote_bv  myps:vote/myd:party/myd:party wd:Q111985616;
                        mypq:valid_votes_recieved ?votes_bv ;
                        .
-        } group by ?mun
+        } group by ?mun ?mir
     }
     #2023-10
     {
         select
-        ?mun
+        ?mun ?mir
         (sum(?voters_count) as ?VOTERS_2023)
         (sum(?voters_voted) as ?VOTED_2023)
         (sum(?votes_bsp) as ?BSP_2023)
@@ -384,6 +389,7 @@ select
                     myd:voters_voted_count ?voters_voted ;
                     myd:votes_blanc_count ?npn ;
                     myd:main_election election:pi2023 ;
+                    myd:election/myd:jurisdiction ?mir ;
           	        myd:section ?section ;
             .
     		?section myd:place/myd:municipality ?mun;
@@ -409,6 +415,6 @@ select
             ?vote_bv  myps:vote/myd:party/myd:party wd:Q111985616;
                        mypq:valid_votes_recieved ?votes_bv ;
                        .
-        } group by ?mun
+        } group by ?mun ?mir
     }
 }
