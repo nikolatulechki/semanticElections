@@ -6,7 +6,7 @@ PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 select ?candidate ?name ?varp ?link (sum(?votes) as ?VOTES) where {
 	?candidate myd:prefs_varp ?varp ;
                rdfs:label ?name ;
-               myd:candidacy/myd:main_election election:pi2022 .
+               myd:candidacy/myd:main_election election:pi2023 .
     ?v mypq:valid_votes_recieved ?votes ;
        myps:preference_vote ?candidate .
 

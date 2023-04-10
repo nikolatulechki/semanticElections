@@ -1,0 +1,13 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX graph: <https://elections.ontotext.com/resource/graph/>
+clear silent graph graph:name_norm ;
+insert {graph graph:name_norm {
+  ?candidate myd:name_norm ?URI .
+  ?URI rdfs:label ?NAME .
+    }} where {
+	?candidate a my:Candidate ; rdfs:label ?lab.
+    bind(uri(concat("https://elections.ontotext.com/resource/name/",sha1(lcase(?lab)))) as ?URI)
+    bind(lcase(?lab) as ?NAME)
+}

@@ -1,0 +1,13 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+select ?election (sum(?voters_risky) as ?VOTERS) (sum(?voted_risky) as ?VOTED) (?VOTED/?VOTERS as ?ACTIVITY) where {
+        ?v a my:Voting ;
+           myd:section ?sec ;
+           myd:voters_voted_count ?voted_risky ;
+           myd:voters_count ?voters_risky ;
+           myd:main_election ?election ;
+           .
+        ?sec myd:matched_section?/myd:risk_model risky_model:all_time_risky.
+} group by ?election

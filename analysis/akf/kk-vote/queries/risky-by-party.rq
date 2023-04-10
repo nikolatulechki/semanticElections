@@ -36,7 +36,7 @@ select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
                        myd:voters_voted_count ?voted_risky ;
                        myd:main_election ?election ;
                        .
-                    ?sec myd:matched_section?/myd:risk_model risky_model:2020_high_abs_values .
+                    ?sec myd:matched_section?/myd:risk_model risky_model:all_time_risky.
                 } group by ?election ?total_voted
             }
             ?v a my:Voting ;
@@ -62,5 +62,5 @@ select ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted
                  .
     ?party rdfs:label ?party_name ;
            myd:number ?party_num .
-    ?sec myd:matched_section?/myd:risk_model risky_model:2020_low_abs_values .
+    ?sec myd:matched_section?/myd:risk_model risky_model:all_time_risky .
 } group by ?election ?total_voted ?total_risky ?party_name ?party_num ?party_voted order by desc(?party_voted)
