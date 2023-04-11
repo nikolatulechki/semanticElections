@@ -28,12 +28,13 @@ select * where {
 
     }
 
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?gerb ; myps:vote/myd:party* wd:Q133968 ]}
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?dps  ; myps:vote/myd:party* wd:Q164242 ]}
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?pp   ; myps:vote/myd:party* wd:Q108601789 ]}
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?db   ; myps:vote/myd:party* wd:Q62808154 ]}
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?vuz  ; myps:vote/myd:party* wd:Q28943121 ]}
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?bsp  ; myps:vote/myd:party* wd:Q752259 ]}
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?bv   ; myps:vote/myd:party* wd:Q111985616 ]}
-    optional{?voting myp:vote [mypq:valid_votes_recieved ?itn  ; myps:vote/myd:party* wd:Q98098908 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?gerb ; myps:vote/myd:party/myd:party wd:Q133968 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?dps  ; myps:vote/myd:party/myd:party wd:Q164242 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?pp   ; myps:vote/myd:party/myd:party wd:Q108601789 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?db   ; myps:vote/myd:party/myd:party wd:Q62808154 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?vuz  ; myps:vote/myd:party/myd:party wd:Q28943121 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?bsp  ; myps:vote/myd:party/myd:party wd:Q752259 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?bv   ; myps:vote/myd:party/myd:party wd:Q111985616 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?itn  ; myps:vote/myd:party/myd:party wd:Q98098908 ]}
+    optional{?voting myp:vote [mypq:valid_votes_recieved ?ppdb  ; myps:vote/myd:party/myd:party wd:Q116769868 ]}
 } order by ?sec

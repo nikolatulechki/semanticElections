@@ -1,0 +1,34 @@
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select *
+where {
+
+    ?voting23 a my:Voting ;
+            myd:section ?sec23 ;
+            myd:main_election election:pi2023;
+            myd:voters_voted_count ?voted23 ;
+            myd:voters_count ?voters23 ;
+            myd:section/myd:streetAddress ?addr23 ;
+            myd:election/myd:jurisdiction jurisdiction:3 ;
+            myp:vote [mypq:valid_votes_recieved ?itn23  ; myps:vote/myd:party* wd:Q98098908 ]
+    .
+    ?voting22 a my:Voting ;
+            myd:section ?sec22 ;
+            myd:main_election election:pi2022 ;
+            myd:voters_voted_count ?voted22 ;
+            myd:voters_count ?voters22 ;
+
+            myd:election/myd:jurisdiction jurisdiction:3 ;
+            myp:vote [mypq:valid_votes_recieved ?itn22  ; myps:vote/myd:party* wd:Q98098908 ]
+    .
+    ?sec23 myd:matched_section/^myd:matched_section ?sec22 ; myd:streetAddress ?addr22 .
+
+}

@@ -1,0 +1,40 @@
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select ?mir ?municipality ?place_label
+(sum(?itn23) as ?ITN_23)
+(sum(?itn22) as ?ITN_22)
+(sum(?voted_22) as ?VOTED_22)
+(sum(?voted_23) as ?VOTED_23)
+        where {
+
+    {
+    ?voting23 a my:Voting ;
+            myd:section/myd:place ?place ;
+            myd:main_election election:pi2023 ;
+            myd:election/myd:jurisdiction/myd:number ?mir ;
+            myd:voters_voted_count ?voted_23 ;
+            myd:voters_count ?voters_23 ;
+            myp:vote [mypq:valid_votes_recieved ?itn23  ; myps:vote/myd:party* wd:Q98098908 ]
+        .} UNION
+    {
+    ?voting22 a my:Voting ;
+            myd:section/myd:place ?place ;
+            myd:election/myd:jurisdiction/myd:number ?mir ;
+            myd:main_election election:pi2022 ;
+            myd:voters_voted_count ?voted_22 ;
+            myd:voters_count ?voters_22 ;
+            myp:vote [mypq:valid_votes_recieved ?itn22  ; myps:vote/myd:party* wd:Q98098908 ]
+    }
+    .
+
+     ?place myd:municipality ?mun ; rdfs:label ?place_label .
+     ?mun rdfs:label ?municipality .
+} group by ?mir ?municipality ?place_label order by ?mir ?municipality ?place_label

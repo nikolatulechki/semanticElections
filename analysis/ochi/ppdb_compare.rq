@@ -1,0 +1,38 @@
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX : <http://www.ontotext.com/connectors/lucene#>
+select ?mir ?municipality ?place ?mario_id ?num ?voted23 ?voters23 ?voted22 ?pp_22 ?db_22 ?ppdb_23 (?ppdb_23-(?pp_22+?db_22) as ?DELTA) ?prot22 ?prot23 where {
+
+    ?v_23 a my:Voting ;
+            myd:section ?sec23 ;
+            myd:main_election election:pi2023 ;
+            myd:voters_voted_count ?voted23 ;
+            myd:voters_count ?voters23 ;
+            myd:link_html ?prot23 ;
+            myd:election/myd:jurisdiction/myd:number ?mir ;
+            myp:vote [mypq:valid_votes_recieved ?ppdb_23   ; myps:vote/myd:party* wd:Q116769868 ]
+    .
+    ?v_22 a my:Voting ;
+            myd:section ?sec22 ;
+            myd:main_election election:pi2022 ;
+            myd:voters_voted_count ?voted22 ;
+            myd:voters_count ?voters22 ;
+            myd:link_html ?prot22 ;
+            myd:election/myd:jurisdiction/myd:number ?mir ;
+            myp:vote [mypq:valid_votes_recieved ?pp_22   ; myps:vote/myd:party/myd:party wd:Q108601789 ],
+                     [mypq:valid_votes_recieved ?db_22   ; myps:vote/myd:party/myd:party wd:Q62808154 ]
+    .
+    ?sec23 myd:matched_section ?match .
+    ?sec22 myd:matched_section ?match .
+    ?match myd:number ?mario_id .
+    ?sec23 myd:place/rdfs:label ?place ; myd:number ?num.
+    ?sec23 myd:place/myd:municipality ?mun . ?mun rdfs:label ?municipality
+} order by ?mir ?municipality ?place ?num
