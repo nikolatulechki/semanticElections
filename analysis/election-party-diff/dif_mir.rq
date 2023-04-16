@@ -372,11 +372,11 @@ select
             ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_ppdb, ?vote_vuz, ?vote_bv ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:votes_blanc_count ?npn ;
                     myd:main_election election:pi2023 ;
                     myd:election/myd:jurisdiction ?mir ;
           	        myd:section ?section ;
             .
+            optional{?voting myd:votes_blanc_count ?npn .}
             ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
                        mypq:valid_votes_recieved ?votes_bsp ;
                        .

@@ -1,5 +1,10 @@
 # Preference plots
 
+# MIR
+```bash
+curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --data-binary '@queries/prefplot-drilldown.rq' 'https://elections.ontotext.com/repositories/elections' > bv_2023.csv
+```
+
 # November 2021
 
 ## ПП 

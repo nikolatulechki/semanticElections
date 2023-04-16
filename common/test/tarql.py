@@ -20,7 +20,7 @@ class TarqlTest(unittest.TestCase, TestBase):
     def test_execute_query_pos(self):
         query_raw = resource_filename("common.test.resources.tarql", "query.tarql")
         csv = resource_filename("common.test.resources.tarql", "test.csv")
-        expected_file = resource_filename("common.test.resources.tarql", "out.ttl")
+        expected_file = resource_filename("common.test.resources.tarql", "data.ttl")
         result = tarqls_compare(query_raw, csv, expected_file, "--encoding utf8 -d ;")
         self.assertEqual(result[0], result[1])
 
