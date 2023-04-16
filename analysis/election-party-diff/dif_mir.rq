@@ -1,3 +1,4 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
@@ -27,10 +28,6 @@ select
 ?VOTED_2023
 (?VOTED_2023/?VOTERS_2023 as ?ACTIVITY_2023)
 
-?NPN_2017
-?NPN_04
-?NPN_07
-?NPN_11
 ?NPN_2022
 ?NPN_2023
 
@@ -117,8 +114,6 @@ select
 ?PPDB_2023
 (?PPDB_2023/?VOTED_2023 as ?PPDB_RATIO_2023)
 
-
-
 ?BV_2022
 ?BV_2023
 (?BV_2022/?VOTED_2022 as ?BV_RATIO_2022)
@@ -138,13 +133,11 @@ select
         (sum(?votes_db) as ?DB_2017)
         (sum(?votes_op) as ?OP_2017)
         (sum(?votes_vuz) as ?VUZ_2017)
-        (sum(?npn) as ?NPN_2017)
 
         where {
             ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_db, ?vote_op, ?vote_vuz;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:votes_blanc_count ?npn ;
                     myd:election/myd:jurisdiction ?mir ;
                     myd:main_election election:pi2017 ;
                     myd:section ?section;
@@ -182,13 +175,11 @@ select
         (sum(?votes_dps) as ?DPS_04)
         (sum(?votes_db) as ?DB_04)
         (sum(?votes_vuz) as ?VUZ_04)
-        (sum(?npn) as ?NPN_04)
 
         where {
             ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_vuz ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:votes_blanc_count ?npn ;
                     myd:main_election election:pi2021 ;
                     myd:election/myd:jurisdiction ?mir ;
             .
@@ -225,13 +216,11 @@ select
         (sum(?votes_dps) as ?DPS_07)
         (sum(?votes_db) as ?DB_07)
         (sum(?votes_vuz) as ?VUZ_07)
-        (sum(?npn) as ?NPN_07)
 
         where {
             ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_vuz ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:votes_blanc_count ?npn ;
                     myd:election/myd:jurisdiction ?mir ;
                     myd:main_election election:pi2021_07 ;
                     myd:section ?section ;
@@ -270,16 +259,13 @@ select
         (sum(?votes_db) as ?DB_11)
         (sum(?votes_pp) as ?PP_11)
         (sum(?votes_vuz) as ?VUZ_11)
-        (sum(?npn) as ?NPN_11)
         where {
             ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_pp, ?vote_vuz ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:votes_blanc_count ?npn ;
                     myd:election/myd:jurisdiction ?mir ;
-                    myd:main_election election:pi2021_11
-            ;
-          	myd:section ?section;
+                    myd:main_election election:pi2021_11 ;
+                	myd:section ?section;
             .
             ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
                        mypq:valid_votes_recieved ?votes_bsp ;
@@ -320,14 +306,21 @@ select
         (sum(?votes_bv) as ?BV_2022)
         (sum(?npn) as ?NPN_2022)
         where {
+    		{
+            select ?voting (sum(?npn_individual) as ?npn) {
+                ?voting a my:Voting ;
+                    myd:main_election election:pi2022 .
+                optional{?voting myd:votes_blanc_count ?npn_individual .}
+                } group by ?voting
+            }
             ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_pp, ?vote_vuz, ?vote_bv ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:votes_blanc_count ?npn ;
                     myd:main_election election:pi2022 ;
                     myd:election/myd:jurisdiction ?mir ;
                  	myd:section ?section;
             .
+
             ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
                        mypq:valid_votes_recieved ?votes_bsp ;
                        .

@@ -2,12 +2,14 @@ Result [gsheet](https://drive.google.com/drive/u/1/folders/1pbrwJiWBRGKRlhIzsA1S
 
 `^.*\– `
 
+#SECTION 
 ```bash
 curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --data-binary '@dif_section.rq' 'https://elections.ontotext.com/repositories/elections' > data/dif_section.csv
 ```
 
+# PLACE
 ```bash
-curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --data-binary '@dif_section_missing_votes.rq' 'https://elections.ontotext.com/repositories/elections' > data/dif_section_missing_votes.csv
+curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --data-binary '@dif_place.rq' 'https://elections.ontotext.com/repositories/elections' > data/dif_place.csv
 ```
 
 # MUN

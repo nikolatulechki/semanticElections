@@ -1,3 +1,4 @@
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
 PREFIX election: <https://elections.ontotext.com/resource/election/>
@@ -5,13 +6,14 @@ PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX metaSection: <https://elections.ontotext.com/resource/metaSection/>
 select
 ?mir_num
 ?mir_label
 ?mun_label
 ?place_label
-?secid
+?sec_id
+?match_id
+
 ?VOTERS_2017
 ?VOTED_2017
 (?VOTED_2017/?VOTERS_2017 as ?ACTIVITY_2017)
@@ -24,69 +26,115 @@ select
 ?VOTERS_11
 ?VOTED_11
 (?VOTED_11/?VOTERS_11 as ?ACTIVITY_11)
-?VOTERS_22
-?VOTED_22
-(?VOTED_22/?VOTERS_22 as ?ACTIVITY_22)
+?VOTERS_2022
+?VOTED_2022
+(?VOTED_2022/?VOTERS_2022 as ?ACTIVITY_2022)
+?VOTERS_2023
+?VOTED_2023
+(?VOTED_2023/?VOTERS_2023 as ?ACTIVITY_2023)
+
+?NPN_2022
+?NPN_2023
+
 ?BSP_2017
 ?BSP_04
 ?BSP_07
 ?BSP_11
-?BSP_22
+?BSP_2022
+?BSP_2023
 (?BSP_2017/?VOTED_2017 as ?BSP_RATIO_2017)
 (?BSP_04/?VOTED_04 as ?BSP_RATIO_04)
 (?BSP_07/?VOTED_07 as ?BSP_RATIO_07)
 (?BSP_11/?VOTED_11 as ?BSP_RATIO_11)
-(?BSP_22/?VOTED_22 as ?BSP_RATIO_22)
+(?BSP_2022/?VOTED_2022 as ?BSP_RATIO_2022)
+(?BSP_2023/?VOTED_2023 as ?BSP_RATIO_2023)
+
 ?DB_2017
 ?DB_04
 ?DB_07
 ?DB_11
-?DB_22
+?DB_2022
 (?DB_2017/?VOTED_2017 as ?DB_RATIO_2017)
 (?DB_04/?VOTED_04 as ?DB_RATIO_04)
 (?DB_07/?VOTED_07 as ?DB_RATIO_07)
-(?DB_22/?VOTED_22 as ?DB_RATIO_22)
+(?DB_11/?VOTED_11 as ?DB_RATIO_11)
+(?DB_2022/?VOTED_2022 as ?DB_RATIO_2022)
+
 ?DPS_2017
 ?DPS_04
 ?DPS_07
 ?DPS_11
-?DPS_22
+?DPS_2022
+?DPS_2023
 (?DPS_2017/?VOTED_2017 as ?DPS_RATIO_2017)
 (?DPS_04/?VOTED_04 as ?DPS_RATIO_04)
 (?DPS_07/?VOTED_07 as ?DPS_RATIO_07)
 (?DPS_11/?VOTED_11 as ?DPS_RATIO_11)
-(?DPS_22/?VOTED_22 as ?DPS_RATIO_22)
+(?DPS_2022/?VOTED_2022 as ?DPS_RATIO_2022)
+(?DPS_2023/?VOTED_2023 as ?DPS_RATIO_2023)
+
+?VUZ_2017
+?VUZ_04
+?VUZ_07
+?VUZ_11
+?VUZ_2022
+?VUZ_2023
+(?VUZ_2017/?VOTED_2017 as ?VUZ_RATIO_2017)
+(?VUZ_04/?VOTED_04 as ?VUZ_RATIO_04)
+(?VUZ_07/?VOTED_07 as ?VUZ_RATIO_07)
+(?VUZ_11/?VOTED_11 as ?VUZ_RATIO_11)
+(?VUZ_2022/?VOTED_2022 as ?VUZ_RATIO_2022)
+(?VUZ_2023/?VOTED_2023 as ?VUZ_RATIO_2023)
+
 ?GERB_2017
 ?GERB_04
 ?GERB_07
 ?GERB_11
-?GERB_22
+?GERB_2022
+?GERB_2023
 (?GERB_2017/?VOTED_2017 as ?GERB_RATIO_2017)
 (?GERB_04/?VOTED_04 as ?GERB_RATIO_04)
 (?GERB_07/?VOTED_07 as ?GERB_RATIO_07)
-(?GERB_22/?VOTED_22 as ?GERB_RATIO_22)
+(?GERB_11/?VOTED_11 as ?GERB_RATIO_11)
+(?GERB_2022/?VOTED_2022 as ?GERB_RATIO_2022)
+(?GERB_2023/?VOTED_2023 as ?GERB_RATIO_2023)
+
 ?ITN_04
 ?ITN_07
 ?ITN_11
-?ITN_22
+?ITN_2022
+?ITN_2023
 (?ITN_04/?VOTED_04 as ?ITN_RATIO_04)
 (?ITN_07/?VOTED_07 as ?ITN_RATIO_07)
-(?ITN_22/?VOTED_22 as ?ITN_RATIO_22)
+(?ITN_11/?VOTED_11 as ?ITN_RATIO_11)
+(?ITN_2023/?VOTED_2023 as ?ITN_RATIO_2023)
+
 ?OP_2017
 (?OP_2017/?VOTED_2017 as ?OP_RATIO_2017)
 ?PP_11
-?PP_22
+?PP_2022
 (?PP_11/?VOTED_11 as ?PP_RATIO_11)
-(?PP_22/?VOTED_22 as ?PP_RATIO_22)
+(?PP_2022/?VOTED_2022 as ?PP_RATIO_2022)
+
+?PPDB_2023
+(?PPDB_2023/?VOTED_2023 as ?PPDB_RATIO_2023)
+
+?BV_2022
+?BV_2023
+(?BV_2022/?VOTED_2022 as ?BV_RATIO_2022)
+(?BV_2023/?VOTED_2023 as ?BV_RATIO_2023)
+
 {
     ?place myd:municipality ?mun ; rdfs:label ?place_label .
     ?mun rdfs:label ?mun_label .
-    optional {?mun myd:mir ?mir . ?mir myd:number ?mir_num ; rdfs:label ?mir_label .}
-    #2017
+    ?mir myd:number ?mir_num ; rdfs:label ?mir_label .
+    ?match myd:number ?match_id ; ^myd:matched_section [myd:number ?sec_id ; myd:main_election election:pi2023]
+ 	#2017
     {
         select
+        ?mir
         ?place
-        ?secid
+        ?match
         (sum(?voters_count) as ?VOTERS_2017)
         (sum(?voters_voted) as ?VOTED_2017)
         (sum(?votes_bsp) as ?BSP_2017)
@@ -94,46 +142,53 @@ select
         (sum(?votes_dps) as ?DPS_2017)
         (sum(?votes_db) as ?DB_2017)
         (sum(?votes_op) as ?OP_2017)
+        (sum(?votes_vuz) as ?VUZ_2017)
+            #           wd:Q164242    #DPS
+            #           wd:Q28943121  #VUZ
+            #           wd:Q133968    #GERB
+            #        	wd:Q98098908  #ITN
+            #        	wd:Q752259    #BSP
+            #			wd:Q62808154  #DB
+            #			wd:Q31191941  #DB Koaliciq
+            #			wd:Q97382346  #OP
+
         where {
-            #           wd:Q164242  #DPS
-            #           wd:Q133968 #GERB
-            #        	wd:Q98098908 #ITN
-            #        	wd:Q752259 #BSP
-            #			wd:Q62808154 #DB
-            #			wd:Q31191941 #DB
-            #			wd:Q97382346 #OP
-            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_db, ?vote_op;
+            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_db, ?vote_op, ?vote_vuz;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:main_election election:pi2017
-            ;
+                    myd:main_election election:pi2017 ;
+                    myd:election/myd:jurisdiction ?mir ;
                     myd:section ?section;
             .
-    		?section myd:place ?place ; myd:number ?secid .
-
+    		?section myd:place ?place ; myd:matched_section ?match ;
+            .
             ?vote_bsp myps:vote/myd:party/myd:party wd:Q752259;
-                                         mypq:valid_votes_recieved ?votes_bsp ;
-                                         .
+                      mypq:valid_votes_recieved ?votes_bsp ;
+                      .
             ?vote_dps myps:vote/myd:party/myd:party wd:Q164242;
-                                         mypq:valid_votes_recieved ?votes_dps ;
-                                         .
+                      mypq:valid_votes_recieved ?votes_dps ;
+                      .
             ?vote_gerb myps:vote/myd:party/myd:party wd:Q133968;
-                                          mypq:valid_votes_recieved ?votes_gerb ;
-                                          .
+                      mypq:valid_votes_recieved ?votes_gerb ;
+                      .
             ?vote_db  myps:vote/myd:party/myd:party wd:Q31191941;
-                                         mypq:valid_votes_recieved ?votes_db ;
-                                           .
+                      mypq:valid_votes_recieved ?votes_db ;
+                      .
             ?vote_op  myps:vote/myd:party/myd:party wd:Q97382346;
-                             mypq:valid_votes_recieved ?votes_op ;
-                               .
+                      mypq:valid_votes_recieved ?votes_op ;
+                      .
+            ?vote_vuz myps:vote/myd:party/myd:party wd:Q28943121;
+                      mypq:valid_votes_recieved ?votes_vuz ;
+                      .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?place ?secid
+        } group by ?mir ?place ?match
     }
 	#2021-04
     {
         select
+        ?mir
         ?place
-        ?secid
+        ?match
         (sum(?voters_count) as ?VOTERS_04)
         (sum(?voters_voted) as ?VOTED_04)
         (sum(?votes_bsp) as ?BSP_04)
@@ -141,43 +196,50 @@ select
         (sum(?votes_itn) as ?ITN_04)
         (sum(?votes_dps) as ?DPS_04)
         (sum(?votes_db) as ?DB_04)
+        (sum(?votes_vuz) as ?VUZ_04)
+
         where {
             #           wd:Q164242  #DPS
             #           wd:Q133968 #GERB
             #        	wd:Q98098908 #ITN
             #        	wd:Q752259 #BSP
             #			wd:Q62808154 #DB
-            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db ;
+            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_vuz ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
-                    myd:main_election election:pi2021 ;
+                    myd:main_election election:pi2021;
+                    myd:election/myd:jurisdiction ?mir ;
                     myd:section ?section;
             .
-    		?section myd:place ?place ; myd:number ?secid .
-
-            ?vote_bsp myps:vote/myd:party/myd:party wd:Q752259;
-                                         mypq:valid_votes_recieved ?votes_bsp ;
-                                         .
-            ?vote_dps myps:vote/myd:party/myd:party wd:Q164242;
-                                         mypq:valid_votes_recieved ?votes_dps ;
-                                         .
+    		?section myd:place ?place ; myd:matched_section ?match ;
+            .
+            ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
+                       mypq:valid_votes_recieved ?votes_bsp ;
+                       .
+            ?vote_dps  myps:vote/myd:party/myd:party wd:Q164242;
+                       mypq:valid_votes_recieved ?votes_dps ;
+                       .
             ?vote_gerb myps:vote/myd:party/myd:party wd:Q133968;
-                                          mypq:valid_votes_recieved ?votes_gerb ;
-                                          .
-            ?vote_itn myps:vote/myd:party/myd:party wd:Q98098908;
-                                         mypq:valid_votes_recieved ?votes_itn ;
-                                         .
-            ?vote_db  myps:vote/myd:party/myd:party wd:Q62808154;
-                                         mypq:valid_votes_recieved ?votes_db ;
-                                           .
+                       mypq:valid_votes_recieved ?votes_gerb ;
+                       .
+            ?vote_itn  myps:vote/myd:party/myd:party wd:Q98098908;
+                       mypq:valid_votes_recieved ?votes_itn ;
+                       .
+            ?vote_db   myps:vote/myd:party/myd:party wd:Q62808154;
+                       mypq:valid_votes_recieved ?votes_db ;
+                       .
+            ?vote_vuz  myps:vote/myd:party/myd:party wd:Q28943121;
+                       mypq:valid_votes_recieved ?votes_vuz ;
+                       .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?place ?secid
+        } group by ?mir ?place ?match
     }
 	#2021-07
     {
         select
+        ?mir
         ?place
-        ?secid
+        ?match
         (sum(?voters_count) as ?VOTERS_07)
         (sum(?voters_voted) as ?VOTED_07)
         (sum(?votes_bsp) as ?BSP_07)
@@ -185,43 +247,50 @@ select
         (sum(?votes_itn) as ?ITN_07)
         (sum(?votes_dps) as ?DPS_07)
         (sum(?votes_db) as ?DB_07)
+        (sum(?votes_vuz) as ?VUZ_07)
+
         where {
             #           wd:Q164242  #DPS
             #           wd:Q133968 #GERB
             #        	wd:Q98098908 #ITN
             #        	wd:Q752259 #BSP
             #			wd:Q62808154 #DB
-            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db ;
+            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_vuz ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
                     myd:main_election election:pi2021_07 ;
+                    myd:election/myd:jurisdiction ?mir ;
                     myd:section ?section;
             .
-    		?section myd:place ?place ; myd:number ?secid .
-
-            ?vote_bsp myps:vote/myd:party/myd:party wd:Q752259;
-                                         mypq:valid_votes_recieved ?votes_bsp ;
-                                         .
-            ?vote_dps myps:vote/myd:party/myd:party wd:Q164242;
-                                         mypq:valid_votes_recieved ?votes_dps ;
-                                         .
+    		?section myd:place ?place ; myd:matched_section ?match ;
+            .
+            ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
+                       mypq:valid_votes_recieved ?votes_bsp ;
+                       .
+            ?vote_dps  myps:vote/myd:party/myd:party wd:Q164242;
+                       mypq:valid_votes_recieved ?votes_dps ;
+                       .
             ?vote_gerb myps:vote/myd:party/myd:party wd:Q133968;
-                                          mypq:valid_votes_recieved ?votes_gerb ;
-                                          .
-            ?vote_itn myps:vote/myd:party/myd:party wd:Q98098908;
-                                         mypq:valid_votes_recieved ?votes_itn ;
-                                         .
-            ?vote_db  myps:vote/myd:party/myd:party wd:Q62808154;
-                                         mypq:valid_votes_recieved ?votes_db ;
-                                           .
+                       mypq:valid_votes_recieved ?votes_gerb ;
+                       .
+            ?vote_itn  myps:vote/myd:party/myd:party wd:Q98098908;
+                       mypq:valid_votes_recieved ?votes_itn ;
+                       .
+            ?vote_db   myps:vote/myd:party/myd:party wd:Q62808154;
+                       mypq:valid_votes_recieved ?votes_db ;
+                       .
+            ?vote_vuz  myps:vote/myd:party/myd:party wd:Q28943121;
+                       mypq:valid_votes_recieved ?votes_vuz ;
+                       .
             #    	?main_party rdfs:label ?party_label .
-        } group by ?place ?secid
+        } group by ?mir ?place ?match
     }
 	#2021-11
     {
         select
+        ?mir
         ?place
-        ?secid
+        ?match
         (sum(?voters_count) as ?VOTERS_11)
         (sum(?voters_voted) as ?VOTED_11)
         (sum(?votes_bsp) as ?BSP_11)
@@ -230,85 +299,153 @@ select
         (sum(?votes_dps) as ?DPS_11)
         (sum(?votes_db) as ?DB_11)
         (sum(?votes_pp) as ?PP_11)
+        (sum(?votes_vuz) as ?VUZ_11)
         where {
             #           wd:Q164242  #DPS
             #           wd:Q133968 #GERB
             #        	wd:Q98098908 #ITN
             #        	wd:Q752259 #BSP
             #			wd:Q62808154 #DB
-            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_pp ;
+            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_pp, ?vote_vuz ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
                     myd:main_election election:pi2021_11 ;
-	             	myd:section ?section;
+                    myd:election/myd:jurisdiction ?mir ;
+           	        myd:section ?section ;
             .
-    		?section myd:place ?place; myd:number ?secid .
-
-            ?vote_bsp myps:vote/myd:party/myd:party wd:Q752259;
-                                         mypq:valid_votes_recieved ?votes_bsp ;
-                                         .
-            ?vote_dps myps:vote/myd:party/myd:party wd:Q164242;
-                                         mypq:valid_votes_recieved ?votes_dps ;
-                                         .
+    		?section myd:place ?place ; myd:matched_section ?match ;
+            .
+            ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
+                       mypq:valid_votes_recieved ?votes_bsp ;
+                       .
+            ?vote_dps  myps:vote/myd:party/myd:party wd:Q164242;
+                       mypq:valid_votes_recieved ?votes_dps ;
+                       .
             ?vote_gerb myps:vote/myd:party/myd:party wd:Q133968;
-                                          mypq:valid_votes_recieved ?votes_gerb ;
-                                          .
-            ?vote_itn myps:vote/myd:party/myd:party wd:Q98098908;
-                                         mypq:valid_votes_recieved ?votes_itn ;
-                                         .
-            ?vote_db  myps:vote/myd:party/myd:party wd:Q62808154;
-                                         mypq:valid_votes_recieved ?votes_db ;
-                                           .
-            ?vote_pp  myps:vote/myd:party/myd:party wd:Q108601789;
-                                         mypq:valid_votes_recieved ?votes_pp ;
-                                         .
-        } group by ?place ?secid
+                       mypq:valid_votes_recieved ?votes_gerb ;
+                       .
+            ?vote_itn  myps:vote/myd:party/myd:party wd:Q98098908;
+                       mypq:valid_votes_recieved ?votes_itn ;
+                       .
+            ?vote_db   myps:vote/myd:party/myd:party wd:Q62808154;
+                       mypq:valid_votes_recieved ?votes_db ;
+                       .
+            ?vote_pp   myps:vote/myd:party/myd:party wd:Q108601789;
+                       mypq:valid_votes_recieved ?votes_pp ;
+                       .
+            ?vote_vuz  myps:vote/myd:party/myd:party wd:Q28943121;
+                       mypq:valid_votes_recieved ?votes_vuz ;
+                       .
+        } group by ?mir ?place ?match
     }
-    	#2022
+
+       #2022-10
     {
         select
+        ?mir
         ?place
-        ?secid
-        (sum(?voters_count) as ?VOTERS_22)
-        (sum(?voters_voted) as ?VOTED_22)
-        (sum(?votes_bsp) as ?BSP_22)
-        (sum(?votes_gerb) as ?GERB_22)
-        (sum(?votes_itn) as ?ITN_22)
-        (sum(?votes_dps) as ?DPS_22)
-        (sum(?votes_db) as ?DB_22)
-        (sum(?votes_pp) as ?PP_22)
+        ?match
+        (sum(?voters_count) as ?VOTERS_2022)
+        (sum(?voters_voted) as ?VOTED_2022)
+        (sum(?votes_bsp) as ?BSP_2022)
+        (sum(?votes_gerb) as ?GERB_2022)
+        (sum(?votes_itn) as ?ITN_2022)
+        (sum(?votes_dps) as ?DPS_2022)
+        (sum(?votes_db) as ?DB_2022)
+        (sum(?votes_pp) as ?PP_2022)
+        (sum(?votes_vuz) as ?VUZ_2022)
+        (sum(?votes_bv) as ?BV_2022)
+        (sum(?npn) as ?NPN_2022)
         where {
-            #           wd:Q164242  #DPS
-            #           wd:Q133968 #GERB
-            #        	wd:Q98098908 #ITN
-            #        	wd:Q752259 #BSP
-            #			wd:Q62808154 #DB
-            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_pp ;
+    		{
+            select ?voting (sum(?npn_individual) as ?npn) {
+                ?voting a my:Voting ;
+                    myd:main_election election:pi2022 .
+                optional{?voting myd:votes_blanc_count ?npn_individual .}
+                } group by ?voting
+            }
+            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_db, ?vote_pp, ?vote_vuz, ?vote_bv ;
                     myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
                     myd:main_election election:pi2022 ;
-	             	myd:section ?section;
+                    myd:election/myd:jurisdiction ?mir ;
+                 	myd:section ?section;
             .
-    		?section myd:place ?place; myd:number ?secid .
-
-            ?vote_bsp myps:vote/myd:party/myd:party wd:Q752259;
-                                         mypq:valid_votes_recieved ?votes_bsp ;
-                                         .
-            ?vote_dps myps:vote/myd:party/myd:party wd:Q164242;
-                                         mypq:valid_votes_recieved ?votes_dps ;
-                                         .
+            ?section myd:place ?place ; myd:matched_section ?match .
+            ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
+                       mypq:valid_votes_recieved ?votes_bsp ;
+                       .
+            ?vote_dps  myps:vote/myd:party/myd:party wd:Q164242;
+                       mypq:valid_votes_recieved ?votes_dps ;
+                       .
             ?vote_gerb myps:vote/myd:party/myd:party wd:Q133968;
-                                          mypq:valid_votes_recieved ?votes_gerb ;
-                                          .
-            ?vote_itn myps:vote/myd:party/myd:party wd:Q98098908;
-                                         mypq:valid_votes_recieved ?votes_itn ;
-                                         .
-            ?vote_db  myps:vote/myd:party/myd:party wd:Q62808154;
-                                         mypq:valid_votes_recieved ?votes_db ;
-                                           .
-            ?vote_pp  myps:vote/myd:party/myd:party wd:Q108601789;
-                                         mypq:valid_votes_recieved ?votes_pp ;
-                                         .
-        } group by ?place ?secid
+                       mypq:valid_votes_recieved ?votes_gerb ;
+                       .
+            ?vote_itn  myps:vote/myd:party/myd:party wd:Q98098908;
+                       mypq:valid_votes_recieved ?votes_itn ;
+                       .
+            ?vote_db   myps:vote/myd:party/myd:party wd:Q62808154;
+                       mypq:valid_votes_recieved ?votes_db ;
+                       .
+            ?vote_pp   myps:vote/myd:party/myd:party wd:Q108601789;
+                       mypq:valid_votes_recieved ?votes_pp ;
+                       .
+            ?vote_vuz  myps:vote/myd:party/myd:party wd:Q28943121;
+                       mypq:valid_votes_recieved ?votes_vuz ;
+                       .
+            ?vote_bv  myps:vote/myd:party/myd:party wd:Q111985616;
+                       mypq:valid_votes_recieved ?votes_bv ;
+                       .
+        } group by ?mir ?place ?match
     }
-} order by ?mir_num ?mun_label ?place_label ?sec_id
+    #2023-10
+    {
+        select
+        ?mir
+        ?place
+        ?match
+        (sum(?voters_count) as ?VOTERS_2023)
+        (sum(?voters_voted) as ?VOTED_2023)
+        (sum(?votes_bsp) as ?BSP_2023)
+        (sum(?votes_gerb) as ?GERB_2023)
+        (sum(?votes_itn) as ?ITN_2023)
+        (sum(?votes_dps) as ?DPS_2023)
+        (sum(?votes_ppdb) as ?PPDB_2023)
+        (sum(?votes_vuz) as ?VUZ_2023)
+        (sum(?votes_bv) as ?BV_2023)
+        (sum(?npn) as ?NPN_2023)
+        where {
+            ?voting myp:vote ?vote_dps, ?vote_bsp , ?vote_gerb, ?vote_itn, ?vote_ppdb, ?vote_vuz, ?vote_bv ;
+                    myd:voters_count ?voters_count ;
+                    myd:voters_voted_count ?voters_voted ;
+                    myd:main_election election:pi2023 ;
+                    myd:election/myd:jurisdiction ?mir ;
+          	        myd:section ?section ;
+            .
+            optional{?voting myd:votes_blanc_count ?npn .}
+
+            ?section myd:place ?place ; myd:matched_section ?match .
+            ?vote_bsp  myps:vote/myd:party/myd:party wd:Q752259;
+                       mypq:valid_votes_recieved ?votes_bsp ;
+                       .
+            ?vote_dps  myps:vote/myd:party/myd:party wd:Q164242;
+                       mypq:valid_votes_recieved ?votes_dps ;
+                       .
+            ?vote_gerb myps:vote/myd:party/myd:party wd:Q133968;
+                       mypq:valid_votes_recieved ?votes_gerb ;
+                       .
+            ?vote_itn  myps:vote/myd:party/myd:party wd:Q98098908;
+                       mypq:valid_votes_recieved ?votes_itn ;
+                       .
+            ?vote_ppdb myps:vote/myd:party/myd:party wd:Q116769868;
+                       mypq:valid_votes_recieved ?votes_ppdb ;
+                       .
+            ?vote_vuz  myps:vote/myd:party/myd:party wd:Q28943121;
+                       mypq:valid_votes_recieved ?votes_vuz ;
+                       .
+            ?vote_bv  myps:vote/myd:party/myd:party wd:Q111985616;
+                       mypq:valid_votes_recieved ?votes_bv ;
+                       .
+        } group by ?mir ?place ?match
+    }
+}

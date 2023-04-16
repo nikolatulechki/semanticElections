@@ -1,0 +1,20 @@
+# pref votes for a single candidate
+
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+select ?election_date ?mir ?party (sum(?prefs) as ?PREFS) where {
+
+    ?voting myp:preference_vote ?pv ; myd:election/myd:jurisdiction/myd:number ?mir ; myd:main_election/myd:date ?election_date .
+    ?pv mypq:valid_votes_recieved ?prefs ;myps:preference_vote ?candidate .
+    ?candidate a my:Candidate ; myd:represents/rdfs:label ?party
+
+}
+group by ?election_date ?mir ?party
