@@ -1,0 +1,42 @@
+PREFIX risky_model: <https://elections.ontotext.com/resource/risky_model/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+select *
+        where {
+
+    ?voting23 a my:Voting ;
+            myd:section ?sec23 ;
+            myd:main_election election:pi2023 ;
+            myd:election/myd:jurisdiction/myd:number ?mir ;
+            myd:voters_voted_count ?voted23 ;
+            myd:voters_count ?voters23 ;
+            myp:vote [mypq:valid_votes_recieved ?dps23  ; myps:vote/myd:party/myd:party wd:Q164242 ] , [mypq:valid_votes_recieved ?gerb23 ; myps:vote/myd:party/myd:party wd:Q133968 ]
+.
+    ?voting22 a my:Voting ;
+            myd:section ?sec22 ;
+            myd:election/myd:jurisdiction/myd:number ?mir ;
+            myd:main_election election:pi2022 ;
+            myd:voters_voted_count ?voted22 ;
+            myd:voters_count ?voters22 ;
+            myp:vote [mypq:valid_votes_recieved ?dps22  ; myps:vote/myd:party/myd:party wd:Q164242 ], [mypq:valid_votes_recieved ?gerb22 ; myps:vote/myd:party/myd:party wd:Q133968 ]
+    .
+	?sec22 myd:place ?place ; myd:matched_section ?match .
+	?sec23 myd:place ?place ; myd:matched_section ?match .
+
+    ?match myd:risk_model risky_model:all_time_risky .
+
+    bind(?gerb22/?voted22 as ?gerb_ratio22)
+    bind(?gerb23/?voted23 as ?gerb_ratio23)
+    bind(?dps22/?voted22 as ?dps_ratio22)
+    bind(?dps23/?voted23 as ?dps_ratio23)
+
+     ?place myd:municipality ?mun ; rdfs:label ?place_label .
+     ?mun rdfs:label ?municipality .
+}
