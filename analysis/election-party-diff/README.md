@@ -21,3 +21,7 @@ curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --
 ```bash
 curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --data-binary '@dif_mir.rq' 'https://elections.ontotext.com/repositories/elections' > data/dif_mir.csv
 ```
+
+```bash
+curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --data-binary '@dif_place.rq' 'https://elections.ontotext.com/repositories/elections' > data/dif_place.csv
+```
