@@ -11,17 +11,22 @@ PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mys: <https://elections.ontotext.com/resource/entity/statement/>
 select * where {
-    values (?thresh ?model) {
-        ("low" <risky_model/risky_model:akf_2022_low_risk>)
-        ("high" <risky_model/risky_model:akf_2022_high_risk>)
-    }
-	?section rdf:type my:Section ;
+#    values (?thresh ?model) {
+#        ("low" <risky_model/risky_model:akf_2022_low_risk>)
+#        ("high" <risky_model/risky_model:akf_2022_high_risk>)
+#    }
+
+    ?section rdf:type my:Section ;
              myd:number ?section_number ;
              rdfs:label ?label ;
              myd:streetAddress ?street_address  ;
-     		 myd:matched_section?/myd:risk_model ?model ;
+     		 myd:matched_section/myd:risk_model risky_model:2023_low_abs_values ;
+             myd:place ?place ;
              myd:election/myd:jurisdiction/myd:number ?mir ;
+             myd:main_election election:pi2023 ;
     .
+    ?place myd:municipality ?mun ; rdfs:label ?place_label .
+    ?mun rdfs:label ?mun_label .
     ?voting myd:section ?section ;
             myd:link_html ?protocol ;
             myd:voters_count ?voters ;
@@ -29,10 +34,9 @@ select * where {
     .
     optional {?voting myp:vote [mypq:valid_votes_recieved ?gerb ; myps:vote/myd:party+ wd:Q133968]}
     optional {?voting myp:vote [mypq:valid_votes_recieved ?dps  ; myps:vote/myd:party+ wd:Q164242]}
-    optional {?voting myp:vote [mypq:valid_votes_recieved ?pp   ; myps:vote/myd:party+ wd:Q108601789]}
-    optional {?voting myp:vote [mypq:valid_votes_recieved ?db   ; myps:vote/myd:party+ wd:Q62808154]}
+#    optional {?voting myp:vote [mypq:valid_votes_recieved ?pp   ; myps:vote/myd:party+ wd:Q108601789]}
+#    optional {?voting myp:vote [mypq:valid_votes_recieved ?db   ; myps:vote/myd:party+ wd:Q62808154]}
     optional {?voting myp:vote [mypq:valid_votes_recieved ?vuz  ; myps:vote/myd:party+ wd:Q28943121]}
     optional {?voting myp:vote [mypq:valid_votes_recieved ?bsp  ; myps:vote/myd:party+ wd:Q752259]}
-
-
+    optional {?voting myp:vote [mypq:valid_votes_recieved ?ppdb  ; myps:vote/myd:party+ wd:Q116769868]}
 }
