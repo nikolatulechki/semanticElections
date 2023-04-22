@@ -1,3 +1,5 @@
+#TODO make this filtreble by local
+
 BASE  <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -7,6 +9,9 @@ PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 select
 ?election_date
 ?mir_label
@@ -32,7 +37,7 @@ where {
                     ?local_party  myd:candidacy ?local_el .
                     ?vote a my:SectionVote ; myps:vote ?local_party ; mypq:valid_votes_recieved ?party_votes .
                     ?el myd:type "parliamentary" ;
-#						myd:date "2022-10-02"^^xsd:date ;
+						myd:date "2023-04-02"^^xsd:date ;
                      .
             } group by ?local_el }
             ?local_party  myd:candidacy ?local_el .
@@ -42,6 +47,7 @@ where {
 			?candidate a my:Candidate ;
                    myd:represents ?local_party .
          	?pref a my:PreferenceVote ;
+                ^myp:preference_vote/myd:section/myd:place/ place:21498 ;
                 myps:preference_vote ?candidate ;
                 mypq:valid_votes_recieved ?cand_prefs
 
