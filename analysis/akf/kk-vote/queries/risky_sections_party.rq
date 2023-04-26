@@ -11,20 +11,16 @@ PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mys: <https://elections.ontotext.com/resource/entity/statement/>
 select * where {
-#    values (?thresh ?model) {
-#        ("low" <risky_model/risky_model:akf_2022_low_risk>)
-#        ("high" <risky_model/risky_model:akf_2022_high_risk>)
-#    }
 
     ?section rdf:type my:Section ;
              myd:number ?section_number ;
              rdfs:label ?label ;
              myd:streetAddress ?street_address  ;
-     		 myd:matched_section/myd:risk_model risky_model:2023_low_abs_values ;
              myd:place ?place ;
              myd:election/myd:jurisdiction/myd:number ?mir ;
              myd:main_election election:pi2023 ;
     .
+    filter exists{?section myd:matched_section/myd:risk_model []}
     ?place myd:municipality ?mun ; rdfs:label ?place_label .
     ?mun rdfs:label ?mun_label .
     ?voting myd:section ?section ;
@@ -32,6 +28,14 @@ select * where {
             myd:voters_count ?voters ;
             myd:voters_voted_count ?voted ;
     .
+    bind(if(exists{?section myd:matched_section/myd:risk_model risky_model:all_time_risky},1,0)     as   ?model_all_time)
+    bind(if(exists{?section myd:matched_section/myd:risk_model risky_model:2022_low_abs_values},1,0)  as ?akf_2022_low_risk)
+    bind(if(exists{?section myd:matched_section/myd:risk_model risky_model:2022_high_abs_values},1,0) as ?akf_2022_high_risk)
+    bind(if(exists{?section myd:matched_section/myd:risk_model risky_model:2023_low_abs_values},1,0)  as ?akf_2023_low_risk)
+    bind(if(exists{?section myd:matched_section/myd:risk_model risky_model:2023_high_abs_values},1,0) as ?akf_2023_high_risk)
+
+    bind(?model_all_time+?akf_2022_low_risk+?akf_2022_high_risk+?akf_2023_low_risk+?akf_2023_high_risk as ?TOTAL_models)
+
     optional {?voting myp:vote [mypq:valid_votes_recieved ?gerb ; myps:vote/myd:party+ wd:Q133968]}
     optional {?voting myp:vote [mypq:valid_votes_recieved ?dps  ; myps:vote/myd:party+ wd:Q164242]}
 #    optional {?voting myp:vote [mypq:valid_votes_recieved ?pp   ; myps:vote/myd:party+ wd:Q108601789]}
