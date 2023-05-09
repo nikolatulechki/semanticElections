@@ -8,22 +8,23 @@ PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
-CLEAR SILENT GRAPH <graph/cube/sofia-profiling/unvoted-core> ;
+CLEAR SILENT GRAPH <graph/cube/sofia-profiling/patriot-core> ;
 INSERT {
-  GRAPH <graph/cube/sofia-profiling/unvoted-core>  {
+  GRAPH <graph/cube/sofia-profiling/patriot-core>  {
   ?VOTES_URI a qb:Observation , myc:Voting ;
-            qb:dataSet <cube/sofia-profiling> ;
+             qb:dataSet <cube/sofia-profiling> ;
             myc:locality ?locality ;
              myc:candidate ?candidate ;
-             myc:votes ?MIN_UNVOTED ;
+             myc:votes ?MIN_VOTES ;
    .
   }
 }
 WHERE {
-bind("unvoted-core" as ?candidate)
+bind("patriot-core" as ?candidate)
   ?locality myd:matched_section ?match ; myd:main_election election:pi2023 .
-  { select ?match (min(?UNVOTED) as ?MIN_UNVOTED)
-    where {
+  {select ?match (min(?EL_VOTES) as ?MIN_VOTES) where {
+
+    {select ?match ?election (sum(?VOTES) as ?EL_VOTES) where {
 
             ?voting myp:vote ?vote ;
                     myd:voters_count ?voters_count ;
@@ -35,10 +36,9 @@ bind("unvoted-core" as ?candidate)
             filter(str(?date)>="2021-04")
             ?section myd:place/myd:municipality jurisdiction:2246 ;
                      myd:matched_section ?match .
-            bind(?voters_count-?voted_count as ?unvoted)
-            bind(if(?unvoted<=0,0,?unvoted) as ?UNVOTED)
-        } group by ?match
-
-   }
+            ?vote myps:vote/myd:party/myd:grouping "patriots";
+                  mypq:valid_votes_recieved ?VOTES ;
+        } group by ?match ?election}
+    } group by ?match }
    bind(uri(concat("cube/votes/",str(sha1(concat(str(?locality),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
 }

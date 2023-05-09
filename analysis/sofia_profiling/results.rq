@@ -9,13 +9,14 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
 SELECT *
 WHERE {
     {select distinct ?sec  where {?sec a my:Section ; ^myc:locality/qb:dataSet <cube/sofia-profiling> .}}
     [myc:locality ?sec ; myc:candidate "gerb-core" ; myc:votes ?gerb_core] .
     [myc:locality ?sec ; myc:candidate "ppdb" ; myc:votes ?ppdb_core] .
-    [myc:locality ?sec ; myc:candidate "vuz-core" ; myc:votes ?vuz_core] .
-    [myc:locality ?sec ; myc:candidate "bsp" ; myc:votes ?bsp_core] .
+    [myc:locality ?sec ; myc:candidate "patriot-core" ; myc:votes ?patriot_core] .
+    [myc:locality ?sec ; myc:candidate "socleft-core" ; myc:votes ?socleft_core] .
     [myc:locality ?sec ; myc:candidate "unvoted-core" ; myc:votes ?unvoted_core] .
     [myc:locality ?sec ; myc:candidate "swing" ; myc:votes ?swing] .
     ?v myd:section ?sec ; myd:link_html ?protocol .

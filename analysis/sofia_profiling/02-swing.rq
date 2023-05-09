@@ -20,10 +20,10 @@ WHERE {
     bind("swing" as ?candidate)
     [myc:locality ?sec ; myc:candidate "gerb-core" ; myc:votes ?gerb_core] .
     [myc:locality ?sec ; myc:candidate "ppdb" ; myc:votes ?ppdb_core] .
-    [myc:locality ?sec ; myc:candidate "vuz-core" ; myc:votes ?vuz_core] .
-    [myc:locality ?sec ; myc:candidate "bsp" ; myc:votes ?bsp_core] .
+    [myc:locality ?sec ; myc:candidate "socleft-core" ; myc:votes ?socleft] .
+    [myc:locality ?sec ; myc:candidate "patriot-core" ; myc:votes ?patriot] .
     [myc:locality ?sec ; myc:candidate "unvoted-core" ; myc:votes ?unvoted_core] .
     ?v myd:section ?sec ; myd:voters_count ?voters .
-    bind(?voters - (?gerb_core+?ppdb_core+?vuz_core+?unvoted_core) as ?swing)
+    bind(?voters - (?gerb_core+?ppdb_core+?patriot+?socleft+?unvoted_core) as ?swing)
     bind(uri(concat("cube/votes/",str(sha1(concat(str(?sec),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
 }

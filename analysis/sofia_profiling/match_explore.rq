@@ -13,7 +13,7 @@ PREFIX mys: <https://elections.ontotext.com/resource/entity/statement/>
 SELECT *
 WHERE {
 
-            ?section myd:matched_section/^myd:matched_section <section/pi2023/234617027> .
+            ?section myd:matched_section/^myd:matched_section <section/pi2023/234602016> .
 
             ?voting myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;
@@ -21,16 +21,21 @@ WHERE {
                     myd:election/myd:jurisdiction ?mir ;
           	        myd:section ?section ;
                     myd:date ?date ;
+                    myd:link_html ?prot ;
             .
             optional{?voting myd:votes_blanc_count ?npn .}
 
             ?section myd:place ?place ; myd:matched_section ?match .
-            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q752259; mypq:valid_votes_recieved ?votes_bsp ]}
-            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q164242; mypq:valid_votes_recieved ?votes_dps ]}
-            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q133968; mypq:valid_votes_recieved ?votes_gerb ]}
-            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q98098908; mypq:valid_votes_recieved ?votes_itn ]}
-            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q116769868; mypq:valid_votes_recieved ?votes_ppdb ]}
-            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q28943121; mypq:valid_votes_recieved ?votes_vuz ]}
-            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q111985616; mypq:valid_votes_recieved ?votes_bv ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q752259       ; mypq:valid_votes_recieved ?votes_bsp ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q164242       ; mypq:valid_votes_recieved ?votes_dps ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q133968       ; mypq:valid_votes_recieved ?votes_gerb ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q98098908     ; mypq:valid_votes_recieved ?votes_itn ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q116769868    ; mypq:valid_votes_recieved ?votes_ppdb ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q28943121     ; mypq:valid_votes_recieved ?votes_vuz ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q111985616    ; mypq:valid_votes_recieved ?votes_bv ]}
+       		optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q108601789    ; mypq:valid_votes_recieved ?pp]}
+            optional{?voting myp:vote [ myps:vote/myd:party/myd:party wd:Q62808154    ; mypq:valid_votes_recieved ?db]}
+            optional{?voting myp:vote [ myps:vote/myd:party/myd:party wd:Q792527      ; mypq:valid_votes_recieved ?vmro]}
+            optional{?voting myp:vote [ myps:vote/myd:party/myd:party wd:Q106393525   ; mypq:valid_votes_recieved ?ismv]}
 
 } order by desc(?date)
