@@ -1,0 +1,22 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+
+SELECT *
+WHERE {
+    {select distinct ?sec  where {?sec a my:Section ; ^myc:locality/qb:dataSet <cube/sofia-profiling> .}}
+    [myc:locality ?sec ; myc:candidate "gerb-core" ; myc:votes ?gerb_core] .
+    [myc:locality ?sec ; myc:candidate "ppdb" ; myc:votes ?ppdb_core] .
+    [myc:locality ?sec ; myc:candidate "vuz-core" ; myc:votes ?vuz_core] .
+    [myc:locality ?sec ; myc:candidate "bsp" ; myc:votes ?bsp_core] .
+    [myc:locality ?sec ; myc:candidate "unvoted-core" ; myc:votes ?unvoted_core] .
+    [myc:locality ?sec ; myc:candidate "swing" ; myc:votes ?swing] .
+    ?v myd:section ?sec ; myd:link_html ?protocol .
+}

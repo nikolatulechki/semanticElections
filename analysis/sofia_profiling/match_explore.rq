@@ -1,0 +1,36 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX mys: <https://elections.ontotext.com/resource/entity/statement/>
+
+SELECT *
+WHERE {
+
+            ?section myd:matched_section/^myd:matched_section <section/pi2023/234617027> .
+
+            ?voting myd:voters_count ?voters_count ;
+                    myd:voters_voted_count ?voters_voted ;
+                    myd:main_election ?election ;
+                    myd:election/myd:jurisdiction ?mir ;
+          	        myd:section ?section ;
+                    myd:date ?date ;
+            .
+            optional{?voting myd:votes_blanc_count ?npn .}
+
+            ?section myd:place ?place ; myd:matched_section ?match .
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q752259; mypq:valid_votes_recieved ?votes_bsp ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q164242; mypq:valid_votes_recieved ?votes_dps ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q133968; mypq:valid_votes_recieved ?votes_gerb ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q98098908; mypq:valid_votes_recieved ?votes_itn ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q116769868; mypq:valid_votes_recieved ?votes_ppdb ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q28943121; mypq:valid_votes_recieved ?votes_vuz ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q111985616; mypq:valid_votes_recieved ?votes_bv ]}
+
+} order by desc(?date)
