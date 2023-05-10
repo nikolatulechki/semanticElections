@@ -15,3 +15,8 @@ MIN voted GERB
 
 min(voters-voted)
 
+## CSV download
+
+```bash
+curl -X POST -H 'Content-Type:application/sparql-query' -H 'Accept: text/csv' --data-binary '@results_drilldown.rq' 'https://elections.ontotext.com/repositories/elections' > data/sofia_cores.csv
+```
