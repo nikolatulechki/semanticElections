@@ -8,7 +8,7 @@ PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
-CLEAR SILENT GRAPH <graph/cube/sofia-profiling/patriot-core> ;
+CLEAR SILENT GRAPH <graph/cube/sofia-profiling/socleft-core> ;
 INSERT {
   GRAPH <graph/cube/sofia-profiling/socleft-core>  {
   ?VOTES_URI a qb:Observation , myc:Voting ;
