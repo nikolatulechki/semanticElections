@@ -3,7 +3,7 @@ from shapely.ops import unary_union
 from shapely import wkt
 import csv, re
 
-with open("raw/mi2019.csv") as file:
+with open("converted/mi2019.csv") as file:
     next(csv.reader(file))
     temp = {}
     for row in csv.reader(file):
