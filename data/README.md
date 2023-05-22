@@ -14,6 +14,7 @@ These are in a non normalized tabular format and require the following transform
 - verticalization of the `votes.txt` file, done with [flatten.sh](flatten.sh), the pattern changes for each election cycle 
 - summing op of votes. This is an ugly hack to ensure data consistency - [sum_votes.sh](sum_votes.sh) sums  up votes from different machines in the same section in order to have a single number in the final data
 - transformation to rdf with custom or generic Tarql scripts. This is currently orchestrated by a python script such as [transform_pi2023.py](transform_pi2023.py)
+- [TODO] we should rewrite all the transformations to use Ontotext Refine
 
 ## Additional data from Google Sheets
 
@@ -22,19 +23,21 @@ These are in a non normalized tabular format and require the following transform
 
 ## Static data sources
 
-Static data is stored in the repository, either in CSV or RDF format in [static](static)
-The CSVs are transformed using Tarql, the RDF is used as is.
+- Static data is stored in the repository, either in CSV or RDF format in [static](static)
+- The CSVs are transformed using Tarql, the RDF is used as-is.
 
 ## Data import into GDB
 
-- After all the transformation processes are completed TODO add to repo - a script collects all the RDF files from the [rdf](rdf) and [rdf](static/rdf) folders and moves them to the GDB data import directory. They are then imported manually using the UI.
-- This is suboptimal. We should rewrite this to use the GDB REST api and store the triples in dedicated named graphs and not in default graph.
+- After all the transformation processes are completed they are imported in a GDB repository 
+- [TODO - add to giit]  a script collects all the RDF files from the [rdf](rdf) and [rdf](static/rdf) folders and moves them to the GDB data import directory. 
+- They are then imported manually using the UI.
+- [TODO] This is wildly suboptimal. We should rewrite this to use the GDB REST api and store the triples in dedicated named graphs and not in default graph.
 
 ## Inference 
 
-After all the rdf is imported into GDB, a number of SPARQL scripts ran against the repository to create more connections and facts.
-These are in [sparql](sparql) and are executed by hand in the filename order. 
-We should automate this and run the scripts using the REST api 
+- After all the rdf is imported into GDB, a number of SPARQL scripts ran against the repository to create more connections and facts.
+- These are in [sparql](sparql) and are executed by hand in the filename order. 
+- [TODO] We should automate this and run the scripts using the REST api 
 
 
 
