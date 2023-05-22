@@ -12,8 +12,8 @@ These are in a non normalized tabular format and require the following transform
 - download and unzipping in local storage. This is currrently done manually and te results are in [cikOpenData](../gdrive/data/cikOpenData), corresponding to [this](https://drive.google.com/drive/folders/1ZyNu9THMCS5aP0N68iqvBIE0X1fsDDYP?usp=share_link) GFolder
 - removal of some quotes ([dequote.sh](dequote.sh)) 
 - verticalization of the `votes.txt` file, done with [flatten.sh](flatten.sh), the pattern changes for each election cycle 
-- summing op of votes. This is an ugly hack to ensure data consistency - [sum_votes.sh](sum_votes.sh) sums  up votes from different machines in the same section in order to have a single number in the final data
-- transformation to rdf with custom or generic Tarql scripts. This is currently orchestrated by a python script such as [transform_pi2023.py](transform_pi2023.py)
+- summing-up of votes. This is an ugly hack to ensure data consistency - [sum_votes.sh](sum_votes.sh) sums  up votes from different machines in the same section in order to have a single number in the final data
+- transformation to RDF with custom or generic Tarql scripts. This is currently orchestrated by a python script such as [transform_pi2023.py](transform_pi2023.py)
 - [TODO] we should rewrite all the transformations to use Ontotext Refine
 
 ## Additional data from Google Sheets
