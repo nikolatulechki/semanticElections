@@ -17,7 +17,7 @@
 @prefix fn: <http://www.w3.org/2005/xpath-functions#> .
 
 jurisdiction:1 a my:MIR;
-  rdfs:label "1 МИР Благоевград"@bg;
+  rdfs:label "01 МИР Благоевград"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/1/geo>;
   myd:wdid wd:Q4596443;
   myd:number 1 .
@@ -44,7 +44,7 @@ jurisdiction:31 a my:MIR;
   geo:asWKT "Point(26.5167 42.4167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:3 a my:MIR;
-  rdfs:label "3 МИР Варна"@bg;
+  rdfs:label "03 МИР Варна"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/3/geo>;
   myd:wdid wd:Q4636830;
   myd:number 3 .
@@ -53,7 +53,7 @@ jurisdiction:3 a my:MIR;
   geo:asWKT "Point(27.4667 43.2167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:4 a my:MIR;
-  rdfs:label "4 МИР Велико Търново"@bg;
+  rdfs:label "04 МИР Велико Търново"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/4/geo>;
   myd:wdid wd:Q4639339;
   myd:number 4 .
@@ -80,7 +80,7 @@ jurisdiction:27 a my:MIR;
   geo:asWKT "Point(25.5 42.4167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:9 a my:MIR;
-  rdfs:label "9 МИР Кърджали"@bg;
+  rdfs:label "09 МИР Кърджали"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/9/geo>;
   myd:wdid wd:Q4646605;
   myd:number 9 .
@@ -107,7 +107,7 @@ jurisdiction:23 a my:MIR;
   geo:asWKT "Point(23.3658 42.6461)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:5 a my:MIR;
-  rdfs:label "5 МИР Видин"@bg;
+  rdfs:label "05 МИР Видин"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/5/geo>;
   myd:wdid wd:Q4641358;
   myd:number 5 .
@@ -206,7 +206,7 @@ jurisdiction:29 a my:MIR;
   geo:asWKT "Point(25.9167 41.8333)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:2 a my:MIR;
-  rdfs:label "2 МИР Бургас"@bg;
+  rdfs:label "02 МИР Бургас"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/2/geo>;
   myd:wdid wd:Q4633764;
   myd:number 2 .
@@ -215,7 +215,7 @@ jurisdiction:2 a my:MIR;
   geo:asWKT "Point(27.25 42.5)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:6 a my:MIR;
-  rdfs:label "6 МИР Враца"@bg;
+  rdfs:label "06 МИР Враца"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/6/geo>;
   myd:wdid wd:Q4642707;
   myd:number 6 .
@@ -224,7 +224,7 @@ jurisdiction:6 a my:MIR;
   geo:asWKT "Point(23.6 43.5167)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:7 a my:MIR;
-  rdfs:label "7 МИР Габрово"@bg;
+  rdfs:label "07 МИР Габрово"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/7/geo>;
   myd:wdid wd:Q4644101;
   myd:number 7 .
@@ -287,7 +287,7 @@ jurisdiction:22 a my:MIR;
   geo:asWKT "Point(24.5833 41.6667)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 
 jurisdiction:8 a my:MIR;
-  rdfs:label "8 МИР Добрич"@bg;
+  rdfs:label "08 МИР Добрич"@bg;
   geo:hasGeometry <https://elections.ontotext.com/resource/jurisdiction/8/geo>;
   myd:wdid wd:Q4645404;
   myd:number 8 .
