@@ -1,4 +1,4 @@
-#Observations of activity aggregated at the level of different administrative entities
+#Observations of activity aggregated at the level of GE
 
 BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -13,9 +13,9 @@ PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 PREFIX qb: <http://purl.org/linked-data/cube#>
 PREFIX party: <https://elections.ontotext.com/resource/party/>
-clear silent graph <graph/cube/ath_pi_activity> ;
+clear silent graph <graph/cube/ge_activity> ;
 insert {
-  graph <graph/cube/ath_pi_activity> {
+  graph <graph/cube/ge_activity> {
   ?ACT_URI a qb:Observation , myc:Activity ;
              qb:dataSet <cube/activity> ;
              myc:election ?election ;
@@ -28,28 +28,15 @@ insert {
 } where {
     {
         select ?locality ?election ?local_election (sum(?voters) as ?VOTERS) (sum(?voted) as ?VOTED) where {
-            {
-                ?voting a my:Voting ;
-                        myd:section/myd:place/myd:municipality?/myd:mir? ?locality
-            }
-            union
-            {
-                ?voting a my:Voting ;
-                        myd:election/myd:jurisdiction ?locality ;
-                                    myd:section/myd:place/myd:municipality jurisdiction:2246.
-            } union
-            {
-                ?voting a my:Voting ;
-                        myd:election/myd:jurisdiction ?locality .
-                filter(sameterm(?locality,jurisdiction:32))
-            }
+
             ?voting myd:main_election ?election;
+                    myd:section/myp:neighborhood [myps:neighborhood  ?locality ; mypq:isPrimary true] ;
                     myd:election ?local_election ;
                     myd:voters_voted_count ?voted ;
                     myd:voters_count ?voters ;
                     .
             ?election myd:type ?type .
-            filter (?type in ("parliamentary"))
+            #filter (?type in ("parliamentary"))
         } group by ?locality ?election ?local_election
     }
     bind(uri(concat("cube/activity/",str(sha1(concat(str(?locality),str(?election)))))) as ?ACT_URI)

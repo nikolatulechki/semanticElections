@@ -1,4 +1,4 @@
-#Observations of candidate votes aggregated at the level of different administrative entities
+#Observations of candidate votes aggregated at the level of GE
 
 BASE <https://elections.ontotext.com/resource/>
 PREFIX my: <https://elections.ontotext.com/resource/entity/>
@@ -13,9 +13,9 @@ PREFIX election: <https://elections.ontotext.com/resource/election/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
 PREFIX qb: <http://purl.org/linked-data/cube#>
 PREFIX party: <https://elections.ontotext.com/resource/party/>
-clear silent graph <graph/cube/ath_pi_votes> ;
+clear silent graph <graph/cube/ge_votes> ;
 insert {
-  graph <graph/cube/ath_pi_votes> {
+  graph <graph/cube/ge_votes> {
   ?VOTES_URI a qb:Observation , myc:Voting ;
              qb:dataSet <cube/votes> ;
              myc:election ?election ;
@@ -27,35 +27,23 @@ insert {
              myc:activity ?ACT_URI ;
              myc:votes ?VOTES ;
   .
-  }
-} where {
+
+}
+}
+where {
     {
         select ?locality ?candidate ?election ?local_candidate ?election_candidate ?local_election (sum(?votes) as ?VOTES) where {
 #            bind(election:pi2021 as ?election)
-            {
-                ?voting a my:Voting ;
-                        myd:section/myd:place/myd:municipality?/myd:mir? ?locality
-            }
-            union
-            {
-                ?voting a my:Voting ;
-                        myd:election/myd:jurisdiction ?locality ;
-                                    myd:section/myd:place/myd:municipality jurisdiction:2246.
-            } union
-            {
-                ?voting a my:Voting ;
-                        myd:election/myd:jurisdiction ?locality .
-                filter(sameterm(?locality,jurisdiction:32))
-            }
-            ?voting myd:main_election ?election;
-                    myd:election ?local_election ;
-                    myd:voters_voted_count ?voted ;
-                    myd:voters_count ?voters_list ;
-                    myp:vote ?vote ;
+ 			?voting a my:Voting ;
+            myd:section/myp:neighborhood [myps:neighborhood  ?locality ; mypq:isPrimary true] ;
+            myd:main_election ?election;
+            myd:election ?local_election ;
+            myd:voters_voted_count ?voted ;
+            myd:voters_count ?voters_list ;
+            myp:vote ?vote ;
                     .
-#            ?locality a my:MIR .
             ?election myd:type ?type .
-            filter (?type in ("parliamentary"))
+#            filter (?type in ("parliamentary"))
             ?vote mypq:valid_votes_recieved ?votes ;
                   myps:vote ?local_candidate .
             ?local_candidate myd:party+ ?candidate .
