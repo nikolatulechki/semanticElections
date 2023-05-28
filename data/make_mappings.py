@@ -71,6 +71,16 @@ tarql.execute_query(basePath+"tarql/mun_wd_mapping.tarql",
                     '-d ,',
                     queryArgs)
 
+## DISTRICTS
+basePath = "/home/nikola/projects/dgood/semanticElections/data/"
+infile = "/home/nikola/projects/dgood/semanticElections/data/static/sheets/district_wd_mapping.csv"
+
+tarql.execute_query(basePath+"tarql/district_wd_mapping.tarql",
+                    infile,
+                    basePath+"rdf/mappings/district_wd_mapping.ttl",
+                    '-d ,',
+                    queryArgs)
+
 ## SECTIONS_GEOGRAPHY
 
 basePath = "/home/nikola/projects/dgood/semanticElections/data/"

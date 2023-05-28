@@ -60,9 +60,77 @@ select * {
   ) as ?ge_geoLabel)  
 }
 ```
+## Show sections form one cycle in YasGUI
 
-## TODO
+```sparql
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+select distinct ?sec ?SECTION ?SECTIONColor  where {
+  values (?election ?SECTIONColor) {
+#    (election:pi2022 "red")
+    (election:pi2023 "blue")
 
+}
+            ?sec a my:Section ; myd:main_election ?election; geo:hasGeometry/geo:asWKT ?SECTION .
+        }
+```
+### Compare sections with and without geography 
+
+```sparql 
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX place: <https://elections.ontotext.com/resource/place/>
+select 
+?el 
+(count(distinct ?sec) as ?section_count)
+(count(distinct ?sec_g) as ?section_geo_count)
+(sum(?voted) as ?sum_voted)
+(sum(?voted_g) as ?sum_voted_g)
+(?sum_voted - ?sum_voted_g as ?dif_voted)
+where {
+    {
+        ?sec a my:Section ;
+             myd:place/myd:municipality jurisdiction:2246 ;
+             myd:main_election ?el .
+        ?v a my:Voting ;
+             myd:section ?sec ;
+             myd:voters_voted_count ?voted .
+    } UNION {
+        ?sec_g a my:Section ;
+             myd:place/myd:municipality jurisdiction:2246 ;
+             myd:main_election ?el ;
+             geo:hasGeometry [].
+        ?v_g a my:Voting ;
+             myd:section ?sec_g ;
+             myd:voters_voted_count ?voted_g .
+    }
+} group by ?el order by ?el
+```
+### Sections w/o geography
+
+```sparql
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select * where { 
+        ?sec a my:Section ;
+             rdfs:label ?sec_label ;
+             myd:place/myd:municipality jurisdiction:2246 ;
+             myd:main_election election:pi2023 ;
+    		 myd:streetAddress ?addr .
+    ?v myd:section ?sec ; myd:voters_voted_count ?voted .
+    filter not exists {?sec geo:hasGeometry []}
+} limit 100 
+```
 GE-District missmatch
 Step 1-assign District to GE
 Step 2 sections should not be related to ge outside district  

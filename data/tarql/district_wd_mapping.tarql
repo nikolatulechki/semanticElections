@@ -1,0 +1,15 @@
+construct {
+	?DISTRICT_URI a my:District  ;
+	    myd:municipality ?MUN_URI ;
+		myd:wikidata_entity ?WD ;
+		myd:mir ?MIR_URI ;
+		myd:number ?num ;
+		rdfs:label ?label ;
+    .
+}
+where {
+	bind(uri(concat(str(wd:),?wd_url)) as ?WD)
+	bind(uri(concat(str(jurisdiction:),?mun)) as ?MUN_URI)
+	bind(uri(concat(str(jurisdiction:),?mir)) as ?MIR_URI)
+	bind(uri(concat(str(jurisdiction:),?mun,"/",?num)) as ?DISTRICT_URI)
+}
