@@ -10,26 +10,29 @@ PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
 PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX graph: <https://elections.ontotext.com/resource/graph/>
-clear silent graph graph:sofia_ge_sections ;
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+clear silent graph graph:sofia_geo_section_match ;
 insert {
-  graph graph:sofia_ge_sections {
-      ?sec myd:neighborhood ?ge ;
-           myp:neighborhood ?ST_URI .
-      ?ST_URI myps:neighborhood ?ge ;
+  graph graph:sofia_geo_section_match {
+      ?sec myd:geo_match ?cand ;
+           myp:geo_match ?ST_URI .
+      ?ST_URI myps:geo_match ?cand ;
            mypq:inclusion_ratio ?int_ratio_norm .
-  }
-} where {
-   bind(place:2246\/191 as ?ge)
-   ?ge a my:Neighborhood ;
-    rdfs:label ?ge_label ;
-    geo:hasGeometry/geo:asWKT ?ge_geo ;
-   .
-  ?sec a my:Section ; geo:hasGeometry/geo:asWKT ?sec_geo .
-  filter(geof:sfIntersects(?ge_geo,?sec_geo))
-  bind(ext:area(geof:intersection(?ge_geo,?sec_geo)) as ?int_area)
+   }
+}
+#select *
+where {
+#    bind(<jurisdiction/2246/08> as ?district )
+#   bind(<section/pi2023/234602004> as ?sec)
+  ?sec  a my:Section ; geo:hasGeometry/geo:asWKT ?sec_geo ; myd:district ?district ; myd:main_election election:pi2023 .
+
+  ?cand a my:Section ; geo:hasGeometry/geo:asWKT ?cand_geo ; myd:district ?district  .
+  filter(!sameterm(?sec,?cand))
+  filter(geof:sfIntersects(?sec_geo,?cand_geo))
+  bind(ext:area(geof:intersection(?sec_geo,?cand_geo)) as ?int_area)
   bind(ext:area(?sec_geo) as ?sec_area)
   bind(?int_area/?sec_area as ?int_ratio)
-  filter(?int_ratio > 0.05)
+  filter(?int_ratio > 0.10)
   bind(ceil(?int_ratio*100)/100 as ?int_ratio_norm)
-  bind(uri(concat("statement/",str(sha1(concat(str(?sec),str(myd:neighborhood),str(?ge)))))) as ?ST_URI)
+  bind(uri(concat("statement/",str(sha1(concat(str(?sec),str(myd:geo_match),str(?cand)))))) as ?ST_URI)
 }

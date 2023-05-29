@@ -1,0 +1,23 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+
+
+select distinct ?sec ?SECTION ?SECTIONTooltip ?SECTIONColor where {
+  values ?election  {
+    election:pi2023
+    election:pi2022
+    election:pi2021
+    election:pi2021_07
+    election:pi2021_11
+    election:mi2019
+  }
+
+  ?sec a my:Section ; myd:main_election ?election; geo:hasGeometry/geo:asWKT ?SECTION ; myd:matched_section <https://elections.ontotext.com/resource/matched_section/234608033>
+  bind(?election as ?SECTIONTooltip)
+}

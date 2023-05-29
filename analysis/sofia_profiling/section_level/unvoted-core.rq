@@ -8,25 +8,25 @@ PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
-CLEAR SILENT GRAPH <graph/cube/sofia-profiling/gerb-core> ;
+CLEAR SILENT GRAPH <graph/cube/sofia-profiling/unvoted-core> ;
 INSERT {
-  GRAPH <graph/cube/sofia-profiling/gerb-core>  {
+  GRAPH <graph/cube/sofia-profiling/unvoted-core>  {
   ?VOTES_URI a qb:Observation , myc:Voting ;
-             qb:dataSet <cube/sofia-profiling> ;
+            qb:dataSet <cube/sofia-profiling> ;
             myc:locality ?locality ;
              myc:candidate ?candidate ;
-             myc:votes ?MIN_VOTES ;
+             myc:votes ?UNVOTED_OK ;
    .
   }
 }
 WHERE {
-bind("gerb-core" as ?candidate)
-  ?locality myd:matched_section ?match ; myd:main_election election:pi2023 .
-  { select ?match (min(?VOTES) as ?MIN_VOTES)
-    where {
-
-            ?voting myp:vote ?vote ;
-                    myd:voters_count ?voters_count ;
+    bind("unvoted-core" as ?candidate)
+    ?locality myd:matched_section ?match ;
+              myd:main_election election:pi2023 .
+    {
+        select ?match (max(?voted_count) as ?MAX_VOTED)
+        where {
+            ?voting myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voted_count ;
                     myd:main_election ?election ;
                     myd:section ?section ;
@@ -34,12 +34,18 @@ bind("gerb-core" as ?candidate)
             ?election myd:date ?date .
             filter(str(?date)>="2021-04")
             ?section myd:place/myd:municipality jurisdiction:2246 ;
-                     myd:matched_section ?match .
-            ?vote myps:vote/myd:party/myd:party wd:Q133968;
-                  mypq:valid_votes_recieved ?VOTES ;
-
+                              myd:matched_section ?match .
+             ?match myd:type "geo-match" .
         } group by ?match
+    }
+    ?voting23 myd:voters_count ?voters23_count ;
+              myd:voters_voted_count ?voted23_count ;
+              myd:main_election election:pi2023 ;
+    myd:section ?locality ;
+    .
+    ?locality  myd:matched_section ?match  .
 
-   }
-   bind(uri(concat("cube/votes/",str(sha1(concat(str(?locality),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
+    bind(?voters23_count - ?MAX_VOTED as ?UNVOTED)
+    bind(if(?UNVOTED<0,0,?UNVOTED) as ?UNVOTED_OK)
+    bind(uri(concat("cube/votes/",str(sha1(concat(str(?locality),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
 }

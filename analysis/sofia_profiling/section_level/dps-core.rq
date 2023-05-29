@@ -8,28 +8,25 @@ PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
-CLEAR SILENT GRAPH <graph/cube/sofia-profiling/unvoted-core> ;
+CLEAR SILENT GRAPH <graph/cube/sofia-profiling/dps-core> ;
 INSERT {
-  GRAPH <graph/cube/sofia-profiling/unvoted-core>  {
+  GRAPH <graph/cube/sofia-profiling/dps-core>  {
   ?VOTES_URI a qb:Observation , myc:Voting ;
-            qb:dataSet <cube/sofia-profiling> ;
+             qb:dataSet <cube/sofia-profiling> ;
             myc:locality ?locality ;
              myc:candidate ?candidate ;
-             myc:votes ?MIN_UNVOTED ;
+             myc:votes ?MIN_VOTES ;
    .
   }
 }
 WHERE {
-bind("unvoted-core" as ?candidate)
+bind("dps-core" as ?candidate)
   ?locality myd:matched_section ?match ; myd:main_election election:pi2023 .
-  { select ?match (min(?UNVOTED) as ?MIN_UNVOTED)
+  { select ?match (min(?VOTES) as ?MIN_VOTES)
     where {
-            ?voting23 myd:voters_count ?voters23_count ;
-                    myd:voters_voted_count ?voted23_count ;
-                    myd:main_election election:pi2023 ;
-                    myd:section ?section ;
-                    .
-            ?voting myd:voters_count ?voters_count ;
+
+            ?voting myp:vote ?vote ;
+                    myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voted_count ;
                     myd:main_election ?election ;
                     myd:section ?section ;
@@ -38,9 +35,10 @@ bind("unvoted-core" as ?candidate)
             filter(str(?date)>="2021-04")
             ?section myd:place/myd:municipality jurisdiction:2246 ;
                      myd:matched_section ?match .
-            bind(?voters_count-?voted_count as ?unvoted)
-            bind(?voters23_count-?voted23_count as ?unvoted23)
-            bind(if(?unvoted<=0,if(?unvoted23<=0,0,?unvoted23),?unvoted) as ?UNVOTED)
+            ?match myd:type "geo-match" .
+            ?vote myps:vote/myd:party/myd:party wd:Q164242;
+                  mypq:valid_votes_recieved ?VOTES ;
+
         } group by ?match
 
    }

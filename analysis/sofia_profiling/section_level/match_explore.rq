@@ -13,7 +13,8 @@ PREFIX mys: <https://elections.ontotext.com/resource/entity/statement/>
 SELECT *
 WHERE {
 
-            ?section myd:matched_section/^myd:matched_section <section/pi2023/234602016> .
+            ?section myd:matched_section ?match .
+            ?match myd:type "geo-match" ; ^myd:matched_section <section/pi2023/234602016> .
 
             ?voting myd:voters_count ?voters_count ;
                     myd:voters_voted_count ?voters_voted ;

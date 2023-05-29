@@ -1,5 +1,6 @@
 construct {
     ?MSEC_URI a my:МatchedSection ;
+        myd:type "mario-match" ;
         myd:number ?akf_id ;
         myd:section ?SEC_URI .
     ?SEC_URI myd:matched_section ?MSEC_URI .

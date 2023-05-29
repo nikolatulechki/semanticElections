@@ -77,6 +77,32 @@ select distinct ?sec ?SECTION ?SECTIONColor  where {
             ?sec a my:Section ; myd:main_election ?election; geo:hasGeometry/geo:asWKT ?SECTION .
         }
 ```
+
+## Low inclusion rations on yas
+
+```
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+
+
+select distinct ?sec ?SECTION ("red" as ?SECTIONColor)  ?CAND  where {
+
+
+  ?sec a my:Section ; myd:main_election ?election; geo:hasGeometry/geo:asWKT ?SECTION . 
+  ?cand geo:hasGeometry/geo:asWKT ?CAND .
+    
+      ?sec a my:Section ; myd:main_election election:pi2023 ; myp:geo_match [myps:geo_match ?cand ; mypq:inclusion_ratio ?ratio ] .
+            filter(?ratio < 0.50 && ?ratio > 0.30 )
+}
+```
+
+
 ### Compare sections with and without geography 
 
 ```sparql 

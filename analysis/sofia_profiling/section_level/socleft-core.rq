@@ -8,9 +8,9 @@ PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
 PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
-CLEAR SILENT GRAPH <graph/cube/sofia-profiling/patriot-core> ;
+CLEAR SILENT GRAPH <graph/cube/sofia-profiling/socleft-core> ;
 INSERT {
-  GRAPH <graph/cube/sofia-profiling/patriot-core>  {
+  GRAPH <graph/cube/sofia-profiling/socleft-core>  {
   ?VOTES_URI a qb:Observation , myc:Voting ;
              qb:dataSet <cube/sofia-profiling> ;
             myc:locality ?locality ;
@@ -20,7 +20,7 @@ INSERT {
   }
 }
 WHERE {
-bind("patriot-core" as ?candidate)
+bind("socleft-core" as ?candidate)
   ?locality myd:matched_section ?match ; myd:main_election election:pi2023 .
   {select ?match (min(?EL_VOTES) as ?MIN_VOTES) where {
 
@@ -36,7 +36,8 @@ bind("patriot-core" as ?candidate)
             filter(str(?date)>="2021-04")
             ?section myd:place/myd:municipality jurisdiction:2246 ;
                      myd:matched_section ?match .
-            ?vote myps:vote/myd:party/myd:grouping "patriots";
+            ?match myd:type "geo-match" .
+            ?vote myps:vote/myd:party/myd:grouping "socleft";
                   mypq:valid_votes_recieved ?VOTES ;
         } group by ?match ?election}
     } group by ?match }

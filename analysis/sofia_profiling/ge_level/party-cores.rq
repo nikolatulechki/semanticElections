@@ -1,0 +1,45 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+
+CLEAR SILENT GRAPH <graph/cube/sofia-profiling/ge/party-cores> ;
+INSERT {
+  GRAPH <graph/cube/sofia-profiling/ge/party-cores>  {
+  ?VOTES_URI a qb:Observation , myc:Voting ;
+            qb:dataSet <cube/sofia-profiling> ;
+            myc:locality ?locality ;
+            myc:candidate ?candidate  ;
+            myc:votes ?MIN_VOTES ;
+   .
+  }
+}
+WHERE {
+  { select ?locality ?candidate ?VOTES_URI (min(?VOTES) as ?MIN_VOTES) where {
+    values (?candidate ?target) {
+       ("gerb-core" wd:Q133968)
+       ("dps-core" wd:Q164242)
+       ("patriot-core" "patriots")
+       ("socleft-core" "socleft")
+    }
+        ?o a qb:Observation , myc:Voting ;
+            qb:dataSet <cube/votes> ;
+            myc:locality ?locality  ;
+            myc:votes ?VOTES ;
+            myc:candidate/myd:grouping? ?target ;
+            myc:election ?election ;
+          .
+        ?locality a my:Neighborhood .
+        ?election myd:date ?date .
+        filter(str(?date)>="2021-04")
+        bind(uri(concat("cube/votes/",str(sha1(concat(str(?locality),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
+    } group by ?locality ?candidate ?VOTES_URI
+  }
+}
