@@ -1,0 +1,49 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX mys: <https://elections.ontotext.com/resource/entity/statement/>
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?mun_label ?date
+(count(?voting) as ?n_sections)
+(sum(?voters) as ?VOTERS)
+(sum(?voted) as ?VOTED)
+(sum(?votes_bsp) as ?BSP)
+(sum(?votes_dps) as ?DPS)
+(sum(?votes_gerb) as ?GERB)
+(sum(?votes_itn) as ?ITN)
+(sum(?votes_ppdb) as ?PPDB)
+(sum(?votes_vuz) as ?VUZ)
+(sum(?votes_bv) as ?BV)
+(sum(?pp) as ?PP)
+(sum(?db) as ?DB)
+(sum(?vmro) as ?VMRO)
+(sum(?ismv) as ?ISMV)
+WHERE {
+
+            bind(<jurisdiction/0101> as ?mun)
+            ?voting myd:voters_count ?voters ;
+                    myd:voters_voted_count ?voted ;
+          	        myd:section/myd:place/myd:municipality ?mun ;
+                    myd:date ?date ;
+            .
+            ?mun rdfs:label ?mun_label .
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q752259       ; mypq:valid_votes_recieved ?votes_bsp ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q164242       ; mypq:valid_votes_recieved ?votes_dps ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q133968       ; mypq:valid_votes_recieved ?votes_gerb ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q98098908     ; mypq:valid_votes_recieved ?votes_itn ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q116769868    ; mypq:valid_votes_recieved ?votes_ppdb ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q28943121     ; mypq:valid_votes_recieved ?votes_vuz ]}
+            optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q111985616    ; mypq:valid_votes_recieved ?votes_bv ]}
+       		optional{?voting myp:vote [myps:vote/myd:party/myd:party wd:Q108601789    ; mypq:valid_votes_recieved ?pp ]}
+            optional{?voting myp:vote [ myps:vote/myd:party/myd:party wd:Q62808154    ; mypq:valid_votes_recieved ?db ]}
+            optional{?voting myp:vote [ myps:vote/myd:party/myd:party wd:Q792527      ; mypq:valid_votes_recieved ?vmro ]}
+            optional{?voting myp:vote [ myps:vote/myd:party/myd:party wd:Q106393525   ; mypq:valid_votes_recieved ?ismv ]}
+} group by ?mun_label ?date order by desc(?date)

@@ -1,0 +1,35 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+CLEAR SILENT GRAPH <graph/cube/municipality-profiling/swing> ;
+INSERT {
+  GRAPH <graph/cube/municipality-profiling/swing>  {
+  ?VOTES_URI a qb:Observation , myc:Voting ;
+            qb:dataSet <cube/municipality-profiling> ;
+            myc:locality ?mun ;
+            myc:candidate ?candidate ;
+            myc:votes ?SWING ;
+   .
+  }
+}
+WHERE {
+    bind("swing" as ?candidate)
+    {select ?mun (sum(?voters23_count) as ?VOTERS) {
+       ?voting23 myd:voters_count ?voters23_count ;
+                 myd:voters_voted_count ?voted23_count ;
+                 myd:main_election election:pi2023 ;
+                 myd:section/myd:place/myd:municipality  ?mun .
+    } group by ?mun}
+    [myc:locality ?mun ; myc:candidate "gerb-core" ; myc:votes ?gerb_core] .
+    [myc:locality ?mun ; myc:candidate "ppdb" ; myc:votes ?ppdb_core] .
+    [myc:locality ?mun ; myc:candidate "dps-core" ; myc:votes ?dps_core] .
+    [myc:locality ?mun ; myc:candidate "socleft-core" ; myc:votes ?socleft] .
+    [myc:locality ?mun ; myc:candidate "patriot-core" ; myc:votes ?patriot] .
+    [myc:locality ?mun ; myc:candidate "unvoted-core" ; myc:votes ?unvoted_core] .
+    bind(?VOTERS - (?dps_core+?gerb_core+?ppdb_core+?patriot+?socleft+?unvoted_core) as ?swing)
+    bind(if(?swing<0,0,?swing) as ?SWING)
+    bind(uri(concat("cube/votes/",str(sha1(concat(str(?mun),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
+}

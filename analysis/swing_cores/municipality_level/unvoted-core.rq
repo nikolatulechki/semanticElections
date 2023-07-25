@@ -1,0 +1,46 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+CLEAR SILENT GRAPH <graph/cube/municipality-profiling/unvoted-core> ;
+INSERT {
+  GRAPH <graph/cube/municipality-profiling/unvoted-core>  {
+  ?VOTES_URI a qb:Observation , myc:Voting ;
+            qb:dataSet <cube/municipality-profiling> ;
+            myc:locality ?locality ;
+             myc:candidate ?candidate ;
+             myc:votes ?UNVOTED_OK ;
+   .
+  }
+} WHERE {
+    {
+        select ?locality ?MAX_VOTED (sum(?voters23_count) - ?MAX_VOTED as ?UNVOTED) {
+            {
+                select ?locality (max(?SUM_VOTED) as ?MAX_VOTED) {
+                    {
+                        select ?locality ?election  (sum(?voted_count) as ?SUM_VOTED)
+                        where {
+                            ?voting myd:voters_count ?voters_count ;
+                                    myd:voters_voted_count ?voted_count ;
+                                    myd:main_election ?election ;
+                                    myd:section ?section ;
+                                    .
+                            ?election myd:date ?date .
+                            filter(str(?date)>="2021-04")
+                            ?section myd:place/myd:municipality ?locality .
+                        } group by ?locality ?election
+                    }
+                } group by ?locality
+            }
+            ?voting23 myd:voters_count ?voters23_count ;
+                      myd:voters_voted_count ?voted23_count ;
+                      myd:main_election election:pi2023 ;
+                      myd:section/myd:place/myd:municipality  ?locality .
+        } group by ?locality ?MAX_VOTED
+    }
+    bind(if(?UNVOTED<0,0,?UNVOTED) as ?UNVOTED_OK)
+    bind("unvoted-core" as ?candidate)
+    bind(uri(concat("cube/votes/",str(sha1(concat(str(?locality),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
+}

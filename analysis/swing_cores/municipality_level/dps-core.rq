@@ -1,0 +1,45 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+CLEAR SILENT GRAPH <graph/cube/municipality-profiling/dps-core> ;
+INSERT {
+  GRAPH <graph/cube/municipality-profiling/dps-core>  {
+  ?VOTES_URI a qb:Observation , myc:Voting ;
+             qb:dataSet <cube/municipality-profiling> ;
+            myc:locality ?locality ;
+             myc:candidate ?candidate ;
+             myc:votes ?MIN_VOTES ;
+   .
+  }
+}
+WHERE {
+    bind("dps-core" as ?candidate)
+    {
+        select ?locality (min(?SUM_VOTES) as ?MIN_VOTES) {
+            {
+                select ?locality ?election (sum(?VOTES) as ?SUM_VOTES)
+                where {
+                    ?voting myp:vote ?vote ;
+                            myd:voters_count ?voters_count ;
+                            myd:voters_voted_count ?voted_count ;
+                            myd:main_election ?election ;
+                            myd:section ?section ;
+                            .
+                    ?election myd:date ?date .
+                    filter(str(?date)>="2021-04")
+                    ?section myd:place/myd:municipality ?locality .
+                    ?vote myps:vote/myd:party/myd:party wd:Q164242;
+                                             mypq:valid_votes_recieved ?VOTES ;
+                                             } group by ?locality ?election
+            }
+        }  group by ?locality
+    }
+    bind(uri(concat("cube/votes/",str(sha1(concat(str(?locality),str(?candidate),str(election:pi2023)))))) as ?VOTES_URI)
+}

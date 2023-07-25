@@ -1,0 +1,31 @@
+BASE  <https://elections.ontotext.com/resource/>
+PREFIX myp: <https://elections.ontotext.com/resource/prop/indirect/>
+PREFIX myd: <https://elections.ontotext.com/resource/prop/direct/>
+PREFIX election: <https://elections.ontotext.com/resource/election/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX myc: <https://elections.ontotext.com/resource/prop/cube/>
+PREFIX myps: <https://elections.ontotext.com/resource/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX mypq: <https://elections.ontotext.com/resource/prop/qualifier/>
+PREFIX jurisdiction: <https://elections.ontotext.com/resource/jurisdiction/>
+PREFIX my: <https://elections.ontotext.com/resource/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT *
+WHERE {
+
+    {select ?mun ?mun_label (sum(?voters23_count) as ?VOTERS23) (sum(?voted23_count) as ?VOTED23) {
+            ?v myd:section/myd:place/myd:municipality ?mun ;
+               myd:main_election election:pi2023 ;
+               myd:voters_count ?voters23_count ;
+               myd:voters_voted_count ?voted23_count .
+            ?mun rdfs:label ?mun_label .
+        } group by ?mun ?mun_label }
+
+    [myc:locality ?mun ; myc:candidate "gerb-core" ; myc:votes ?gerb_core] .
+    [myc:locality ?mun ; myc:candidate "dps-core" ;  myc:votes ?dps_core] .
+    [myc:locality ?mun ; myc:candidate "ppdb" ; myc:votes ?ppdb_core] .
+    [myc:locality ?mun ; myc:candidate "patriot-core" ; myc:votes ?patriot_core] .
+    [myc:locality ?mun ; myc:candidate "socleft-core" ; myc:votes ?socleft_core] .
+    [myc:locality ?mun ; myc:candidate "unvoted-core" ; myc:votes ?unvoted_core] .
+    [myc:locality ?mun ; myc:candidate "swing" ; myc:votes ?swing] .
+}
